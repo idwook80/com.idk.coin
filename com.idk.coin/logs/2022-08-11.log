@@ -1,0 +1,2262 @@
+2022-08-11 07:07:33 [WARN] - test log
+2022-08-11 07:07:35 [WARN] - 35sec , 186 - 0  =  186
+2022-08-11 07:07:35 [WARN] - 10 Aug 2022 22:07:35 GMT : Candlestick[openTime=1660169220000,open=23918.9,high=23948.6,low=23918.8,close=23931,volume=186.893,closeTime=1660169279999,quoteAssetVolume=4473466.5971,numTrades=2043,takerBuyBaseAssetVolume=118.426,takerBuyQuoteAssetVolume=2834675.6567,ignore=0]
+2022-08-11 07:07:35 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887891,price=23935.4,qty=0.012,quoteQty=287.22,time=1660169255396,isBuyerMaker=false]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887892,price=23935.4,qty=0.062,quoteQty=1483.99,time=1660169255456,isBuyerMaker=false]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887893,price=23935.3,qty=0.014,quoteQty=335.09,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887894,price=23935.3,qty=0.084,quoteQty=2010.56,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887895,price=23935.3,qty=0.072,quoteQty=1723.34,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887896,price=23935.3,qty=0.073,quoteQty=1747.27,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887897,price=23935.3,qty=0.014,quoteQty=335.09,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887898,price=23935.3,qty=0.135,quoteQty=3231.26,time=1660169255502,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887899,price=23935.4,qty=0.016,quoteQty=382.96,time=1660169255503,isBuyerMaker=false]
+2022-08-11 07:07:35 [WARN] - Trade[id=2687887900,price=23935.3,qty=0.001,quoteQty=23.93,time=1660169255514,isBuyerMaker=true]
+2022-08-11 07:07:35 [WARN] - 매수 갯수 : 3 , Qty : 0.09
+2022-08-11 07:07:35 [WARN] - 매도 갯수 : 7 , Qty : 0.393
+2022-08-11 07:07:35 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:07:41 [WARN] - 41sec , 227 - 186  =  41
+2022-08-11 07:07:47 [WARN] - 47sec , 347 - 227  =  120
+2022-08-11 07:07:47 [WARN] - 10 Aug 2022 22:07:47 GMT : Candlestick[openTime=1660169220000,open=23918.9,high=23960,low=23918.8,close=23957.3,volume=347.536,closeTime=1660169279999,quoteAssetVolume=8320836.8661,numTrades=3487,takerBuyBaseAssetVolume=228.501,takerBuyQuoteAssetVolume=5471077.9593,ignore=0]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889314,price=23958,qty=0.172,quoteQty=4120.77,time=1660169267583,isBuyerMaker=true]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889315,price=23958,qty=0.001,quoteQty=23.95,time=1660169267594,isBuyerMaker=true]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889316,price=23958.1,qty=0.125,quoteQty=2994.76,time=1660169267632,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889317,price=23958.1,qty=0.001,quoteQty=23.95,time=1660169267632,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889318,price=23958.1,qty=0.187,quoteQty=4480.16,time=1660169267632,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889319,price=23958.1,qty=0.001,quoteQty=23.95,time=1660169267644,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889320,price=23958.1,qty=0.004,quoteQty=95.83,time=1660169267662,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889321,price=23958.1,qty=0.008,quoteQty=191.66,time=1660169267663,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889322,price=23958.1,qty=0.023,quoteQty=551.03,time=1660169267663,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - Trade[id=2687889323,price=23958.1,qty=0.001,quoteQty=23.95,time=1660169267677,isBuyerMaker=false]
+2022-08-11 07:07:47 [WARN] - 매수 갯수 : 8 , Qty : 0.35000000000000003
+2022-08-11 07:07:47 [WARN] - 매도 갯수 : 2 , Qty : 0.173
+2022-08-11 07:07:47 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:07:53 [WARN] - 53sec , 430 - 347  =  83
+2022-08-11 07:07:59 [WARN] - 59sec , 460 - 430  =  30
+2022-08-11 07:08:05 [WARN] - 5sec , 55 - 460  =  -405
+2022-08-11 07:08:11 [WARN] - 11sec , 84 - 55  =  29
+2022-08-11 07:08:17 [WARN] - 17sec , 106 - 84  =  22
+2022-08-11 07:08:23 [WARN] - 23sec , 154 - 106  =  48
+2022-08-11 07:08:29 [WARN] - 29sec , 168 - 154  =  14
+2022-08-11 07:08:35 [WARN] - 35sec , 174 - 168  =  6
+2022-08-11 07:08:41 [WARN] - 41sec , 203 - 174  =  29
+2022-08-11 07:08:47 [WARN] - 47sec , 214 - 203  =  11
+2022-08-11 07:08:53 [WARN] - 53sec , 239 - 214  =  25
+2022-08-11 07:08:59 [WARN] - 59sec , 266 - 239  =  27
+2022-08-11 07:09:05 [WARN] - 5sec , 8 - 266  =  -258
+2022-08-11 07:09:12 [WARN] - 12sec , 25 - 8  =  17
+2022-08-11 07:09:18 [WARN] - 18sec , 81 - 25  =  56
+2022-08-11 07:09:24 [WARN] - 24sec , 116 - 81  =  35
+2022-08-11 07:09:30 [WARN] - 30sec , 145 - 116  =  29
+2022-08-11 07:09:36 [WARN] - 36sec , 175 - 145  =  30
+2022-08-11 07:09:42 [WARN] - 42sec , 199 - 175  =  24
+2022-08-11 07:09:48 [WARN] - 48sec , 239 - 199  =  40
+2022-08-11 07:09:54 [WARN] - 54sec , 349 - 239  =  110
+2022-08-11 07:09:54 [WARN] - 10 Aug 2022 22:09:54 GMT : Candlestick[openTime=1660169340000,open=23970.5,high=23970.5,low=23954.2,close=23968.2,volume=349.112,closeTime=1660169399999,quoteAssetVolume=8365225.9765,numTrades=2644,takerBuyBaseAssetVolume=158.825,takerBuyQuoteAssetVolume=3805518.4145,ignore=0]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895844,price=23968.1,qty=0.001,quoteQty=23.96,time=1660169394465,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895845,price=23968.1,qty=0.001,quoteQty=23.96,time=1660169394465,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895846,price=23968.1,qty=0.108,quoteQty=2588.55,time=1660169394465,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895847,price=23968.1,qty=0.033,quoteQty=790.94,time=1660169394465,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895848,price=23968.1,qty=0.001,quoteQty=23.96,time=1660169394477,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895849,price=23968.2,qty=0.008,quoteQty=191.74,time=1660169394732,isBuyerMaker=false]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895850,price=23968.1,qty=0.027,quoteQty=647.13,time=1660169394735,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895851,price=23968.1,qty=0.165,quoteQty=3954.73,time=1660169394763,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895852,price=23968.1,qty=0.579,quoteQty=13877.52,time=1660169394785,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - Trade[id=2687895853,price=23968.1,qty=0.009,quoteQty=215.71,time=1660169394936,isBuyerMaker=true]
+2022-08-11 07:09:54 [WARN] - 매수 갯수 : 1 , Qty : 0.008
+2022-08-11 07:09:54 [WARN] - 매도 갯수 : 9 , Qty : 0.924
+2022-08-11 07:09:54 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:10:00 [WARN] - 0sec , 2 - 349  =  -347
+2022-08-11 07:10:06 [WARN] - 6sec , 31 - 2  =  29
+2022-08-11 07:10:12 [WARN] - 12sec , 86 - 31  =  55
+2022-08-11 07:10:18 [WARN] - 18sec , 171 - 86  =  85
+2022-08-11 07:10:24 [WARN] - 24sec , 197 - 171  =  26
+2022-08-11 07:10:30 [WARN] - 30sec , 203 - 197  =  6
+2022-08-11 07:10:36 [WARN] - 36sec , 245 - 203  =  42
+2022-08-11 07:10:42 [WARN] - 42sec , 344 - 245  =  99
+2022-08-11 07:10:42 [WARN] - 10 Aug 2022 22:10:42 GMT : Candlestick[openTime=1660169400000,open=23968.5,high=23994.8,low=23960,close=23989.9,volume=344.347,closeTime=1660169459999,quoteAssetVolume=8255645.1938,numTrades=3064,takerBuyBaseAssetVolume=179.461,takerBuyQuoteAssetVolume=4302836.4314,ignore=0]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899215,price=23988.2,qty=0.144,quoteQty=3454.3,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899216,price=23988.2,qty=0.175,quoteQty=4197.93,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899217,price=23988.2,qty=0.001,quoteQty=23.98,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899218,price=23988.2,qty=0.005,quoteQty=119.94,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899219,price=23988.2,qty=0.016,quoteQty=383.81,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899220,price=23988.2,qty=0.039,quoteQty=935.53,time=1660169443308,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899221,price=23988.1,qty=0.002,quoteQty=47.97,time=1660169443332,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899222,price=23988.1,qty=0.001,quoteQty=23.98,time=1660169443333,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899223,price=23988.2,qty=0.056,quoteQty=1343.33,time=1660169443348,isBuyerMaker=false]
+2022-08-11 07:10:43 [WARN] - Trade[id=2687899224,price=23988.1,qty=0.007,quoteQty=167.91,time=1660169443348,isBuyerMaker=true]
+2022-08-11 07:10:43 [WARN] - 매수 갯수 : 1 , Qty : 0.056
+2022-08-11 07:10:43 [WARN] - 매도 갯수 : 9 , Qty : 0.38999999999999996
+2022-08-11 07:10:43 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:10:49 [WARN] - 49sec , 386 - 344  =  42
+2022-08-11 07:10:55 [WARN] - 55sec , 390 - 386  =  4
+2022-08-11 07:11:01 [WARN] - 1sec , 491 - 390  =  101
+2022-08-11 07:11:01 [WARN] - 10 Aug 2022 22:10:01 GMT : Candlestick[openTime=1660169400000,open=23968.5,high=23994.8,low=23960,close=23985,volume=491.27,closeTime=1660169459999,quoteAssetVolume=11778699.6862,numTrades=4244,takerBuyBaseAssetVolume=223.348,takerBuyQuoteAssetVolume=5355112.6737,ignore=0]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900431,price=23981.6,qty=0.001,quoteQty=23.98,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900432,price=23981.4,qty=0.001,quoteQty=23.98,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900433,price=23981.1,qty=0.001,quoteQty=23.98,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900434,price=23981,qty=0.001,quoteQty=23.98,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900435,price=23980.8,qty=0.001,quoteQty=23.98,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900436,price=23980.8,qty=0.141,quoteQty=3381.29,time=1660169461452,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900437,price=23980.8,qty=0.001,quoteQty=23.98,time=1660169461462,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900438,price=23980.9,qty=0.01,quoteQty=239.8,time=1660169461548,isBuyerMaker=false]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900439,price=23980.8,qty=0.003,quoteQty=71.94,time=1660169461548,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - Trade[id=2687900440,price=23980.8,qty=0.011,quoteQty=263.78,time=1660169461713,isBuyerMaker=true]
+2022-08-11 07:11:01 [WARN] - 매수 갯수 : 1 , Qty : 0.01
+2022-08-11 07:11:01 [WARN] - 매도 갯수 : 9 , Qty : 0.161
+2022-08-11 07:11:01 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:11:07 [WARN] - 7sec , 193 - 491  =  -298
+2022-08-11 07:11:13 [WARN] - 13sec , 277 - 193  =  84
+2022-08-11 07:11:19 [WARN] - 19sec , 294 - 277  =  17
+2022-08-11 07:11:25 [WARN] - 25sec , 339 - 294  =  45
+2022-08-11 07:11:31 [WARN] - 31sec , 350 - 339  =  11
+2022-08-11 07:11:37 [WARN] - 37sec , 362 - 350  =  12
+2022-08-11 07:11:43 [WARN] - 43sec , 377 - 362  =  15
+2022-08-11 07:11:49 [WARN] - 49sec , 396 - 377  =  19
+2022-08-11 07:11:55 [WARN] - 55sec , 398 - 396  =  2
+2022-08-11 07:12:01 [WARN] - 1sec , 1 - 398  =  -397
+2022-08-11 07:12:07 [WARN] - 7sec , 3 - 1  =  2
+2022-08-11 07:12:13 [WARN] - 13sec , 99 - 3  =  96
+2022-08-11 07:12:13 [WARN] - 10 Aug 2022 22:12:13 GMT : Candlestick[openTime=1660169520000,open=23960.6,high=23960.7,low=23950.6,close=23950.6,volume=99.027,closeTime=1660169579999,quoteAssetVolume=2372640.6386,numTrades=364,takerBuyBaseAssetVolume=2.071,takerBuyQuoteAssetVolume=49618.5976,ignore=0]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903860,price=23950.6,qty=0.086,quoteQty=2059.75,time=1660169534151,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903861,price=23950.6,qty=0.4,quoteQty=9580.24,time=1660169534151,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903862,price=23950.6,qty=0.001,quoteQty=23.95,time=1660169534151,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903863,price=23950.6,qty=0.001,quoteQty=23.95,time=1660169534170,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903864,price=23950.7,qty=0.001,quoteQty=23.95,time=1660169534197,isBuyerMaker=false]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903865,price=23950.6,qty=0.202,quoteQty=4838.02,time=1660169534235,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903866,price=23950.6,qty=0.014,quoteQty=335.3,time=1660169534270,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903867,price=23950.6,qty=0.786,quoteQty=18825.17,time=1660169534306,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903868,price=23950.6,qty=0.011,quoteQty=263.45,time=1660169534340,isBuyerMaker=true]
+2022-08-11 07:12:13 [WARN] - Trade[id=2687903869,price=23950.7,qty=0.042,quoteQty=1005.92,time=1660169534372,isBuyerMaker=false]
+2022-08-11 07:12:13 [WARN] - 매수 갯수 : 2 , Qty : 0.043000000000000003
+2022-08-11 07:12:13 [WARN] - 매도 갯수 : 8 , Qty : 1.501
+2022-08-11 07:12:13 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:12:20 [WARN] - 20sec , 135 - 99  =  36
+2022-08-11 07:12:26 [WARN] - 26sec , 171 - 135  =  36
+2022-08-11 07:12:32 [WARN] - 32sec , 197 - 171  =  26
+2022-08-11 07:12:38 [WARN] - 38sec , 206 - 197  =  9
+2022-08-11 07:12:44 [WARN] - 44sec , 214 - 206  =  8
+2022-08-11 07:12:50 [WARN] - 50sec , 224 - 214  =  10
+2022-08-11 07:12:56 [WARN] - 56sec , 227 - 224  =  3
+2022-08-11 07:13:02 [WARN] - 2sec , 11 - 227  =  -216
+2022-08-11 07:13:08 [WARN] - 8sec , 28 - 11  =  17
+2022-08-11 07:13:14 [WARN] - 14sec , 29 - 28  =  1
+2022-08-11 07:13:20 [WARN] - 20sec , 46 - 29  =  17
+2022-08-11 07:13:26 [WARN] - 26sec , 55 - 46  =  9
+2022-08-11 07:13:32 [WARN] - 32sec , 70 - 55  =  15
+2022-08-11 07:13:38 [WARN] - 38sec , 93 - 70  =  23
+2022-08-11 07:13:44 [WARN] - 44sec , 117 - 93  =  24
+2022-08-11 07:13:50 [WARN] - 50sec , 178 - 117  =  61
+2022-08-11 07:13:57 [WARN] - 57sec , 189 - 178  =  11
+2022-08-11 07:14:03 [WARN] - 3sec , 0 - 189  =  -189
+2022-08-11 07:14:09 [WARN] - 9sec , 17 - 0  =  17
+2022-08-11 07:14:15 [WARN] - 15sec , 64 - 17  =  47
+2022-08-11 07:14:21 [WARN] - 21sec , 72 - 64  =  8
+2022-08-11 07:14:27 [WARN] - 27sec , 82 - 72  =  10
+2022-08-11 07:14:33 [WARN] - 33sec , 92 - 82  =  10
+2022-08-11 07:14:39 [WARN] - 39sec , 98 - 92  =  6
+2022-08-11 07:14:45 [WARN] - 45sec , 111 - 98  =  13
+2022-08-11 07:14:51 [WARN] - 51sec , 130 - 111  =  19
+2022-08-11 07:14:57 [WARN] - 57sec , 144 - 130  =  14
+2022-08-11 07:15:03 [WARN] - 3sec , 31 - 144  =  -113
+2022-08-11 07:15:09 [WARN] - 9sec , 39 - 31  =  8
+2022-08-11 07:15:15 [WARN] - 15sec , 45 - 39  =  6
+2022-08-11 07:15:21 [WARN] - 21sec , 69 - 45  =  24
+2022-08-11 07:15:27 [WARN] - 27sec , 81 - 69  =  12
+2022-08-11 07:15:33 [WARN] - 33sec , 105 - 81  =  24
+2022-08-11 07:15:39 [WARN] - 39sec , 156 - 105  =  51
+2022-08-11 07:15:45 [WARN] - 45sec , 205 - 156  =  49
+2022-08-11 07:15:51 [WARN] - 51sec , 344 - 205  =  139
+2022-08-11 07:15:51 [WARN] - 10 Aug 2022 22:15:51 GMT : Candlestick[openTime=1660169700000,open=23938.5,high=23938.6,low=23885,close=23887,volume=344.624,closeTime=1660169759999,quoteAssetVolume=8243148.3762,numTrades=3163,takerBuyBaseAssetVolume=86.822,takerBuyQuoteAssetVolume=2076842.7167,ignore=0]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913412,price=23896.4,qty=0.5,quoteQty=11948.2,time=1660169752138,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913413,price=23896.4,qty=0.171,quoteQty=4086.28,time=1660169752138,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913414,price=23896.5,qty=0.001,quoteQty=23.89,time=1660169752139,isBuyerMaker=false]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913415,price=23896.4,qty=0.066,quoteQty=1577.16,time=1660169752142,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913416,price=23896.4,qty=0.001,quoteQty=23.89,time=1660169752154,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913417,price=23896.4,qty=0.001,quoteQty=23.89,time=1660169752174,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913418,price=23895.9,qty=0.11,quoteQty=2628.54,time=1660169752222,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913419,price=23896,qty=0.015,quoteQty=358.44,time=1660169752314,isBuyerMaker=false]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913420,price=23895.9,qty=0.011,quoteQty=262.85,time=1660169752358,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - Trade[id=2687913421,price=23895.9,qty=0.001,quoteQty=23.89,time=1660169752375,isBuyerMaker=true]
+2022-08-11 07:15:51 [WARN] - 매수 갯수 : 2 , Qty : 0.016
+2022-08-11 07:15:51 [WARN] - 매도 갯수 : 8 , Qty : 0.8610000000000001
+2022-08-11 07:15:51 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:15:58 [WARN] - 58sec , 463 - 344  =  119
+2022-08-11 07:15:58 [WARN] - 10 Aug 2022 22:15:58 GMT : Candlestick[openTime=1660169700000,open=23938.5,high=23938.6,low=23885,close=23896.1,volume=463.158,closeTime=1660169759999,quoteAssetVolume=11075429.2573,numTrades=3865,takerBuyBaseAssetVolume=152.531,takerBuyQuoteAssetVolume=3646825.7876,ignore=0]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913930,price=23891.7,qty=0.551,quoteQty=13164.32,time=1660169758329,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913931,price=23891.7,qty=0.18,quoteQty=4300.5,time=1660169758329,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913932,price=23891.7,qty=0.169,quoteQty=4037.69,time=1660169758329,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913933,price=23891.6,qty=0.013,quoteQty=310.59,time=1660169758330,isBuyerMaker=true]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913934,price=23891.7,qty=0.001,quoteQty=23.89,time=1660169758341,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913935,price=23891.6,qty=0.631,quoteQty=15075.59,time=1660169758375,isBuyerMaker=true]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913936,price=23891.7,qty=0.01,quoteQty=238.91,time=1660169758378,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913937,price=23891.7,qty=0.106,quoteQty=2532.52,time=1660169758378,isBuyerMaker=false]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913938,price=23891.6,qty=0.168,quoteQty=4013.78,time=1660169758468,isBuyerMaker=true]
+2022-08-11 07:15:58 [WARN] - Trade[id=2687913939,price=23891.6,qty=0.006,quoteQty=143.34,time=1660169758482,isBuyerMaker=true]
+2022-08-11 07:15:58 [WARN] - 매수 갯수 : 6 , Qty : 1.0170000000000001
+2022-08-11 07:15:58 [WARN] - 매도 갯수 : 4 , Qty : 0.8180000000000001
+2022-08-11 07:15:58 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:16:04 [WARN] - 4sec , 525 - 463  =  62
+2022-08-11 07:16:10 [WARN] - 10sec , 90 - 525  =  -435
+2022-08-11 07:16:16 [WARN] - 16sec , 160 - 90  =  70
+2022-08-11 07:16:22 [WARN] - 22sec , 318 - 160  =  158
+2022-08-11 07:16:22 [WARN] - 10 Aug 2022 22:16:22 GMT : Candlestick[openTime=1660169760000,open=23887.3,high=23908.5,low=23887.2,close=23899.1,volume=318.314,closeTime=1660169819999,quoteAssetVolume=7607539.6576,numTrades=2146,takerBuyBaseAssetVolume=164.213,takerBuyQuoteAssetVolume=3924485.3097,ignore=0]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916216,price=23900.4,qty=0.001,quoteQty=23.9,time=1660169782497,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916217,price=23900.4,qty=0.013,quoteQty=310.7,time=1660169782520,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916218,price=23900.4,qty=0.001,quoteQty=23.9,time=1660169782520,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916219,price=23902.2,qty=0.001,quoteQty=23.9,time=1660169782520,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916220,price=23902.6,qty=0.048,quoteQty=1147.32,time=1660169782520,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916221,price=23902.5,qty=0.035,quoteQty=836.58,time=1660169782530,isBuyerMaker=true]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916222,price=23902.6,qty=0.001,quoteQty=23.9,time=1660169782534,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916223,price=23902.6,qty=0.08,quoteQty=1912.2,time=1660169782628,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916224,price=23902.5,qty=0.062,quoteQty=1481.95,time=1660169782684,isBuyerMaker=true]
+2022-08-11 07:16:22 [WARN] - Trade[id=2687916225,price=23902.6,qty=0.016,quoteQty=382.44,time=1660169782717,isBuyerMaker=false]
+2022-08-11 07:16:22 [WARN] - 매수 갯수 : 8 , Qty : 0.16100000000000003
+2022-08-11 07:16:22 [WARN] - 매도 갯수 : 2 , Qty : 0.097
+2022-08-11 07:16:22 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:16:28 [WARN] - 28sec , 327 - 318  =  9
+2022-08-11 07:16:34 [WARN] - 34sec , 414 - 327  =  87
+2022-08-11 07:16:40 [WARN] - 40sec , 438 - 414  =  24
+2022-08-11 07:16:46 [WARN] - 46sec , 642 - 438  =  204
+2022-08-11 07:16:46 [WARN] - 10 Aug 2022 22:16:46 GMT : Candlestick[openTime=1660169760000,open=23887.3,high=23908.5,low=23872.1,close=23872.2,volume=642.111,closeTime=1660169819999,quoteAssetVolume=15340761.5451,numTrades=4356,takerBuyBaseAssetVolume=299.84,takerBuyQuoteAssetVolume=7163747.1487,ignore=0]
+2022-08-11 07:16:46 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918431,price=23872.2,qty=0.28,quoteQty=6684.21,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918432,price=23872.2,qty=0.114,quoteQty=2721.43,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918433,price=23872.2,qty=0.109,quoteQty=2602.06,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918434,price=23872.2,qty=0.01,quoteQty=238.72,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918435,price=23872.2,qty=0.2,quoteQty=4774.44,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918436,price=23872.2,qty=0.023,quoteQty=549.06,time=1660169807055,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918437,price=23872.2,qty=0.059,quoteQty=1408.45,time=1660169807057,isBuyerMaker=false]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918438,price=23872.1,qty=0.001,quoteQty=23.87,time=1660169807066,isBuyerMaker=true]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918439,price=23872.1,qty=0.05,quoteQty=1193.6,time=1660169807110,isBuyerMaker=true]
+2022-08-11 07:16:46 [WARN] - Trade[id=2687918440,price=23872.1,qty=0.057,quoteQty=1360.7,time=1660169807121,isBuyerMaker=true]
+2022-08-11 07:16:46 [WARN] - 매수 갯수 : 7 , Qty : 0.7950000000000002
+2022-08-11 07:16:46 [WARN] - 매도 갯수 : 3 , Qty : 0.10800000000000001
+2022-08-11 07:16:46 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:16:52 [WARN] - 52sec , 799 - 642  =  157
+2022-08-11 07:16:52 [WARN] - 10 Aug 2022 22:16:52 GMT : Candlestick[openTime=1660169760000,open=23887.3,high=23908.5,low=23862.2,close=23867.7,volume=799.901,closeTime=1660169819999,quoteAssetVolume=19106869.7981,numTrades=5454,takerBuyBaseAssetVolume=346.754,takerBuyQuoteAssetVolume=8283476.0682,ignore=0]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919479,price=23867.7,qty=0.012,quoteQty=286.41,time=1660169812964,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919480,price=23867.8,qty=0.018,quoteQty=429.62,time=1660169812971,isBuyerMaker=false]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919481,price=23867.8,qty=0.023,quoteQty=548.95,time=1660169812972,isBuyerMaker=false]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919482,price=23867.8,qty=0.006,quoteQty=143.2,time=1660169812982,isBuyerMaker=false]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919483,price=23867.7,qty=0.202,quoteQty=4821.27,time=1660169812997,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919484,price=23867.7,qty=0.019,quoteQty=453.48,time=1660169813034,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919485,price=23867.7,qty=0.066,quoteQty=1575.26,time=1660169813034,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919486,price=23867.8,qty=0.017,quoteQty=405.75,time=1660169813064,isBuyerMaker=false]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919487,price=23867.7,qty=0.042,quoteQty=1002.44,time=1660169813174,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - Trade[id=2687919488,price=23867.7,qty=0.021,quoteQty=501.22,time=1660169813215,isBuyerMaker=true]
+2022-08-11 07:16:52 [WARN] - 매수 갯수 : 4 , Qty : 0.064
+2022-08-11 07:16:52 [WARN] - 매도 갯수 : 6 , Qty : 0.36200000000000004
+2022-08-11 07:16:52 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:16:58 [WARN] - 58sec , 873 - 799  =  74
+2022-08-11 07:16:58 [WARN] - 10 Aug 2022 22:16:58 GMT : Candlestick[openTime=1660169760000,open=23887.3,high=23908.5,low=23862.2,close=23864.7,volume=873.356,closeTime=1660169819999,quoteAssetVolume=20860227.9883,numTrades=5990,takerBuyBaseAssetVolume=371.567,takerBuyQuoteAssetVolume=8875794.8478,ignore=0]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920063,price=23861.9,qty=0.006,quoteQty=143.17,time=1660169819055,isBuyerMaker=false]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920064,price=23861.9,qty=0.074,quoteQty=1765.78,time=1660169819072,isBuyerMaker=false]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920065,price=23861.9,qty=0.001,quoteQty=23.86,time=1660169819092,isBuyerMaker=false]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920066,price=23861.8,qty=0.001,quoteQty=23.86,time=1660169819093,isBuyerMaker=true]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920067,price=23861.8,qty=0.103,quoteQty=2457.76,time=1660169819104,isBuyerMaker=true]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920068,price=23861.9,qty=0.131,quoteQty=3125.9,time=1660169819111,isBuyerMaker=false]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920069,price=23861.8,qty=0.004,quoteQty=95.44,time=1660169819130,isBuyerMaker=true]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920070,price=23861.9,qty=0.001,quoteQty=23.86,time=1660169819146,isBuyerMaker=false]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920071,price=23861.8,qty=0.001,quoteQty=23.86,time=1660169819152,isBuyerMaker=true]
+2022-08-11 07:16:58 [WARN] - Trade[id=2687920072,price=23861.8,qty=0.004,quoteQty=95.44,time=1660169819173,isBuyerMaker=true]
+2022-08-11 07:16:58 [WARN] - 매수 갯수 : 5 , Qty : 0.21300000000000002
+2022-08-11 07:16:58 [WARN] - 매도 갯수 : 5 , Qty : 0.113
+2022-08-11 07:17:05 [WARN] - 5sec , 110 - 873  =  -763
+2022-08-11 07:17:11 [WARN] - 11sec , 226 - 110  =  116
+2022-08-11 07:17:11 [WARN] - 10 Aug 2022 22:17:11 GMT : Candlestick[openTime=1660169820000,open=23861.9,high=23884.7,low=23856.2,close=23881.4,volume=226.942,closeTime=1660169879999,quoteAssetVolume=5416869.3558,numTrades=1342,takerBuyBaseAssetVolume=173.784,takerBuyQuoteAssetVolume=4148071.7085,ignore=0]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921604,price=23878.8,qty=0.084,quoteQty=2005.81,time=1660169831288,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921605,price=23879.3,qty=0.001,quoteQty=23.87,time=1660169831315,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921606,price=23879.3,qty=0.001,quoteQty=23.87,time=1660169831320,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921607,price=23879.2,qty=0.001,quoteQty=23.87,time=1660169831320,isBuyerMaker=true]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921608,price=23879.2,qty=0.179,quoteQty=4274.37,time=1660169831327,isBuyerMaker=true]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921609,price=23879.2,qty=0.108,quoteQty=2578.95,time=1660169831327,isBuyerMaker=true]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921610,price=23879.3,qty=0.019,quoteQty=453.7,time=1660169831366,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921611,price=23879.3,qty=0.06,quoteQty=1432.75,time=1660169831366,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921612,price=23879.3,qty=0.053,quoteQty=1265.6,time=1660169831425,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - Trade[id=2687921613,price=23879.3,qty=0.004,quoteQty=95.51,time=1660169831487,isBuyerMaker=false]
+2022-08-11 07:17:11 [WARN] - 매수 갯수 : 7 , Qty : 0.222
+2022-08-11 07:17:11 [WARN] - 매도 갯수 : 3 , Qty : 0.288
+2022-08-11 07:17:17 [WARN] - 17sec , 262 - 226  =  36
+2022-08-11 07:17:23 [WARN] - 23sec , 293 - 262  =  31
+2022-08-11 07:17:29 [WARN] - 29sec , 329 - 293  =  36
+2022-08-11 07:17:35 [WARN] - 35sec , 346 - 329  =  17
+2022-08-11 07:17:41 [WARN] - 41sec , 357 - 346  =  11
+2022-08-11 07:17:47 [WARN] - 47sec , 384 - 357  =  27
+2022-08-11 07:17:53 [WARN] - 53sec , 426 - 384  =  42
+2022-08-11 07:17:59 [WARN] - 59sec , 440 - 426  =  14
+2022-08-11 07:18:05 [WARN] - 5sec , 15 - 440  =  -425
+2022-08-11 07:18:11 [WARN] - 11sec , 21 - 15  =  6
+2022-08-11 07:18:17 [WARN] - 17sec , 32 - 21  =  11
+2022-08-11 07:18:23 [WARN] - 23sec , 94 - 32  =  62
+2022-08-11 07:18:29 [WARN] - 29sec , 120 - 94  =  26
+2022-08-11 07:18:35 [WARN] - 35sec , 126 - 120  =  6
+2022-08-11 07:18:41 [WARN] - 41sec , 130 - 126  =  4
+2022-08-11 07:18:47 [WARN] - 47sec , 153 - 130  =  23
+2022-08-11 07:18:54 [WARN] - 54sec , 158 - 153  =  5
+2022-08-11 07:19:00 [WARN] - 0sec , 176 - 158  =  18
+2022-08-11 07:19:06 [WARN] - 6sec , 8 - 176  =  -168
+2022-08-11 07:19:12 [WARN] - 12sec , 31 - 8  =  23
+2022-08-11 07:19:18 [WARN] - 18sec , 52 - 31  =  21
+2022-08-11 07:19:24 [WARN] - 24sec , 74 - 52  =  22
+2022-08-11 07:19:30 [WARN] - 30sec , 93 - 74  =  19
+2022-08-11 07:19:36 [WARN] - 36sec , 106 - 93  =  13
+2022-08-11 07:19:42 [WARN] - 42sec , 122 - 106  =  16
+2022-08-11 07:19:48 [WARN] - 48sec , 133 - 122  =  11
+2022-08-11 07:19:54 [WARN] - 54sec , 142 - 133  =  9
+2022-08-11 07:20:00 [WARN] - 0sec , 0 - 142  =  -142
+2022-08-11 07:20:06 [WARN] - 6sec , 76 - 0  =  76
+2022-08-11 07:20:12 [WARN] - 12sec , 95 - 76  =  19
+2022-08-11 07:20:18 [WARN] - 18sec , 178 - 95  =  83
+2022-08-11 07:20:24 [WARN] - 24sec , 184 - 178  =  6
+2022-08-11 07:20:31 [WARN] - 31sec , 203 - 184  =  19
+2022-08-11 07:20:37 [WARN] - 37sec , 250 - 203  =  47
+2022-08-11 07:20:43 [WARN] - 43sec , 260 - 250  =  10
+2022-08-11 07:20:49 [WARN] - 49sec , 273 - 260  =  13
+2022-08-11 07:20:55 [WARN] - 55sec , 278 - 273  =  5
+2022-08-11 07:21:01 [WARN] - 1sec , 0 - 278  =  -278
+2022-08-11 07:21:07 [WARN] - 7sec , 25 - 0  =  25
+2022-08-11 07:21:13 [WARN] - 13sec , 38 - 25  =  13
+2022-08-11 07:21:19 [WARN] - 19sec , 45 - 38  =  7
+2022-08-11 07:21:25 [WARN] - 25sec , 62 - 45  =  17
+2022-08-11 07:21:31 [WARN] - 31sec , 83 - 62  =  21
+2022-08-11 07:21:37 [WARN] - 37sec , 108 - 83  =  25
+2022-08-11 07:21:43 [WARN] - 43sec , 150 - 108  =  42
+2022-08-11 07:21:49 [WARN] - 49sec , 157 - 150  =  7
+2022-08-11 07:21:55 [WARN] - 55sec , 169 - 157  =  12
+2022-08-11 07:22:01 [WARN] - 1sec , 4 - 169  =  -165
+2022-08-11 07:22:07 [WARN] - 7sec , 42 - 4  =  38
+2022-08-11 07:22:13 [WARN] - 13sec , 76 - 42  =  34
+2022-08-11 07:22:19 [WARN] - 19sec , 96 - 76  =  20
+2022-08-11 07:22:25 [WARN] - 25sec , 140 - 96  =  44
+2022-08-11 07:22:32 [WARN] - 32sec , 150 - 140  =  10
+2022-08-11 07:22:38 [WARN] - 38sec , 161 - 150  =  11
+2022-08-11 07:22:44 [WARN] - 44sec , 167 - 161  =  6
+2022-08-11 07:22:50 [WARN] - 50sec , 168 - 167  =  1
+2022-08-11 07:22:56 [WARN] - 56sec , 188 - 168  =  20
+2022-08-11 07:23:02 [WARN] - 2sec , 0 - 188  =  -188
+2022-08-11 07:23:08 [WARN] - 8sec , 7 - 0  =  7
+2022-08-11 07:23:14 [WARN] - 14sec , 29 - 7  =  22
+2022-08-11 07:23:20 [WARN] - 20sec , 72 - 29  =  43
+2022-08-11 07:23:26 [WARN] - 26sec , 81 - 72  =  9
+2022-08-11 07:23:32 [WARN] - 32sec , 99 - 81  =  18
+2022-08-11 07:23:38 [WARN] - 38sec , 104 - 99  =  5
+2022-08-11 07:23:44 [WARN] - 44sec , 147 - 104  =  43
+2022-08-11 07:23:50 [WARN] - 50sec , 164 - 147  =  17
+2022-08-11 07:23:56 [WARN] - 56sec , 183 - 164  =  19
+2022-08-11 07:24:02 [WARN] - 2sec , 1 - 183  =  -182
+2022-08-11 07:24:08 [WARN] - 8sec , 7 - 1  =  6
+2022-08-11 07:24:14 [WARN] - 14sec , 13 - 7  =  6
+2022-08-11 07:24:20 [WARN] - 20sec , 38 - 13  =  25
+2022-08-11 07:24:26 [WARN] - 26sec , 73 - 38  =  35
+2022-08-11 07:24:32 [WARN] - 32sec , 82 - 73  =  9
+2022-08-11 07:24:39 [WARN] - 39sec , 82 - 82  =  0
+2022-08-11 07:24:45 [WARN] - 45sec , 104 - 82  =  22
+2022-08-11 07:24:51 [WARN] - 51sec , 114 - 104  =  10
+2022-08-11 07:24:57 [WARN] - 57sec , 117 - 114  =  3
+2022-08-11 07:25:03 [WARN] - 3sec , 3 - 117  =  -114
+2022-08-11 07:25:09 [WARN] - 9sec , 19 - 3  =  16
+2022-08-11 07:25:15 [WARN] - 15sec , 35 - 19  =  16
+2022-08-11 07:25:21 [WARN] - 21sec , 93 - 35  =  58
+2022-08-11 07:25:27 [WARN] - 27sec , 158 - 93  =  65
+2022-08-11 07:25:33 [WARN] - 33sec , 282 - 158  =  124
+2022-08-11 07:25:33 [WARN] - 10 Aug 2022 22:25:33 GMT : Candlestick[openTime=1660170300000,open=23904.3,high=23904.3,low=23886.3,close=23890.6,volume=282.961,closeTime=1660170359999,quoteAssetVolume=6762031.5211,numTrades=1670,takerBuyBaseAssetVolume=88.596,takerBuyQuoteAssetVolume=2117086.5222,ignore=0]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939924,price=23890.6,qty=0.1,quoteQty=2389.06,time=1660170333560,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939925,price=23890.6,qty=0.005,quoteQty=119.45,time=1660170333560,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939926,price=23890.6,qty=0.039,quoteQty=931.73,time=1660170333560,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939927,price=23890.6,qty=0.001,quoteQty=23.89,time=1660170333560,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939928,price=23890.6,qty=0.024,quoteQty=573.37,time=1660170333560,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939929,price=23890.6,qty=0.001,quoteQty=23.89,time=1660170333570,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939930,price=23890.6,qty=0.041,quoteQty=979.51,time=1660170333628,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939931,price=23890.7,qty=0.068,quoteQty=1624.56,time=1660170333734,isBuyerMaker=false]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939932,price=23890.6,qty=0.025,quoteQty=597.26,time=1660170334025,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - Trade[id=2687939933,price=23890.6,qty=0.001,quoteQty=23.89,time=1660170334128,isBuyerMaker=true]
+2022-08-11 07:25:33 [WARN] - 매수 갯수 : 1 , Qty : 0.068
+2022-08-11 07:25:33 [WARN] - 매도 갯수 : 9 , Qty : 0.23700000000000002
+2022-08-11 07:25:33 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:25:39 [WARN] - 39sec , 323 - 282  =  41
+2022-08-11 07:25:45 [WARN] - 45sec , 336 - 323  =  13
+2022-08-11 07:25:51 [WARN] - 51sec , 339 - 336  =  3
+2022-08-11 07:25:58 [WARN] - 58sec , 413 - 339  =  74
+2022-08-11 07:26:04 [WARN] - 4sec , 26 - 413  =  -387
+2022-08-11 07:26:10 [WARN] - 10sec , 53 - 26  =  27
+2022-08-11 07:26:16 [WARN] - 16sec , 69 - 53  =  16
+2022-08-11 07:26:22 [WARN] - 22sec , 87 - 69  =  18
+2022-08-11 07:26:28 [WARN] - 28sec , 97 - 87  =  10
+2022-08-11 07:26:34 [WARN] - 34sec , 105 - 97  =  8
+2022-08-11 07:26:40 [WARN] - 40sec , 128 - 105  =  23
+2022-08-11 07:26:46 [WARN] - 46sec , 135 - 128  =  7
+2022-08-11 07:26:52 [WARN] - 52sec , 138 - 135  =  3
+2022-08-11 07:26:58 [WARN] - 58sec , 157 - 138  =  19
+2022-08-11 07:27:04 [WARN] - 4sec , 3 - 157  =  -154
+2022-08-11 07:27:10 [WARN] - 10sec , 5 - 3  =  2
+2022-08-11 07:27:16 [WARN] - 16sec , 16 - 5  =  11
+2022-08-11 07:27:22 [WARN] - 22sec , 36 - 16  =  20
+2022-08-11 07:27:28 [WARN] - 28sec , 60 - 36  =  24
+2022-08-11 07:27:34 [WARN] - 34sec , 60 - 60  =  0
+2022-08-11 07:27:41 [WARN] - 41sec , 90 - 60  =  30
+2022-08-11 07:27:47 [WARN] - 47sec , 152 - 90  =  62
+2022-08-11 07:27:53 [WARN] - 53sec , 176 - 152  =  24
+2022-08-11 07:27:59 [WARN] - 59sec , 193 - 176  =  17
+2022-08-11 07:28:05 [WARN] - 5sec , 42 - 193  =  -151
+2022-08-11 07:28:11 [WARN] - 11sec , 47 - 42  =  5
+2022-08-11 07:28:17 [WARN] - 17sec , 90 - 47  =  43
+2022-08-11 07:28:23 [WARN] - 23sec , 97 - 90  =  7
+2022-08-11 07:28:29 [WARN] - 29sec , 110 - 97  =  13
+2022-08-11 07:28:35 [WARN] - 35sec , 133 - 110  =  23
+2022-08-11 07:28:41 [WARN] - 41sec , 155 - 133  =  22
+2022-08-11 07:28:47 [WARN] - 47sec , 189 - 155  =  34
+2022-08-11 07:28:53 [WARN] - 53sec , 233 - 189  =  44
+2022-08-11 07:28:59 [WARN] - 59sec , 251 - 233  =  18
+2022-08-11 07:29:05 [WARN] - 5sec , 14 - 251  =  -237
+2022-08-11 07:29:11 [WARN] - 11sec , 19 - 14  =  5
+2022-08-11 07:29:17 [WARN] - 17sec , 28 - 19  =  9
+2022-08-11 07:29:23 [WARN] - 23sec , 34 - 28  =  6
+2022-08-11 07:29:29 [WARN] - 29sec , 40 - 34  =  6
+2022-08-11 07:29:35 [WARN] - 35sec , 43 - 40  =  3
+2022-08-11 07:29:41 [WARN] - 41sec , 54 - 43  =  11
+2022-08-11 07:29:47 [WARN] - 47sec , 79 - 54  =  25
+2022-08-11 07:29:53 [WARN] - 53sec , 117 - 79  =  38
+2022-08-11 07:29:59 [WARN] - 59sec , 169 - 117  =  52
+2022-08-11 07:30:05 [WARN] - 5sec , 139 - 169  =  -30
+2022-08-11 07:30:11 [WARN] - 11sec , 223 - 139  =  84
+2022-08-11 07:30:17 [WARN] - 17sec , 233 - 223  =  10
+2022-08-11 07:30:23 [WARN] - 23sec , 260 - 233  =  27
+2022-08-11 07:30:29 [WARN] - 29sec , 262 - 260  =  2
+2022-08-11 07:30:36 [WARN] - 36sec , 274 - 262  =  12
+2022-08-11 07:30:42 [WARN] - 42sec , 283 - 274  =  9
+2022-08-11 07:30:48 [WARN] - 48sec , 292 - 283  =  9
+2022-08-11 07:30:54 [WARN] - 54sec , 302 - 292  =  10
+2022-08-11 07:31:00 [WARN] - 0sec , 307 - 302  =  5
+2022-08-11 07:31:06 [WARN] - 6sec , 4 - 307  =  -303
+2022-08-11 07:31:12 [WARN] - 12sec , 10 - 4  =  6
+2022-08-11 07:31:18 [WARN] - 18sec , 14 - 10  =  4
+2022-08-11 07:31:24 [WARN] - 24sec , 23 - 14  =  9
+2022-08-11 07:31:30 [WARN] - 30sec , 29 - 23  =  6
+2022-08-11 07:31:36 [WARN] - 36sec , 54 - 29  =  25
+2022-08-11 07:31:42 [WARN] - 42sec , 69 - 54  =  15
+2022-08-11 07:31:48 [WARN] - 48sec , 74 - 69  =  5
+2022-08-11 07:31:54 [WARN] - 54sec , 86 - 74  =  12
+2022-08-11 07:32:00 [WARN] - 0sec , 1 - 86  =  -85
+2022-08-11 07:32:06 [WARN] - 6sec , 27 - 1  =  26
+2022-08-11 07:32:12 [WARN] - 12sec , 42 - 27  =  15
+2022-08-11 07:32:18 [WARN] - 18sec , 163 - 42  =  121
+2022-08-11 07:32:18 [WARN] - 10 Aug 2022 22:32:18 GMT : Candlestick[openTime=1660170720000,open=23913.8,high=23913.8,low=23896,close=23899.6,volume=163.759,closeTime=1660170779999,quoteAssetVolume=3914393.3493,numTrades=1184,takerBuyBaseAssetVolume=35.358,takerBuyQuoteAssetVolume=845217.4234,ignore=0]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954365,price=23898.6,qty=0.05,quoteQty=1194.93,time=1660170739463,isBuyerMaker=false]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954366,price=23898.5,qty=0.015,quoteQty=358.47,time=1660170739527,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954367,price=23898.5,qty=0.001,quoteQty=23.89,time=1660170739527,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954368,price=23898.5,qty=0.009,quoteQty=215.08,time=1660170739527,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954369,price=23898.5,qty=0.001,quoteQty=23.89,time=1660170739542,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954370,price=23898.5,qty=0.018,quoteQty=430.17,time=1660170739557,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954371,price=23898.5,qty=0.048,quoteQty=1147.12,time=1660170739557,isBuyerMaker=true]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954372,price=23898.6,qty=0.029,quoteQty=693.05,time=1660170739655,isBuyerMaker=false]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954373,price=23898.6,qty=0.012,quoteQty=286.78,time=1660170739655,isBuyerMaker=false]
+2022-08-11 07:32:18 [WARN] - Trade[id=2687954374,price=23898.6,qty=0.034,quoteQty=812.55,time=1660170739668,isBuyerMaker=false]
+2022-08-11 07:32:18 [WARN] - 매수 갯수 : 4 , Qty : 0.125
+2022-08-11 07:32:18 [WARN] - 매도 갯수 : 6 , Qty : 0.092
+2022-08-11 07:32:25 [WARN] - 25sec , 182 - 163  =  19
+2022-08-11 07:32:31 [WARN] - 31sec , 193 - 182  =  11
+2022-08-11 07:32:37 [WARN] - 37sec , 234 - 193  =  41
+2022-08-11 07:32:43 [WARN] - 43sec , 257 - 234  =  23
+2022-08-11 07:32:49 [WARN] - 49sec , 275 - 257  =  18
+2022-08-11 07:32:55 [WARN] - 55sec , 288 - 275  =  13
+2022-08-11 07:33:01 [WARN] - 1sec , 4 - 288  =  -284
+2022-08-11 07:33:07 [WARN] - 7sec , 13 - 4  =  9
+2022-08-11 07:33:13 [WARN] - 13sec , 75 - 13  =  62
+2022-08-11 07:33:19 [WARN] - 19sec , 104 - 75  =  29
+2022-08-11 07:33:25 [WARN] - 25sec , 144 - 104  =  40
+2022-08-11 07:33:31 [WARN] - 31sec , 181 - 144  =  37
+2022-08-11 07:33:37 [WARN] - 37sec , 210 - 181  =  29
+2022-08-11 07:33:43 [WARN] - 43sec , 296 - 210  =  86
+2022-08-11 07:33:49 [WARN] - 49sec , 343 - 296  =  47
+2022-08-11 07:33:55 [WARN] - 55sec , 373 - 343  =  30
+2022-08-11 07:34:02 [WARN] - 2sec , 12 - 373  =  -361
+2022-08-11 07:34:08 [WARN] - 8sec , 34 - 12  =  22
+2022-08-11 07:34:14 [WARN] - 14sec , 84 - 34  =  50
+2022-08-11 07:34:20 [WARN] - 20sec , 106 - 84  =  22
+2022-08-11 07:34:26 [WARN] - 26sec , 122 - 106  =  16
+2022-08-11 07:34:32 [WARN] - 32sec , 132 - 122  =  10
+2022-08-11 07:34:38 [WARN] - 38sec , 153 - 132  =  21
+2022-08-11 07:34:44 [WARN] - 44sec , 155 - 153  =  2
+2022-08-11 07:34:50 [WARN] - 50sec , 181 - 155  =  26
+2022-08-11 07:34:56 [WARN] - 56sec , 197 - 181  =  16
+2022-08-11 07:35:02 [WARN] - 2sec , 65 - 197  =  -132
+2022-08-11 07:35:08 [WARN] - 8sec , 79 - 65  =  14
+2022-08-11 07:35:14 [WARN] - 14sec , 184 - 79  =  105
+2022-08-11 07:35:14 [WARN] - 10 Aug 2022 22:35:14 GMT : Candlestick[openTime=1660170900000,open=23879.2,high=23879.3,low=23865.5,close=23865.5,volume=184.968,closeTime=1660170959999,quoteAssetVolume=4415685.3828,numTrades=862,takerBuyBaseAssetVolume=36.834,takerBuyQuoteAssetVolume=879307.3846,ignore=0]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961759,price=23866.8,qty=0.073,quoteQty=1742.27,time=1660170915402,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961760,price=23866.8,qty=0.001,quoteQty=23.86,time=1660170915413,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961761,price=23866.8,qty=0.077,quoteQty=1837.74,time=1660170915445,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961762,price=23866.8,qty=0.001,quoteQty=23.86,time=1660170915445,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961763,price=23866.8,qty=0.001,quoteQty=23.86,time=1660170915445,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961764,price=23866.8,qty=0.015,quoteQty=358,time=1660170915445,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961765,price=23866.8,qty=0.006,quoteQty=143.2,time=1660170915445,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961766,price=23866.8,qty=0.001,quoteQty=23.86,time=1660170915457,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961767,price=23866.8,qty=0.15,quoteQty=3580.02,time=1660170915510,isBuyerMaker=false]
+2022-08-11 07:35:14 [WARN] - Trade[id=2687961768,price=23866.7,qty=0.009,quoteQty=214.8,time=1660170915516,isBuyerMaker=true]
+2022-08-11 07:35:14 [WARN] - 매수 갯수 : 9 , Qty : 0.32499999999999996
+2022-08-11 07:35:14 [WARN] - 매도 갯수 : 1 , Qty : 0.009
+2022-08-11 07:35:14 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:35:20 [WARN] - 20sec , 237 - 184  =  53
+2022-08-11 07:35:26 [WARN] - 26sec , 329 - 237  =  92
+2022-08-11 07:35:26 [WARN] - 10 Aug 2022 22:35:26 GMT : Candlestick[openTime=1660170900000,open=23879.2,high=23879.3,low=23865.5,close=23869.7,volume=329.314,closeTime=1660170959999,quoteAssetVolume=7861227.8707,numTrades=1806,takerBuyBaseAssetVolume=107.704,takerBuyQuoteAssetVolume=2570930.7101,ignore=0]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962615,price=23869.7,qty=0.041,quoteQty=978.65,time=1660170926751,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962616,price=23869.7,qty=0.001,quoteQty=23.86,time=1660170926760,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962617,price=23869.7,qty=0.058,quoteQty=1384.44,time=1660170927067,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962618,price=23869.7,qty=0.001,quoteQty=23.86,time=1660170927067,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962619,price=23869.7,qty=0.001,quoteQty=23.86,time=1660170927067,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962620,price=23869.7,qty=1.021,quoteQty=24370.96,time=1660170927068,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962621,price=23869.7,qty=0.001,quoteQty=23.86,time=1660170927076,isBuyerMaker=true]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962622,price=23869.8,qty=0.011,quoteQty=262.56,time=1660170927624,isBuyerMaker=false]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962623,price=23869.8,qty=0.015,quoteQty=358.04,time=1660170927665,isBuyerMaker=false]
+2022-08-11 07:35:26 [WARN] - Trade[id=2687962624,price=23869.8,qty=0.039,quoteQty=930.92,time=1660170927696,isBuyerMaker=false]
+2022-08-11 07:35:26 [WARN] - 매수 갯수 : 3 , Qty : 0.065
+2022-08-11 07:35:26 [WARN] - 매도 갯수 : 7 , Qty : 1.1239999999999999
+2022-08-11 07:35:26 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:35:32 [WARN] - 32sec , 345 - 329  =  16
+2022-08-11 07:35:38 [WARN] - 38sec , 364 - 345  =  19
+2022-08-11 07:35:44 [WARN] - 44sec , 389 - 364  =  25
+2022-08-11 07:35:51 [WARN] - 51sec , 395 - 389  =  6
+2022-08-11 07:35:57 [WARN] - 57sec , 414 - 395  =  19
+2022-08-11 07:36:03 [WARN] - 3sec , 5 - 414  =  -409
+2022-08-11 07:36:09 [WARN] - 9sec , 9 - 5  =  4
+2022-08-11 07:36:15 [WARN] - 15sec , 111 - 9  =  102
+2022-08-11 07:36:15 [WARN] - 10 Aug 2022 22:36:15 GMT : Candlestick[openTime=1660170960000,open=23877.4,high=23884.5,low=23867,close=23884.3,volume=111.451,closeTime=1660171019999,quoteAssetVolume=2660384.307,numTrades=870,takerBuyBaseAssetVolume=73.005,takerBuyQuoteAssetVolume=1742582.2214,ignore=0]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964472,price=23883.6,qty=0.001,quoteQty=23.88,time=1660170975321,isBuyerMaker=true]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964473,price=23883.1,qty=0.001,quoteQty=23.88,time=1660170975342,isBuyerMaker=true]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964474,price=23882.6,qty=0.043,quoteQty=1026.95,time=1660170975454,isBuyerMaker=false]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964475,price=23882.6,qty=0.01,quoteQty=238.82,time=1660170975565,isBuyerMaker=false]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964476,price=23882.6,qty=0.2,quoteQty=4776.52,time=1660170975719,isBuyerMaker=false]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964477,price=23882.5,qty=0.02,quoteQty=477.65,time=1660170975969,isBuyerMaker=true]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964478,price=23882.6,qty=0.054,quoteQty=1289.66,time=1660170976003,isBuyerMaker=false]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964479,price=23882.6,qty=0.001,quoteQty=23.88,time=1660170976130,isBuyerMaker=false]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964480,price=23882.5,qty=0.002,quoteQty=47.76,time=1660170976130,isBuyerMaker=true]
+2022-08-11 07:36:15 [WARN] - Trade[id=2687964481,price=23882.5,qty=0.001,quoteQty=23.88,time=1660170976134,isBuyerMaker=true]
+2022-08-11 07:36:15 [WARN] - 매수 갯수 : 5 , Qty : 0.308
+2022-08-11 07:36:15 [WARN] - 매도 갯수 : 5 , Qty : 0.025
+2022-08-11 07:36:21 [WARN] - 21sec , 122 - 111  =  11
+2022-08-11 07:36:27 [WARN] - 27sec , 151 - 122  =  29
+2022-08-11 07:36:33 [WARN] - 33sec , 248 - 151  =  97
+2022-08-11 07:36:33 [WARN] - 10 Aug 2022 22:36:33 GMT : Candlestick[openTime=1660170960000,open=23877.4,high=23894.3,low=23867,close=23894.1,volume=248.639,closeTime=1660171019999,quoteAssetVolume=5937430.5107,numTrades=1747,takerBuyBaseAssetVolume=177.913,takerBuyQuoteAssetVolume=4248659.0376,ignore=0]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965498,price=23895,qty=0.001,quoteQty=23.89,time=1660170994092,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965499,price=23894.9,qty=0.001,quoteQty=23.89,time=1660170994094,isBuyerMaker=true]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965500,price=23894.9,qty=0.001,quoteQty=23.89,time=1660170994139,isBuyerMaker=true]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965501,price=23895,qty=0.001,quoteQty=23.89,time=1660170994139,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965502,price=23895,qty=0.001,quoteQty=23.89,time=1660170994201,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965503,price=23894.9,qty=0.001,quoteQty=23.89,time=1660170994202,isBuyerMaker=true]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965504,price=23895,qty=0.001,quoteQty=23.89,time=1660170994310,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965505,price=23895,qty=0.008,quoteQty=191.16,time=1660170994310,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965506,price=23894.9,qty=0.01,quoteQty=238.94,time=1660170994326,isBuyerMaker=true]
+2022-08-11 07:36:33 [WARN] - Trade[id=2687965507,price=23895,qty=0.011,quoteQty=262.84,time=1660170994367,isBuyerMaker=false]
+2022-08-11 07:36:33 [WARN] - 매수 갯수 : 6 , Qty : 0.023
+2022-08-11 07:36:33 [WARN] - 매도 갯수 : 4 , Qty : 0.013000000000000001
+2022-08-11 07:36:33 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:36:39 [WARN] - 39sec , 292 - 248  =  44
+2022-08-11 07:36:45 [WARN] - 45sec , 298 - 292  =  6
+2022-08-11 07:36:51 [WARN] - 51sec , 341 - 298  =  43
+2022-08-11 07:36:57 [WARN] - 57sec , 349 - 341  =  8
+2022-08-11 07:37:03 [WARN] - 3sec , 5 - 349  =  -344
+2022-08-11 07:37:09 [WARN] - 9sec , 14 - 5  =  9
+2022-08-11 07:37:15 [WARN] - 15sec , 19 - 14  =  5
+2022-08-11 07:37:21 [WARN] - 21sec , 42 - 19  =  23
+2022-08-11 07:37:27 [WARN] - 27sec , 52 - 42  =  10
+2022-08-11 07:37:34 [WARN] - 34sec , 66 - 52  =  14
+2022-08-11 07:37:40 [WARN] - 40sec , 82 - 66  =  16
+2022-08-11 07:37:46 [WARN] - 46sec , 92 - 82  =  10
+2022-08-11 07:37:52 [WARN] - 52sec , 93 - 92  =  1
+2022-08-11 07:37:58 [WARN] - 58sec , 120 - 93  =  27
+2022-08-11 07:38:04 [WARN] - 4sec , 1 - 120  =  -119
+2022-08-11 07:38:10 [WARN] - 10sec , 4 - 1  =  3
+2022-08-11 07:38:16 [WARN] - 16sec , 18 - 4  =  14
+2022-08-11 07:38:22 [WARN] - 22sec , 23 - 18  =  5
+2022-08-11 07:38:28 [WARN] - 28sec , 32 - 23  =  9
+2022-08-11 07:38:34 [WARN] - 34sec , 48 - 32  =  16
+2022-08-11 07:38:40 [WARN] - 40sec , 55 - 48  =  7
+2022-08-11 07:38:46 [WARN] - 46sec , 69 - 55  =  14
+2022-08-11 07:38:52 [WARN] - 52sec , 73 - 69  =  4
+2022-08-11 07:38:58 [WARN] - 58sec , 77 - 73  =  4
+2022-08-11 07:39:04 [WARN] - 4sec , 11 - 77  =  -66
+2022-08-11 07:39:10 [WARN] - 10sec , 12 - 11  =  1
+2022-08-11 07:39:16 [WARN] - 16sec , 28 - 12  =  16
+2022-08-11 07:39:22 [WARN] - 22sec , 112 - 28  =  84
+2022-08-11 07:39:28 [WARN] - 28sec , 165 - 112  =  53
+2022-08-11 07:39:35 [WARN] - 35sec , 223 - 165  =  58
+2022-08-11 07:39:41 [WARN] - 41sec , 232 - 223  =  9
+2022-08-11 07:39:47 [WARN] - 47sec , 238 - 232  =  6
+2022-08-11 07:39:53 [WARN] - 53sec , 241 - 238  =  3
+2022-08-11 07:39:59 [WARN] - 59sec , 244 - 241  =  3
+2022-08-11 07:40:05 [WARN] - 5sec , 6 - 244  =  -238
+2022-08-11 07:40:11 [WARN] - 11sec , 15 - 6  =  9
+2022-08-11 07:40:17 [WARN] - 17sec , 28 - 15  =  13
+2022-08-11 07:40:23 [WARN] - 23sec , 45 - 28  =  17
+2022-08-11 07:40:29 [WARN] - 29sec , 58 - 45  =  13
+2022-08-11 07:40:35 [WARN] - 35sec , 65 - 58  =  7
+2022-08-11 07:40:41 [WARN] - 41sec , 68 - 65  =  3
+2022-08-11 07:40:47 [WARN] - 47sec , 88 - 68  =  20
+2022-08-11 07:40:53 [WARN] - 53sec , 91 - 88  =  3
+2022-08-11 07:40:59 [WARN] - 59sec , 97 - 91  =  6
+2022-08-11 07:41:05 [WARN] - 5sec , 14 - 97  =  -83
+2022-08-11 07:41:11 [WARN] - 11sec , 47 - 14  =  33
+2022-08-11 07:41:17 [WARN] - 17sec , 135 - 47  =  88
+2022-08-11 07:41:23 [WARN] - 23sec , 167 - 135  =  32
+2022-08-11 07:41:29 [WARN] - 29sec , 174 - 167  =  7
+2022-08-11 07:41:35 [WARN] - 35sec , 189 - 174  =  15
+2022-08-11 07:41:42 [WARN] - 42sec , 193 - 189  =  4
+2022-08-11 07:41:48 [WARN] - 48sec , 202 - 193  =  9
+2022-08-11 07:41:54 [WARN] - 54sec , 218 - 202  =  16
+2022-08-11 07:42:00 [WARN] - 0sec , 240 - 218  =  22
+2022-08-11 07:42:06 [WARN] - 6sec , 19 - 240  =  -221
+2022-08-11 07:42:12 [WARN] - 12sec , 28 - 19  =  9
+2022-08-11 07:42:18 [WARN] - 18sec , 39 - 28  =  11
+2022-08-11 07:42:24 [WARN] - 24sec , 47 - 39  =  8
+2022-08-11 07:42:30 [WARN] - 30sec , 59 - 47  =  12
+2022-08-11 07:42:36 [WARN] - 36sec , 87 - 59  =  28
+2022-08-11 07:42:42 [WARN] - 42sec , 88 - 87  =  1
+2022-08-11 07:42:48 [WARN] - 48sec , 126 - 88  =  38
+2022-08-11 07:42:54 [WARN] - 54sec , 174 - 126  =  48
+2022-08-11 07:43:00 [WARN] - 0sec , 175 - 174  =  1
+2022-08-11 07:43:06 [WARN] - 6sec , 17 - 175  =  -158
+2022-08-11 07:43:13 [WARN] - 13sec , 25 - 17  =  8
+2022-08-11 07:43:19 [WARN] - 19sec , 30 - 25  =  5
+2022-08-11 07:43:25 [WARN] - 25sec , 38 - 30  =  8
+2022-08-11 07:43:31 [WARN] - 31sec , 55 - 38  =  17
+2022-08-11 07:43:37 [WARN] - 37sec , 73 - 55  =  18
+2022-08-11 07:43:43 [WARN] - 43sec , 261 - 73  =  188
+2022-08-11 07:43:43 [WARN] - 10 Aug 2022 22:43:43 GMT : Candlestick[openTime=1660171380000,open=23882.8,high=23882.8,low=23852.3,close=23866.8,volume=261.332,closeTime=1660171439999,quoteAssetVolume=6236902.7764,numTrades=1803,takerBuyBaseAssetVolume=91.401,takerBuyQuoteAssetVolume=2181367.2642,ignore=0]
+2022-08-11 07:43:43 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977459,price=23866.9,qty=0.125,quoteQty=2983.36,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977460,price=23866.9,qty=0.25,quoteQty=5966.72,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977461,price=23866.9,qty=0.125,quoteQty=2983.36,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977462,price=23866.9,qty=0.005,quoteQty=119.33,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977463,price=23866.9,qty=0.702,quoteQty=16754.56,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977464,price=23866.9,qty=0.183,quoteQty=4367.64,time=1660171424132,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977465,price=23866.9,qty=0.001,quoteQty=23.86,time=1660171424144,isBuyerMaker=false]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977466,price=23866.8,qty=0.005,quoteQty=119.33,time=1660171424227,isBuyerMaker=true]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977467,price=23866.8,qty=0.123,quoteQty=2935.61,time=1660171424227,isBuyerMaker=true]
+2022-08-11 07:43:43 [WARN] - Trade[id=2687977468,price=23866.8,qty=0.022,quoteQty=525.06,time=1660171424280,isBuyerMaker=true]
+2022-08-11 07:43:43 [WARN] - 매수 갯수 : 7 , Qty : 1.3909999999999998
+2022-08-11 07:43:43 [WARN] - 매도 갯수 : 3 , Qty : 0.15
+2022-08-11 07:43:43 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:43:49 [WARN] - 49sec , 278 - 261  =  17
+2022-08-11 07:43:55 [WARN] - 55sec , 292 - 278  =  14
+2022-08-11 07:44:01 [WARN] - 1sec , 1 - 292  =  -291
+2022-08-11 07:44:07 [WARN] - 7sec , 66 - 1  =  65
+2022-08-11 07:44:13 [WARN] - 13sec , 110 - 66  =  44
+2022-08-11 07:44:19 [WARN] - 19sec , 138 - 110  =  28
+2022-08-11 07:44:25 [WARN] - 25sec , 155 - 138  =  17
+2022-08-11 07:44:31 [WARN] - 31sec , 164 - 155  =  9
+2022-08-11 07:44:37 [WARN] - 37sec , 231 - 164  =  67
+2022-08-11 07:44:44 [WARN] - 44sec , 239 - 231  =  8
+2022-08-11 07:44:50 [WARN] - 50sec , 248 - 239  =  9
+2022-08-11 07:44:56 [WARN] - 56sec , 354 - 248  =  106
+2022-08-11 07:44:56 [WARN] - 10 Aug 2022 22:44:56 GMT : Candlestick[openTime=1660171440000,open=23865.2,high=23874.8,low=23853.6,close=23858.5,volume=354.032,closeTime=1660171499999,quoteAssetVolume=8448471.9076,numTrades=2446,takerBuyBaseAssetVolume=136.787,takerBuyQuoteAssetVolume=3264115.7416,ignore=0]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980495,price=23856.8,qty=0.041,quoteQty=978.12,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980496,price=23856.8,qty=0.006,quoteQty=143.14,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980497,price=23856.8,qty=0.097,quoteQty=2314.1,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980498,price=23856.8,qty=0.011,quoteQty=262.42,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980499,price=23855.8,qty=0.125,quoteQty=2981.97,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980500,price=23855.6,qty=0.508,quoteQty=12118.64,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980501,price=23855.6,qty=0.228,quoteQty=5439.07,time=1660171497071,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980502,price=23856.9,qty=0.016,quoteQty=381.71,time=1660171497071,isBuyerMaker=false]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980503,price=23855.7,qty=0.001,quoteQty=23.85,time=1660171497081,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - Trade[id=2687980504,price=23855.7,qty=0.224,quoteQty=5343.67,time=1660171497084,isBuyerMaker=true]
+2022-08-11 07:44:56 [WARN] - 매수 갯수 : 1 , Qty : 0.016
+2022-08-11 07:44:56 [WARN] - 매도 갯수 : 9 , Qty : 1.2409999999999999
+2022-08-11 07:44:56 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:45:02 [WARN] - 2sec , 0 - 354  =  -354
+2022-08-11 07:45:08 [WARN] - 8sec , 55 - 0  =  55
+2022-08-11 07:45:14 [WARN] - 14sec , 77 - 55  =  22
+2022-08-11 07:45:20 [WARN] - 20sec , 104 - 77  =  27
+2022-08-11 07:45:26 [WARN] - 26sec , 149 - 104  =  45
+2022-08-11 07:45:32 [WARN] - 32sec , 162 - 149  =  13
+2022-08-11 07:45:38 [WARN] - 38sec , 237 - 162  =  75
+2022-08-11 07:45:44 [WARN] - 44sec , 251 - 237  =  14
+2022-08-11 07:45:50 [WARN] - 50sec , 283 - 251  =  32
+2022-08-11 07:45:56 [WARN] - 56sec , 288 - 283  =  5
+2022-08-11 07:46:02 [WARN] - 2sec , 8 - 288  =  -280
+2022-08-11 07:46:08 [WARN] - 8sec , 23 - 8  =  15
+2022-08-11 07:46:14 [WARN] - 14sec , 90 - 23  =  67
+2022-08-11 07:46:20 [WARN] - 20sec , 103 - 90  =  13
+2022-08-11 07:46:26 [WARN] - 26sec , 123 - 103  =  20
+2022-08-11 07:46:32 [WARN] - 32sec , 135 - 123  =  12
+2022-08-11 07:46:39 [WARN] - 39sec , 145 - 135  =  10
+2022-08-11 07:46:45 [WARN] - 45sec , 154 - 145  =  9
+2022-08-11 07:46:51 [WARN] - 51sec , 161 - 154  =  7
+2022-08-11 07:46:57 [WARN] - 57sec , 187 - 161  =  26
+2022-08-11 07:47:03 [WARN] - 3sec , 1 - 187  =  -186
+2022-08-11 07:47:09 [WARN] - 9sec , 2 - 1  =  1
+2022-08-11 07:47:15 [WARN] - 15sec , 26 - 2  =  24
+2022-08-11 07:47:21 [WARN] - 21sec , 30 - 26  =  4
+2022-08-11 07:47:27 [WARN] - 27sec , 50 - 30  =  20
+2022-08-11 07:47:33 [WARN] - 33sec , 115 - 50  =  65
+2022-08-11 07:47:39 [WARN] - 39sec , 131 - 115  =  16
+2022-08-11 07:47:45 [WARN] - 45sec , 173 - 131  =  42
+2022-08-11 07:47:51 [WARN] - 51sec , 190 - 173  =  17
+2022-08-11 07:47:57 [WARN] - 57sec , 208 - 190  =  18
+2022-08-11 07:48:03 [WARN] - 3sec , 7 - 208  =  -201
+2022-08-11 07:48:09 [WARN] - 9sec , 136 - 7  =  129
+2022-08-11 07:48:09 [WARN] - 10 Aug 2022 22:48:09 GMT : Candlestick[openTime=1660171680000,open=23855.7,high=23855.8,low=23850,close=23850,volume=136.672,closeTime=1660171739999,quoteAssetVolume=3259847.5696,numTrades=716,takerBuyBaseAssetVolume=10.416,takerBuyQuoteAssetVolume=248436.4132,ignore=0]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988057,price=23846.98,qty=0.001,quoteQty=23.84,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988058,price=23846.8,qty=0.001,quoteQty=23.84,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988059,price=23846.8,qty=0.003,quoteQty=71.54,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988060,price=23846.7,qty=0.001,quoteQty=23.84,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988061,price=23846.6,qty=0.001,quoteQty=23.84,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988062,price=23846.6,qty=0.011,quoteQty=262.31,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988063,price=23846.6,qty=0.019,quoteQty=453.08,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988064,price=23846.5,qty=0.001,quoteQty=23.84,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988065,price=23846.5,qty=0.045,quoteQty=1073.09,time=1660171690769,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - Trade[id=2687988066,price=23846.5,qty=0.002,quoteQty=47.69,time=1660171690771,isBuyerMaker=true]
+2022-08-11 07:48:09 [WARN] - 매수 갯수 : 0 , Qty : 0.0
+2022-08-11 07:48:09 [WARN] - 매도 갯수 : 10 , Qty : 0.08499999999999999
+2022-08-11 07:48:09 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:48:15 [WARN] - 15sec , 523 - 136  =  387
+2022-08-11 07:48:15 [WARN] - 10 Aug 2022 22:48:15 GMT : Candlestick[openTime=1660171680000,open=23855.7,high=23855.8,low=23822,close=23822.2,volume=523.146,closeTime=1660171739999,quoteAssetVolume=12470162.79628,numTrades=3399,takerBuyBaseAssetVolume=114.145,takerBuyQuoteAssetVolume=2720004.2523,ignore=0]
+2022-08-11 07:48:15 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990637,price=23827.1,qty=0.001,quoteQty=23.82,time=1660171696869,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990638,price=23827.9,qty=0.004,quoteQty=95.31,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990639,price=23828.3,qty=0.001,quoteQty=23.82,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990640,price=23829.3,qty=0.004,quoteQty=95.31,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990641,price=23829.4,qty=0.003,quoteQty=71.48,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990642,price=23829.4,qty=0.001,quoteQty=23.82,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990643,price=23829.8,qty=0.001,quoteQty=23.82,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990644,price=23829.8,qty=0.006,quoteQty=142.97,time=1660171696870,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990645,price=23829.8,qty=0.001,quoteQty=23.82,time=1660171696886,isBuyerMaker=false]
+2022-08-11 07:48:15 [WARN] - Trade[id=2687990646,price=23829.7,qty=0.003,quoteQty=71.48,time=1660171696890,isBuyerMaker=true]
+2022-08-11 07:48:15 [WARN] - 매수 갯수 : 9 , Qty : 0.022000000000000006
+2022-08-11 07:48:15 [WARN] - 매도 갯수 : 1 , Qty : 0.003
+2022-08-11 07:48:15 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:48:22 [WARN] - 22sec , 655 - 523  =  132
+2022-08-11 07:48:22 [WARN] - 10 Aug 2022 22:48:22 GMT : Candlestick[openTime=1660171680000,open=23855.7,high=23855.8,low=23822,close=23837.3,volume=655.96,closeTime=1660171739999,quoteAssetVolume=15635539.58798,numTrades=4110,takerBuyBaseAssetVolume=171.223,takerBuyQuoteAssetVolume=4080296.3218,ignore=0]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991250,price=23837.2,qty=0.036,quoteQty=858.13,time=1660171702553,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991251,price=23837.2,qty=0.1,quoteQty=2383.72,time=1660171702553,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991252,price=23837.2,qty=0.147,quoteQty=3504.06,time=1660171702553,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991253,price=23837.2,qty=0.001,quoteQty=23.83,time=1660171702564,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991254,price=23837.2,qty=0.025,quoteQty=595.93,time=1660171702603,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991255,price=23837.3,qty=0.068,quoteQty=1620.93,time=1660171702739,isBuyerMaker=false]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991256,price=23837.2,qty=0.428,quoteQty=10202.32,time=1660171702781,isBuyerMaker=true]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991257,price=23837.3,qty=0.024,quoteQty=572.09,time=1660171702784,isBuyerMaker=false]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991258,price=23837.3,qty=0.021,quoteQty=500.58,time=1660171702878,isBuyerMaker=false]
+2022-08-11 07:48:22 [WARN] - Trade[id=2687991259,price=23837.3,qty=0.033,quoteQty=786.63,time=1660171702878,isBuyerMaker=false]
+2022-08-11 07:48:22 [WARN] - 매수 갯수 : 4 , Qty : 0.14600000000000002
+2022-08-11 07:48:22 [WARN] - 매도 갯수 : 6 , Qty : 0.7370000000000001
+2022-08-11 07:48:22 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:48:28 [WARN] - 28sec , 703 - 655  =  48
+2022-08-11 07:48:34 [WARN] - 34sec , 728 - 703  =  25
+2022-08-11 07:48:40 [WARN] - 40sec , 740 - 728  =  12
+2022-08-11 07:48:46 [WARN] - 46sec , 780 - 740  =  40
+2022-08-11 07:48:52 [WARN] - 52sec , 808 - 780  =  28
+2022-08-11 07:48:52 [WARN] - 10 Aug 2022 22:48:52 GMT : Candlestick[openTime=1660171680000,open=23855.7,high=23855.8,low=23822,close=23843.7,volume=808.332,closeTime=1660171739999,quoteAssetVolume=19268435.60518,numTrades=5270,takerBuyBaseAssetVolume=229.16,takerBuyQuoteAssetVolume=5461652.2979,ignore=0]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992398,price=23843.8,qty=0.001,quoteQty=23.84,time=1660171732077,isBuyerMaker=false]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992399,price=23843.7,qty=1,quoteQty=23843.7,time=1660171732148,isBuyerMaker=true]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992400,price=23843.8,qty=0.01,quoteQty=238.43,time=1660171732366,isBuyerMaker=false]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992401,price=23843.7,qty=0.008,quoteQty=190.74,time=1660171732468,isBuyerMaker=true]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992402,price=23843.8,qty=0.029,quoteQty=691.47,time=1660171732500,isBuyerMaker=false]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992403,price=23843.8,qty=0.014,quoteQty=333.81,time=1660171732579,isBuyerMaker=false]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992404,price=23843.7,qty=0.01,quoteQty=238.43,time=1660171733038,isBuyerMaker=true]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992405,price=23843.7,qty=0.014,quoteQty=333.81,time=1660171733051,isBuyerMaker=true]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992406,price=23843.7,qty=0.009,quoteQty=214.59,time=1660171733214,isBuyerMaker=true]
+2022-08-11 07:48:52 [WARN] - Trade[id=2687992407,price=23843.8,qty=0.005,quoteQty=119.21,time=1660171733268,isBuyerMaker=false]
+2022-08-11 07:48:52 [WARN] - 매수 갯수 : 5 , Qty : 0.059
+2022-08-11 07:48:52 [WARN] - 매도 갯수 : 5 , Qty : 1.041
+2022-08-11 07:48:58 [WARN] - 58sec , 819 - 808  =  11
+2022-08-11 07:48:58 [WARN] - 10 Aug 2022 22:48:58 GMT : Candlestick[openTime=1660171680000,open=23855.7,high=23855.8,low=23822,close=23843.7,volume=819.052,closeTime=1660171739999,quoteAssetVolume=19524040.52558,numTrades=5359,takerBuyBaseAssetVolume=233.724,takerBuyQuoteAssetVolume=5570475.4011,ignore=0]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992511,price=23843.7,qty=0.004,quoteQty=95.37,time=1660171739289,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992512,price=23843.7,qty=0.003,quoteQty=71.53,time=1660171739289,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992513,price=23843.7,qty=0.001,quoteQty=23.84,time=1660171739297,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992514,price=23843.7,qty=0.003,quoteQty=71.53,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992515,price=23843.7,qty=0.008,quoteQty=190.74,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992516,price=23843.7,qty=0.003,quoteQty=71.53,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992517,price=23843.7,qty=0.006,quoteQty=143.06,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992518,price=23843.7,qty=0.021,quoteQty=500.71,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992519,price=23843.7,qty=0.016,quoteQty=381.49,time=1660171739364,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - Trade[id=2687992520,price=23843.7,qty=0.001,quoteQty=23.84,time=1660171739380,isBuyerMaker=true]
+2022-08-11 07:48:58 [WARN] - 매수 갯수 : 0 , Qty : 0.0
+2022-08-11 07:48:58 [WARN] - 매도 갯수 : 10 , Qty : 0.066
+2022-08-11 07:48:58 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:49:04 [WARN] - 4sec , 30 - 819  =  -789
+2022-08-11 07:49:10 [WARN] - 10sec , 185 - 30  =  155
+2022-08-11 07:49:10 [WARN] - 10 Aug 2022 22:49:10 GMT : Candlestick[openTime=1660171740000,open=23843.8,high=23865.6,low=23843.7,close=23865.6,volume=185,closeTime=1660171799999,quoteAssetVolume=4413680.6101,numTrades=996,takerBuyBaseAssetVolume=162.175,takerBuyQuoteAssetVolume=3869049.0181,ignore=0]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993874,price=23856.8,qty=0.134,quoteQty=3196.81,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993875,price=23856.8,qty=0.121,quoteQty=2886.67,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993876,price=23856.8,qty=0.112,quoteQty=2671.96,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993877,price=23856.8,qty=0.142,quoteQty=3387.66,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993878,price=23856.8,qty=0.133,quoteQty=3172.95,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993879,price=23856.8,qty=0.133,quoteQty=3172.95,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993880,price=23856.8,qty=0.01,quoteQty=238.56,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993881,price=23856.8,qty=0.5,quoteQty=11928.4,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993882,price=23856.8,qty=0.125,quoteQty=2982.1,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - Trade[id=2687993883,price=23856.8,qty=0.098,quoteQty=2337.96,time=1660171751505,isBuyerMaker=false]
+2022-08-11 07:49:10 [WARN] - 매수 갯수 : 10 , Qty : 1.5080000000000002
+2022-08-11 07:49:10 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 07:49:10 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:49:16 [WARN] - 16sec , 257 - 185  =  72
+2022-08-11 07:49:22 [WARN] - 22sec , 276 - 257  =  19
+2022-08-11 07:49:28 [WARN] - 28sec , 301 - 276  =  25
+2022-08-11 07:49:34 [WARN] - 34sec , 317 - 301  =  16
+2022-08-11 07:49:40 [WARN] - 40sec , 328 - 317  =  11
+2022-08-11 07:49:46 [WARN] - 46sec , 379 - 328  =  51
+2022-08-11 07:49:52 [WARN] - 52sec , 400 - 379  =  21
+2022-08-11 07:49:58 [WARN] - 58sec , 420 - 400  =  20
+2022-08-11 07:50:05 [WARN] - 5sec , 38 - 420  =  -382
+2022-08-11 07:50:11 [WARN] - 11sec , 44 - 38  =  6
+2022-08-11 07:50:17 [WARN] - 17sec , 196 - 44  =  152
+2022-08-11 07:50:17 [WARN] - 10 Aug 2022 22:50:17 GMT : Candlestick[openTime=1660171800000,open=23858.3,high=23862.4,low=23850.7,close=23858.6,volume=196.259,closeTime=1660171859999,quoteAssetVolume=4682110.4871,numTrades=1080,takerBuyBaseAssetVolume=143.236,takerBuyQuoteAssetVolume=3417145.7622,ignore=0]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996987,price=23858.6,qty=0.196,quoteQty=4676.28,time=1660171817956,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996988,price=23858.6,qty=0.011,quoteQty=262.44,time=1660171817956,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996989,price=23858.6,qty=0.55,quoteQty=13122.23,time=1660171817956,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996990,price=23858.6,qty=0.005,quoteQty=119.29,time=1660171817956,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996991,price=23858.6,qty=0.18,quoteQty=4294.54,time=1660171817956,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996992,price=23858.7,qty=0.08,quoteQty=1908.69,time=1660171817963,isBuyerMaker=false]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996993,price=23858.7,qty=0.966,quoteQty=23047.5,time=1660171817963,isBuyerMaker=false]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996994,price=23858.6,qty=0.001,quoteQty=23.85,time=1660171817968,isBuyerMaker=true]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996995,price=23858.7,qty=0.377,quoteQty=8994.72,time=1660171818033,isBuyerMaker=false]
+2022-08-11 07:50:17 [WARN] - Trade[id=2687996996,price=23858.7,qty=0.087,quoteQty=2075.7,time=1660171818033,isBuyerMaker=false]
+2022-08-11 07:50:17 [WARN] - 매수 갯수 : 4 , Qty : 1.51
+2022-08-11 07:50:17 [WARN] - 매도 갯수 : 6 , Qty : 0.9430000000000002
+2022-08-11 07:50:23 [WARN] - 23sec , 227 - 196  =  31
+2022-08-11 07:50:29 [WARN] - 29sec , 243 - 227  =  16
+2022-08-11 07:50:35 [WARN] - 35sec , 296 - 243  =  53
+2022-08-11 07:50:41 [WARN] - 41sec , 297 - 296  =  1
+2022-08-11 07:50:47 [WARN] - 47sec , 379 - 297  =  82
+2022-08-11 07:50:53 [WARN] - 53sec , 398 - 379  =  19
+2022-08-11 07:50:59 [WARN] - 59sec , 439 - 398  =  41
+2022-08-11 07:51:05 [WARN] - 5sec , 84 - 439  =  -355
+2022-08-11 07:51:11 [WARN] - 11sec , 124 - 84  =  40
+2022-08-11 07:51:17 [WARN] - 17sec , 137 - 124  =  13
+2022-08-11 07:51:23 [WARN] - 23sec , 184 - 137  =  47
+2022-08-11 07:51:29 [WARN] - 29sec , 195 - 184  =  11
+2022-08-11 07:51:35 [WARN] - 35sec , 266 - 195  =  71
+2022-08-11 07:51:41 [WARN] - 41sec , 297 - 266  =  31
+2022-08-11 07:51:48 [WARN] - 48sec , 310 - 297  =  13
+2022-08-11 07:51:54 [WARN] - 54sec , 316 - 310  =  6
+2022-08-11 07:52:00 [WARN] - 0sec , 379 - 316  =  63
+2022-08-11 07:52:06 [WARN] - 6sec , 79 - 379  =  -300
+2022-08-11 07:52:12 [WARN] - 12sec , 229 - 79  =  150
+2022-08-11 07:52:12 [WARN] - 10 Aug 2022 22:52:12 GMT : Candlestick[openTime=1660171920000,open=23831.1,high=23831.2,low=23817.4,close=23819.9,volume=229.79,closeTime=1660171979999,quoteAssetVolume=5474703.7184,numTrades=1293,takerBuyBaseAssetVolume=63.545,takerBuyQuoteAssetVolume=1513852.1939,ignore=0]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003315,price=23818,qty=0.437,quoteQty=10408.46,time=1660171933095,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003316,price=23818,qty=0.042,quoteQty=1000.35,time=1660171933103,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003317,price=23818,qty=0.002,quoteQty=47.63,time=1660171933162,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003318,price=23818.1,qty=0.287,quoteQty=6835.79,time=1660171933162,isBuyerMaker=false]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003319,price=23818.1,qty=0.001,quoteQty=23.81,time=1660171933162,isBuyerMaker=false]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003320,price=23818.1,qty=0.55,quoteQty=13099.95,time=1660171933162,isBuyerMaker=false]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003321,price=23818.1,qty=0.554,quoteQty=13195.22,time=1660171933162,isBuyerMaker=false]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003322,price=23818,qty=0.001,quoteQty=23.81,time=1660171933172,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003323,price=23818.6,qty=0.18,quoteQty=4287.34,time=1660171933206,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - Trade[id=2688003324,price=23818.6,qty=0.149,quoteQty=3548.97,time=1660171933206,isBuyerMaker=true]
+2022-08-11 07:52:12 [WARN] - 매수 갯수 : 4 , Qty : 1.3920000000000001
+2022-08-11 07:52:12 [WARN] - 매도 갯수 : 6 , Qty : 0.8109999999999999
+2022-08-11 07:52:18 [WARN] - 18sec , 267 - 229  =  38
+2022-08-11 07:52:24 [WARN] - 24sec , 420 - 267  =  153
+2022-08-11 07:52:24 [WARN] - 10 Aug 2022 22:52:24 GMT : Candlestick[openTime=1660171920000,open=23831.1,high=23831.2,low=23815.4,close=23831.1,volume=420.356,closeTime=1660171979999,quoteAssetVolume=10014323.303,numTrades=2466,takerBuyBaseAssetVolume=190.201,takerBuyQuoteAssetVolume=4531086.5504,ignore=0]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004513,price=23832.9,qty=0.001,quoteQty=23.83,time=1660171945197,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004514,price=23832.9,qty=0.001,quoteQty=23.83,time=1660171945202,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004515,price=23832.9,qty=0.033,quoteQty=786.48,time=1660171945218,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004516,price=23832.9,qty=0.033,quoteQty=786.48,time=1660171945219,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004517,price=23832.9,qty=0.033,quoteQty=786.48,time=1660171945219,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004518,price=23832.9,qty=0.033,quoteQty=786.48,time=1660171945219,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004519,price=23832.9,qty=0.026,quoteQty=619.65,time=1660171945234,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004520,price=23831.7,qty=0.001,quoteQty=23.83,time=1660171945235,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004521,price=23831.5,qty=0.031,quoteQty=738.77,time=1660171945246,isBuyerMaker=false]
+2022-08-11 07:52:24 [WARN] - Trade[id=2688004522,price=23831.3,qty=0.002,quoteQty=47.66,time=1660171945295,isBuyerMaker=true]
+2022-08-11 07:52:24 [WARN] - 매수 갯수 : 1 , Qty : 0.031
+2022-08-11 07:52:24 [WARN] - 매도 갯수 : 9 , Qty : 0.163
+2022-08-11 07:52:24 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:52:30 [WARN] - 30sec , 441 - 420  =  21
+2022-08-11 07:52:36 [WARN] - 36sec , 534 - 441  =  93
+2022-08-11 07:52:36 [WARN] - 10 Aug 2022 22:52:36 GMT : Candlestick[openTime=1660171920000,open=23831.1,high=23833,low=23811.2,close=23811.2,volume=534.567,closeTime=1660171979999,quoteAssetVolume=12735014.5588,numTrades=3496,takerBuyBaseAssetVolume=208.255,takerBuyQuoteAssetVolume=4961115.9303,ignore=0]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005427,price=23811.3,qty=0.012,quoteQty=285.73,time=1660171957127,isBuyerMaker=false]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005428,price=23811.2,qty=0.001,quoteQty=23.81,time=1660171957134,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005429,price=23811.2,qty=0.001,quoteQty=23.81,time=1660171957140,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005430,price=23811.3,qty=0.002,quoteQty=47.62,time=1660171957149,isBuyerMaker=false]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005431,price=23811.2,qty=0.005,quoteQty=119.05,time=1660171957200,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005432,price=23811.2,qty=0.047,quoteQty=1119.12,time=1660171957200,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005433,price=23811.2,qty=0.077,quoteQty=1833.46,time=1660171957265,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005434,price=23811.3,qty=0.002,quoteQty=47.62,time=1660171957479,isBuyerMaker=false]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005435,price=23811.3,qty=0.1,quoteQty=2381.13,time=1660171957484,isBuyerMaker=false]
+2022-08-11 07:52:36 [WARN] - Trade[id=2688005436,price=23811.2,qty=0.037,quoteQty=881.01,time=1660171957529,isBuyerMaker=true]
+2022-08-11 07:52:36 [WARN] - 매수 갯수 : 4 , Qty : 0.116
+2022-08-11 07:52:36 [WARN] - 매도 갯수 : 6 , Qty : 0.168
+2022-08-11 07:52:36 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:52:42 [WARN] - 42sec , 606 - 534  =  72
+2022-08-11 07:52:48 [WARN] - 48sec , 620 - 606  =  14
+2022-08-11 07:52:54 [WARN] - 54sec , 657 - 620  =  37
+2022-08-11 07:53:00 [WARN] - 0sec , 86 - 657  =  -571
+2022-08-11 07:53:06 [WARN] - 6sec , 203 - 86  =  117
+2022-08-11 07:53:06 [WARN] - 10 Aug 2022 22:53:06 GMT : Candlestick[openTime=1660171980000,open=23805.4,high=23813.9,low=23795.5,close=23813.2,volume=203.437,closeTime=1660172039999,quoteAssetVolume=4842207.7712,numTrades=1654,takerBuyBaseAssetVolume=74.878,takerBuyQuoteAssetVolume=1782397.7717,ignore=0]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008778,price=23811.7,qty=0.003,quoteQty=71.43,time=1660171987718,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008779,price=23811.6,qty=0.001,quoteQty=23.81,time=1660171987727,isBuyerMaker=true]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008780,price=23811.6,qty=0.001,quoteQty=23.81,time=1660171987753,isBuyerMaker=true]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008781,price=23811.7,qty=0.086,quoteQty=2047.8,time=1660171987792,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008782,price=23811.7,qty=0.071,quoteQty=1690.63,time=1660171987792,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008783,price=23811.7,qty=0.06,quoteQty=1428.7,time=1660171987792,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008784,price=23811.7,qty=0.091,quoteQty=2166.86,time=1660171987792,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008785,price=23811.7,qty=0.692,quoteQty=16477.69,time=1660171987792,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008786,price=23811.7,qty=0.002,quoteQty=47.62,time=1660171987797,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - Trade[id=2688008787,price=23811.7,qty=0.001,quoteQty=23.81,time=1660171987803,isBuyerMaker=false]
+2022-08-11 07:53:06 [WARN] - 매수 갯수 : 8 , Qty : 1.0059999999999998
+2022-08-11 07:53:06 [WARN] - 매도 갯수 : 2 , Qty : 0.002
+2022-08-11 07:53:06 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:53:12 [WARN] - 12sec , 236 - 203  =  33
+2022-08-11 07:53:19 [WARN] - 19sec , 308 - 236  =  72
+2022-08-11 07:53:25 [WARN] - 25sec , 433 - 308  =  125
+2022-08-11 07:53:25 [WARN] - 10 Aug 2022 22:53:25 GMT : Candlestick[openTime=1660171980000,open=23805.4,high=23815.6,low=23795.5,close=23797,volume=433.96,closeTime=1660172039999,quoteAssetVolume=10330689.5903,numTrades=3277,takerBuyBaseAssetVolume=149.009,takerBuyQuoteAssetVolume=3547289.5503,ignore=0]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010386,price=23804.3,qty=0.05,quoteQty=1190.21,time=1660172005662,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010387,price=23804.3,qty=0.244,quoteQty=5808.24,time=1660172005672,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010388,price=23804.4,qty=0.003,quoteQty=71.41,time=1660172005704,isBuyerMaker=false]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010389,price=23804.3,qty=0.017,quoteQty=404.67,time=1660172005732,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010390,price=23804.3,qty=0.105,quoteQty=2499.45,time=1660172005739,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010391,price=23804.4,qty=0.001,quoteQty=23.8,time=1660172005882,isBuyerMaker=false]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010392,price=23804.3,qty=0.068,quoteQty=1618.69,time=1660172005926,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010393,price=23804.3,qty=0.024,quoteQty=571.3,time=1660172005929,isBuyerMaker=true]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010394,price=23804.4,qty=0.031,quoteQty=737.93,time=1660172005932,isBuyerMaker=false]
+2022-08-11 07:53:25 [WARN] - Trade[id=2688010395,price=23804.4,qty=0.01,quoteQty=238.04,time=1660172006027,isBuyerMaker=false]
+2022-08-11 07:53:25 [WARN] - 매수 갯수 : 4 , Qty : 0.045000000000000005
+2022-08-11 07:53:25 [WARN] - 매도 갯수 : 6 , Qty : 0.508
+2022-08-11 07:53:25 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:53:31 [WARN] - 31sec , 528 - 433  =  95
+2022-08-11 07:53:31 [WARN] - 10 Aug 2022 22:53:31 GMT : Candlestick[openTime=1660171980000,open=23805.4,high=23815.6,low=23795.5,close=23807.9,volume=528.949,closeTime=1660172039999,quoteAssetVolume=12591985.0317,numTrades=3836,takerBuyBaseAssetVolume=204.647,takerBuyQuoteAssetVolume=4871742.8099,ignore=0]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010795,price=23807.9,qty=0.302,quoteQty=7189.98,time=1660172011918,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010796,price=23807.9,qty=0.35,quoteQty=8332.76,time=1660172011918,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010797,price=23807.9,qty=0.21,quoteQty=4999.65,time=1660172011918,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010798,price=23807.9,qty=0.238,quoteQty=5666.28,time=1660172011918,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010799,price=23807.9,qty=0.001,quoteQty=23.8,time=1660172011925,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010800,price=23808,qty=0.549,quoteQty=13070.59,time=1660172011968,isBuyerMaker=false]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010801,price=23807.9,qty=0.005,quoteQty=119.03,time=1660172011969,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010802,price=23807.9,qty=0.007,quoteQty=166.65,time=1660172012086,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010803,price=23807.9,qty=0.029,quoteQty=690.42,time=1660172012092,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - Trade[id=2688010804,price=23807.9,qty=0.057,quoteQty=1357.05,time=1660172012092,isBuyerMaker=true]
+2022-08-11 07:53:31 [WARN] - 매수 갯수 : 1 , Qty : 0.549
+2022-08-11 07:53:31 [WARN] - 매도 갯수 : 9 , Qty : 1.1989999999999994
+2022-08-11 07:53:31 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:53:37 [WARN] - 37sec , 547 - 528  =  19
+2022-08-11 07:53:43 [WARN] - 43sec , 575 - 547  =  28
+2022-08-11 07:53:49 [WARN] - 49sec , 588 - 575  =  13
+2022-08-11 07:53:55 [WARN] - 55sec , 664 - 588  =  76
+2022-08-11 07:54:01 [WARN] - 1sec , 1 - 664  =  -663
+2022-08-11 07:54:07 [WARN] - 7sec , 8 - 1  =  7
+2022-08-11 07:54:13 [WARN] - 13sec , 24 - 8  =  16
+2022-08-11 07:54:19 [WARN] - 19sec , 173 - 24  =  149
+2022-08-11 07:54:19 [WARN] - 10 Aug 2022 22:54:19 GMT : Candlestick[openTime=1660172040000,open=23815,high=23830,low=23814.9,close=23823.4,volume=173,closeTime=1660172099999,quoteAssetVolume=4121624.343,numTrades=1134,takerBuyBaseAssetVolume=75.029,takerBuyQuoteAssetVolume=1787378.3041,ignore=0]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012979,price=23823.4,qty=0.369,quoteQty=8790.83,time=1660172059875,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012980,price=23823.4,qty=0.001,quoteQty=23.82,time=1660172059885,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012981,price=23823.4,qty=0.011,quoteQty=262.05,time=1660172059977,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012982,price=23823.4,qty=0.027,quoteQty=643.23,time=1660172059996,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012983,price=23823.4,qty=0.011,quoteQty=262.05,time=1660172060015,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012984,price=23823.4,qty=0.07,quoteQty=1667.63,time=1660172060034,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012985,price=23823.4,qty=0.031,quoteQty=738.52,time=1660172060078,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012986,price=23823.4,qty=0.007,quoteQty=166.76,time=1660172060078,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012987,price=23823.4,qty=0.041,quoteQty=976.75,time=1660172060231,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - Trade[id=2688012988,price=23823.4,qty=0.026,quoteQty=619.4,time=1660172060513,isBuyerMaker=false]
+2022-08-11 07:54:19 [WARN] - 매수 갯수 : 10 , Qty : 0.5940000000000001
+2022-08-11 07:54:19 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 07:54:19 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:54:25 [WARN] - 25sec , 207 - 173  =  34
+2022-08-11 07:54:31 [WARN] - 31sec , 217 - 207  =  10
+2022-08-11 07:54:37 [WARN] - 37sec , 228 - 217  =  11
+2022-08-11 07:54:43 [WARN] - 43sec , 271 - 228  =  43
+2022-08-11 07:54:49 [WARN] - 49sec , 286 - 271  =  15
+2022-08-11 07:54:56 [WARN] - 56sec , 320 - 286  =  34
+2022-08-11 07:55:02 [WARN] - 2sec , 2 - 320  =  -318
+2022-08-11 07:55:08 [WARN] - 8sec , 5 - 2  =  3
+2022-08-11 07:55:14 [WARN] - 14sec , 9 - 5  =  4
+2022-08-11 07:55:20 [WARN] - 20sec , 54 - 9  =  45
+2022-08-11 07:55:26 [WARN] - 26sec , 64 - 54  =  10
+2022-08-11 07:55:32 [WARN] - 32sec , 113 - 64  =  49
+2022-08-11 07:55:38 [WARN] - 38sec , 143 - 113  =  30
+2022-08-11 07:55:44 [WARN] - 44sec , 153 - 143  =  10
+2022-08-11 07:55:50 [WARN] - 50sec , 160 - 153  =  7
+2022-08-11 07:55:56 [WARN] - 56sec , 172 - 160  =  12
+2022-08-11 07:56:02 [WARN] - 2sec , 23 - 172  =  -149
+2022-08-11 07:56:08 [WARN] - 8sec , 41 - 23  =  18
+2022-08-11 07:56:14 [WARN] - 14sec , 59 - 41  =  18
+2022-08-11 07:56:20 [WARN] - 20sec , 163 - 59  =  104
+2022-08-11 07:56:20 [WARN] - 10 Aug 2022 22:56:20 GMT : Candlestick[openTime=1660172160000,open=23835.4,high=23840.8,low=23831.2,close=23838.8,volume=163.258,closeTime=1660172219999,quoteAssetVolume=3891362.9598,numTrades=1103,takerBuyBaseAssetVolume=99.13,takerBuyQuoteAssetVolume=2362776.4658,ignore=0]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017286,price=23838.8,qty=0.076,quoteQty=1811.74,time=1660172180865,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017287,price=23838.8,qty=0.001,quoteQty=23.83,time=1660172180875,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017288,price=23838.8,qty=0.064,quoteQty=1525.68,time=1660172180936,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017289,price=23838.8,qty=0.024,quoteQty=572.13,time=1660172180936,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017290,price=23838.7,qty=0.18,quoteQty=4290.96,time=1660172181066,isBuyerMaker=true]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017291,price=23838.7,qty=0.18,quoteQty=4290.96,time=1660172181066,isBuyerMaker=true]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017292,price=23838.7,qty=0.012,quoteQty=286.06,time=1660172181066,isBuyerMaker=true]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017293,price=23838.7,qty=0.001,quoteQty=23.83,time=1660172181081,isBuyerMaker=true]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017294,price=23838.8,qty=0.001,quoteQty=23.83,time=1660172181148,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - Trade[id=2688017295,price=23838.8,qty=0.183,quoteQty=4362.5,time=1660172181432,isBuyerMaker=false]
+2022-08-11 07:56:20 [WARN] - 매수 갯수 : 6 , Qty : 0.349
+2022-08-11 07:56:20 [WARN] - 매도 갯수 : 4 , Qty : 0.373
+2022-08-11 07:56:26 [WARN] - 26sec , 168 - 163  =  5
+2022-08-11 07:56:33 [WARN] - 33sec , 177 - 168  =  9
+2022-08-11 07:56:39 [WARN] - 39sec , 202 - 177  =  25
+2022-08-11 07:56:45 [WARN] - 45sec , 205 - 202  =  3
+2022-08-11 07:56:51 [WARN] - 51sec , 214 - 205  =  9
+2022-08-11 07:56:57 [WARN] - 57sec , 226 - 214  =  12
+2022-08-11 07:57:03 [WARN] - 3sec , 61 - 226  =  -165
+2022-08-11 07:57:09 [WARN] - 9sec , 64 - 61  =  3
+2022-08-11 07:57:15 [WARN] - 15sec , 103 - 64  =  39
+2022-08-11 07:57:21 [WARN] - 21sec , 123 - 103  =  20
+2022-08-11 07:57:27 [WARN] - 27sec , 155 - 123  =  32
+2022-08-11 07:57:33 [WARN] - 33sec , 263 - 155  =  108
+2022-08-11 07:57:33 [WARN] - 10 Aug 2022 22:57:33 GMT : Candlestick[openTime=1660172220000,open=23842.1,high=23859.6,low=23841.7,close=23843.9,volume=263.054,closeTime=1660172279999,quoteAssetVolume=6274271.9747,numTrades=1973,takerBuyBaseAssetVolume=174.141,takerBuyQuoteAssetVolume=4153404.1721,ignore=0]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019931,price=23843.9,qty=0.1,quoteQty=2384.39,time=1660172253478,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019932,price=23843.9,qty=0.011,quoteQty=262.28,time=1660172253484,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019933,price=23843.9,qty=0.1,quoteQty=2384.39,time=1660172253488,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019934,price=23843.9,qty=0.002,quoteQty=47.68,time=1660172253752,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019935,price=23843.9,qty=0.001,quoteQty=23.84,time=1660172253892,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019936,price=23843.9,qty=0.015,quoteQty=357.65,time=1660172254046,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019937,price=23843.9,qty=0.019,quoteQty=453.03,time=1660172254163,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019938,price=23843.9,qty=0.015,quoteQty=357.65,time=1660172254410,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019939,price=23843.9,qty=0.137,quoteQty=3266.61,time=1660172254410,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - Trade[id=2688019940,price=23843.9,qty=0.206,quoteQty=4911.84,time=1660172254523,isBuyerMaker=false]
+2022-08-11 07:57:33 [WARN] - 매수 갯수 : 10 , Qty : 0.606
+2022-08-11 07:57:33 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 07:57:33 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 07:57:39 [WARN] - 39sec , 276 - 263  =  13
+2022-08-11 07:57:45 [WARN] - 45sec , 277 - 276  =  1
+2022-08-11 07:57:51 [WARN] - 51sec , 401 - 277  =  124
+2022-08-11 07:57:51 [WARN] - 10 Aug 2022 22:57:51 GMT : Candlestick[openTime=1660172220000,open=23842.1,high=23859.6,low=23833,close=23833.1,volume=401.374,closeTime=1660172279999,quoteAssetVolume=9571876.8447,numTrades=2639,takerBuyBaseAssetVolume=185.737,takerBuyQuoteAssetVolume=4429856.0915,ignore=0]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020670,price=23833,qty=0.001,quoteQty=23.83,time=1660172272568,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020671,price=23833,qty=0.001,quoteQty=23.83,time=1660172272577,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020672,price=23833,qty=0.003,quoteQty=71.49,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020673,price=23833,qty=0.022,quoteQty=524.32,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020674,price=23833,qty=0.001,quoteQty=23.83,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020675,price=23833,qty=0.001,quoteQty=23.83,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020676,price=23832.8,qty=0.001,quoteQty=23.83,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020677,price=23832.8,qty=0.003,quoteQty=71.49,time=1660172272602,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020678,price=23832.8,qty=0.001,quoteQty=23.83,time=1660172272605,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - Trade[id=2688020679,price=23832.8,qty=0.001,quoteQty=23.83,time=1660172272665,isBuyerMaker=true]
+2022-08-11 07:57:51 [WARN] - 매수 갯수 : 0 , Qty : 0.0
+2022-08-11 07:57:51 [WARN] - 매도 갯수 : 10 , Qty : 0.035
+2022-08-11 07:57:51 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 07:57:57 [WARN] - 57sec , 421 - 401  =  20
+2022-08-11 07:58:03 [WARN] - 3sec , 3 - 421  =  -418
+2022-08-11 07:58:09 [WARN] - 9sec , 74 - 3  =  71
+2022-08-11 07:58:15 [WARN] - 15sec , 88 - 74  =  14
+2022-08-11 07:58:22 [WARN] - 22sec , 98 - 88  =  10
+2022-08-11 07:58:28 [WARN] - 28sec , 109 - 98  =  11
+2022-08-11 07:58:34 [WARN] - 34sec , 119 - 109  =  10
+2022-08-11 07:58:40 [WARN] - 40sec , 127 - 119  =  8
+2022-08-11 07:58:46 [WARN] - 46sec , 142 - 127  =  15
+2022-08-11 07:58:52 [WARN] - 52sec , 144 - 142  =  2
+2022-08-11 07:58:58 [WARN] - 58sec , 158 - 144  =  14
+2022-08-11 07:59:04 [WARN] - 4sec , 5 - 158  =  -153
+2022-08-11 07:59:10 [WARN] - 10sec , 15 - 5  =  10
+2022-08-11 07:59:16 [WARN] - 16sec , 16 - 15  =  1
+2022-08-11 07:59:22 [WARN] - 22sec , 34 - 16  =  18
+2022-08-11 07:59:28 [WARN] - 28sec , 58 - 34  =  24
+2022-08-11 07:59:34 [WARN] - 34sec , 76 - 58  =  18
+2022-08-11 07:59:40 [WARN] - 40sec , 83 - 76  =  7
+2022-08-11 07:59:46 [WARN] - 46sec , 138 - 83  =  55
+2022-08-11 07:59:53 [WARN] - 53sec , 161 - 138  =  23
+2022-08-11 07:59:59 [WARN] - 59sec , 166 - 161  =  5
+2022-08-11 08:00:05 [WARN] - 5sec , 53 - 166  =  -113
+2022-08-11 08:00:11 [WARN] - 11sec , 66 - 53  =  13
+2022-08-11 08:00:17 [WARN] - 17sec , 117 - 66  =  51
+2022-08-11 08:00:23 [WARN] - 23sec , 140 - 117  =  23
+2022-08-11 08:00:29 [WARN] - 29sec , 186 - 140  =  46
+2022-08-11 08:00:35 [WARN] - 35sec , 190 - 186  =  4
+2022-08-11 08:00:41 [WARN] - 41sec , 195 - 190  =  5
+2022-08-11 08:00:47 [WARN] - 47sec , 200 - 195  =  5
+2022-08-11 08:00:53 [WARN] - 53sec , 324 - 200  =  124
+2022-08-11 08:00:53 [WARN] - 10 Aug 2022 23:00:53 GMT : Candlestick[openTime=1660172400000,open=23833.9,high=23847.7,low=23822.2,close=23845.8,volume=324.817,closeTime=1660172459999,quoteAssetVolume=7742229.1298,numTrades=2474,takerBuyBaseAssetVolume=183.55,takerBuyQuoteAssetVolume=4375065.9926,ignore=0]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026583,price=23838.7,qty=0.465,quoteQty=11084.99,time=1660172454435,isBuyerMaker=true]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026584,price=23838.8,qty=0.001,quoteQty=23.83,time=1660172454438,isBuyerMaker=false]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026585,price=23838.7,qty=0.001,quoteQty=23.83,time=1660172454442,isBuyerMaker=true]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026586,price=23838.8,qty=0.094,quoteQty=2240.84,time=1660172454450,isBuyerMaker=false]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026587,price=23838.8,qty=0.01,quoteQty=238.38,time=1660172454471,isBuyerMaker=false]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026588,price=23838.7,qty=0.001,quoteQty=23.83,time=1660172454479,isBuyerMaker=true]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026589,price=23838.8,qty=0.001,quoteQty=23.83,time=1660172454497,isBuyerMaker=false]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026590,price=23838.7,qty=0.001,quoteQty=23.83,time=1660172454498,isBuyerMaker=true]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026591,price=23838.7,qty=0.001,quoteQty=23.83,time=1660172454544,isBuyerMaker=true]
+2022-08-11 08:00:53 [WARN] - Trade[id=2688026592,price=23838.8,qty=0.001,quoteQty=23.83,time=1660172454544,isBuyerMaker=false]
+2022-08-11 08:00:53 [WARN] - 매수 갯수 : 5 , Qty : 0.107
+2022-08-11 08:00:53 [WARN] - 매도 갯수 : 5 , Qty : 0.46900000000000003
+2022-08-11 08:00:59 [WARN] - 59sec , 350 - 324  =  26
+2022-08-11 08:01:05 [WARN] - 5sec , 33 - 350  =  -317
+2022-08-11 08:01:11 [WARN] - 11sec , 58 - 33  =  25
+2022-08-11 08:01:17 [WARN] - 17sec , 89 - 58  =  31
+2022-08-11 08:01:23 [WARN] - 23sec , 125 - 89  =  36
+2022-08-11 08:01:29 [WARN] - 29sec , 144 - 125  =  19
+2022-08-11 08:01:36 [WARN] - 36sec , 161 - 144  =  17
+2022-08-11 08:01:42 [WARN] - 42sec , 174 - 161  =  13
+2022-08-11 08:01:48 [WARN] - 48sec , 184 - 174  =  10
+2022-08-11 08:01:54 [WARN] - 54sec , 188 - 184  =  4
+2022-08-11 08:02:00 [WARN] - 0sec , 0 - 188  =  -188
+2022-08-11 08:02:06 [WARN] - 6sec , 42 - 0  =  42
+2022-08-11 08:02:12 [WARN] - 12sec , 54 - 42  =  12
+2022-08-11 08:02:18 [WARN] - 18sec , 72 - 54  =  18
+2022-08-11 08:02:24 [WARN] - 24sec , 86 - 72  =  14
+2022-08-11 08:02:30 [WARN] - 30sec , 103 - 86  =  17
+2022-08-11 08:02:36 [WARN] - 36sec , 128 - 103  =  25
+2022-08-11 08:02:42 [WARN] - 42sec , 197 - 128  =  69
+2022-08-11 08:02:48 [WARN] - 48sec , 206 - 197  =  9
+2022-08-11 08:02:54 [WARN] - 54sec , 214 - 206  =  8
+2022-08-11 08:03:00 [WARN] - 0sec , 2 - 214  =  -212
+2022-08-11 08:03:06 [WARN] - 6sec , 6 - 2  =  4
+2022-08-11 08:03:12 [WARN] - 12sec , 15 - 6  =  9
+2022-08-11 08:03:18 [WARN] - 18sec , 32 - 15  =  17
+2022-08-11 08:03:25 [WARN] - 25sec , 37 - 32  =  5
+2022-08-11 08:03:31 [WARN] - 31sec , 51 - 37  =  14
+2022-08-11 08:03:37 [WARN] - 37sec , 58 - 51  =  7
+2022-08-11 08:03:43 [WARN] - 43sec , 65 - 58  =  7
+2022-08-11 08:03:49 [WARN] - 49sec , 71 - 65  =  6
+2022-08-11 08:03:55 [WARN] - 55sec , 82 - 71  =  11
+2022-08-11 08:04:01 [WARN] - 1sec , 0 - 82  =  -82
+2022-08-11 08:04:07 [WARN] - 7sec , 36 - 0  =  36
+2022-08-11 08:04:13 [WARN] - 13sec , 37 - 36  =  1
+2022-08-11 08:04:19 [WARN] - 19sec , 49 - 37  =  12
+2022-08-11 08:04:25 [WARN] - 25sec , 81 - 49  =  32
+2022-08-11 08:04:31 [WARN] - 31sec , 103 - 81  =  22
+2022-08-11 08:04:37 [WARN] - 37sec , 142 - 103  =  39
+2022-08-11 08:04:43 [WARN] - 43sec , 149 - 142  =  7
+2022-08-11 08:04:49 [WARN] - 49sec , 162 - 149  =  13
+2022-08-11 08:04:55 [WARN] - 55sec , 165 - 162  =  3
+2022-08-11 08:05:01 [WARN] - 1sec , 16 - 165  =  -149
+2022-08-11 08:05:07 [WARN] - 7sec , 20 - 16  =  4
+2022-08-11 08:05:13 [WARN] - 13sec , 31 - 20  =  11
+2022-08-11 08:05:20 [WARN] - 20sec , 41 - 31  =  10
+2022-08-11 08:05:26 [WARN] - 26sec , 51 - 41  =  10
+2022-08-11 08:05:32 [WARN] - 32sec , 140 - 51  =  89
+2022-08-11 08:05:38 [WARN] - 38sec , 156 - 140  =  16
+2022-08-11 08:05:44 [WARN] - 44sec , 165 - 156  =  9
+2022-08-11 08:05:50 [WARN] - 50sec , 233 - 165  =  68
+2022-08-11 08:05:56 [WARN] - 56sec , 236 - 233  =  3
+2022-08-11 08:06:02 [WARN] - 2sec , 238 - 236  =  2
+2022-08-11 08:06:08 [WARN] - 8sec , 42 - 238  =  -196
+2022-08-11 08:06:14 [WARN] - 14sec , 53 - 42  =  11
+2022-08-11 08:06:20 [WARN] - 20sec , 64 - 53  =  11
+2022-08-11 08:06:26 [WARN] - 26sec , 74 - 64  =  10
+2022-08-11 08:06:32 [WARN] - 32sec , 92 - 74  =  18
+2022-08-11 08:06:38 [WARN] - 38sec , 112 - 92  =  20
+2022-08-11 08:06:44 [WARN] - 44sec , 140 - 112  =  28
+2022-08-11 08:06:50 [WARN] - 50sec , 177 - 140  =  37
+2022-08-11 08:06:56 [WARN] - 56sec , 199 - 177  =  22
+2022-08-11 08:07:02 [WARN] - 2sec , 117 - 199  =  -82
+2022-08-11 08:07:09 [WARN] - 9sec , 252 - 117  =  135
+2022-08-11 08:07:09 [WARN] - 10 Aug 2022 23:07:09 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23890,low=23859.4,close=23890,volume=252.138,closeTime=1660172879999,quoteAssetVolume=6019583.1878,numTrades=1391,takerBuyBaseAssetVolume=204.716,takerBuyQuoteAssetVolume=4887032.7859,ignore=0]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040579,price=23894.5,qty=0.001,quoteQty=23.89,time=1660172829869,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040580,price=23894.5,qty=0.033,quoteQty=788.51,time=1660172829893,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040581,price=23894.5,qty=0.06,quoteQty=1433.67,time=1660172829893,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040582,price=23894.5,qty=0.05,quoteQty=1194.72,time=1660172829893,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040583,price=23894.5,qty=0.24,quoteQty=5734.68,time=1660172829893,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040584,price=23894.5,qty=0.196,quoteQty=4683.32,time=1660172829893,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040585,price=23893.8,qty=0.001,quoteQty=23.89,time=1660172829896,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040586,price=23892.9,qty=0.001,quoteQty=23.89,time=1660172829931,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040587,price=23892.9,qty=0.13,quoteQty=3106.07,time=1660172829935,isBuyerMaker=false]
+2022-08-11 08:07:09 [WARN] - Trade[id=2688040588,price=23892.8,qty=0.168,quoteQty=4013.99,time=1660172829935,isBuyerMaker=true]
+2022-08-11 08:07:09 [WARN] - 매수 갯수 : 1 , Qty : 0.13
+2022-08-11 08:07:09 [WARN] - 매도 갯수 : 9 , Qty : 0.7500000000000001
+2022-08-11 08:07:09 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 08:07:15 [WARN] - 15sec , 453 - 252  =  201
+2022-08-11 08:07:15 [WARN] - 10 Aug 2022 23:07:15 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23896.5,low=23859.4,close=23890.9,volume=453.827,closeTime=1660172879999,quoteAssetVolume=10838182.8239,numTrades=2350,takerBuyBaseAssetVolume=337.363,takerBuyQuoteAssetVolume=8056117.6616,ignore=0]
+2022-08-11 08:07:15 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041120,price=23887,qty=0.307,quoteQty=7333.3,time=1660172835776,isBuyerMaker=false]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041121,price=23887,qty=0.001,quoteQty=23.88,time=1660172835790,isBuyerMaker=false]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041122,price=23886.9,qty=0.001,quoteQty=23.88,time=1660172835865,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041123,price=23886.9,qty=0.001,quoteQty=23.88,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041124,price=23886.9,qty=0.24,quoteQty=5732.85,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041125,price=23886.9,qty=0.125,quoteQty=2985.86,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041126,price=23886.9,qty=0.003,quoteQty=71.66,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041127,price=23886.7,qty=0.001,quoteQty=23.88,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041128,price=23886.6,qty=0.001,quoteQty=23.88,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - Trade[id=2688041129,price=23886.5,qty=0.001,quoteQty=23.88,time=1660172836042,isBuyerMaker=true]
+2022-08-11 08:07:15 [WARN] - 매수 갯수 : 2 , Qty : 0.308
+2022-08-11 08:07:15 [WARN] - 매도 갯수 : 8 , Qty : 0.373
+2022-08-11 08:07:15 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 08:07:21 [WARN] - 21sec , 554 - 453  =  101
+2022-08-11 08:07:21 [WARN] - 10 Aug 2022 23:07:21 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23896.5,low=23859.4,close=23886.1,volume=554.436,closeTime=1660172879999,quoteAssetVolume=13241378.5709,numTrades=2951,takerBuyBaseAssetVolume=406.407,takerBuyQuoteAssetVolume=9705298.5737,ignore=0]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041464,price=23886.1,qty=0.055,quoteQty=1313.73,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041465,price=23886.1,qty=0.013,quoteQty=310.51,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041466,price=23886.1,qty=0.011,quoteQty=262.74,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041467,price=23886.1,qty=0.005,quoteQty=119.43,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041468,price=23886.1,qty=0.002,quoteQty=47.77,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041469,price=23886.1,qty=0.001,quoteQty=23.88,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041470,price=23886.1,qty=0.008,quoteQty=191.08,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041471,price=23886.1,qty=0.1,quoteQty=2388.61,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041472,price=23886.1,qty=0.389,quoteQty=9291.69,time=1660172841994,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - Trade[id=2688041473,price=23886.1,qty=0.001,quoteQty=23.88,time=1660172842005,isBuyerMaker=false]
+2022-08-11 08:07:21 [WARN] - 매수 갯수 : 10 , Qty : 0.5850000000000001
+2022-08-11 08:07:21 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 08:07:21 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:07:27 [WARN] - 27sec , 610 - 554  =  56
+2022-08-11 08:07:33 [WARN] - 33sec , 619 - 610  =  9
+2022-08-11 08:07:39 [WARN] - 39sec , 703 - 619  =  84
+2022-08-11 08:07:45 [WARN] - 45sec , 760 - 703  =  57
+2022-08-11 08:07:51 [WARN] - 51sec , 810 - 760  =  50
+2022-08-11 08:07:51 [WARN] - 10 Aug 2022 23:07:51 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23896.5,low=23859.4,close=23883.4,volume=810.013,closeTime=1660172879999,quoteAssetVolume=19346150.935,numTrades=4648,takerBuyBaseAssetVolume=566.027,takerBuyQuoteAssetVolume=13517984.0489,ignore=0]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043159,price=23883.3,qty=0.095,quoteQty=2268.91,time=1660172871852,isBuyerMaker=true]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043160,price=23883.3,qty=0.056,quoteQty=1337.46,time=1660172871852,isBuyerMaker=true]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043161,price=23883.3,qty=0.003,quoteQty=71.64,time=1660172871994,isBuyerMaker=true]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043162,price=23883.4,qty=0.099,quoteQty=2364.45,time=1660172872031,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043163,price=23883.4,qty=0.023,quoteQty=549.31,time=1660172872031,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043164,price=23883.4,qty=0.051,quoteQty=1218.05,time=1660172872031,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043165,price=23883.4,qty=0.161,quoteQty=3845.22,time=1660172872031,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043166,price=23883.4,qty=0.001,quoteQty=23.88,time=1660172872046,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043167,price=23883.4,qty=0.05,quoteQty=1194.17,time=1660172872051,isBuyerMaker=false]
+2022-08-11 08:07:51 [WARN] - Trade[id=2688043168,price=23883.3,qty=0.01,quoteQty=238.83,time=1660172872372,isBuyerMaker=true]
+2022-08-11 08:07:51 [WARN] - 매수 갯수 : 6 , Qty : 0.38499999999999995
+2022-08-11 08:07:51 [WARN] - 매도 갯수 : 4 , Qty : 0.164
+2022-08-11 08:07:51 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:07:57 [WARN] - 57sec , 852 - 810  =  42
+2022-08-11 08:07:57 [WARN] - 10 Aug 2022 23:07:57 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23896.5,low=23859.4,close=23876.1,volume=852.772,closeTime=1660172879999,quoteAssetVolume=20367110.5076,numTrades=5002,takerBuyBaseAssetVolume=587.28,takerBuyQuoteAssetVolume=14025408.9857,ignore=0]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043520,price=23876,qty=0.003,quoteQty=71.62,time=1660172878125,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043521,price=23876,qty=0.001,quoteQty=23.87,time=1660172878125,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043522,price=23876,qty=0.002,quoteQty=47.75,time=1660172878125,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043523,price=23876,qty=0.002,quoteQty=47.75,time=1660172878125,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043524,price=23875.5,qty=0.063,quoteQty=1504.15,time=1660172878125,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043525,price=23875.5,qty=0.001,quoteQty=23.87,time=1660172878139,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043526,price=23875.6,qty=0.033,quoteQty=787.89,time=1660172878231,isBuyerMaker=false]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043527,price=23875.6,qty=0.018,quoteQty=429.76,time=1660172878234,isBuyerMaker=false]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043528,price=23875.6,qty=0.002,quoteQty=47.75,time=1660172878456,isBuyerMaker=false]
+2022-08-11 08:07:57 [WARN] - Trade[id=2688043529,price=23875.5,qty=0.019,quoteQty=453.63,time=1660172878542,isBuyerMaker=true]
+2022-08-11 08:07:57 [WARN] - 매수 갯수 : 3 , Qty : 0.053000000000000005
+2022-08-11 08:07:57 [WARN] - 매도 갯수 : 7 , Qty : 0.09100000000000001
+2022-08-11 08:07:57 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 08:08:03 [WARN] - 3sec , 853 - 852  =  1
+2022-08-11 08:08:03 [WARN] - 10 Aug 2022 23:07:03 GMT : Candlestick[openTime=1660172820000,open=23859.5,high=23896.5,low=23859.4,close=23875.5,volume=853.835,closeTime=1660172879999,quoteAssetVolume=20392490.6058,numTrades=5032,takerBuyBaseAssetVolume=587.457,takerBuyQuoteAssetVolume=14029634.9669,ignore=0]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043710,price=23872.3,qty=0.004,quoteQty=95.48,time=1660172883590,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043711,price=23872.3,qty=0.062,quoteQty=1480.08,time=1660172883595,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043712,price=23872.3,qty=0.001,quoteQty=23.87,time=1660172883779,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043713,price=23872.4,qty=0.1,quoteQty=2387.24,time=1660172884112,isBuyerMaker=false]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043714,price=23872.3,qty=0.252,quoteQty=6015.81,time=1660172884138,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043715,price=23872.3,qty=0.002,quoteQty=47.74,time=1660172884290,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043716,price=23872.3,qty=0.209,quoteQty=4989.31,time=1660172884340,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043717,price=23872.3,qty=0.004,quoteQty=95.48,time=1660172884410,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043718,price=23872.3,qty=0.009,quoteQty=214.85,time=1660172884648,isBuyerMaker=true]
+2022-08-11 08:08:03 [WARN] - Trade[id=2688043719,price=23872.4,qty=0.002,quoteQty=47.74,time=1660172884669,isBuyerMaker=false]
+2022-08-11 08:08:03 [WARN] - 매수 갯수 : 2 , Qty : 0.10200000000000001
+2022-08-11 08:08:03 [WARN] - 매도 갯수 : 8 , Qty : 0.543
+2022-08-11 08:08:03 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 08:08:09 [WARN] - 9sec , 20 - 853  =  -833
+2022-08-11 08:08:15 [WARN] - 15sec , 62 - 20  =  42
+2022-08-11 08:08:21 [WARN] - 21sec , 86 - 62  =  24
+2022-08-11 08:08:27 [WARN] - 27sec , 92 - 86  =  6
+2022-08-11 08:08:34 [WARN] - 34sec , 105 - 92  =  13
+2022-08-11 08:08:40 [WARN] - 40sec , 133 - 105  =  28
+2022-08-11 08:08:46 [WARN] - 46sec , 146 - 133  =  13
+2022-08-11 08:08:52 [WARN] - 52sec , 151 - 146  =  5
+2022-08-11 08:08:58 [WARN] - 58sec , 153 - 151  =  2
+2022-08-11 08:09:04 [WARN] - 4sec , 34 - 153  =  -119
+2022-08-11 08:09:10 [WARN] - 10sec , 59 - 34  =  25
+2022-08-11 08:09:16 [WARN] - 16sec , 66 - 59  =  7
+2022-08-11 08:09:22 [WARN] - 22sec , 83 - 66  =  17
+2022-08-11 08:09:28 [WARN] - 28sec , 106 - 83  =  23
+2022-08-11 08:09:34 [WARN] - 34sec , 111 - 106  =  5
+2022-08-11 08:09:40 [WARN] - 40sec , 116 - 111  =  5
+2022-08-11 08:09:46 [WARN] - 46sec , 135 - 116  =  19
+2022-08-11 08:09:52 [WARN] - 52sec , 152 - 135  =  17
+2022-08-11 08:09:58 [WARN] - 58sec , 154 - 152  =  2
+2022-08-11 08:10:04 [WARN] - 4sec , 4 - 154  =  -150
+2022-08-11 08:10:11 [WARN] - 11sec , 40 - 4  =  36
+2022-08-11 08:10:17 [WARN] - 17sec , 112 - 40  =  72
+2022-08-11 08:10:23 [WARN] - 23sec , 131 - 112  =  19
+2022-08-11 08:10:29 [WARN] - 29sec , 135 - 131  =  4
+2022-08-11 08:10:35 [WARN] - 35sec , 186 - 135  =  51
+2022-08-11 08:10:41 [WARN] - 41sec , 210 - 186  =  24
+2022-08-11 08:10:47 [WARN] - 47sec , 222 - 210  =  12
+2022-08-11 08:10:53 [WARN] - 53sec , 246 - 222  =  24
+2022-08-11 08:10:59 [WARN] - 59sec , 251 - 246  =  5
+2022-08-11 08:11:05 [WARN] - 5sec , 7 - 251  =  -244
+2022-08-11 08:11:11 [WARN] - 11sec , 13 - 7  =  6
+2022-08-11 08:11:17 [WARN] - 17sec , 24 - 13  =  11
+2022-08-11 08:11:23 [WARN] - 23sec , 43 - 24  =  19
+2022-08-11 08:11:29 [WARN] - 29sec , 63 - 43  =  20
+2022-08-11 08:11:35 [WARN] - 35sec , 124 - 63  =  61
+2022-08-11 08:11:41 [WARN] - 41sec , 191 - 124  =  67
+2022-08-11 08:11:47 [WARN] - 47sec , 198 - 191  =  7
+2022-08-11 08:11:53 [WARN] - 53sec , 207 - 198  =  9
+2022-08-11 08:12:00 [WARN] - 0sec , 1 - 207  =  -206
+2022-08-11 08:12:06 [WARN] - 6sec , 16 - 1  =  15
+2022-08-11 08:12:12 [WARN] - 12sec , 24 - 16  =  8
+2022-08-11 08:12:18 [WARN] - 18sec , 43 - 24  =  19
+2022-08-11 08:12:24 [WARN] - 24sec , 44 - 43  =  1
+2022-08-11 08:12:30 [WARN] - 30sec , 51 - 44  =  7
+2022-08-11 08:12:36 [WARN] - 36sec , 59 - 51  =  8
+2022-08-11 08:12:42 [WARN] - 42sec , 69 - 59  =  10
+2022-08-11 08:12:48 [WARN] - 48sec , 85 - 69  =  16
+2022-08-11 08:12:54 [WARN] - 54sec , 88 - 85  =  3
+2022-08-11 08:13:00 [WARN] - 0sec , 0 - 88  =  -88
+2022-08-11 08:13:06 [WARN] - 6sec , 21 - 0  =  21
+2022-08-11 08:13:12 [WARN] - 12sec , 43 - 21  =  22
+2022-08-11 08:13:18 [WARN] - 18sec , 64 - 43  =  21
+2022-08-11 08:13:24 [WARN] - 24sec , 74 - 64  =  10
+2022-08-11 08:13:30 [WARN] - 30sec , 90 - 74  =  16
+2022-08-11 08:13:36 [WARN] - 36sec , 139 - 90  =  49
+2022-08-11 08:13:42 [WARN] - 42sec , 145 - 139  =  6
+2022-08-11 08:13:48 [WARN] - 48sec , 160 - 145  =  15
+2022-08-11 08:13:54 [WARN] - 54sec , 244 - 160  =  84
+2022-08-11 08:14:00 [WARN] - 0sec , 3 - 244  =  -241
+2022-08-11 08:14:07 [WARN] - 7sec , 4 - 3  =  1
+2022-08-11 08:14:13 [WARN] - 13sec , 34 - 4  =  30
+2022-08-11 08:14:19 [WARN] - 19sec , 52 - 34  =  18
+2022-08-11 08:14:25 [WARN] - 25sec , 156 - 52  =  104
+2022-08-11 08:14:25 [WARN] - 10 Aug 2022 23:14:25 GMT : Candlestick[openTime=1660173240000,open=23889.4,high=23902.6,low=23886.4,close=23902.6,volume=156.116,closeTime=1660173299999,quoteAssetVolume=3730407.2331,numTrades=1245,takerBuyBaseAssetVolume=119.117,takerBuyQuoteAssetVolume=2846407.9197,ignore=0]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055785,price=23913.2,qty=0.101,quoteQty=2415.23,time=1660173266081,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055786,price=23913.2,qty=0.02,quoteQty=478.26,time=1660173266081,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055787,price=23913.2,qty=0.01,quoteQty=239.13,time=1660173266081,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055788,price=23913.2,qty=0.001,quoteQty=23.91,time=1660173266092,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055789,price=23911.1,qty=0.01,quoteQty=239.11,time=1660173266099,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055790,price=23912.7,qty=0.178,quoteQty=4256.46,time=1660173266112,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055791,price=23912.7,qty=0.017,quoteQty=406.51,time=1660173266114,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055792,price=23912.7,qty=0.005,quoteQty=119.56,time=1660173266116,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055793,price=23912.9,qty=0.018,quoteQty=430.43,time=1660173266116,isBuyerMaker=false]
+2022-08-11 08:14:25 [WARN] - Trade[id=2688055794,price=23912.6,qty=0.001,quoteQty=23.91,time=1660173266116,isBuyerMaker=true]
+2022-08-11 08:14:25 [WARN] - 매수 갯수 : 9 , Qty : 0.36000000000000004
+2022-08-11 08:14:25 [WARN] - 매도 갯수 : 1 , Qty : 0.001
+2022-08-11 08:14:25 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:14:31 [WARN] - 31sec , 365 - 156  =  209
+2022-08-11 08:14:31 [WARN] - 10 Aug 2022 23:14:31 GMT : Candlestick[openTime=1660173240000,open=23889.4,high=23913.5,low=23886.4,close=23913.4,volume=365.516,closeTime=1660173299999,quoteAssetVolume=8737422.1368,numTrades=2393,takerBuyBaseAssetVolume=216.26,takerBuyQuoteAssetVolume=5169140.9119,ignore=0]
+2022-08-11 08:14:31 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056503,price=23909.8,qty=0.001,quoteQty=23.9,time=1660173272144,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056504,price=23910.4,qty=0.001,quoteQty=23.91,time=1660173272169,isBuyerMaker=true]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056505,price=23910.4,qty=0.001,quoteQty=23.91,time=1660173272169,isBuyerMaker=true]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056506,price=23910.5,qty=0.004,quoteQty=95.64,time=1660173272169,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056507,price=23910.5,qty=0.001,quoteQty=23.91,time=1660173272183,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056508,price=23910.4,qty=0.001,quoteQty=23.91,time=1660173272190,isBuyerMaker=true]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056509,price=23910.5,qty=0.001,quoteQty=23.91,time=1660173272202,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056510,price=23911,qty=0.001,quoteQty=23.91,time=1660173272202,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056511,price=23911.5,qty=0.001,quoteQty=23.91,time=1660173272215,isBuyerMaker=false]
+2022-08-11 08:14:31 [WARN] - Trade[id=2688056512,price=23911.4,qty=0.001,quoteQty=23.91,time=1660173272216,isBuyerMaker=true]
+2022-08-11 08:14:31 [WARN] - 매수 갯수 : 6 , Qty : 0.009000000000000001
+2022-08-11 08:14:31 [WARN] - 매도 갯수 : 4 , Qty : 0.004
+2022-08-11 08:14:31 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:14:37 [WARN] - 37sec , 405 - 365  =  40
+2022-08-11 08:14:43 [WARN] - 43sec , 458 - 405  =  53
+2022-08-11 08:14:49 [WARN] - 49sec , 477 - 458  =  19
+2022-08-11 08:14:55 [WARN] - 55sec , 580 - 477  =  103
+2022-08-11 08:14:55 [WARN] - 10 Aug 2022 23:14:55 GMT : Candlestick[openTime=1660173240000,open=23889.4,high=23919,low=23886.4,close=23912.4,volume=580.294,closeTime=1660173299999,quoteAssetVolume=13873581.8974,numTrades=4050,takerBuyBaseAssetVolume=353.739,takerBuyQuoteAssetVolume=8456763.2721,ignore=0]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058079,price=23912.4,qty=0.001,quoteQty=23.91,time=1660173295929,isBuyerMaker=false]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058080,price=23912.4,qty=0.012,quoteQty=286.94,time=1660173295998,isBuyerMaker=false]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058081,price=23912.3,qty=0.07,quoteQty=1673.86,time=1660173296049,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058082,price=23912.4,qty=0.249,quoteQty=5954.18,time=1660173296054,isBuyerMaker=false]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058083,price=23912.4,qty=0.693,quoteQty=16571.29,time=1660173296374,isBuyerMaker=false]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058084,price=23912.3,qty=0.004,quoteQty=95.64,time=1660173296472,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058085,price=23912.3,qty=0.037,quoteQty=884.75,time=1660173296472,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058086,price=23912.3,qty=0.001,quoteQty=23.91,time=1660173296472,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058087,price=23912.3,qty=0.016,quoteQty=382.59,time=1660173296472,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - Trade[id=2688058088,price=23912.3,qty=0.001,quoteQty=23.91,time=1660173296480,isBuyerMaker=true]
+2022-08-11 08:14:55 [WARN] - 매수 갯수 : 4 , Qty : 0.955
+2022-08-11 08:14:55 [WARN] - 매도 갯수 : 6 , Qty : 0.129
+2022-08-11 08:15:01 [WARN] - 1sec , 0 - 580  =  -580
+2022-08-11 08:15:07 [WARN] - 7sec , 95 - 0  =  95
+2022-08-11 08:15:07 [WARN] - 10 Aug 2022 23:15:07 GMT : Candlestick[openTime=1660173300000,open=23906.9,high=23906.9,low=23894.6,close=23895.2,volume=95.251,closeTime=1660173359999,quoteAssetVolume=2276422.3893,numTrades=536,takerBuyBaseAssetVolume=42.609,takerBuyQuoteAssetVolume=1018244.278,ignore=0]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058834,price=23895.2,qty=0.001,quoteQty=23.89,time=1660173307690,isBuyerMaker=true]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058835,price=23895.2,qty=0.001,quoteQty=23.89,time=1660173307709,isBuyerMaker=true]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058836,price=23895.2,qty=0.005,quoteQty=119.47,time=1660173307798,isBuyerMaker=true]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058837,price=23895.3,qty=0.003,quoteQty=71.68,time=1660173308072,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058838,price=23895.3,qty=0.018,quoteQty=430.11,time=1660173308188,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058839,price=23895.3,qty=0.059,quoteQty=1409.82,time=1660173308200,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058840,price=23895.3,qty=0.174,quoteQty=4157.78,time=1660173308235,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058841,price=23895.2,qty=0.01,quoteQty=238.95,time=1660173308275,isBuyerMaker=true]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058842,price=23895.3,qty=0.096,quoteQty=2293.94,time=1660173308551,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - Trade[id=2688058843,price=23895.3,qty=0.004,quoteQty=95.58,time=1660173308551,isBuyerMaker=false]
+2022-08-11 08:15:07 [WARN] - 매수 갯수 : 6 , Qty : 0.354
+2022-08-11 08:15:07 [WARN] - 매도 갯수 : 4 , Qty : 0.017
+2022-08-11 08:15:07 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:15:13 [WARN] - 13sec , 122 - 95  =  27
+2022-08-11 08:15:19 [WARN] - 19sec , 140 - 122  =  18
+2022-08-11 08:15:25 [WARN] - 25sec , 145 - 140  =  5
+2022-08-11 08:15:32 [WARN] - 32sec , 151 - 145  =  6
+2022-08-11 08:15:38 [WARN] - 38sec , 205 - 151  =  54
+2022-08-11 08:15:44 [WARN] - 44sec , 214 - 205  =  9
+2022-08-11 08:15:50 [WARN] - 50sec , 295 - 214  =  81
+2022-08-11 08:15:56 [WARN] - 56sec , 308 - 295  =  13
+2022-08-11 08:16:02 [WARN] - 2sec , 0 - 308  =  -308
+2022-08-11 08:16:08 [WARN] - 8sec , 44 - 0  =  44
+2022-08-11 08:16:14 [WARN] - 14sec , 107 - 44  =  63
+2022-08-11 08:16:20 [WARN] - 20sec , 164 - 107  =  57
+2022-08-11 08:16:26 [WARN] - 26sec , 192 - 164  =  28
+2022-08-11 08:16:32 [WARN] - 32sec , 243 - 192  =  51
+2022-08-11 08:16:38 [WARN] - 38sec , 254 - 243  =  11
+2022-08-11 08:16:44 [WARN] - 44sec , 257 - 254  =  3
+2022-08-11 08:16:50 [WARN] - 50sec , 267 - 257  =  10
+2022-08-11 08:16:56 [WARN] - 56sec , 289 - 267  =  22
+2022-08-11 08:17:02 [WARN] - 2sec , 51 - 289  =  -238
+2022-08-11 08:17:08 [WARN] - 8sec , 83 - 51  =  32
+2022-08-11 08:17:14 [WARN] - 14sec , 86 - 83  =  3
+2022-08-11 08:17:20 [WARN] - 20sec , 91 - 86  =  5
+2022-08-11 08:17:27 [WARN] - 27sec , 96 - 91  =  5
+2022-08-11 08:17:33 [WARN] - 33sec , 103 - 96  =  7
+2022-08-11 08:17:39 [WARN] - 39sec , 126 - 103  =  23
+2022-08-11 08:17:45 [WARN] - 45sec , 130 - 126  =  4
+2022-08-11 08:17:51 [WARN] - 51sec , 151 - 130  =  21
+2022-08-11 08:17:57 [WARN] - 57sec , 154 - 151  =  3
+2022-08-11 08:18:03 [WARN] - 3sec , 4 - 154  =  -150
+2022-08-11 08:18:09 [WARN] - 9sec , 10 - 4  =  6
+2022-08-11 08:18:15 [WARN] - 15sec , 31 - 10  =  21
+2022-08-11 08:18:21 [WARN] - 21sec , 40 - 31  =  9
+2022-08-11 08:18:27 [WARN] - 27sec , 50 - 40  =  10
+2022-08-11 08:18:33 [WARN] - 33sec , 57 - 50  =  7
+2022-08-11 08:18:39 [WARN] - 39sec , 68 - 57  =  11
+2022-08-11 08:18:45 [WARN] - 45sec , 70 - 68  =  2
+2022-08-11 08:18:51 [WARN] - 51sec , 72 - 70  =  2
+2022-08-11 08:18:57 [WARN] - 57sec , 86 - 72  =  14
+2022-08-11 08:19:03 [WARN] - 3sec , 6 - 86  =  -80
+2022-08-11 08:19:09 [WARN] - 9sec , 54 - 6  =  48
+2022-08-11 08:19:15 [WARN] - 15sec , 81 - 54  =  27
+2022-08-11 08:19:21 [WARN] - 21sec , 107 - 81  =  26
+2022-08-11 08:19:28 [WARN] - 28sec , 118 - 107  =  11
+2022-08-11 08:19:34 [WARN] - 34sec , 127 - 118  =  9
+2022-08-11 08:19:40 [WARN] - 40sec , 130 - 127  =  3
+2022-08-11 08:19:46 [WARN] - 46sec , 139 - 130  =  9
+2022-08-11 08:19:52 [WARN] - 52sec , 157 - 139  =  18
+2022-08-11 08:19:58 [WARN] - 58sec , 175 - 157  =  18
+2022-08-11 08:20:04 [WARN] - 4sec , 2 - 175  =  -173
+2022-08-11 08:20:10 [WARN] - 10sec , 7 - 2  =  5
+2022-08-11 08:20:16 [WARN] - 16sec , 20 - 7  =  13
+2022-08-11 08:20:22 [WARN] - 22sec , 32 - 20  =  12
+2022-08-11 08:20:28 [WARN] - 28sec , 44 - 32  =  12
+2022-08-11 08:20:34 [WARN] - 34sec , 48 - 44  =  4
+2022-08-11 08:20:40 [WARN] - 40sec , 50 - 48  =  2
+2022-08-11 08:20:46 [WARN] - 46sec , 51 - 50  =  1
+2022-08-11 08:20:52 [WARN] - 52sec , 58 - 51  =  7
+2022-08-11 08:20:58 [WARN] - 58sec , 60 - 58  =  2
+2022-08-11 08:21:04 [WARN] - 4sec , 0 - 60  =  -60
+2022-08-11 08:21:10 [WARN] - 10sec , 9 - 0  =  9
+2022-08-11 08:21:16 [WARN] - 16sec , 12 - 9  =  3
+2022-08-11 08:21:23 [WARN] - 23sec , 19 - 12  =  7
+2022-08-11 08:21:29 [WARN] - 29sec , 20 - 19  =  1
+2022-08-11 08:21:35 [WARN] - 35sec , 24 - 20  =  4
+2022-08-11 08:21:41 [WARN] - 41sec , 57 - 24  =  33
+2022-08-11 08:21:47 [WARN] - 47sec , 68 - 57  =  11
+2022-08-11 08:21:53 [WARN] - 53sec , 92 - 68  =  24
+2022-08-11 08:21:59 [WARN] - 59sec , 109 - 92  =  17
+2022-08-11 08:22:05 [WARN] - 5sec , 10 - 109  =  -99
+2022-08-11 08:22:11 [WARN] - 11sec , 24 - 10  =  14
+2022-08-11 08:22:17 [WARN] - 17sec , 30 - 24  =  6
+2022-08-11 08:22:23 [WARN] - 23sec , 42 - 30  =  12
+2022-08-11 08:22:29 [WARN] - 29sec , 56 - 42  =  14
+2022-08-11 08:22:35 [WARN] - 35sec , 66 - 56  =  10
+2022-08-11 08:22:41 [WARN] - 41sec , 73 - 66  =  7
+2022-08-11 08:22:47 [WARN] - 47sec , 80 - 73  =  7
+2022-08-11 08:22:53 [WARN] - 53sec , 86 - 80  =  6
+2022-08-11 08:22:59 [WARN] - 59sec , 89 - 86  =  3
+2022-08-11 08:23:05 [WARN] - 5sec , 14 - 89  =  -75
+2022-08-11 08:23:11 [WARN] - 11sec , 22 - 14  =  8
+2022-08-11 08:23:17 [WARN] - 17sec , 32 - 22  =  10
+2022-08-11 08:23:24 [WARN] - 24sec , 37 - 32  =  5
+2022-08-11 08:23:30 [WARN] - 30sec , 57 - 37  =  20
+2022-08-11 08:23:36 [WARN] - 36sec , 60 - 57  =  3
+2022-08-11 08:23:42 [WARN] - 42sec , 77 - 60  =  17
+2022-08-11 08:23:48 [WARN] - 48sec , 91 - 77  =  14
+2022-08-11 08:23:54 [WARN] - 54sec , 95 - 91  =  4
+2022-08-11 08:24:00 [WARN] - 0sec , 98 - 95  =  3
+2022-08-11 08:24:06 [WARN] - 6sec , 77 - 98  =  -21
+2022-08-11 08:24:12 [WARN] - 12sec , 103 - 77  =  26
+2022-08-11 08:24:18 [WARN] - 18sec , 128 - 103  =  25
+2022-08-11 08:24:24 [WARN] - 24sec , 158 - 128  =  30
+2022-08-11 08:24:30 [WARN] - 30sec , 169 - 158  =  11
+2022-08-11 08:24:36 [WARN] - 36sec , 211 - 169  =  42
+2022-08-11 08:24:42 [WARN] - 42sec , 223 - 211  =  12
+2022-08-11 08:24:48 [WARN] - 48sec , 228 - 223  =  5
+2022-08-11 08:24:54 [WARN] - 54sec , 235 - 228  =  7
+2022-08-11 08:25:00 [WARN] - 0sec , 0 - 235  =  -235
+2022-08-11 08:25:06 [WARN] - 6sec , 97 - 0  =  97
+2022-08-11 08:25:06 [WARN] - 10 Aug 2022 23:25:06 GMT : Candlestick[openTime=1660173900000,open=23871,high=23894.4,low=23871,close=23894.4,volume=97.438,closeTime=1660173959999,quoteAssetVolume=2327037.0258,numTrades=669,takerBuyBaseAssetVolume=77.755,takerBuyQuoteAssetVolume=1857033.0669,ignore=0]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076347,price=23902.5,qty=0.001,quoteQty=23.9,time=1660173907590,isBuyerMaker=false]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076348,price=23902.4,qty=0.001,quoteQty=23.9,time=1660173907590,isBuyerMaker=true]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076349,price=23902.5,qty=0.001,quoteQty=23.9,time=1660173907609,isBuyerMaker=false]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076350,price=23902.4,qty=0.001,quoteQty=23.9,time=1660173907609,isBuyerMaker=true]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076351,price=23902.5,qty=0.001,quoteQty=23.9,time=1660173907618,isBuyerMaker=false]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076352,price=23902.5,qty=0.001,quoteQty=23.9,time=1660173907645,isBuyerMaker=false]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076353,price=23902.4,qty=0.001,quoteQty=23.9,time=1660173907647,isBuyerMaker=true]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076354,price=23902.4,qty=0.001,quoteQty=23.9,time=1660173907669,isBuyerMaker=true]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076355,price=23902.4,qty=0.002,quoteQty=47.8,time=1660173907670,isBuyerMaker=true]
+2022-08-11 08:25:06 [WARN] - Trade[id=2688076356,price=23902.5,qty=0.001,quoteQty=23.9,time=1660173907670,isBuyerMaker=false]
+2022-08-11 08:25:06 [WARN] - 매수 갯수 : 5 , Qty : 0.005
+2022-08-11 08:25:06 [WARN] - 매도 갯수 : 5 , Qty : 0.006
+2022-08-11 08:25:12 [WARN] - 12sec , 249 - 97  =  152
+2022-08-11 08:25:12 [WARN] - 10 Aug 2022 23:25:12 GMT : Candlestick[openTime=1660173900000,open=23871,high=23907,low=23871,close=23900.9,volume=249.357,closeTime=1660173959999,quoteAssetVolume=5958155.4324,numTrades=1320,takerBuyBaseAssetVolume=186.571,takerBuyQuoteAssetVolume=4457738.4492,ignore=0]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076882,price=23893.4,qty=0.002,quoteQty=47.78,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076883,price=23893.4,qty=1.5,quoteQty=35840.1,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076884,price=23893.4,qty=0.009,quoteQty=215.04,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076885,price=23893.4,qty=0.05,quoteQty=1194.67,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076886,price=23893.4,qty=0.051,quoteQty=1218.56,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076887,price=23893.4,qty=0.001,quoteQty=23.89,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076888,price=23893.4,qty=0.008,quoteQty=191.14,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076889,price=23893.4,qty=0.021,quoteQty=501.76,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076890,price=23893.4,qty=0.015,quoteQty=358.4,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - Trade[id=2688076891,price=23893.4,qty=0.004,quoteQty=95.57,time=1660173913915,isBuyerMaker=false]
+2022-08-11 08:25:12 [WARN] - 매수 갯수 : 10 , Qty : 1.6609999999999996
+2022-08-11 08:25:12 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 08:25:12 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:25:19 [WARN] - 19sec , 261 - 249  =  12
+2022-08-11 08:25:25 [WARN] - 25sec , 273 - 261  =  12
+2022-08-11 08:25:31 [WARN] - 31sec , 275 - 273  =  2
+2022-08-11 08:25:37 [WARN] - 37sec , 298 - 275  =  23
+2022-08-11 08:25:43 [WARN] - 43sec , 305 - 298  =  7
+2022-08-11 08:25:49 [WARN] - 49sec , 320 - 305  =  15
+2022-08-11 08:25:55 [WARN] - 55sec , 331 - 320  =  11
+2022-08-11 08:26:01 [WARN] - 1sec , 40 - 331  =  -291
+2022-08-11 08:26:07 [WARN] - 7sec , 44 - 40  =  4
+2022-08-11 08:26:13 [WARN] - 13sec , 48 - 44  =  4
+2022-08-11 08:26:19 [WARN] - 19sec , 74 - 48  =  26
+2022-08-11 08:26:25 [WARN] - 25sec , 78 - 74  =  4
+2022-08-11 08:26:31 [WARN] - 31sec , 84 - 78  =  6
+2022-08-11 08:26:37 [WARN] - 37sec , 86 - 84  =  2
+2022-08-11 08:26:43 [WARN] - 43sec , 86 - 86  =  0
+2022-08-11 08:26:49 [WARN] - 49sec , 98 - 86  =  12
+2022-08-11 08:26:55 [WARN] - 55sec , 102 - 98  =  4
+2022-08-11 08:27:01 [WARN] - 1sec , 8 - 102  =  -94
+2022-08-11 08:27:07 [WARN] - 7sec , 30 - 8  =  22
+2022-08-11 08:27:14 [WARN] - 14sec , 36 - 30  =  6
+2022-08-11 08:27:20 [WARN] - 20sec , 41 - 36  =  5
+2022-08-11 08:27:26 [WARN] - 26sec , 44 - 41  =  3
+2022-08-11 08:27:32 [WARN] - 32sec , 79 - 44  =  35
+2022-08-11 08:27:38 [WARN] - 38sec , 82 - 79  =  3
+2022-08-11 08:27:44 [WARN] - 44sec , 121 - 82  =  39
+2022-08-11 08:27:50 [WARN] - 50sec , 127 - 121  =  6
+2022-08-11 08:27:56 [WARN] - 56sec , 136 - 127  =  9
+2022-08-11 08:28:02 [WARN] - 2sec , 6 - 136  =  -130
+2022-08-11 08:28:08 [WARN] - 8sec , 20 - 6  =  14
+2022-08-11 08:28:14 [WARN] - 14sec , 22 - 20  =  2
+2022-08-11 08:28:20 [WARN] - 20sec , 30 - 22  =  8
+2022-08-11 08:28:26 [WARN] - 26sec , 43 - 30  =  13
+2022-08-11 08:28:32 [WARN] - 32sec , 58 - 43  =  15
+2022-08-11 08:28:38 [WARN] - 38sec , 59 - 58  =  1
+2022-08-11 08:28:44 [WARN] - 44sec , 75 - 59  =  16
+2022-08-11 08:28:51 [WARN] - 51sec , 84 - 75  =  9
+2022-08-11 08:28:57 [WARN] - 57sec , 85 - 84  =  1
+2022-08-11 08:29:03 [WARN] - 3sec , 90 - 85  =  5
+2022-08-11 08:29:09 [WARN] - 9sec , 20 - 90  =  -70
+2022-08-11 08:29:15 [WARN] - 15sec , 26 - 20  =  6
+2022-08-11 08:29:21 [WARN] - 21sec , 37 - 26  =  11
+2022-08-11 08:29:27 [WARN] - 27sec , 76 - 37  =  39
+2022-08-11 08:29:33 [WARN] - 33sec , 91 - 76  =  15
+2022-08-11 08:29:39 [WARN] - 39sec , 92 - 91  =  1
+2022-08-11 08:29:45 [WARN] - 45sec , 97 - 92  =  5
+2022-08-11 08:29:51 [WARN] - 51sec , 195 - 97  =  98
+2022-08-11 08:29:51 [WARN] - 10 Aug 2022 23:29:51 GMT : Candlestick[openTime=1660174140000,open=23880.8,high=23880.9,low=23868.4,close=23869.7,volume=195.849,closeTime=1660174199999,quoteAssetVolume=4675525.8142,numTrades=1412,takerBuyBaseAssetVolume=56.943,takerBuyQuoteAssetVolume=1359322.5389,ignore=0]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083054,price=23869.7,qty=0.001,quoteQty=23.86,time=1660174191784,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083055,price=23869.7,qty=0.001,quoteQty=23.86,time=1660174191784,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083056,price=23869.8,qty=0.001,quoteQty=23.86,time=1660174191945,isBuyerMaker=false]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083057,price=23869.8,qty=0.004,quoteQty=95.47,time=1660174192101,isBuyerMaker=false]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083058,price=23869.8,qty=0.103,quoteQty=2458.58,time=1660174192244,isBuyerMaker=false]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083059,price=23869.7,qty=0.003,quoteQty=71.6,time=1660174192522,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083060,price=23869.7,qty=0.001,quoteQty=23.86,time=1660174192522,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083061,price=23869.7,qty=0.055,quoteQty=1312.83,time=1660174192522,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083062,price=23869.7,qty=0.146,quoteQty=3484.97,time=1660174192522,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - Trade[id=2688083063,price=23869.7,qty=0.001,quoteQty=23.86,time=1660174192540,isBuyerMaker=true]
+2022-08-11 08:29:51 [WARN] - 매수 갯수 : 3 , Qty : 0.108
+2022-08-11 08:29:51 [WARN] - 매도 갯수 : 7 , Qty : 0.208
+2022-08-11 08:29:51 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 08:29:57 [WARN] - 57sec , 242 - 195  =  47
+2022-08-11 08:30:03 [WARN] - 3sec , 56 - 242  =  -186
+2022-08-11 08:30:09 [WARN] - 9sec , 91 - 56  =  35
+2022-08-11 08:30:15 [WARN] - 15sec , 103 - 91  =  12
+2022-08-11 08:30:22 [WARN] - 22sec , 108 - 103  =  5
+2022-08-11 08:30:28 [WARN] - 28sec , 125 - 108  =  17
+2022-08-11 08:30:34 [WARN] - 34sec , 140 - 125  =  15
+2022-08-11 08:30:40 [WARN] - 40sec , 141 - 140  =  1
+2022-08-11 08:30:46 [WARN] - 46sec , 152 - 141  =  11
+2022-08-11 08:30:52 [WARN] - 52sec , 156 - 152  =  4
+2022-08-11 08:30:58 [WARN] - 58sec , 167 - 156  =  11
+2022-08-11 08:31:04 [WARN] - 4sec , 3 - 167  =  -164
+2022-08-11 08:31:10 [WARN] - 10sec , 5 - 3  =  2
+2022-08-11 08:31:16 [WARN] - 16sec , 28 - 5  =  23
+2022-08-11 08:31:22 [WARN] - 22sec , 89 - 28  =  61
+2022-08-11 08:31:28 [WARN] - 28sec , 93 - 89  =  4
+2022-08-11 08:31:34 [WARN] - 34sec , 107 - 93  =  14
+2022-08-11 08:31:40 [WARN] - 40sec , 121 - 107  =  14
+2022-08-11 08:31:46 [WARN] - 46sec , 130 - 121  =  9
+2022-08-11 08:31:52 [WARN] - 52sec , 139 - 130  =  9
+2022-08-11 08:31:58 [WARN] - 58sec , 141 - 139  =  2
+2022-08-11 08:32:05 [WARN] - 5sec , 0 - 141  =  -141
+2022-08-11 08:32:11 [WARN] - 11sec , 37 - 0  =  37
+2022-08-11 08:32:17 [WARN] - 17sec , 53 - 37  =  16
+2022-08-11 08:32:23 [WARN] - 23sec , 60 - 53  =  7
+2022-08-11 08:32:29 [WARN] - 29sec , 60 - 60  =  0
+2022-08-11 08:32:35 [WARN] - 35sec , 61 - 60  =  1
+2022-08-11 08:32:41 [WARN] - 41sec , 68 - 61  =  7
+2022-08-11 08:32:47 [WARN] - 47sec , 80 - 68  =  12
+2022-08-11 08:32:53 [WARN] - 53sec , 93 - 80  =  13
+2022-08-11 08:32:59 [WARN] - 59sec , 97 - 93  =  4
+2022-08-11 08:33:05 [WARN] - 5sec , 17 - 97  =  -80
+2022-08-11 08:33:11 [WARN] - 11sec , 26 - 17  =  9
+2022-08-11 08:33:17 [WARN] - 17sec , 29 - 26  =  3
+2022-08-11 08:33:23 [WARN] - 23sec , 37 - 29  =  8
+2022-08-11 08:33:29 [WARN] - 29sec , 51 - 37  =  14
+2022-08-11 08:33:35 [WARN] - 35sec , 55 - 51  =  4
+2022-08-11 08:33:41 [WARN] - 41sec , 64 - 55  =  9
+2022-08-11 08:33:47 [WARN] - 47sec , 70 - 64  =  6
+2022-08-11 08:33:54 [WARN] - 54sec , 80 - 70  =  10
+2022-08-11 08:34:00 [WARN] - 0sec , 99 - 80  =  19
+2022-08-11 08:34:06 [WARN] - 6sec , 1 - 99  =  -98
+2022-08-11 08:34:12 [WARN] - 12sec , 7 - 1  =  6
+2022-08-11 08:34:18 [WARN] - 18sec , 31 - 7  =  24
+2022-08-11 08:34:24 [WARN] - 24sec , 33 - 31  =  2
+2022-08-11 08:34:30 [WARN] - 30sec , 50 - 33  =  17
+2022-08-11 08:34:36 [WARN] - 36sec , 57 - 50  =  7
+2022-08-11 08:34:42 [WARN] - 42sec , 83 - 57  =  26
+2022-08-11 08:34:48 [WARN] - 48sec , 87 - 83  =  4
+2022-08-11 08:34:54 [WARN] - 54sec , 97 - 87  =  10
+2022-08-11 08:35:00 [WARN] - 0sec , 2 - 97  =  -95
+2022-08-11 08:35:06 [WARN] - 6sec , 9 - 2  =  7
+2022-08-11 08:35:12 [WARN] - 12sec , 23 - 9  =  14
+2022-08-11 08:35:18 [WARN] - 18sec , 67 - 23  =  44
+2022-08-11 08:35:24 [WARN] - 24sec , 80 - 67  =  13
+2022-08-11 08:35:30 [WARN] - 30sec , 81 - 80  =  1
+2022-08-11 08:35:36 [WARN] - 36sec , 107 - 81  =  26
+2022-08-11 08:35:42 [WARN] - 42sec , 108 - 107  =  1
+2022-08-11 08:35:48 [WARN] - 48sec , 202 - 108  =  94
+2022-08-11 08:35:48 [WARN] - 10 Aug 2022 23:35:48 GMT : Candlestick[openTime=1660174500000,open=23894.9,high=23918,low=23894.9,close=23918,volume=202.988,closeTime=1660174559999,quoteAssetVolume=4852667.5238,numTrades=1945,takerBuyBaseAssetVolume=162.341,takerBuyQuoteAssetVolume=3880976.2688,ignore=0]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092303,price=23915,qty=0.001,quoteQty=23.91,time=1660174549751,isBuyerMaker=true]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092304,price=23915.2,qty=0.001,quoteQty=23.91,time=1660174549751,isBuyerMaker=false]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092305,price=23914.9,qty=0.001,quoteQty=23.91,time=1660174549751,isBuyerMaker=true]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092306,price=23915.2,qty=0.001,quoteQty=23.91,time=1660174549751,isBuyerMaker=false]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092307,price=23915.1,qty=0.001,quoteQty=23.91,time=1660174549775,isBuyerMaker=false]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092308,price=23915.1,qty=0.001,quoteQty=23.91,time=1660174549797,isBuyerMaker=false]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092309,price=23914.9,qty=0.001,quoteQty=23.91,time=1660174549797,isBuyerMaker=true]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092310,price=23914.9,qty=0.001,quoteQty=23.91,time=1660174549803,isBuyerMaker=true]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092311,price=23915,qty=0.001,quoteQty=23.91,time=1660174549804,isBuyerMaker=false]
+2022-08-11 08:35:49 [WARN] - Trade[id=2688092312,price=23914.9,qty=0.001,quoteQty=23.91,time=1660174549804,isBuyerMaker=true]
+2022-08-11 08:35:49 [WARN] - 매수 갯수 : 5 , Qty : 0.005
+2022-08-11 08:35:49 [WARN] - 매도 갯수 : 5 , Qty : 0.005
+2022-08-11 08:35:55 [WARN] - 55sec , 247 - 202  =  45
+2022-08-11 08:36:01 [WARN] - 1sec , 1 - 247  =  -246
+2022-08-11 08:36:07 [WARN] - 7sec , 23 - 1  =  22
+2022-08-11 08:36:13 [WARN] - 13sec , 44 - 23  =  21
+2022-08-11 08:36:19 [WARN] - 19sec , 103 - 44  =  59
+2022-08-11 08:36:25 [WARN] - 25sec , 105 - 103  =  2
+2022-08-11 08:36:31 [WARN] - 31sec , 118 - 105  =  13
+2022-08-11 08:36:37 [WARN] - 37sec , 142 - 118  =  24
+2022-08-11 08:36:43 [WARN] - 43sec , 151 - 142  =  9
+2022-08-11 08:36:49 [WARN] - 49sec , 160 - 151  =  9
+2022-08-11 08:36:55 [WARN] - 55sec , 176 - 160  =  16
+2022-08-11 08:37:01 [WARN] - 1sec , 13 - 176  =  -163
+2022-08-11 08:37:07 [WARN] - 7sec , 18 - 13  =  5
+2022-08-11 08:37:13 [WARN] - 13sec , 22 - 18  =  4
+2022-08-11 08:37:19 [WARN] - 19sec , 78 - 22  =  56
+2022-08-11 08:37:26 [WARN] - 26sec , 112 - 78  =  34
+2022-08-11 08:37:32 [WARN] - 32sec , 137 - 112  =  25
+2022-08-11 08:37:38 [WARN] - 38sec , 153 - 137  =  16
+2022-08-11 08:37:44 [WARN] - 44sec , 157 - 153  =  4
+2022-08-11 08:37:50 [WARN] - 50sec , 160 - 157  =  3
+2022-08-11 08:37:56 [WARN] - 56sec , 165 - 160  =  5
+2022-08-11 08:38:02 [WARN] - 2sec , 167 - 165  =  2
+2022-08-11 08:38:08 [WARN] - 8sec , 36 - 167  =  -131
+2022-08-11 08:38:14 [WARN] - 14sec , 45 - 36  =  9
+2022-08-11 08:38:20 [WARN] - 20sec , 55 - 45  =  10
+2022-08-11 08:38:26 [WARN] - 26sec , 57 - 55  =  2
+2022-08-11 08:38:32 [WARN] - 32sec , 64 - 57  =  7
+2022-08-11 08:38:38 [WARN] - 38sec , 67 - 64  =  3
+2022-08-11 08:38:44 [WARN] - 44sec , 71 - 67  =  4
+2022-08-11 08:38:50 [WARN] - 50sec , 85 - 71  =  14
+2022-08-11 08:38:56 [WARN] - 56sec , 91 - 85  =  6
+2022-08-11 08:39:03 [WARN] - 3sec , 0 - 91  =  -91
+2022-08-11 08:39:09 [WARN] - 9sec , 4 - 0  =  4
+2022-08-11 08:39:15 [WARN] - 15sec , 20 - 4  =  16
+2022-08-11 08:39:21 [WARN] - 21sec , 25 - 20  =  5
+2022-08-11 08:39:27 [WARN] - 27sec , 27 - 25  =  2
+2022-08-11 08:39:33 [WARN] - 33sec , 34 - 27  =  7
+2022-08-11 08:39:39 [WARN] - 39sec , 37 - 34  =  3
+2022-08-11 08:39:45 [WARN] - 45sec , 41 - 37  =  4
+2022-08-11 08:39:51 [WARN] - 51sec , 42 - 41  =  1
+2022-08-11 08:39:57 [WARN] - 57sec , 48 - 42  =  6
+2022-08-11 08:40:03 [WARN] - 3sec , 28 - 48  =  -20
+2022-08-11 08:40:09 [WARN] - 9sec , 38 - 28  =  10
+2022-08-11 08:40:15 [WARN] - 15sec , 39 - 38  =  1
+2022-08-11 08:40:21 [WARN] - 21sec , 43 - 39  =  4
+2022-08-11 08:40:27 [WARN] - 27sec , 44 - 43  =  1
+2022-08-11 08:40:33 [WARN] - 33sec , 54 - 44  =  10
+2022-08-11 08:40:40 [WARN] - 40sec , 55 - 54  =  1
+2022-08-11 08:40:46 [WARN] - 46sec , 58 - 55  =  3
+2022-08-11 08:40:52 [WARN] - 52sec , 63 - 58  =  5
+2022-08-11 08:40:58 [WARN] - 58sec , 86 - 63  =  23
+2022-08-11 08:41:04 [WARN] - 4sec , 86 - 86  =  0
+2022-08-11 08:41:10 [WARN] - 10sec , 84 - 86  =  -2
+2022-08-11 08:41:16 [WARN] - 16sec , 104 - 84  =  20
+2022-08-11 08:41:22 [WARN] - 22sec , 128 - 104  =  24
+2022-08-11 08:41:28 [WARN] - 28sec , 145 - 128  =  17
+2022-08-11 08:41:34 [WARN] - 34sec , 156 - 145  =  11
+2022-08-11 08:41:40 [WARN] - 40sec , 169 - 156  =  13
+2022-08-11 08:41:46 [WARN] - 46sec , 172 - 169  =  3
+2022-08-11 08:41:52 [WARN] - 52sec , 175 - 172  =  3
+2022-08-11 08:41:58 [WARN] - 58sec , 178 - 175  =  3
+2022-08-11 08:42:04 [WARN] - 4sec , 0 - 178  =  -178
+2022-08-11 08:42:10 [WARN] - 10sec , 30 - 0  =  30
+2022-08-11 08:42:16 [WARN] - 16sec , 36 - 30  =  6
+2022-08-11 08:42:22 [WARN] - 22sec , 52 - 36  =  16
+2022-08-11 08:42:28 [WARN] - 28sec , 65 - 52  =  13
+2022-08-11 08:42:35 [WARN] - 35sec , 77 - 65  =  12
+2022-08-11 08:42:41 [WARN] - 41sec , 88 - 77  =  11
+2022-08-11 08:42:47 [WARN] - 47sec , 94 - 88  =  6
+2022-08-11 08:42:53 [WARN] - 53sec , 97 - 94  =  3
+2022-08-11 08:42:59 [WARN] - 59sec , 109 - 97  =  12
+2022-08-11 08:43:05 [WARN] - 5sec , 1 - 109  =  -108
+2022-08-11 08:43:11 [WARN] - 11sec , 20 - 1  =  19
+2022-08-11 08:43:17 [WARN] - 17sec , 58 - 20  =  38
+2022-08-11 08:43:23 [WARN] - 23sec , 67 - 58  =  9
+2022-08-11 08:43:29 [WARN] - 29sec , 77 - 67  =  10
+2022-08-11 08:43:35 [WARN] - 35sec , 79 - 77  =  2
+2022-08-11 08:43:41 [WARN] - 41sec , 86 - 79  =  7
+2022-08-11 08:43:47 [WARN] - 47sec , 87 - 86  =  1
+2022-08-11 08:43:53 [WARN] - 53sec , 89 - 87  =  2
+2022-08-11 08:43:59 [WARN] - 59sec , 97 - 89  =  8
+2022-08-11 08:44:05 [WARN] - 5sec , 9 - 97  =  -88
+2022-08-11 08:44:11 [WARN] - 11sec , 10 - 9  =  1
+2022-08-11 08:44:17 [WARN] - 17sec , 15 - 10  =  5
+2022-08-11 08:44:24 [WARN] - 24sec , 17 - 15  =  2
+2022-08-11 08:44:30 [WARN] - 30sec , 22 - 17  =  5
+2022-08-11 08:44:36 [WARN] - 36sec , 44 - 22  =  22
+2022-08-11 08:44:42 [WARN] - 42sec , 44 - 44  =  0
+2022-08-11 08:44:48 [WARN] - 48sec , 48 - 44  =  4
+2022-08-11 08:44:54 [WARN] - 54sec , 53 - 48  =  5
+2022-08-11 08:45:00 [WARN] - 0sec , 0 - 53  =  -53
+2022-08-11 08:45:06 [WARN] - 6sec , 23 - 0  =  23
+2022-08-11 08:45:12 [WARN] - 12sec , 34 - 23  =  11
+2022-08-11 08:45:18 [WARN] - 18sec , 35 - 34  =  1
+2022-08-11 08:45:24 [WARN] - 24sec , 64 - 35  =  29
+2022-08-11 08:45:30 [WARN] - 30sec , 70 - 64  =  6
+2022-08-11 08:45:36 [WARN] - 36sec , 76 - 70  =  6
+2022-08-11 08:45:42 [WARN] - 42sec , 88 - 76  =  12
+2022-08-11 08:45:48 [WARN] - 48sec , 92 - 88  =  4
+2022-08-11 08:45:54 [WARN] - 54sec , 96 - 92  =  4
+2022-08-11 08:46:00 [WARN] - 0sec , 98 - 96  =  2
+2022-08-11 08:46:06 [WARN] - 6sec , 1 - 98  =  -97
+2022-08-11 08:46:12 [WARN] - 12sec , 10 - 1  =  9
+2022-08-11 08:46:18 [WARN] - 18sec , 30 - 10  =  20
+2022-08-11 08:46:25 [WARN] - 25sec , 42 - 30  =  12
+2022-08-11 08:46:31 [WARN] - 31sec , 59 - 42  =  17
+2022-08-11 08:46:37 [WARN] - 37sec , 64 - 59  =  5
+2022-08-11 08:46:43 [WARN] - 43sec , 68 - 64  =  4
+2022-08-11 08:46:49 [WARN] - 49sec , 71 - 68  =  3
+2022-08-11 08:46:55 [WARN] - 55sec , 83 - 71  =  12
+2022-08-11 08:47:01 [WARN] - 1sec , 0 - 83  =  -83
+2022-08-11 08:47:07 [WARN] - 7sec , 6 - 0  =  6
+2022-08-11 08:47:13 [WARN] - 13sec , 9 - 6  =  3
+2022-08-11 08:47:19 [WARN] - 19sec , 16 - 9  =  7
+2022-08-11 08:47:25 [WARN] - 25sec , 21 - 16  =  5
+2022-08-11 08:47:31 [WARN] - 31sec , 23 - 21  =  2
+2022-08-11 08:47:37 [WARN] - 37sec , 68 - 23  =  45
+2022-08-11 08:47:43 [WARN] - 43sec , 71 - 68  =  3
+2022-08-11 08:47:49 [WARN] - 49sec , 76 - 71  =  5
+2022-08-11 08:47:55 [WARN] - 55sec , 83 - 76  =  7
+2022-08-11 08:48:01 [WARN] - 1sec , 88 - 83  =  5
+2022-08-11 08:48:07 [WARN] - 7sec , 4 - 88  =  -84
+2022-08-11 08:48:13 [WARN] - 13sec , 8 - 4  =  4
+2022-08-11 08:48:19 [WARN] - 19sec , 10 - 8  =  2
+2022-08-11 08:48:26 [WARN] - 26sec , 21 - 10  =  11
+2022-08-11 08:48:32 [WARN] - 32sec , 29 - 21  =  8
+2022-08-11 08:48:38 [WARN] - 38sec , 57 - 29  =  28
+2022-08-11 08:48:44 [WARN] - 44sec , 72 - 57  =  15
+2022-08-11 08:48:50 [WARN] - 50sec , 74 - 72  =  2
+2022-08-11 08:48:56 [WARN] - 56sec , 320 - 74  =  246
+2022-08-11 08:48:56 [WARN] - 10 Aug 2022 23:48:56 GMT : Candlestick[openTime=1660175280000,open=23884.3,high=23899.7,low=23880,close=23897.5,volume=320.827,closeTime=1660175339999,quoteAssetVolume=7664788.3369,numTrades=1376,takerBuyBaseAssetVolume=284.523,takerBuyQuoteAssetVolume=6797531.3478,ignore=0]
+2022-08-11 08:48:56 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109602,price=23897.5,qty=0.17,quoteQty=4062.57,time=1660175335431,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109603,price=23897.5,qty=0.04,quoteQty=955.9,time=1660175335562,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109604,price=23897.5,qty=0.022,quoteQty=525.74,time=1660175335562,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109605,price=23897.4,qty=0.005,quoteQty=119.48,time=1660175335706,isBuyerMaker=true]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109606,price=23897.5,qty=0.005,quoteQty=119.48,time=1660175336144,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109607,price=23897.4,qty=0.001,quoteQty=23.89,time=1660175336200,isBuyerMaker=true]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109608,price=23897.4,qty=0.001,quoteQty=23.89,time=1660175336531,isBuyerMaker=true]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109609,price=23897.5,qty=0.004,quoteQty=95.59,time=1660175337053,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109610,price=23897.4,qty=0.098,quoteQty=2341.94,time=1660175337130,isBuyerMaker=true]
+2022-08-11 08:48:56 [WARN] - Trade[id=2688109611,price=23897.5,qty=0.002,quoteQty=47.79,time=1660175337184,isBuyerMaker=false]
+2022-08-11 08:48:56 [WARN] - 매수 갯수 : 6 , Qty : 0.24300000000000002
+2022-08-11 08:48:56 [WARN] - 매도 갯수 : 4 , Qty : 0.10500000000000001
+2022-08-11 08:48:56 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:49:02 [WARN] - 2sec , 0 - 320  =  -320
+2022-08-11 08:49:08 [WARN] - 8sec , 60 - 0  =  60
+2022-08-11 08:49:14 [WARN] - 14sec , 64 - 60  =  4
+2022-08-11 08:49:20 [WARN] - 20sec , 65 - 64  =  1
+2022-08-11 08:49:26 [WARN] - 26sec , 77 - 65  =  12
+2022-08-11 08:49:32 [WARN] - 32sec , 81 - 77  =  4
+2022-08-11 08:49:38 [WARN] - 38sec , 91 - 81  =  10
+2022-08-11 08:49:44 [WARN] - 44sec , 94 - 91  =  3
+2022-08-11 08:49:50 [WARN] - 50sec , 96 - 94  =  2
+2022-08-11 08:49:56 [WARN] - 56sec , 96 - 96  =  0
+2022-08-11 08:50:03 [WARN] - 3sec , 18 - 96  =  -78
+2022-08-11 08:50:09 [WARN] - 9sec , 46 - 18  =  28
+2022-08-11 08:50:15 [WARN] - 15sec , 46 - 46  =  0
+2022-08-11 08:50:21 [WARN] - 21sec , 66 - 46  =  20
+2022-08-11 08:50:27 [WARN] - 27sec , 68 - 66  =  2
+2022-08-11 08:50:33 [WARN] - 33sec , 69 - 68  =  1
+2022-08-11 08:50:39 [WARN] - 39sec , 71 - 69  =  2
+2022-08-11 08:50:45 [WARN] - 45sec , 72 - 71  =  1
+2022-08-11 08:50:51 [WARN] - 51sec , 73 - 72  =  1
+2022-08-11 08:50:57 [WARN] - 57sec , 76 - 73  =  3
+2022-08-11 08:51:03 [WARN] - 3sec , 0 - 76  =  -76
+2022-08-11 08:51:09 [WARN] - 9sec , 2 - 0  =  2
+2022-08-11 08:51:15 [WARN] - 15sec , 27 - 2  =  25
+2022-08-11 08:51:21 [WARN] - 21sec , 68 - 27  =  41
+2022-08-11 08:51:27 [WARN] - 27sec , 169 - 68  =  101
+2022-08-11 08:51:27 [WARN] - 10 Aug 2022 23:51:27 GMT : Candlestick[openTime=1660175460000,open=23898.8,high=23917.3,low=23898.8,close=23916.3,volume=169.862,closeTime=1660175519999,quoteAssetVolume=4061998.133,numTrades=970,takerBuyBaseAssetVolume=76.954,takerBuyQuoteAssetVolume=1839976.7598,ignore=0]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112772,price=23916.3,qty=0.003,quoteQty=71.74,time=1660175487834,isBuyerMaker=true]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112773,price=23916.3,qty=0.05,quoteQty=1195.81,time=1660175487918,isBuyerMaker=true]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112774,price=23916.4,qty=0.002,quoteQty=47.83,time=1660175487949,isBuyerMaker=false]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112775,price=23916.3,qty=0.018,quoteQty=430.49,time=1660175487954,isBuyerMaker=true]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112776,price=23916.3,qty=0.007,quoteQty=167.41,time=1660175487954,isBuyerMaker=true]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112777,price=23916.4,qty=0.002,quoteQty=47.83,time=1660175488257,isBuyerMaker=false]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112778,price=23916.3,qty=0.418,quoteQty=9997.01,time=1660175488261,isBuyerMaker=true]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112779,price=23916.4,qty=0.011,quoteQty=263.08,time=1660175488518,isBuyerMaker=false]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112780,price=23916.4,qty=0.009,quoteQty=215.24,time=1660175488519,isBuyerMaker=false]
+2022-08-11 08:51:27 [WARN] - Trade[id=2688112781,price=23916.4,qty=0.002,quoteQty=47.83,time=1660175488692,isBuyerMaker=false]
+2022-08-11 08:51:27 [WARN] - 매수 갯수 : 5 , Qty : 0.026000000000000002
+2022-08-11 08:51:27 [WARN] - 매도 갯수 : 5 , Qty : 0.496
+2022-08-11 08:51:33 [WARN] - 33sec , 184 - 169  =  15
+2022-08-11 08:51:39 [WARN] - 39sec , 208 - 184  =  24
+2022-08-11 08:51:45 [WARN] - 45sec , 215 - 208  =  7
+2022-08-11 08:51:51 [WARN] - 51sec , 233 - 215  =  18
+2022-08-11 08:51:58 [WARN] - 58sec , 267 - 233  =  34
+2022-08-11 08:52:04 [WARN] - 4sec , 1 - 267  =  -266
+2022-08-11 08:52:10 [WARN] - 10sec , 12 - 1  =  11
+2022-08-11 08:52:16 [WARN] - 16sec , 19 - 12  =  7
+2022-08-11 08:52:22 [WARN] - 22sec , 47 - 19  =  28
+2022-08-11 08:52:28 [WARN] - 28sec , 67 - 47  =  20
+2022-08-11 08:52:34 [WARN] - 34sec , 78 - 67  =  11
+2022-08-11 08:52:40 [WARN] - 40sec , 89 - 78  =  11
+2022-08-11 08:52:46 [WARN] - 46sec , 102 - 89  =  13
+2022-08-11 08:52:52 [WARN] - 52sec , 112 - 102  =  10
+2022-08-11 08:52:58 [WARN] - 58sec , 130 - 112  =  18
+2022-08-11 08:53:04 [WARN] - 4sec , 0 - 130  =  -130
+2022-08-11 08:53:10 [WARN] - 10sec , 11 - 0  =  11
+2022-08-11 08:53:16 [WARN] - 16sec , 59 - 11  =  48
+2022-08-11 08:53:22 [WARN] - 22sec , 207 - 59  =  148
+2022-08-11 08:53:22 [WARN] - 10 Aug 2022 23:53:22 GMT : Candlestick[openTime=1660175580000,open=23911.8,high=23935.6,low=23911.7,close=23935,volume=207.217,closeTime=1660175639999,quoteAssetVolume=4957754.0074,numTrades=1281,takerBuyBaseAssetVolume=197.95,takerBuyQuoteAssetVolume=4736104.5083,ignore=0]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117653,price=23929.1,qty=0.003,quoteQty=71.78,time=1660175603149,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117654,price=23929.1,qty=0.001,quoteQty=23.92,time=1660175603149,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117655,price=23929,qty=0.001,quoteQty=23.92,time=1660175603150,isBuyerMaker=true]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117656,price=23929.1,qty=0.001,quoteQty=23.92,time=1660175603167,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117657,price=23929,qty=0.001,quoteQty=23.92,time=1660175603197,isBuyerMaker=true]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117658,price=23929.1,qty=0.001,quoteQty=23.92,time=1660175603197,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117659,price=23929.1,qty=0.051,quoteQty=1220.38,time=1660175603355,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117660,price=23929,qty=0.003,quoteQty=71.78,time=1660175603408,isBuyerMaker=true]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117661,price=23929.1,qty=0.005,quoteQty=119.64,time=1660175603453,isBuyerMaker=false]
+2022-08-11 08:53:22 [WARN] - Trade[id=2688117662,price=23929,qty=0.036,quoteQty=861.44,time=1660175603616,isBuyerMaker=true]
+2022-08-11 08:53:22 [WARN] - 매수 갯수 : 6 , Qty : 0.06199999999999999
+2022-08-11 08:53:22 [WARN] - 매도 갯수 : 4 , Qty : 0.040999999999999995
+2022-08-11 08:53:22 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:53:28 [WARN] - 28sec , 455 - 207  =  248
+2022-08-11 08:53:28 [WARN] - 10 Aug 2022 23:53:28 GMT : Candlestick[openTime=1660175580000,open=23911.8,high=23943.9,low=23911.7,close=23922.5,volume=455.953,closeTime=1660175639999,quoteAssetVolume=10911067.5992,numTrades=2578,takerBuyBaseAssetVolume=370.929,takerBuyQuoteAssetVolume=8876406.6976,ignore=0]
+2022-08-11 08:53:28 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118010,price=23922.5,qty=0.001,quoteQty=23.92,time=1660175609508,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118011,price=23922.4,qty=0.001,quoteQty=23.92,time=1660175609508,isBuyerMaker=true]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118012,price=23922.5,qty=0.011,quoteQty=263.14,time=1660175609512,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118013,price=23922.5,qty=0.166,quoteQty=3971.13,time=1660175609512,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118014,price=23922.5,qty=0.014,quoteQty=334.91,time=1660175609544,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118015,price=23922.5,qty=0.002,quoteQty=47.84,time=1660175609544,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118016,price=23922.4,qty=0.001,quoteQty=23.92,time=1660175609555,isBuyerMaker=true]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118017,price=23922.5,qty=0.001,quoteQty=23.92,time=1660175609555,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118018,price=23922.5,qty=0.001,quoteQty=23.92,time=1660175609602,isBuyerMaker=false]
+2022-08-11 08:53:28 [WARN] - Trade[id=2688118019,price=23922.4,qty=0.001,quoteQty=23.92,time=1660175609602,isBuyerMaker=true]
+2022-08-11 08:53:28 [WARN] - 매수 갯수 : 7 , Qty : 0.19600000000000004
+2022-08-11 08:53:28 [WARN] - 매도 갯수 : 3 , Qty : 0.003
+2022-08-11 08:53:28 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:53:34 [WARN] - 34sec , 462 - 455  =  7
+2022-08-11 08:53:40 [WARN] - 40sec , 475 - 462  =  13
+2022-08-11 08:53:46 [WARN] - 46sec , 493 - 475  =  18
+2022-08-11 08:53:53 [WARN] - 53sec , 498 - 493  =  5
+2022-08-11 08:53:59 [WARN] - 59sec , 514 - 498  =  16
+2022-08-11 08:54:05 [WARN] - 5sec , 17 - 514  =  -497
+2022-08-11 08:54:11 [WARN] - 11sec , 20 - 17  =  3
+2022-08-11 08:54:17 [WARN] - 17sec , 42 - 20  =  22
+2022-08-11 08:54:23 [WARN] - 23sec , 52 - 42  =  10
+2022-08-11 08:54:29 [WARN] - 29sec , 61 - 52  =  9
+2022-08-11 08:54:35 [WARN] - 35sec , 84 - 61  =  23
+2022-08-11 08:54:41 [WARN] - 41sec , 121 - 84  =  37
+2022-08-11 08:54:47 [WARN] - 47sec , 126 - 121  =  5
+2022-08-11 08:54:53 [WARN] - 53sec , 145 - 126  =  19
+2022-08-11 08:54:59 [WARN] - 59sec , 145 - 145  =  0
+2022-08-11 08:55:05 [WARN] - 5sec , 19 - 145  =  -126
+2022-08-11 08:55:11 [WARN] - 11sec , 81 - 19  =  62
+2022-08-11 08:55:17 [WARN] - 17sec , 151 - 81  =  70
+2022-08-11 08:55:23 [WARN] - 23sec , 160 - 151  =  9
+2022-08-11 08:55:29 [WARN] - 29sec , 164 - 160  =  4
+2022-08-11 08:55:35 [WARN] - 35sec , 167 - 164  =  3
+2022-08-11 08:55:42 [WARN] - 42sec , 182 - 167  =  15
+2022-08-11 08:55:48 [WARN] - 48sec , 193 - 182  =  11
+2022-08-11 08:55:54 [WARN] - 54sec , 220 - 193  =  27
+2022-08-11 08:56:00 [WARN] - 0sec , 30 - 220  =  -190
+2022-08-11 08:56:06 [WARN] - 6sec , 38 - 30  =  8
+2022-08-11 08:56:12 [WARN] - 12sec , 42 - 38  =  4
+2022-08-11 08:56:18 [WARN] - 18sec , 69 - 42  =  27
+2022-08-11 08:56:24 [WARN] - 24sec , 74 - 69  =  5
+2022-08-11 08:56:30 [WARN] - 30sec , 148 - 74  =  74
+2022-08-11 08:56:36 [WARN] - 36sec , 158 - 148  =  10
+2022-08-11 08:56:42 [WARN] - 42sec , 166 - 158  =  8
+2022-08-11 08:56:48 [WARN] - 48sec , 169 - 166  =  3
+2022-08-11 08:56:54 [WARN] - 54sec , 219 - 169  =  50
+2022-08-11 08:57:00 [WARN] - 0sec , 222 - 219  =  3
+2022-08-11 08:57:06 [WARN] - 6sec , 27 - 222  =  -195
+2022-08-11 08:57:12 [WARN] - 12sec , 105 - 27  =  78
+2022-08-11 08:57:18 [WARN] - 18sec , 165 - 105  =  60
+2022-08-11 08:57:24 [WARN] - 24sec , 441 - 165  =  276
+2022-08-11 08:57:24 [WARN] - 10 Aug 2022 23:57:24 GMT : Candlestick[openTime=1660175820000,open=23934.9,high=23957.3,low=23931.6,close=23951.9,volume=441.655,closeTime=1660175879999,quoteAssetVolume=10575134.903,numTrades=2663,takerBuyBaseAssetVolume=243.065,takerBuyQuoteAssetVolume=5820781.2419,ignore=0]
+2022-08-11 08:57:24 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126742,price=23951.8,qty=0.227,quoteQty=5437.05,time=1660175845224,isBuyerMaker=true]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126743,price=23951.9,qty=0.014,quoteQty=335.32,time=1660175845370,isBuyerMaker=false]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126744,price=23951.8,qty=0.003,quoteQty=71.85,time=1660175845479,isBuyerMaker=true]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126745,price=23951.8,qty=0.31,quoteQty=7425.05,time=1660175845556,isBuyerMaker=true]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126746,price=23951.8,qty=0.007,quoteQty=167.66,time=1660175845556,isBuyerMaker=true]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126747,price=23951.9,qty=0.039,quoteQty=934.12,time=1660175845565,isBuyerMaker=false]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126748,price=23951.8,qty=0.044,quoteQty=1053.87,time=1660175845654,isBuyerMaker=true]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126749,price=23951.9,qty=0.059,quoteQty=1413.16,time=1660175845739,isBuyerMaker=false]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126750,price=23951.9,qty=0.098,quoteQty=2347.28,time=1660175845780,isBuyerMaker=false]
+2022-08-11 08:57:25 [WARN] - Trade[id=2688126751,price=23951.9,qty=0.002,quoteQty=47.9,time=1660175845780,isBuyerMaker=false]
+2022-08-11 08:57:25 [WARN] - 매수 갯수 : 5 , Qty : 0.212
+2022-08-11 08:57:25 [WARN] - 매도 갯수 : 5 , Qty : 0.5910000000000001
+2022-08-11 08:57:31 [WARN] - 31sec , 539 - 441  =  98
+2022-08-11 08:57:31 [WARN] - 10 Aug 2022 23:57:31 GMT : Candlestick[openTime=1660175820000,open=23934.9,high=23957.3,low=23931.6,close=23952.7,volume=539.095,closeTime=1660175879999,quoteAssetVolume=12909142.6923,numTrades=3086,takerBuyBaseAssetVolume=315.148,takerBuyQuoteAssetVolume=7547405.0217,ignore=0]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127163,price=23952.7,qty=0.009,quoteQty=215.57,time=1660175851808,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127164,price=23952.7,qty=0.064,quoteQty=1532.97,time=1660175851922,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127165,price=23952.7,qty=0.041,quoteQty=982.06,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127166,price=23952.7,qty=0.123,quoteQty=2946.18,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127167,price=23952.7,qty=0.101,quoteQty=2419.22,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127168,price=23952.7,qty=0.143,quoteQty=3425.23,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127169,price=23952.7,qty=0.117,quoteQty=2802.46,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127170,price=23952.7,qty=0.2,quoteQty=4790.54,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127171,price=23952.7,qty=0.008,quoteQty=191.62,time=1660175852011,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - Trade[id=2688127172,price=23952.7,qty=0.001,quoteQty=23.95,time=1660175852022,isBuyerMaker=false]
+2022-08-11 08:57:31 [WARN] - 매수 갯수 : 10 , Qty : 0.807
+2022-08-11 08:57:31 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 08:57:31 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 08:57:37 [WARN] - 37sec , 560 - 539  =  21
+2022-08-11 08:57:43 [WARN] - 43sec , 659 - 560  =  99
+2022-08-11 08:57:43 [WARN] - 10 Aug 2022 23:57:43 GMT : Candlestick[openTime=1660175820000,open=23934.9,high=23957.3,low=23931.6,close=23950.2,volume=659.279,closeTime=1660175879999,quoteAssetVolume=15787614.4785,numTrades=3651,takerBuyBaseAssetVolume=403.572,takerBuyQuoteAssetVolume=9665207.8447,ignore=0]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127726,price=23950.1,qty=0.01,quoteQty=239.5,time=1660175863797,isBuyerMaker=true]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127727,price=23950.2,qty=0.001,quoteQty=23.95,time=1660175863805,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127728,price=23950.2,qty=0.003,quoteQty=71.85,time=1660175863824,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127729,price=23950.2,qty=0.003,quoteQty=71.85,time=1660175863931,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127730,price=23950.2,qty=0.003,quoteQty=71.85,time=1660175863931,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127731,price=23950.1,qty=0.001,quoteQty=23.95,time=1660175863975,isBuyerMaker=true]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127732,price=23950.1,qty=0.038,quoteQty=910.1,time=1660175863977,isBuyerMaker=true]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127733,price=23950.1,qty=0.002,quoteQty=47.9,time=1660175863990,isBuyerMaker=true]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127734,price=23950.2,qty=0.003,quoteQty=71.85,time=1660175864077,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - Trade[id=2688127735,price=23950.2,qty=0.001,quoteQty=23.95,time=1660175864077,isBuyerMaker=false]
+2022-08-11 08:57:43 [WARN] - 매수 갯수 : 6 , Qty : 0.014000000000000002
+2022-08-11 08:57:43 [WARN] - 매도 갯수 : 4 , Qty : 0.051000000000000004
+2022-08-11 08:57:49 [WARN] - 49sec , 675 - 659  =  16
+2022-08-11 08:57:55 [WARN] - 55sec , 685 - 675  =  10
+2022-08-11 08:58:01 [WARN] - 1sec , 1 - 685  =  -684
+2022-08-11 08:58:07 [WARN] - 7sec , 46 - 1  =  45
+2022-08-11 08:58:13 [WARN] - 13sec , 57 - 46  =  11
+2022-08-11 08:58:19 [WARN] - 19sec , 125 - 57  =  68
+2022-08-11 08:58:25 [WARN] - 25sec , 136 - 125  =  11
+2022-08-11 08:58:31 [WARN] - 31sec , 139 - 136  =  3
+2022-08-11 08:58:37 [WARN] - 37sec , 144 - 139  =  5
+2022-08-11 08:58:43 [WARN] - 43sec , 160 - 144  =  16
+2022-08-11 08:58:49 [WARN] - 49sec , 169 - 160  =  9
+2022-08-11 08:58:55 [WARN] - 55sec , 214 - 169  =  45
+2022-08-11 08:59:01 [WARN] - 1sec , 3 - 214  =  -211
+2022-08-11 08:59:08 [WARN] - 8sec , 20 - 3  =  17
+2022-08-11 08:59:14 [WARN] - 14sec , 29 - 20  =  9
+2022-08-11 08:59:20 [WARN] - 20sec , 30 - 29  =  1
+2022-08-11 08:59:26 [WARN] - 26sec , 193 - 30  =  163
+2022-08-11 08:59:26 [WARN] - 10 Aug 2022 23:59:26 GMT : Candlestick[openTime=1660175940000,open=23937.3,high=23952,low=23935.1,close=23952,volume=193.199,closeTime=1660175999999,quoteAssetVolume=4625490.0942,numTrades=1264,takerBuyBaseAssetVolume=155.517,takerBuyQuoteAssetVolume=3723310.1713,ignore=0]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131680,price=23947,qty=0.001,quoteQty=23.94,time=1660175967096,isBuyerMaker=true]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131681,price=23947.1,qty=0.001,quoteQty=23.94,time=1660175967096,isBuyerMaker=false]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131682,price=23947,qty=0.001,quoteQty=23.94,time=1660175967141,isBuyerMaker=true]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131683,price=23947.1,qty=0.001,quoteQty=23.94,time=1660175967142,isBuyerMaker=false]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131684,price=23947.1,qty=0.001,quoteQty=23.94,time=1660175967147,isBuyerMaker=false]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131685,price=23947,qty=0.001,quoteQty=23.94,time=1660175967147,isBuyerMaker=true]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131686,price=23947,qty=0.001,quoteQty=23.94,time=1660175967188,isBuyerMaker=true]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131687,price=23947.1,qty=0.001,quoteQty=23.94,time=1660175967189,isBuyerMaker=false]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131688,price=23947,qty=0.001,quoteQty=23.94,time=1660175967250,isBuyerMaker=true]
+2022-08-11 08:59:26 [WARN] - Trade[id=2688131689,price=23947.1,qty=0.001,quoteQty=23.94,time=1660175967250,isBuyerMaker=false]
+2022-08-11 08:59:26 [WARN] - 매수 갯수 : 5 , Qty : 0.005
+2022-08-11 08:59:26 [WARN] - 매도 갯수 : 5 , Qty : 0.005
+2022-08-11 08:59:32 [WARN] - 32sec , 275 - 193  =  82
+2022-08-11 08:59:38 [WARN] - 38sec , 298 - 275  =  23
+2022-08-11 08:59:44 [WARN] - 44sec , 351 - 298  =  53
+2022-08-11 08:59:50 [WARN] - 50sec , 357 - 351  =  6
+2022-08-11 08:59:56 [WARN] - 56sec , 367 - 357  =  10
+2022-08-11 09:00:02 [WARN] - 2sec , 0 - 367  =  -367
+2022-08-11 09:00:08 [WARN] - 8sec , 0 - 0  =  0
+2022-08-11 09:00:14 [WARN] - 14sec , 74 - 0  =  74
+2022-08-11 09:00:20 [WARN] - 20sec , 79 - 74  =  5
+2022-08-11 09:00:26 [WARN] - 26sec , 143 - 79  =  64
+2022-08-11 09:00:32 [WARN] - 32sec , 189 - 143  =  46
+2022-08-11 09:00:38 [WARN] - 38sec , 291 - 189  =  102
+2022-08-11 09:00:38 [WARN] - 11 Aug 2022 00:00:38 GMT : Candlestick[openTime=1660176000000,open=23941,high=23948.9,low=23934.1,close=23938.6,volume=291.992,closeTime=1660176059999,quoteAssetVolume=6990693.3409,numTrades=2972,takerBuyBaseAssetVolume=135.162,takerBuyQuoteAssetVolume=3236196.6856,ignore=0]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135819,price=23938.6,qty=0.039,quoteQty=933.6,time=1660176039174,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135820,price=23938.6,qty=0.02,quoteQty=478.77,time=1660176039178,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135821,price=23938.6,qty=0.005,quoteQty=119.69,time=1660176039187,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135822,price=23938.7,qty=0.048,quoteQty=1149.05,time=1660176039286,isBuyerMaker=false]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135823,price=23938.7,qty=0.085,quoteQty=2034.78,time=1660176039286,isBuyerMaker=false]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135824,price=23938.7,qty=0.01,quoteQty=239.38,time=1660176039452,isBuyerMaker=false]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135825,price=23938.7,qty=0.433,quoteQty=10365.45,time=1660176039608,isBuyerMaker=false]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135826,price=23938.6,qty=0.008,quoteQty=191.5,time=1660176039745,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135827,price=23938.6,qty=0.114,quoteQty=2729,time=1660176039786,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - Trade[id=2688135828,price=23938.6,qty=0.004,quoteQty=95.75,time=1660176039898,isBuyerMaker=true]
+2022-08-11 09:00:38 [WARN] - 매수 갯수 : 4 , Qty : 0.5760000000000001
+2022-08-11 09:00:38 [WARN] - 매도 갯수 : 6 , Qty : 0.19
+2022-08-11 09:00:45 [WARN] - 45sec , 320 - 291  =  29
+2022-08-11 09:00:51 [WARN] - 51sec , 341 - 320  =  21
+2022-08-11 09:00:57 [WARN] - 57sec , 362 - 341  =  21
+2022-08-11 09:01:03 [WARN] - 3sec , 594 - 362  =  232
+2022-08-11 09:01:03 [WARN] - 11 Aug 2022 00:00:03 GMT : Candlestick[openTime=1660176000000,open=23941,high=23957.4,low=23934.1,close=23957.4,volume=594.456,closeTime=1660176059999,quoteAssetVolume=14234489.7835,numTrades=4093,takerBuyBaseAssetVolume=381.236,takerBuyQuoteAssetVolume=9129728.3489,ignore=0]
+2022-08-11 09:01:03 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137537,price=23960.5,qty=0.005,quoteQty=119.8,time=1660176064066,isBuyerMaker=true]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137538,price=23960.5,qty=0.225,quoteQty=5391.11,time=1660176064066,isBuyerMaker=true]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137539,price=23960.5,qty=0.003,quoteQty=71.88,time=1660176064066,isBuyerMaker=true]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137540,price=23961.5,qty=0.165,quoteQty=3953.64,time=1660176064066,isBuyerMaker=false]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137541,price=23961.5,qty=0.001,quoteQty=23.96,time=1660176064078,isBuyerMaker=false]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137542,price=23961.5,qty=0.001,quoteQty=23.96,time=1660176064078,isBuyerMaker=false]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137543,price=23961.3,qty=0.001,quoteQty=23.96,time=1660176064092,isBuyerMaker=true]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137544,price=23961.4,qty=0.001,quoteQty=23.96,time=1660176064093,isBuyerMaker=false]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137545,price=23961.4,qty=0.001,quoteQty=23.96,time=1660176064139,isBuyerMaker=false]
+2022-08-11 09:01:03 [WARN] - Trade[id=2688137546,price=23961.3,qty=0.001,quoteQty=23.96,time=1660176064139,isBuyerMaker=true]
+2022-08-11 09:01:03 [WARN] - 매수 갯수 : 5 , Qty : 0.169
+2022-08-11 09:01:03 [WARN] - 매도 갯수 : 5 , Qty : 0.23500000000000001
+2022-08-11 09:01:09 [WARN] - 9sec , 254 - 594  =  -340
+2022-08-11 09:01:15 [WARN] - 15sec , 346 - 254  =  92
+2022-08-11 09:01:15 [WARN] - 11 Aug 2022 00:01:15 GMT : Candlestick[openTime=1660176060000,open=23957.4,high=23966.7,low=23957.3,close=23962,volume=346.049,closeTime=1660176119999,quoteAssetVolume=8292125.1933,numTrades=1673,takerBuyBaseAssetVolume=273.039,takerBuyQuoteAssetVolume=6542596.1455,ignore=0]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138762,price=23962.1,qty=0.004,quoteQty=95.84,time=1660176076290,isBuyerMaker=false]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138763,price=23962.1,qty=0.004,quoteQty=95.84,time=1660176076290,isBuyerMaker=false]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138764,price=23962.1,qty=0.012,quoteQty=287.54,time=1660176076290,isBuyerMaker=false]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138765,price=23962,qty=0.048,quoteQty=1150.17,time=1660176076300,isBuyerMaker=true]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138766,price=23962,qty=0.123,quoteQty=2947.32,time=1660176076300,isBuyerMaker=true]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138767,price=23962,qty=0.117,quoteQty=2803.55,time=1660176076300,isBuyerMaker=true]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138768,price=23962,qty=0.087,quoteQty=2084.69,time=1660176076300,isBuyerMaker=true]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138769,price=23962.1,qty=0.001,quoteQty=23.96,time=1660176076304,isBuyerMaker=false]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138770,price=23962,qty=0.001,quoteQty=23.96,time=1660176076313,isBuyerMaker=true]
+2022-08-11 09:01:15 [WARN] - Trade[id=2688138771,price=23962.1,qty=0.003,quoteQty=71.88,time=1660176076347,isBuyerMaker=false]
+2022-08-11 09:01:15 [WARN] - 매수 갯수 : 5 , Qty : 0.024
+2022-08-11 09:01:15 [WARN] - 매도 갯수 : 5 , Qty : 0.376
+2022-08-11 09:01:21 [WARN] - 21sec , 371 - 346  =  25
+2022-08-11 09:01:27 [WARN] - 27sec , 413 - 371  =  42
+2022-08-11 09:01:33 [WARN] - 33sec , 427 - 413  =  14
+2022-08-11 09:01:39 [WARN] - 39sec , 561 - 427  =  134
+2022-08-11 09:01:39 [WARN] - 11 Aug 2022 00:01:39 GMT : Candlestick[openTime=1660176060000,open=23957.4,high=23967.2,low=23952,close=23953.8,volume=561.735,closeTime=1660176119999,quoteAssetVolume=13460356.6076,numTrades=2981,takerBuyBaseAssetVolume=325.982,takerBuyQuoteAssetVolume=7811190.3359,ignore=0]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140050,price=23953.7,qty=0.003,quoteQty=71.86,time=1660176100006,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140051,price=23953.8,qty=0.024,quoteQty=574.89,time=1660176100006,isBuyerMaker=false]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140052,price=23953.8,qty=0.004,quoteQty=95.81,time=1660176100007,isBuyerMaker=false]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140053,price=23953.7,qty=0.001,quoteQty=23.95,time=1660176100024,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140054,price=23953.8,qty=0.004,quoteQty=95.81,time=1660176100216,isBuyerMaker=false]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140055,price=23953.8,qty=0.001,quoteQty=23.95,time=1660176100371,isBuyerMaker=false]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140056,price=23953.7,qty=0.004,quoteQty=95.81,time=1660176100518,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140057,price=23953.7,qty=0.032,quoteQty=766.51,time=1660176100559,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140058,price=23953.7,qty=0.17,quoteQty=4072.12,time=1660176100610,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - Trade[id=2688140059,price=23953.7,qty=0.03,quoteQty=718.61,time=1660176100714,isBuyerMaker=true]
+2022-08-11 09:01:39 [WARN] - 매수 갯수 : 4 , Qty : 0.033
+2022-08-11 09:01:39 [WARN] - 매도 갯수 : 6 , Qty : 0.24000000000000002
+2022-08-11 09:01:39 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 09:01:45 [WARN] - 45sec , 575 - 561  =  14
+2022-08-11 09:01:51 [WARN] - 51sec , 607 - 575  =  32
+2022-08-11 09:01:57 [WARN] - 57sec , 611 - 607  =  4
+2022-08-11 09:02:03 [WARN] - 3sec , 663 - 611  =  52
+2022-08-11 09:02:10 [WARN] - 10sec , 23 - 663  =  -640
+2022-08-11 09:02:16 [WARN] - 16sec , 28 - 23  =  5
+2022-08-11 09:02:22 [WARN] - 22sec , 54 - 28  =  26
+2022-08-11 09:02:28 [WARN] - 28sec , 98 - 54  =  44
+2022-08-11 09:02:34 [WARN] - 34sec , 110 - 98  =  12
+2022-08-11 09:02:40 [WARN] - 40sec , 146 - 110  =  36
+2022-08-11 09:02:46 [WARN] - 46sec , 175 - 146  =  29
+2022-08-11 09:02:52 [WARN] - 52sec , 693 - 175  =  518
+2022-08-11 09:02:52 [WARN] - 11 Aug 2022 00:02:52 GMT : Candlestick[openTime=1660176120000,open=23949.7,high=24001.2,low=23938.3,close=23998.8,volume=693.735,closeTime=1660176179999,quoteAssetVolume=16635501.2257,numTrades=4820,takerBuyBaseAssetVolume=512.391,takerBuyQuoteAssetVolume=12288306.0402,ignore=0]
+2022-08-11 09:02:52 [WARN] - ##########################대량 거래~~~#################################
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146293,price=24003.7,qty=0.001,quoteQty=24,time=1660176173140,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146294,price=24003.4,qty=0.001,quoteQty=24,time=1660176173163,isBuyerMaker=true]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146295,price=24003.7,qty=0.001,quoteQty=24,time=1660176173169,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146296,price=24003.4,qty=0.001,quoteQty=24,time=1660176173169,isBuyerMaker=true]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146297,price=24003.7,qty=0.498,quoteQty=11953.84,time=1660176173174,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146298,price=24004.5,qty=1.29,quoteQty=30965.8,time=1660176173174,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146299,price=24004.5,qty=0.041,quoteQty=984.18,time=1660176173178,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146300,price=24004.5,qty=0.001,quoteQty=24,time=1660176173186,isBuyerMaker=false]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146301,price=24003.4,qty=0.001,quoteQty=24,time=1660176173186,isBuyerMaker=true]
+2022-08-11 09:02:52 [WARN] - Trade[id=2688146302,price=24003.4,qty=0.001,quoteQty=24,time=1660176173200,isBuyerMaker=true]
+2022-08-11 09:02:52 [WARN] - 매수 갯수 : 6 , Qty : 1.8319999999999999
+2022-08-11 09:02:52 [WARN] - 매도 갯수 : 4 , Qty : 0.004
+2022-08-11 09:02:52 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 09:02:58 [WARN] - 58sec , 1146 - 693  =  453
+2022-08-11 09:02:58 [WARN] - 11 Aug 2022 00:02:58 GMT : Candlestick[openTime=1660176120000,open=23949.7,high=24017.6,low=23938.3,close=23994,volume=1146.035,closeTime=1660176179999,quoteAssetVolume=27493548.5417,numTrades=6635,takerBuyBaseAssetVolume=837.696,takerBuyQuoteAssetVolume=20098030.9157,ignore=0]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147649,price=23987.6,qty=0.022,quoteQty=527.72,time=1660176179327,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147650,price=23987.6,qty=0.045,quoteQty=1079.44,time=1660176179337,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147651,price=23987.6,qty=0.29,quoteQty=6956.4,time=1660176179337,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147652,price=23987.6,qty=0.033,quoteQty=791.59,time=1660176179349,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147653,price=23987.6,qty=0.001,quoteQty=23.98,time=1660176179357,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147654,price=23987.7,qty=0.034,quoteQty=815.58,time=1660176179371,isBuyerMaker=false]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147655,price=23987.6,qty=0.001,quoteQty=23.98,time=1660176179379,isBuyerMaker=true]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147656,price=23987.7,qty=0.09,quoteQty=2158.89,time=1660176179398,isBuyerMaker=false]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147657,price=23987.7,qty=0.003,quoteQty=71.96,time=1660176179428,isBuyerMaker=false]
+2022-08-11 09:02:58 [WARN] - Trade[id=2688147658,price=23987.7,qty=0.002,quoteQty=47.97,time=1660176179445,isBuyerMaker=false]
+2022-08-11 09:02:58 [WARN] - 매수 갯수 : 4 , Qty : 0.129
+2022-08-11 09:02:58 [WARN] - 매도 갯수 : 6 , Qty : 0.392
+2022-08-11 09:02:58 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 09:03:04 [WARN] - 4sec , 20 - 1146  =  -1126
+2022-08-11 09:03:10 [WARN] - 10sec , 197 - 20  =  177
+2022-08-11 09:03:10 [WARN] - 11 Aug 2022 00:03:10 GMT : Candlestick[openTime=1660176180000,open=23984.3,high=23991.7,low=23981.1,close=23991.7,volume=197.041,closeTime=1660176239999,quoteAssetVolume=4725859.5493,numTrades=1188,takerBuyBaseAssetVolume=117.761,takerBuyQuoteAssetVolume=2824364.9427,ignore=0]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149063,price=23998.6,qty=0.18,quoteQty=4319.74,time=1660176191517,isBuyerMaker=true]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149064,price=23998.6,qty=0.18,quoteQty=4319.74,time=1660176191517,isBuyerMaker=true]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149065,price=23998.7,qty=0.061,quoteQty=1463.92,time=1660176191533,isBuyerMaker=false]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149066,price=23998.7,qty=0.046,quoteQty=1103.94,time=1660176191533,isBuyerMaker=false]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149067,price=23998.7,qty=0.387,quoteQty=9287.49,time=1660176191533,isBuyerMaker=false]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149068,price=23998.4,qty=0.1,quoteQty=2399.84,time=1660176191535,isBuyerMaker=true]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149069,price=23998.4,qty=0.1,quoteQty=2399.84,time=1660176191535,isBuyerMaker=true]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149070,price=23998.4,qty=0.001,quoteQty=23.99,time=1660176191546,isBuyerMaker=true]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149071,price=23998.7,qty=0.001,quoteQty=23.99,time=1660176191546,isBuyerMaker=false]
+2022-08-11 09:03:10 [WARN] - Trade[id=2688149072,price=23998.4,qty=0.035,quoteQty=839.94,time=1660176191562,isBuyerMaker=false]
+2022-08-11 09:03:10 [WARN] - 매수 갯수 : 5 , Qty : 0.53
+2022-08-11 09:03:10 [WARN] - 매도 갯수 : 5 , Qty : 0.5609999999999999
+2022-08-11 09:03:16 [WARN] - 16sec , 250 - 197  =  53
+2022-08-11 09:03:22 [WARN] - 22sec , 275 - 250  =  25
+2022-08-11 09:03:28 [WARN] - 28sec , 311 - 275  =  36
+2022-08-11 09:03:34 [WARN] - 34sec , 372 - 311  =  61
+2022-08-11 09:03:40 [WARN] - 40sec , 398 - 372  =  26
+2022-08-11 09:03:46 [WARN] - 46sec , 422 - 398  =  24
+2022-08-11 09:03:53 [WARN] - 53sec , 532 - 422  =  110
+2022-08-11 09:03:53 [WARN] - 11 Aug 2022 00:03:53 GMT : Candlestick[openTime=1660176180000,open=23984.3,high=23998.9,low=23967.6,close=23972.6,volume=532.02,closeTime=1660176239999,quoteAssetVolume=12760281.8039,numTrades=3801,takerBuyBaseAssetVolume=268.618,takerBuyQuoteAssetVolume=6442650.9525,ignore=0]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151563,price=23975,qty=0.001,quoteQty=23.97,time=1660176233867,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151564,price=23975.1,qty=0.001,quoteQty=23.97,time=1660176233918,isBuyerMaker=false]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151565,price=23975,qty=0.001,quoteQty=23.97,time=1660176233919,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151566,price=23975,qty=0.008,quoteQty=191.8,time=1660176233923,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151567,price=23975,qty=0.221,quoteQty=5298.47,time=1660176233947,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151568,price=23975,qty=0.001,quoteQty=23.97,time=1660176233967,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151569,price=23975.1,qty=0.001,quoteQty=23.97,time=1660176233967,isBuyerMaker=false]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151570,price=23975.1,qty=0.001,quoteQty=23.97,time=1660176233969,isBuyerMaker=false]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151571,price=23975.1,qty=0.001,quoteQty=23.97,time=1660176234015,isBuyerMaker=false]
+2022-08-11 09:03:53 [WARN] - Trade[id=2688151572,price=23975,qty=0.001,quoteQty=23.97,time=1660176234015,isBuyerMaker=true]
+2022-08-11 09:03:53 [WARN] - 매수 갯수 : 4 , Qty : 0.004
+2022-08-11 09:03:53 [WARN] - 매도 갯수 : 6 , Qty : 0.233
+2022-08-11 09:03:53 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 09:03:59 [WARN] - 59sec , 563 - 532  =  31
+2022-08-11 09:04:05 [WARN] - 5sec , 21 - 563  =  -542
+2022-08-11 09:04:11 [WARN] - 11sec , 54 - 21  =  33
+2022-08-11 09:04:17 [WARN] - 17sec , 91 - 54  =  37
+2022-08-11 09:04:23 [WARN] - 23sec , 108 - 91  =  17
+2022-08-11 09:04:29 [WARN] - 29sec , 128 - 108  =  20
+2022-08-11 09:04:35 [WARN] - 35sec , 144 - 128  =  16
+2022-08-11 09:04:41 [WARN] - 41sec , 176 - 144  =  32
+2022-08-11 09:04:47 [WARN] - 47sec , 255 - 176  =  79
+2022-08-11 09:04:53 [WARN] - 53sec , 287 - 255  =  32
+2022-08-11 09:04:59 [WARN] - 59sec , 0 - 287  =  -287
+2022-08-11 09:05:05 [WARN] - 5sec , 15 - 0  =  15
+2022-08-11 09:05:11 [WARN] - 11sec , 44 - 15  =  29
+2022-08-11 09:05:17 [WARN] - 17sec , 64 - 44  =  20
+2022-08-11 09:05:23 [WARN] - 23sec , 81 - 64  =  17
+2022-08-11 09:05:29 [WARN] - 29sec , 105 - 81  =  24
+2022-08-11 09:05:35 [WARN] - 35sec , 133 - 105  =  28
+2022-08-11 09:05:42 [WARN] - 42sec , 142 - 133  =  9
+2022-08-11 09:05:48 [WARN] - 48sec , 216 - 142  =  74
+2022-08-11 09:05:54 [WARN] - 54sec , 243 - 216  =  27
+2022-08-11 09:06:00 [WARN] - 0sec , 262 - 243  =  19
+2022-08-11 09:06:06 [WARN] - 6sec , 9 - 262  =  -253
+2022-08-11 09:06:12 [WARN] - 12sec , 29 - 9  =  20
+2022-08-11 09:06:18 [WARN] - 18sec , 58 - 29  =  29
+2022-08-11 09:06:24 [WARN] - 24sec , 68 - 58  =  10
+2022-08-11 09:06:30 [WARN] - 30sec , 74 - 68  =  6
+2022-08-11 09:06:36 [WARN] - 36sec , 77 - 74  =  3
+2022-08-11 09:06:42 [WARN] - 42sec , 96 - 77  =  19
+2022-08-11 09:06:48 [WARN] - 48sec , 155 - 96  =  59
+2022-08-11 09:06:54 [WARN] - 54sec , 183 - 155  =  28
+2022-08-11 09:07:00 [WARN] - 0sec , 8 - 183  =  -175
+2022-08-11 09:07:06 [WARN] - 6sec , 68 - 8  =  60
+2022-08-11 09:07:12 [WARN] - 12sec , 83 - 68  =  15
+2022-08-11 09:07:18 [WARN] - 18sec , 246 - 83  =  163
+2022-08-11 09:07:18 [WARN] - 11 Aug 2022 00:07:18 GMT : Candlestick[openTime=1660176420000,open=23950.5,high=23967.1,low=23950.5,close=23964.9,volume=246.921,closeTime=1660176479999,quoteAssetVolume=5915718.4317,numTrades=1089,takerBuyBaseAssetVolume=181.882,takerBuyQuoteAssetVolume=4357677.2715,ignore=0]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160598,price=23964.8,qty=0.006,quoteQty=143.78,time=1660176439326,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160599,price=23964.8,qty=0.053,quoteQty=1270.13,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160600,price=23964.8,qty=0.072,quoteQty=1725.46,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160601,price=23964.8,qty=0.028,quoteQty=671.01,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160602,price=23964.8,qty=0.072,quoteQty=1725.46,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160603,price=23964.8,qty=0.191,quoteQty=4577.27,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160604,price=23964.8,qty=0.008,quoteQty=191.71,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160605,price=23964.8,qty=0.042,quoteQty=1006.52,time=1660176439394,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160606,price=23964.8,qty=0.001,quoteQty=23.96,time=1660176439405,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - Trade[id=2688160607,price=23964.8,qty=0.041,quoteQty=982.55,time=1660176439595,isBuyerMaker=true]
+2022-08-11 09:07:18 [WARN] - 매수 갯수 : 0 , Qty : 0.0
+2022-08-11 09:07:18 [WARN] - 매도 갯수 : 10 , Qty : 0.514
+2022-08-11 09:07:18 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 09:07:24 [WARN] - 24sec , 305 - 246  =  59
+2022-08-11 09:07:30 [WARN] - 30sec , 361 - 305  =  56
+2022-08-11 09:07:37 [WARN] - 37sec , 376 - 361  =  15
+2022-08-11 09:07:43 [WARN] - 43sec , 399 - 376  =  23
+2022-08-11 09:07:49 [WARN] - 49sec , 416 - 399  =  17
+2022-08-11 09:07:55 [WARN] - 55sec , 532 - 416  =  116
+2022-08-11 09:07:55 [WARN] - 11 Aug 2022 00:07:55 GMT : Candlestick[openTime=1660176420000,open=23950.5,high=23994.6,low=23950.5,close=23994.4,volume=532.626,closeTime=1660176479999,quoteAssetVolume=12766384.0669,numTrades=2943,takerBuyBaseAssetVolume=416.304,takerBuyQuoteAssetVolume=9978628.0014,ignore=0]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162621,price=23996,qty=0.001,quoteQty=23.99,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162622,price=23996.1,qty=0.012,quoteQty=287.95,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162623,price=23996.1,qty=0.033,quoteQty=791.87,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162624,price=23996.1,qty=0.229,quoteQty=5495.1,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162625,price=23996.1,qty=0.001,quoteQty=23.99,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162626,price=23996.1,qty=0.001,quoteQty=23.99,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162627,price=23996.2,qty=0.093,quoteQty=2231.64,time=1660176476041,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162628,price=23996.2,qty=0.011,quoteQty=263.95,time=1660176476046,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162629,price=23996.2,qty=0.001,quoteQty=23.99,time=1660176476046,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - Trade[id=2688162630,price=23996.4,qty=0.001,quoteQty=23.99,time=1660176476046,isBuyerMaker=false]
+2022-08-11 09:07:55 [WARN] - 매수 갯수 : 10 , Qty : 0.383
+2022-08-11 09:07:55 [WARN] - 매도 갯수 : 0 , Qty : 0.0
+2022-08-11 09:07:55 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 09:08:01 [WARN] - 1sec , 8 - 532  =  -524
+2022-08-11 09:08:07 [WARN] - 7sec , 102 - 8  =  94
+2022-08-11 09:08:07 [WARN] - 11 Aug 2022 00:08:07 GMT : Candlestick[openTime=1660176480000,open=24002.6,high=24002.6,low=23993,close=23994.3,volume=102.074,closeTime=1660176539999,quoteAssetVolume=2449442.9717,numTrades=736,takerBuyBaseAssetVolume=32.265,takerBuyQuoteAssetVolume=774210.8475,ignore=0]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163936,price=23994.3,qty=0.135,quoteQty=3239.23,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163937,price=23994.3,qty=0.137,quoteQty=3287.21,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163938,price=23994.3,qty=0.068,quoteQty=1631.61,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163939,price=23994.3,qty=1.5,quoteQty=35991.45,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163940,price=23994.3,qty=0.041,quoteQty=983.76,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163941,price=23994.3,qty=0.121,quoteQty=2903.31,time=1660176487987,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163942,price=23994.4,qty=0.02,quoteQty=479.88,time=1660176488000,isBuyerMaker=false]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163943,price=23994.3,qty=0.001,quoteQty=23.99,time=1660176488000,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163944,price=23994.3,qty=0.023,quoteQty=551.86,time=1660176488186,isBuyerMaker=true]
+2022-08-11 09:08:07 [WARN] - Trade[id=2688163945,price=23994.4,qty=0.001,quoteQty=23.99,time=1660176488255,isBuyerMaker=false]
+2022-08-11 09:08:07 [WARN] - 매수 갯수 : 2 , Qty : 0.021
+2022-08-11 09:08:07 [WARN] - 매도 갯수 : 8 , Qty : 2.026
+2022-08-11 09:08:07 [WARN] - 매도(SELL, SHORT)우위   매도(SELL , OPEN SHORT, CLOSE LONG)   하락중~ ---------------------
+2022-08-11 09:08:13 [WARN] - 13sec , 135 - 102  =  33
+2022-08-11 09:08:19 [WARN] - 19sec , 156 - 135  =  21
+2022-08-11 09:08:25 [WARN] - 25sec , 169 - 156  =  13
+2022-08-11 09:08:31 [WARN] - 31sec , 206 - 169  =  37
+2022-08-11 09:08:37 [WARN] - 37sec , 279 - 206  =  73
+2022-08-11 09:08:43 [WARN] - 43sec , 297 - 279  =  18
+2022-08-11 09:08:49 [WARN] - 49sec , 345 - 297  =  48
+2022-08-11 09:08:55 [WARN] - 55sec , 475 - 345  =  130
+2022-08-11 09:08:55 [WARN] - 11 Aug 2022 00:08:55 GMT : Candlestick[openTime=1660176480000,open=24002.6,high=24020.1,low=23987.2,close=24013,volume=475.356,closeTime=1660176539999,quoteAssetVolume=11408807.3508,numTrades=3879,takerBuyBaseAssetVolume=261.676,takerBuyQuoteAssetVolume=6280725.6953,ignore=0]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167171,price=24017.8,qty=0.244,quoteQty=5860.34,time=1660176536483,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167172,price=24017.9,qty=0.528,quoteQty=12681.45,time=1660176536483,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167173,price=24017.9,qty=0.283,quoteQty=6797.06,time=1660176536483,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167174,price=24017.9,qty=0.915,quoteQty=21976.37,time=1660176536483,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167175,price=24017.9,qty=0.009,quoteQty=216.16,time=1660176536490,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167176,price=24017.9,qty=0.001,quoteQty=24.01,time=1660176536492,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167177,price=24017.9,qty=0.013,quoteQty=312.23,time=1660176536492,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167178,price=24017.8,qty=0.008,quoteQty=192.14,time=1660176536524,isBuyerMaker=true]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167179,price=24017.9,qty=0.003,quoteQty=72.05,time=1660176536625,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - Trade[id=2688167180,price=24017.9,qty=0.022,quoteQty=528.39,time=1660176536673,isBuyerMaker=false]
+2022-08-11 09:08:55 [WARN] - 매수 갯수 : 9 , Qty : 2.0179999999999993
+2022-08-11 09:08:55 [WARN] - 매도 갯수 : 1 , Qty : 0.008
+2022-08-11 09:08:55 [WARN] - 매수(BUY OPEN) 우위   매수(BUY  OPEN LONG , CLOSE SHORT)   상승중~  +++++++++++++++++
+2022-08-11 09:09:01 [WARN] - 1sec , 506 - 475  =  31
+2022-08-11 09:09:07 [WARN] - 7sec , 191 - 506  =  -315
+2022-08-11 09:09:13 [WARN] - 13sec , 211 - 191  =  20
+2022-08-11 09:09:19 [WARN] - 19sec , 274 - 211  =  63
+2022-08-11 09:09:26 [WARN] - 26sec , 334 - 274  =  60
+2022-08-11 09:09:32 [WARN] - 32sec , 361 - 334  =  27
+2022-08-11 09:09:38 [WARN] - 38sec , 418 - 361  =  57
+2022-08-11 09:09:44 [WARN] - 44sec , 474 - 418  =  56
+2022-08-11 09:09:50 [WARN] - 50sec , 634 - 474  =  160
+2022-08-11 09:09:50 [WARN] - 11 Aug 2022 00:09:50 GMT : Candlestick[openTime=1660176540000,open=24011.8,high=24017.8,low=23999.5,close=24005.2,volume=634.707,closeTime=1660176599999,quoteAssetVolume=15238965.7415,numTrades=3474,takerBuyBaseAssetVolume=250.717,takerBuyQuoteAssetVolume=6019961.4505,ignore=0]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171115,price=24000.6,qty=0.305,quoteQty=7320.18,time=1660176590711,isBuyerMaker=false]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171116,price=24000.6,qty=0.003,quoteQty=72,time=1660176590778,isBuyerMaker=false]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171117,price=24000.5,qty=0.5,quoteQty=12000.25,time=1660176590833,isBuyerMaker=true]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171118,price=24000.6,qty=0.076,quoteQty=1824.04,time=1660176590862,isBuyerMaker=false]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171119,price=24000.5,qty=0.604,quoteQty=14496.3,time=1660176590976,isBuyerMaker=true]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171120,price=24000.6,qty=0.092,quoteQty=2208.05,time=1660176590976,isBuyerMaker=false]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171121,price=24000.5,qty=0.01,quoteQty=240,time=1660176590990,isBuyerMaker=true]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171122,price=24000.5,qty=0.006,quoteQty=144,time=1660176591113,isBuyerMaker=true]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171123,price=24000.6,qty=0.222,quoteQty=5328.13,time=1660176591190,isBuyerMaker=false]
+2022-08-11 09:09:50 [WARN] - Trade[id=2688171124,price=24000.5,qty=0.007,quoteQty=168,time=1660176591256,isBuyerMaker=true]
+2022-08-11 09:09:50 [WARN] - 매수 갯수 : 5 , Qty : 0.698
+2022-08-11 09:09:50 [WARN] - 매도 갯수 : 5 , Qty : 1.127
+2022-08-11 09:09:56 [WARN] - 56sec , 687 - 634  =  53
+2022-08-11 09:10:02 [WARN] - 2sec , 5 - 687  =  -682
+2022-08-11 09:10:08 [WARN] - 8sec , 11 - 5  =  6
+2022-08-11 09:10:14 [WARN] - 14sec , 92 - 11  =  81
+2022-08-11 09:10:20 [WARN] - 20sec , 124 - 92  =  32
+2022-08-11 09:10:26 [WARN] - 26sec , 180 - 124  =  56
+2022-08-11 09:10:32 [WARN] - 32sec , 184 - 180  =  4
+2022-08-11 09:10:38 [WARN] - 38sec , 194 - 184  =  10
+2022-08-11 09:10:44 [WARN] - 44sec , 214 - 194  =  20
+2022-08-11 09:10:50 [WARN] - 50sec , 239 - 214  =  25
+2022-08-11 09:10:56 [WARN] - 56sec , 250 - 239  =  11
+2022-08-11 09:11:02 [WARN] - 2sec , 15 - 250  =  -235
+2022-08-11 09:11:08 [WARN] - 8sec , 48 - 15  =  33
+2022-08-11 09:11:15 [WARN] - 15sec , 108 - 48  =  60
+2022-08-11 09:11:21 [WARN] - 21sec , 125 - 108  =  17
+2022-08-11 09:11:27 [WARN] - 27sec , 141 - 125  =  16
+2022-08-11 09:11:33 [WARN] - 33sec , 158 - 141  =  17
+2022-08-11 09:11:39 [WARN] - 39sec , 172 - 158  =  14
+2022-08-11 09:11:45 [WARN] - 45sec , 218 - 172  =  46
+2022-08-11 09:11:51 [WARN] - 51sec , 261 - 218  =  43
+2022-08-11 09:11:57 [WARN] - 57sec , 274 - 261  =  13
+2022-08-11 09:12:03 [WARN] - 3sec , 336 - 274  =  62
+2022-08-11 09:12:09 [WARN] - 9sec , 17 - 336  =  -319
