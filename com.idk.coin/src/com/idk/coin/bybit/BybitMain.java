@@ -16,14 +16,13 @@ public class BybitMain {
 	AlarmPriceManager alarmPriceManager;
 	
 	public BybitMain() {
+		alarmPriceManager = new AlarmPriceManager();
 		init();
 		start();
 		LOG.info("Start Bybit Alarm System!!");
 	}
 	public void init() {
-		alarmPriceManager = new AlarmPriceManager();
-		
-		
+	
 		//addCloseShort(23010,OVER,23012,0.2);
 		addCloseShort(22810,OVER,22812,0.2);
 		//addCloseShort(22610,OVER,22612,0.2);
@@ -35,6 +34,7 @@ public class BybitMain {
 		addCloseShort(20910,OVER,20810,0.1);
 		addCloseShort(20710,OVER,20610,0.1);
 		addCloseShort(20510,OVER,20410,0.1);
+		addCloseShort(20110,OVER,20010,0.1,true);
 		//addCloseShort(22210,OVER,22160,0.1);80
 		
 		//addOpenLong(21510,OVER,21410,0.1);
@@ -42,19 +42,18 @@ public class BybitMain {
 		
 		//addOpenLong(20560,OVER,20510,0.1,true);
 		////addOpenLong(20460,OVER,20410,0.1,true);
-		addOpenLong(20410,OVER,20310,0.1);
+		addOpenLong(20510,OVER,20410,0.1);
 		addOpenLong(20310,OVER,20210,0.1);
 		addOpenLong(20210,OVER,20110,0.1);
-		addOpenLong(20110,OVER,20010,0.1);
-		addOpenLong(20010,OVER,19910,0.1);
-		addOpenLong(19910,OVER,19810,0.1,true);
+		addOpenLong(20110,OVER,20010,0.1,true);
 		
+		//addCloseLong(20010,UNDER,20110,0.1,true);
+		addCloseLong(19910,UNDER,20010,0.1,true);
+		addCloseLong(19860,UNDER,19960,0.1,true);
+		addCloseLong(19810,UNDER,19910,0.1,true);
+		addCloseLong(19760,UNDER,19810,0.1,true);
 		addCloseLong(19710,UNDER,19810,0.1,true);
-		addCloseLong(19660,UNDER,19710,0.1,true);
-		addCloseLong(19610,UNDER,19660,0.1,true);
-		addCloseLong(19560,UNDER,19610,0.1,true);
 		addCloseLong(19510,UNDER,19560,0.1,true);
-		addCloseLong(19410,UNDER,19510,0.1,true);
 		addCloseLong(19310,UNDER,19360,0.1);
 		addCloseLong(19110,UNDER,19160,0.1);
 		addCloseLong(18910,UNDER,18960,0.1);

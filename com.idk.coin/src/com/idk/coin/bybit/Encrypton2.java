@@ -1,26 +1,21 @@
 package com.idk.coin.bybit;
 
-import java.io.IOException;
+import java.io.File;
+import java.io.FileInputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.sql.ResultSet;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+import java.util.Properties;
 import java.util.TreeMap;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.fastjson.JSON;
-import com.binance.client.model.trade.Position;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,33 +23,32 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
-import com.idk.coin.BinanceTest;
-import com.mysql.jdbc.PerVmServerConfigCacheFactory;
 
 import io.contek.invoker.bybit.api.common._Position;
-import okhttp3.Call;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 
 public class Encrypton2 {
-	final static String API_KEY = "F05n0T6G79ivD4UZKW";
-    final static String API_SECRET = "QhYN61Cn9tKSIrfHxSMo3me9C6cfZrFLHEmv";
-    final static String TIMESTAMP = Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
+	static String API_KEY = "F05n0T6G79ivD4UZKW";
+    static String API_SECRET = "QhYN61Cn9tKSIrfHxSMo3me9C6cfZrFLHEmv";
+    
+    final static String TIMESTAMP 	= Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     final static String RECV_WINDOW = "10000";
     
     public static Logger LOG =   LoggerFactory.getLogger(Encrypton2.class.getName());
     
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException {
+    	//ByBitConfig.loadConfig();
+    	//API_KEY 	= System.getProperty(ByBitConfig.API_KEY);
+    	//API_SECRET 	= System.getProperty(ByBitConfig.API_SECRET);
+    	
+    	System.out.println(API_KEY + " , "+ API_SECRET);
+    	
     	Encrypton2 encryptionTest = new Encrypton2();
     	
-    	
     	// encryptionTest.getActiveOrder();
-    	encryptionTest.getActiveMyPosition();
+    	//encryptionTest.getActiveMyPosition();
 //        encryptionTest.placeActiveOrder();
+    	encryptionTest.getActiveKline();
     	/*for(;;) {
     		encryptionTest.getActiveKline();
     		try {
@@ -99,8 +93,6 @@ public class Encrypton2 {
         	System.out.println(response);
         }
     }
-    
-    
     
 
     /**
