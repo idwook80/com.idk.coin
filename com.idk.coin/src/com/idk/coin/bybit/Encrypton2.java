@@ -1,7 +1,5 @@
 package com.idk.coin.bybit;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.ZonedDateTime;
@@ -10,7 +8,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Properties;
 import java.util.TreeMap;
 
 import org.slf4j.Logger;
@@ -23,13 +20,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
+import com.idk.coin.CoinConfig;
 
 import io.contek.invoker.bybit.api.common._Position;
 
 
 public class Encrypton2 {
-	static String API_KEY = "F05n0T6G79ivD4UZKW";
-    static String API_SECRET = "QhYN61Cn9tKSIrfHxSMo3me9C6cfZrFLHEmv";
+	static String API_KEY = "";
+    static String API_SECRET = "";
     
     final static String TIMESTAMP 	= Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     final static String RECV_WINDOW = "10000";
@@ -37,11 +35,6 @@ public class Encrypton2 {
     public static Logger LOG =   LoggerFactory.getLogger(Encrypton2.class.getName());
     
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException {
-    	//ByBitConfig.loadConfig();
-    	//API_KEY 	= System.getProperty(ByBitConfig.API_KEY);
-    	//API_SECRET 	= System.getProperty(ByBitConfig.API_SECRET);
-    	
-    	System.out.println(API_KEY + " , "+ API_SECRET);
     	
     	Encrypton2 encryptionTest = new Encrypton2();
     	
@@ -57,6 +50,14 @@ public class Encrypton2 {
 				e.printStackTrace();
 			}
     	}*/
+    }
+    public Encrypton2() {
+
+    	CoinConfig.loadConfig();
+    	
+    	API_KEY 	= System.getProperty(CoinConfig.BYBIT_KEY);
+    	API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SECRET);
+    	
     }
     
     /**

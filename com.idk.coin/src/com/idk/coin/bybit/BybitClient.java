@@ -3,16 +3,15 @@ package com.idk.coin.bybit;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import com.alibaba.fastjson.JSON;
+import com.idk.coin.CoinConfig;
 
 import okhttp3.Call;
 import okhttp3.MediaType;
@@ -22,8 +21,6 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class BybitClient {
-	final static String API_KEY = "F05n0T6G79ivD4UZKW";
-    final static String API_SECRET = "QhYN61Cn9tKSIrfHxSMo3me9C6cfZrFLHEmv";
 	
 	 /**
      * POST: place an active linear perpetual order
@@ -104,7 +101,7 @@ public class BybitClient {
         }
         sb.deleteCharAt(sb.length() - 1);
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secret_key = new SecretKeySpec(API_SECRET.getBytes(), "HmacSHA256");
+        SecretKeySpec secret_key = new SecretKeySpec(System.getProperty(CoinConfig.BYBIT_SECRET).getBytes(), "HmacSHA256");
         sha256_HMAC.init(secret_key);
 
         return bytesToHex(sha256_HMAC.doFinal(sb.toString().getBytes()));

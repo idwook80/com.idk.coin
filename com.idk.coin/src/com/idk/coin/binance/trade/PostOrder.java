@@ -7,10 +7,12 @@ import com.binance.client.model.enums.OrderType;
 import com.binance.client.model.enums.PositionSide;
 import com.binance.client.model.enums.TimeInForce;
 import com.binance.client.model.trade.Order;
+import com.idk.coin.CoinConfig;
 import com.idk.coin.binance.PrivateConfig;
 
 
 public class PostOrder {
+	
 	public static void main(String[] args) {
        
        
@@ -24,7 +26,9 @@ public class PostOrder {
 	RequestOptions options = new RequestOptions();
 	SyncRequestClient syncRequestClient;
 	public PostOrder() {
-		 syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY, options);
+		CoinConfig.loadConfig();
+		
+		 syncRequestClient = SyncRequestClient.create(System.getProperty(CoinConfig.BINANCE_KEY), System.getProperty(CoinConfig.BINANCE_SECRET), options);
 		
 	}
 	public void sell() {

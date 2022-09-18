@@ -3,6 +3,8 @@ package com.idk.coin.bybit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.idk.coin.CoinConfig;
+
 public class BybitMain {
 	public static boolean OVER  = true;
 	public static boolean UNDER = false;
@@ -16,41 +18,33 @@ public class BybitMain {
 	AlarmPriceManager alarmPriceManager;
 	
 	public BybitMain() {
+		CoinConfig.loadConfig();
+		
 		alarmPriceManager = new AlarmPriceManager();
 		init();
 		start();
 		LOG.info("Start Bybit Alarm System!!");
 	}
 	public void init() {
-	
-		//addCloseShort(23010,OVER,23012,0.2);
 		addCloseShort(22810,OVER,22812,0.2);
-		//addCloseShort(22610,OVER,22612,0.2);
 		
-		//addOpenLong(22600,OVER,22601,0.2);
-		//addCloseShort(21310,OVER,21210,0.1);
 		addCloseShort(21110,OVER,21010,0.1);
-		
 		addCloseShort(20910,OVER,20810,0.1);
 		addCloseShort(20710,OVER,20610,0.1);
 		addCloseShort(20510,OVER,20410,0.1);
 		addCloseShort(20110,OVER,20010,0.1,true);
-		//addCloseShort(22210,OVER,22160,0.1);80
 		
-		//addOpenLong(21510,OVER,21410,0.1);
-		//addOpenLong(21610,OVER,21510,0.1);
-		
-		//addOpenLong(20560,OVER,20510,0.1,true);
-		////addOpenLong(20460,OVER,20410,0.1,true);
 		addOpenLong(20510,OVER,20410,0.1);
 		addOpenLong(20310,OVER,20210,0.1);
 		addOpenLong(20210,OVER,20110,0.1);
+
 		addOpenLong(20110,OVER,20010,0.1,true);
+		addOpenLong(20060,OVER,19960,0.1,true);
+		addOpenLong(20010,OVER,19910,0.1,true);
+		addOpenLong(19960,OVER,19860,0.1,true);
 		
-		//addCloseLong(20010,UNDER,20110,0.1,true);
-		addCloseLong(19910,UNDER,20010,0.1,true);
-		addCloseLong(19860,UNDER,19960,0.1,true);
-		addCloseLong(19810,UNDER,19910,0.1,true);
+		//addCloseLong(19860,UNDER,19960,0.1,true);
+		addCloseLong(19810,UNDER,19860,0.1,true);
 		addCloseLong(19760,UNDER,19810,0.1,true);
 		addCloseLong(19710,UNDER,19810,0.1,true);
 		addCloseLong(19510,UNDER,19560,0.1,true);
@@ -59,14 +53,9 @@ public class BybitMain {
 		addCloseLong(18910,UNDER,18960,0.1);
 		addCloseLong(18710,UNDER,18760,0.1);
 		
-		
-		
 		addCloseLong(19410,UNDER,19405,0.2);
 		addCloseLong(19210,UNDER,19205,0.2);
 		addCloseLong(19010,UNDER,19005,0.2);
-		
-		//addCloseLong(21110,UNDER,21095,0.2);
-		
 	}
 	
 	public void start() {

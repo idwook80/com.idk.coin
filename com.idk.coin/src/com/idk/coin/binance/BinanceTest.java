@@ -10,6 +10,7 @@ import java.util.List;
 import com.binance.client.RequestOptions;
 import com.binance.client.SyncRequestClient;
 import com.binance.client.model.market.MarkPrice;
+import com.idk.coin.CoinConfig;
 import com.idk.coin.upbit.BTCbot;
 import com.binance.client.model.enums.CandlestickInterval;
 import com.binance.client.model.market.*;
@@ -25,21 +26,19 @@ public class BinanceTest {
 	
 
 	
-	
-public final static String API_KEY 		= "Gju5mxDvTQwRmIyfMT9BzqSlpomk0FSSpkzbQZAfXG1goB48j4bsRlydXontikUp";
-public final static String SECRET_KEY 	= "rCotzv08GlsISkVoujokuxsfAh3jeZedIQ6DsuKhNFwBfdsBrtU6WtB8KTm5Beq0";
 
 public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName());
 
 
 	public static void main(String... args) {
+		CoinConfig.loadConfig();
 		System.out.println("Test Binance API");
 		getCandle();
 	}
 	
 	public static  String getPrice() {
         RequestOptions options = new RequestOptions();
-        SyncRequestClient syncRequestClient = SyncRequestClient.create(API_KEY, SECRET_KEY,options);
+        SyncRequestClient syncRequestClient = SyncRequestClient.create(System.getProperty(CoinConfig.BINANCE_KEY), System.getProperty(CoinConfig.BINANCE_SECRET),options);
         List<MarkPrice> list = syncRequestClient.getMarkPrice("BTCUSDT");
       /*  addJsonArray("prices", list);*/
        return  list.toString();
@@ -48,7 +47,7 @@ public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName()
 		playSound();
 		LOG.warn("test log");
 		RequestOptions options = new RequestOptions();
-	    SyncRequestClient syncRequestClient = SyncRequestClient.create(API_KEY, SECRET_KEY, options);
+	    SyncRequestClient syncRequestClient = SyncRequestClient.create(System.getProperty(CoinConfig.BINANCE_KEY), System.getProperty(CoinConfig.BINANCE_SECRET), options);
 	    int before 		= 0;
 	    double interval = 5;
 	    int ration 		= 10;	//10,15,20

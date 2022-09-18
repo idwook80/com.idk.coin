@@ -18,10 +18,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
+import com.idk.coin.CoinConfig;
 
 public class BybitMarket implements Runnable {
-	final static String API_KEY 		= "F05n0T6G79ivD4UZKW";
-    final static String API_SECRET 		= "QhYN61Cn9tKSIrfHxSMo3me9C6cfZrFLHEmv";
+	 static String API_KEY 		= "";
+     static String API_SECRET 		= "";
     final static String TIMESTAMP 		= Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     final static String RECV_WINDOW 	= "10000";
     
@@ -37,6 +38,10 @@ public class BybitMarket implements Runnable {
     
     
 	public BybitMarket(AlarmPriceManager alarmPriceManager) {
+		CoinConfig.loadConfig();
+		API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
+		API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
+		
 		this.alarmPriceManager = alarmPriceManager;
 		init();
 		Thread thread  = new Thread(this);

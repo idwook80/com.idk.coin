@@ -11,14 +11,24 @@ import com.binance.client.model.market.Candlestick;
 import com.binance.client.model.market.MarkPrice;
 import com.binance.client.model.market.SymbolPrice;
 import com.binance.client.model.market.Trade;
+import com.idk.coin.CoinConfig;
+
+import io.vavr.API;
 
 public class MarketMgr {
+	String API_KEY = "";
+	String API_SECRET = "";
+	
 	public static void main(String... args) {
 		new MarketMgr();
 	}
 	
 	SyncRequestClient syncRequestClient;
 	public MarketMgr() {
+		CoinConfig.loadConfig();
+		API_KEY = System.getProperty(CoinConfig.BINANCE_KEY);
+		API_SECRET = System.getProperty(CoinConfig.BINANCE_SECRET);
+		
 		initClient();
 		getMarkPrice();
 		getRecentTrades();
@@ -38,7 +48,7 @@ public class MarketMgr {
 	}
 	public void initClient() {
 		RequestOptions options = new RequestOptions();
-	    syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY, options);
+	    syncRequestClient = SyncRequestClient.create(API_KEY, API_SECRET, options);
 
 	}
 	public void getCandleStick(CandlestickInterval interval) {

@@ -14,11 +14,13 @@ import com.binance.client.model.enums.WorkingType;
 import com.binance.client.model.trade.AccountBalance;
 import com.binance.client.model.trade.MyTrade;
 import com.binance.client.model.trade.Order;
+import com.idk.coin.CoinConfig;
 
 public class TradeMgr {
 	public final static String SYM_BTCUSDT = "BTCUSDT";
 	
-	
+	String API_KEY = "";
+	String API_SECRET = "";
 	public static void main(String... args) {
 		TradeMgr tr = new TradeMgr();
 		tr.getAccountInformation();
@@ -34,7 +36,11 @@ public class TradeMgr {
 	RequestOptions options = new RequestOptions();
 	SyncRequestClient syncRequestClient;
 	public TradeMgr() {
-		 syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY, options);
+		 CoinConfig.loadConfig();
+		 API_KEY = System.getProperty(CoinConfig.BINANCE_KEY);
+		 API_SECRET = System.getProperty(CoinConfig.BINANCE_SECRET);
+		 
+		 syncRequestClient = SyncRequestClient.create(API_KEY, API_SECRET, options);
 	}
 	public void getAccountInformation () {
 		System.out.println(syncRequestClient.getAccountInformation());
