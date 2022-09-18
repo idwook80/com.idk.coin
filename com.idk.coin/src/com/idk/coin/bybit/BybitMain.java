@@ -33,6 +33,7 @@ public class BybitMain {
 		addCloseShort(20710,OVER,20610,0.1);
 		addCloseShort(20510,OVER,20410,0.1);
 		addCloseShort(20110,OVER,20010,0.1,true);
+		addCloseShort(20010,OVER,19910,0.1,true);
 		
 		addOpenLong(20510,OVER,20410,0.1);
 		addOpenLong(20310,OVER,20210,0.1);
