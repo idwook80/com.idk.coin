@@ -22,6 +22,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
 
+import io.contek.invoker.bybit.api.common._Order;
 import io.contek.invoker.bybit.api.common._Position;
 
 
@@ -38,10 +39,10 @@ public class Encrypton2 {
     	
     	Encrypton2 encryptionTest = new Encrypton2();
     	
-    	// encryptionTest.getActiveOrder();
+    	 encryptionTest.getActiveOrder();
     	//encryptionTest.getActiveMyPosition();
-//        encryptionTest.placeActiveOrder();
-    	encryptionTest.getActiveKline();
+    	//encryptionTest.placeActiveOrder();
+    	//encryptionTest.getActiveKline();
     	/*for(;;) {
     		encryptionTest.getActiveKline();
     		try {
@@ -140,18 +141,14 @@ public class Encrypton2 {
         
         for(int i=0; i<result.size(); i++) {
         	 LinkedTreeMap t1 = (LinkedTreeMap)result.get(i);
-        	 Iterator it = t1.keySet().iterator();
-        	 while(it.hasNext()) {
-        		 Object key = it.next();
-        		 Object value = t1.get(key);
-        		 _Position p = new _Position();
-        		 
-        		 String side = t1.get("side").toString();
-        		 String size = t1.get("size").toString();
-        		 String entry_price = t1.get("entry_price").toString();
-        		 
-        	 }
-        	 System.out.println();
+        	 String side = t1.get("side").toString();
+    		 String size = t1.get("size").toString();
+    		 _Position p = new _Position();
+    		 
+    		 p.entry_price = Double.valueOf(t1.get("entry_price").toString());
+    		 p.liq_price =	 Double.valueOf(t1.get("liq_price").toString());
+    		 
+    		 System.out.println(side + " , " + size + " , "+ p.entry_price + " , " + p.liq_price);
         }
         
        
@@ -179,9 +176,34 @@ public class Encrypton2 {
         String url = "https://api.bybit.com/private/linear/order/list";
         String response = BybitClient.get(url, map);
         if(response != null) {
-        	printJson(response);
+        	parsingOrder(response);
         }
         
+    }
+    public void parsingOrder(String str) {
+    	JsonParser parser = new JsonParser();
+        JsonElement el =  parser.parse(str);
+        System.out.println(el);
+        
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+       // LOG.info(gson.toJson(el));
+        Map<String, Object> map  = gson.fromJson(str, Map.class);
+        LinkedTreeMap result = (LinkedTreeMap)map.get("result");
+        Date time_now = getTimeNow((String)map.get("time_now"));
+        System.out.println(result.get("current_page"));
+        System.out.println(result.get("data"));
+        ArrayList data = (ArrayList)result.get("data");
+        for(int i=0; i<data.size(); i++) {
+        	LinkedTreeMap order = (LinkedTreeMap)data.get(i);
+        	_Order o = new _Order();
+        	 LOG.info(gson.toJson(order));
+        	o.order_type = order.get("order_type").toString();
+        	o.price		 = Double.valueOf(order.get("price").toString());
+        	double qty	 = Double.valueOf(order.get("qty").toString());
+        	o.side		 = order.get("side").toString();
+        	System.out.println(o.order_type + " , " +o.side + " , " +o.price + " , " + " , " + qty + " , " );
+        }
     }
     /**
      * GET: get the active order list

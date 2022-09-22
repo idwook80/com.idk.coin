@@ -10,7 +10,7 @@ import javax.sound.sampled.FloatControl;
 public class AlarmSound {
 	public static void main(String[] args) {
 		for(;;) {
-				AlarmSound.beep01();
+				AlarmSound.playAlert();
 			try {
 			Thread.sleep(1000);
 			}catch(Exception e) {
@@ -35,6 +35,12 @@ public class AlarmSound {
 	}
 	public static void playSound() {
 		playSound("Alarm02.wav");
+	}
+	public static void playAlert() {
+		playDistress("button09.wav");
+	}
+	public static void playDistress() {
+		playDistress("distress.wav");
 	}
 	
 	public static boolean is_alarm = false;
@@ -145,4 +151,42 @@ public class AlarmSound {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void playDistress(String filename) {
+		///if(is_beep) return;
+		//is_beep = true;
+		try {
+			URL url = AlarmSound.class.getResource(filename);
+			File file = new File(url.getPath());
+			final Clip clip =  AudioSystem.getClip();
+			 
+			 clip.open(AudioSystem.getAudioInputStream(file));
+			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+			 double gain = .5D; // number between 0 and 1 (loudest)
+			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
+			 gainControl.setValue(gainControl.getMaximum());
+			// float ovol  = gainControl.getValue();
+			// gainControl.setValue(10.0f);
+			 clip.start();
+			 
+			 
+			 new Thread(new Runnable() {
+				 public void run() {
+					 try {
+						 Thread.sleep(1000*2);
+					 }catch(Exception e) {
+						 
+					 }
+					 clip.stop();
+					 is_beep = false;
+					// gainControl.setValue(ovol);
+					 
+				 }
+			 }).start();
+			 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

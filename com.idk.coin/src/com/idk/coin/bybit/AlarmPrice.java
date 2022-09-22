@@ -3,6 +3,8 @@ package com.idk.coin.bybit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.idk.coin.AlarmSound;
+
 public class AlarmPrice {
 	public static Logger LOG =   LoggerFactory.getLogger(AlarmPrice.class.getName());
 	
@@ -31,6 +33,7 @@ public class AlarmPrice {
 			double ret_code = tr.executAction();
 			
 			if(ret_code == 0 && is_reverse) {
+				AlarmSound.playAlert();
 				LOG.info("Reverse Execute!");
 					String position = tr.getPosition_idx();
 					String side		= tr.getSide();
@@ -59,6 +62,8 @@ public class AlarmPrice {
 					LOG.info("★★★★★★★★★★\t Reverse Action \t★★★★★★★★★★★★★");
 					LOG.info(newAlarm.toString());
 				
+			}else {
+				AlarmSound.playDistress();
 			}
 		
 			
