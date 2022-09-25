@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import javax.websocket.ClientEndpoint;
 
 import com.alibaba.fastjson.JSON;
 import com.idk.coin.CoinConfig;
@@ -20,6 +21,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+@ClientEndpoint
 public class BybitClient {
 	
 	 /**
@@ -47,7 +49,29 @@ public class BybitClient {
         }
         return null;
     }
-    
+    /**
+     * GET: get the active order list
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeyException
+     */
+    public static String get(String url) throws NoSuchAlgorithmException, InvalidKeyException {
+
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        Call call = client.newCall(request);
+        try {
+            Response response = call.execute();
+            assert response.body() != null;
+            return response.body().string();
+            //System.out.println(response.body().string());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * GET: get the active order list
      * @throws NoSuchAlgorithmException

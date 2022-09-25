@@ -63,7 +63,8 @@ public class AlarmPrice {
 					LOG.info(newAlarm.toString());
 				
 			}else {
-				AlarmSound.playDistress();
+				if(ret_code == 0) AlarmSound.playAlert();
+				else AlarmSound.playDistress();
 			}
 		
 			

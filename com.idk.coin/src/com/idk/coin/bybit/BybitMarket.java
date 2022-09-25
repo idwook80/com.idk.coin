@@ -161,7 +161,7 @@ public class BybitMarket implements Runnable {
            	 }else pre_beep = false;
        	 }
        	 
-       	 if(alarmPriceManager != null) alarmPriceManager.checkAlarm(last_price);
+       	//if(alarmPriceManager != null) alarmPriceManager.checkAlarm(last_price);
         }
     }
     public static Date getTimeNow(String time) {

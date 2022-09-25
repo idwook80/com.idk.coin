@@ -39,7 +39,9 @@ public class Encrypton2 {
     	
     	Encrypton2 encryptionTest = new Encrypton2();
     	
-    	 encryptionTest.getActiveOrder();
+    	encryptionTest.getServerTime();
+    	//encryptionTest.getActiveOrder();
+    
     	//encryptionTest.getActiveMyPosition();
     	//encryptionTest.placeActiveOrder();
     	//encryptionTest.getActiveKline();
@@ -59,6 +61,15 @@ public class Encrypton2 {
     	API_KEY 	= System.getProperty(CoinConfig.BYBIT_KEY);
     	API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SECRET);
     	
+    }
+    public void getServerTime() throws NoSuchAlgorithmException, InvalidKeyException {
+    	 
+        String url = "https://api.bybit.com";
+        url  	 += "/v2/public/time";
+        String response = BybitClient.get(url);
+        if(response != null) {
+        	printJson(response);
+        }
     }
     
     /**
