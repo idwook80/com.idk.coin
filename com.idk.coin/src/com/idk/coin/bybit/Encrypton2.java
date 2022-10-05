@@ -6,21 +6,23 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.model.Position;
+
 
 import io.contek.invoker.bybit.api.common._Order;
 import io.contek.invoker.bybit.api.common._Position;
@@ -39,10 +41,10 @@ public class Encrypton2 {
     	
     	Encrypton2 encryptionTest = new Encrypton2();
     	
-    	encryptionTest.getServerTime();
+    	//encryptionTest.getServerTime();
     	//encryptionTest.getActiveOrder();
     
-    	//encryptionTest.getActiveMyPosition();
+    	encryptionTest.getActiveMyPosition();
     	//encryptionTest.placeActiveOrder();
     	//encryptionTest.getActiveKline();
     	/*for(;;) {
@@ -139,30 +141,30 @@ public class Encrypton2 {
     public void parsingPosition(String str) {
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
-        //System.out.println(el);
+        JsonObject el2 =  el.getAsJsonObject();
+        JsonArray obj2 = el2.get("result").getAsJsonArray();
+        
+       // System.out.println(el);
         
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
        // LOG.info(gson.toJson(el));
-        Map<String, Object> map  = gson.fromJson(str, Map.class);
+        Map<String, Object> map  = gson.fromJson(el, Map.class);
         ArrayList result = (ArrayList)map.get("result");
         Date time_now = getTimeNow((String)map.get("time_now"));
         
-        ObjectMapper mapper = new ObjectMapper();
-        
         for(int i=0; i<result.size(); i++) {
         	 LinkedTreeMap t1 = (LinkedTreeMap)result.get(i);
-        	 String side = t1.get("side").toString();
-    		 String size = t1.get("size").toString();
-    		 _Position p = new _Position();
-    		 
-    		 p.entry_price = Double.valueOf(t1.get("entry_price").toString());
-    		 p.liq_price =	 Double.valueOf(t1.get("liq_price").toString());
-    		 
-    		 System.out.println(side + " , " + size + " , "+ p.entry_price + " , " + p.liq_price);
+        	 Position p = new Position(t1);
+        	 JsonObject o = (JsonObject)obj2.get(i);
+        	 p.setUser_id(o.get("user_id").toString());
+        	 System.out.println(p.getSide() + " & " + (p.getSide().equals("Buy") ? "Long" : "Short") + " \t: " 
+        			 		  + p.getSize()  +  " , "
+        	 				  +(p.getSide().equals("Sell") ? "-" : "") + String.format("%.2f", p.getSize()/1.5) + " , "
+        	 				  + p.getLiq_price() + " , "
+        	 				  + "");
+        	 System.out.println(p);
         }
-        
-       
     }
     /**
      * GET: get the active order list

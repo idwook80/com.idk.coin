@@ -28,9 +28,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.mocel.OrderExecution;
+import com.idk.coin.bybit.model.OrderExecution;
 
 import io.contek.invoker.bybit.api.common._Position;
+import okhttp3.internal.connection.RealConnection;
 
 @ClientEndpoint
 public class BybitExecution implements Runnable {
@@ -42,15 +43,14 @@ public class BybitExecution implements Runnable {
 	    Session session;
 	    Thread thread ;
 	    Thread readThread;
-	    
-	    AlarmPriceManager alarmPriceManager;
+	    BybitRealTime bybitRealTime;
 	    public static void main(String[] args) {
 	    	new BybitExecution(null);
 	    }
 	    
-	    public BybitExecution(AlarmPriceManager manager) {
+	    public BybitExecution(BybitRealTime manager) {
 			// TODO Auto-generated constructor stub
-	    	this.alarmPriceManager = manager;
+	    	this.bybitRealTime = manager;
 	    	 CoinConfig.loadConfig();
 	    	 api_key 	= System.getProperty(CoinConfig.BYBIT_KEY);
 	         api_secret = System.getProperty(CoinConfig.BYBIT_SECRET);
@@ -162,26 +162,6 @@ public class BybitExecution implements Runnable {
 	       	 OrderExecution execution = new OrderExecution(t1);
 	       	 System.out.println(execution);
 	       	 notifyAlarm(execution);
-	       	 /*
-	       	 double price  		= Double.valueOf(t1.get("price").toString());
-	       	 double order_qty 	= Double.valueOf(t1.get("order_qty").toString());
-	       	 double exec_qty	= Double.valueOf(t1.get("exec_qty").toString());
-	       	 double leaves_qty	= Double.valueOf(t1.get("leaves_qty").toString());
-	       	 double exec_fee	= Double.valueOf(t1.get("exec_fee").toString());
-	       	
-	       	 String symbol		= t1.get("symbol").toString();
-	         String side 		= t1.get("side").toString();
-	       	 String exec_type	= t1.get("exec_type").toString();
-	     	 String order_id	= t1.get("order_id").toString();
-	     	 String exec_id		= t1.get("exec_id").toString();
-	     	 
-	     
-	       	 System.out.println(exec_type  + " , " + side 
-	       			 			+ " , " + price
-	       			 			+ " , " + order_qty 
-	       			 			+ " ,"  + exec_qty
-	       			 			+ " , " + leaves_qty
-	       		);*/
 	        }
 	    }
 	    
@@ -237,11 +217,8 @@ public class BybitExecution implements Runnable {
 	        return req.toString();
 	    }
 	    
-	    public void notifyAlarm(OrderExecution execution) {
-	    	if(alarmPriceManager == null) return;
-	    	if(execution.getLeaves_qty() == 0) {
-	    		alarmPriceManager.checkAlarm(execution.getPrice());
-	    	}
+	    public synchronized void notifyAlarm(OrderExecution e) {
+	    	bybitRealTime.eventExecution(e);
 	    }
 	    
 	   

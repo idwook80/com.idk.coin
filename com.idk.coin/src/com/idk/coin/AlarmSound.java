@@ -10,7 +10,7 @@ import javax.sound.sampled.FloatControl;
 public class AlarmSound {
 	public static void main(String[] args) {
 		for(;;) {
-				AlarmSound.beep01();
+				AlarmSound.playAlert();
 			try {
 			Thread.sleep(1000);
 			}catch(Exception e) {
@@ -44,8 +44,8 @@ public class AlarmSound {
 	}
 	
 	public static boolean is_alarm = false;
-	public static boolean is_beep  = false;
-	public static float   default_dp = -12;
+	 //max 6.0206 ~ -80.0
+	public static boolean is_beep  = false;public static float   default_dp = -20;
 	public static void playAlarm(String filename) {
 		if(is_alarm) return ;
 		is_alarm = true;
@@ -94,7 +94,7 @@ public class AlarmSound {
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			 double gain = 3; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 //max 6.0206 ~ -80.0
+			
 			 gainControl.setValue(default_dp);
 			//System.out.println(gainControl.getMaximum() + " , " + gainControl.getMinimum());
 			//System.out.println(gainControl.toString());

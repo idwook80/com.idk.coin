@@ -1,3 +1,4 @@
+
 package com.idk.coin.bybit;
 
 import java.security.InvalidKeyException;
@@ -19,6 +20,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.model.Position;
 
 public class BybitMarket implements Runnable {
 	 static String API_KEY 		= "";
@@ -28,7 +30,8 @@ public class BybitMarket implements Runnable {
     
     public static Logger LOG =   LoggerFactory.getLogger(BybitMarket.class.getName());
     
-    public AlarmPriceManager alarmPriceManager;
+  //  public AlarmPriceManager alarmPriceManager;
+    public BybitMain main;
     Thread thread;
     public int alarm_total_size;
     
@@ -37,12 +40,12 @@ public class BybitMarket implements Runnable {
     }
     
     
-	public BybitMarket(AlarmPriceManager alarmPriceManager) {
+	public BybitMarket(BybitMain main) {
 		CoinConfig.loadConfig();
 		API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
 		API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
 		
-		this.alarmPriceManager = alarmPriceManager;
+		this.main = main;
 		init();
 		Thread thread  = new Thread(this);
 		thread.start();
@@ -51,8 +54,8 @@ public class BybitMarket implements Runnable {
 		
 	}
 	public void run()   {
-		if(alarmPriceManager != null) {
-			alarm_total_size = alarmPriceManager.getSize();
+		if(main != null) {
+			alarm_total_size = main.getAlarmPriceManager().getSize();
 		}
 		
 		for(;;) {
@@ -117,7 +120,6 @@ public class BybitMarket implements Runnable {
         JsonElement el =  parser.parse(str);
         //System.out.println(el);
         
-        
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         //LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
@@ -136,19 +138,26 @@ public class BybitMarket implements Runnable {
        	 double per_volume = volume - last_volume;
        	 last_volume = volume;
        	 last_dir 	= (last_price == price ? last_dir : last_price < price ? true : false) ;
+       	//Position buyPosition = main.getPositionManager().getBtcBuyPosition();
+      // 	Position sellPosition = main.getPositionManager().getBtcSellPosition();
        	// if(per_volume > volume_per_sec || volume > volume_max || time_now.getSeconds() < 1) {
 	       	 //LOG.info(i + " : " + time_now.toGMTString() 
-	       	LOG.info(  ",[" + alarm_total_size + "]:" + alarmPriceManager.getSize()
-	       			 + ",\t# " + open    + "# " +  (open < price ? "↑↑" : "↓↓") 
-	       			 + ",\t# " + price  +  "# " +  (last_dir ? "↑↑" : "↓↓")
-	       			 + ",\t# " + String.format("%.2f",volume) 
-	       			 + ",\t# " + String.format("%.2f",per_volume) 
+       	 double buySize = main.getPositionManager().getBtcBuyPosition().getSize();
+       	 double sellSize = main.getPositionManager().getBtcSellPosition().getSize();
+	       	LOG.info(  ",[" + alarm_total_size + "]/" + main.getAlarmPriceManager().getSize()
+	       			 //+ ",\t# " + open    + "# " +  (open < price ? "↑↑" : "↓↓") 
+	       			 + ", # " + price  +  "# " +  (last_dir ? "↑↑" : "↓↓")
+	       			 + ",  # " + String.format("%.2f",volume) 
+	       			 + ",  # " + String.format("%.2f",per_volume) 
 	       			 +  " # " + (last_dir ? "↑↑" : "↓↓")
-	       			 + "," + (per_volume > volume_per_sec || volume > volume_max ? (per_volume > volume_per_sec * 5 || volume > volume_max ? "◀◀◀◀◀" : "◁◁◁◁◁") : "")
-	       			 +  (per_volume > volume_per_sec * 10  ?  (last_dir ? "▲▲▲▲▲" : "▼▼▼▼▼") : ""));
+	       			 + "," + (per_volume > volume_per_sec || volume > volume_max ? (per_volume > volume_per_sec * 5 || volume > volume_max ? "◀◀" : "◁◁") : "")
+	       			 +  (per_volume > volume_per_sec * 10  ?  (last_dir ? "▲▲" : "▼▼") : "") 
+	       			 + " BUY(" + buySize + ") [" + String.format("%.2f", buySize/(main.DEFAULT_QTY.doubleValue()*10)) + " : " + String.format("%.2f", sellSize/(main.DEFAULT_QTY.doubleValue()*10)) 
+	       			 + "] SELL(" + sellSize + ") " );
 	       			 //+ ", \t# " + start_at.toGMTString() + " , " + open_time.toGMTString());
 	        // LOG.info(i + " : " + start_at.toGMTString() + " , " + open_time.toGMTString());
        	 //}
+	       	
        	 
        	last_price = price;
        	 if(volume > volume_max) {
@@ -161,7 +170,7 @@ public class BybitMarket implements Runnable {
            	 }else pre_beep = false;
        	 }
        	 
-       	if(alarmPriceManager != null) alarmPriceManager.checkAlarm(last_price);
+       	if(main != null) main.getAlarmPriceManager().checkAlarm(last_price);
         }
     }
     public static Date getTimeNow(String time) {

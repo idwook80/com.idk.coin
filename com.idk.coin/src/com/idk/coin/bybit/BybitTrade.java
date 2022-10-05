@@ -121,7 +121,7 @@ public class BybitTrade {
     public double executAction() {
     	try {
     		double ret_code = placeActiveOrder(side,position_idx, price, qty);
-    		 return ret_code;
+    		return ret_code;
     	}catch(Exception e) {
     		e.printStackTrace();
     	}

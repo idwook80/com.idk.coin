@@ -35,9 +35,10 @@ public class AlarmPrice {
 			if(ret_code == 0 && is_reverse) {
 				AlarmSound.playAlert();
 				LOG.info("Reverse Execute!");
-					String position = tr.getPosition_idx();
-					String side		= tr.getSide();
+					String position 	= tr.getPosition_idx();
+					String side			= tr.getSide();
 					AlarmPrice newAlarm = null;
+					
 					if(position.equals(BybitTrade.POSITION_IDX_BUY)) {		// Long
 						if(side.equals(BybitTrade.SIDE_BUY)) {				//openLong
 							
@@ -59,12 +60,16 @@ public class AlarmPrice {
 							newAlarm = manager.createCloseShort(tr.getPrice(), !is_over, price, tr.getQty(),is_reverse);
 						}
 					}
-					LOG.info("★★★★★★★★★★\t Reverse Action \t★★★★★★★★★★★★★");
-					LOG.info(newAlarm.toString());
+				LOG.info("★★★★★★★★★★\t Reverse Action \t★★★★★★★★★★★★★");
+				LOG.info(newAlarm.toString());
 				
 			}else {
 				if(ret_code == 0) AlarmSound.playAlert();
-				else AlarmSound.playDistress();
+				else {
+					AlarmSound.playDistress();
+					LOG.error("[ORDER ACTION ERROR]");
+					LOG.error(tr.toString());
+				}
 			}
 		
 			
