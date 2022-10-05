@@ -75,13 +75,13 @@ public class BybitWebsocket {
 	       	total = 100/total;
 	       	// if(size > 1) {
 		       	 System.out.print(price + " # ");
-		       	System.out.print(String.format("%.3f",size) + " # "
-		       			 			+ side  + " # "
-		       			 			+ getDirectionTick(tick_direction) + " \t# "
-		       			 			+ "["+buyCount+"] "+ String.format("%.2f",buyTotal) +"(" + String.format("%.2f",buyTotal * total) +"%) # " 
-		       			 			+  ( buyTotal > sellTotal ? "▲▲" : "▽▽") + "\t"
-		       			 			+ " ["+sellCount+"] "+ String.format("%.2f",sellTotal) +"("+ String.format("%.2f",sellTotal * total) +"%) \t# "
-		       			 			+ (size > 2 ?  "◁◁◁◁\t  " + getDirectionTick(tick_direction) + " " + String.format("%.3f",size) : "") 
+		       	System.out.print(String.format("%.3f",size) + " "
+		       			 			+ side.charAt(0)  + "|"
+		       			 			+ getDirectionTick(tick_direction) + "\t|"
+		       			 			+ "["+buyCount+"] "+ String.format("%.2f",buyTotal) +"(" + String.format("%.2f",buyTotal * total) +"%) | " 
+		       			 			+  ( buyTotal > sellTotal ? "▲▲" : "▽▽") + " "
+		       			 			+ " ["+sellCount+"] "+ String.format("%.2f",sellTotal) +"("+ String.format("%.2f",sellTotal * total) +"%) | "
+		       			 			+ (size > 2 ?  " ◁◁  " + getDirectionTick(tick_direction) + " " + String.format("%.3f",size) : "") 
 		       			 		);
 		       			 		System.out.print("\n");
 	       	// }

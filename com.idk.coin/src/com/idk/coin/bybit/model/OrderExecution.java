@@ -1,4 +1,4 @@
-package com.idk.coin.bybit.mocel;
+package com.idk.coin.bybit.model;
 
 import java.util.Map;
 
