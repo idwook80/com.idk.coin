@@ -10,7 +10,7 @@ import javax.sound.sampled.FloatControl;
 public class AlarmSound {
 	public static void main(String[] args) {
 		for(;;) {
-				AlarmSound.playAlert();
+				AlarmSound.beep01();
 			try {
 			Thread.sleep(1000);
 			}catch(Exception e) {
@@ -45,6 +45,7 @@ public class AlarmSound {
 	
 	public static boolean is_alarm = false;
 	public static boolean is_beep  = false;
+	public static float   default_dp = -12;
 	public static void playAlarm(String filename) {
 		if(is_alarm) return ;
 		is_alarm = true;
@@ -58,7 +59,7 @@ public class AlarmSound {
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			 double gain = .5D; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(gainControl.getMaximum());
+			 gainControl.setValue(default_dp);
 			 clip.start();
 			 
 			 
@@ -91,9 +92,12 @@ public class AlarmSound {
 			 
 			 clip.open(AudioSystem.getAudioInputStream(file));
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			 double gain = .5D; // number between 0 and 1 (loudest)
+			 double gain = 3; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(gainControl.getMaximum());
+			 //max 6.0206 ~ -80.0
+			 gainControl.setValue(default_dp);
+			//System.out.println(gainControl.getMaximum() + " , " + gainControl.getMinimum());
+			//System.out.println(gainControl.toString());
 			// float ovol  = gainControl.getValue();
 			// gainControl.setValue(10.0f);
 			 clip.start();
@@ -126,9 +130,9 @@ public class AlarmSound {
 			 
 			 clip.open(AudioSystem.getAudioInputStream(file));
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			 double gain = .5D; // number between 0 and 1 (loudest)
-			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(gainControl.getMaximum());
+			 //double gain = .5D; // number between 0 and 1 (loudest)
+			 //float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
+			 gainControl.setValue(default_dp);
 			// float ovol  = gainControl.getValue();
 			// gainControl.setValue(10.0f);
 			 clip.start();
@@ -164,7 +168,7 @@ public class AlarmSound {
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			 double gain = .5D; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(gainControl.getMaximum());
+			 gainControl.setValue(default_dp);
 			// float ovol  = gainControl.getValue();
 			// gainControl.setValue(10.0f);
 			 clip.start();
