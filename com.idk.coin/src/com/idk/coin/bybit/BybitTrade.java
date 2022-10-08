@@ -82,7 +82,7 @@ public class BybitTrade {
         map.put("reduce_only", false);
         map.put("close_on_trigger", false);
         map.put("recv_window", RECV_WINDOW);
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com";

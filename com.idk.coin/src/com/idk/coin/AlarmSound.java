@@ -45,7 +45,7 @@ public class AlarmSound {
 	
 	public static boolean is_alarm = false;
 	 //max 6.0206 ~ -80.0
-	public static boolean is_beep  = false;public static float   default_dp = -20;
+	public static boolean is_beep  = false;public static float   default_dp = -15;
 	public static void playAlarm(String filename) {
 		if(is_alarm) return ;
 		is_alarm = true;
@@ -59,7 +59,7 @@ public class AlarmSound {
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			 double gain = .5D; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(default_dp);
+			 gainControl.setValue(default_dp + 5 );
 			 clip.start();
 			 
 			 

@@ -99,7 +99,7 @@ public class Encrypton2 {
         map.put("reduce_only", false);
         map.put("close_on_trigger", false);
         map.put("recv_window", RECV_WINDOW);
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com/private/linear/order/create";
@@ -127,7 +127,7 @@ public class Encrypton2 {
         map.put("symbol", "BTCUSDT");
         //map.put("order_status", "Created,New,Filled,Cancelled");
         //map.put("order_status", "Created,New");
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com";
@@ -183,7 +183,7 @@ public class Encrypton2 {
         map.put("symbol", "BTCUSDT");
         //map.put("order_status", "Created,New,Filled,Cancelled");
         map.put("order_status", "Created,New");
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com/private/linear/order/list";
@@ -232,7 +232,7 @@ public class Encrypton2 {
         });
         map.put("api_key", API_KEY);
         map.put("timestamp", TIMESTAMP);
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com/v2/private/account/api-key";
@@ -261,7 +261,7 @@ public class Encrypton2 {
         map.put("interval", "5");
         map.put("from", TIMESTAMP_SEC);
         map.put("limit", "1");
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(API_SECRET,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com/public/linear/kline";

@@ -28,7 +28,7 @@ public class PositionRest {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public static ArrayList<Position> getActiveMyPosition(String symbol,String api_key) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static ArrayList<Position> getActiveMyPosition(String api_key,String api_secret,String symbol) throws NoSuchAlgorithmException, InvalidKeyException {
     	String url = bybit_url + "/private/linear/position/list";
         Map<String, Object> map = new TreeMap<>(new Comparator<String>() {
             @Override
@@ -42,7 +42,7 @@ public class PositionRest {
         map.put("symbol", "BTCUSDT");
         //map.put("order_status", "Created,New,Filled,Cancelled");
         //map.put("order_status", "Created,New");
-        String signature = BybitClient.genSign(map);
+        String signature = BybitClient.genSign(api_secret,map);
         map.put("sign", signature);
         
         String response = BybitClient.get(url, map);

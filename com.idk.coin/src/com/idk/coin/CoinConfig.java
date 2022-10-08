@@ -8,6 +8,8 @@ import java.util.Properties;
 public class CoinConfig {
    public static String BYBIT_KEY 		= "BYBIT_API_KEY";
    public static String BYBIT_SECRET    = "BYBIT_API_SECRET";
+   public static String BYBIT_SUB_KEY	= "BYBIT_SUB_API_KEY";
+   public static String BYBIT_SUB_SECRET= "BYBIT_SUB_API_SECRET";
    public static String BINANCE_KEY		= "BINANCE_API_KEY";
    public static String BINANCE_SECRET	= "BINANCE_API_SECRET";
    public static boolean is_loaded = false;

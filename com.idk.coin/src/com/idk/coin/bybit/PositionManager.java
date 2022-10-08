@@ -3,7 +3,9 @@ package com.idk.coin.bybit;
 import java.util.ArrayList;
 
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.account.OrderRest;
 import com.idk.coin.bybit.account.PositionRest;
+import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.model.Position;
 
 public class PositionManager {
@@ -12,16 +14,25 @@ public class PositionManager {
     static String API_SECRET = "";
     Position btcBuyPosition;
     Position btcSellPosition;
+    double walletBalance = 0.0;
     
     BybitMain main;
     
     
     public static void main(String[] args) {
-    	PositionManager pm = new PositionManager(null);
-    	pm.changedPositions();
+    	CoinConfig.loadConfig();
     	
-    	Position p = pm.getPosition("BTCUSDT", "Buy");
-    	System.out.println(p);
+    	API_KEY 	= System.getProperty(CoinConfig.BYBIT_SUB_KEY);
+    	API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SUB_SECRET);
+    	System.setProperty(CoinConfig.BYBIT_KEY, API_KEY);
+    	System.setProperty(CoinConfig.BYBIT_SECRET, API_SECRET);
+    	
+    	try {
+    		WalletRest.getWalletBalance(API_KEY,API_SECRET, "USDT");
+    		//OrderRest.cancelAllOrder(API_KEY,"BTCUSDT");
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
     }
     
 	public PositionManager(BybitMain main) {
@@ -63,23 +74,35 @@ public class PositionManager {
 	
 	public void changedPositions() {
 		System.out.println("################## changed positions ##############");
+		changedWalletBalance();
 		try {
-				ArrayList<Position> ps = PositionRest.getActiveMyPosition("BTCUSDT", API_KEY);
+				ArrayList<Position> ps = PositionRest.getActiveMyPosition(API_KEY,API_SECRET, "BTCUSDT");
 				if(ps == null) return;
 				for(Position p : ps) {
 					setPosition(p);
 				}
+				
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		btcBuyPosition = getPosition("BTCUSDT", "Buy");
 		btcSellPosition = getPosition("BTCUSDT", "Sell");
 	}
-	
+	public void changedWalletBalance() {
+		try {
+		walletBalance = WalletRest.getWalletBalance(API_KEY,API_SECRET, "USDT");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public Position getBtcBuyPosition(){
 		return btcBuyPosition;
 	}
 	public Position getBtcSellPosition() {
 		return btcSellPosition;
 	}
+	public double getWalletBalance() {
+		return walletBalance;
+	}
+ 
 }

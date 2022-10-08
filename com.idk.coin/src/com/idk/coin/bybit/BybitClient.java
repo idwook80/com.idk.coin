@@ -112,7 +112,7 @@ public class BybitClient {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public static String genSign(Map<String, Object> params) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static String genSign(String secret, Map<String, Object> params) throws NoSuchAlgorithmException, InvalidKeyException {
         Set<String> keySet = params.keySet();
         Iterator<String> iter = keySet.iterator();
         StringBuilder sb = new StringBuilder();
@@ -125,7 +125,8 @@ public class BybitClient {
         }
         sb.deleteCharAt(sb.length() - 1);
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secret_key = new SecretKeySpec(System.getProperty(CoinConfig.BYBIT_SECRET).getBytes(), "HmacSHA256");
+        /*SecretKeySpec secret_key = new SecretKeySpec(System.getProperty(CoinConfig.BYBIT_SECRET).getBytes(), "HmacSHA256");*/
+        SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
         sha256_HMAC.init(secret_key);
 
         return bytesToHex(sha256_HMAC.doFinal(sb.toString().getBytes()));

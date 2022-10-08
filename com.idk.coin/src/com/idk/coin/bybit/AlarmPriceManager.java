@@ -41,7 +41,12 @@ public class AlarmPriceManager {
 			}
 		}
 	}
-	
+	public void clearAllAlarms() {
+		synchronized (list) {
+			list.removeAll(list);
+		}
+		LOG.info("Clear All Alarms : " + list.size());
+	}
 	
 	public void setIdleOverPrice(double price) {
 		this.over_price = price;
