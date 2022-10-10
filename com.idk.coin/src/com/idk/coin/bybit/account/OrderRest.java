@@ -59,7 +59,7 @@ public class OrderRest {
 	        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	        System.out.println(gson.toJson(el));
 	        Map<String, Object> map  = gson.fromJson(str, Map.class);
-	        LinkedTreeMap result = (LinkedTreeMap)map.get("result");
+	        //LinkedTreeMap result = (LinkedTreeMap)map.get("result");
 	        
 	        double ret_code = (Double)map.get("ret_code");
 	        

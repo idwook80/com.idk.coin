@@ -19,18 +19,16 @@ import com.idk.coin.CoinConfig;
 
 public class BybitTrade {
 	public static Logger LOG 			  =   LoggerFactory.getLogger(BybitTrade.class.getName());
-	
-	
-	static String API_KEY 		  = "";
-    static String API_SECRET 	 	  = "";
+	static String API_KEY 		  		  = "";
+    static String API_SECRET 	 	  	  = "";
     final static String RECV_WINDOW 	  = "10000";
     
     final static String SIDE_BUY		  = "Buy";			// LongOpen , ShortClose
     final static String SIDE_SELL		  = "Sell";			// LongClose, ShortOpen	
     
     final static String POSITION_IDX_BOTH = "0";
-    final static String POSITION_IDX_BUY  = "1";			// Long
-    final static String POSITION_IDX_SELL = "2";			// Short
+    final static String POSITION_IDX_LONG  = "1";			// Long
+    final static String POSITION_IDX_SHORT = "2";			// Short
     
     String side;
     String position_idx;
@@ -90,7 +88,7 @@ public class BybitTrade {
         
         String response = BybitClient.post(url, map);
         if(response != null) {
-        	System.out.println(response);
+        	//System.out.println(response);
         	return parsing(response);
         }
         return -1;
@@ -129,31 +127,39 @@ public class BybitTrade {
     }
     public void openLong(double price, double qty) {
     	this.side 		  = SIDE_BUY;
-    	this.position_idx = POSITION_IDX_BUY;
+    	this.position_idx = POSITION_IDX_LONG;
     	this.price 		  = price;
     	this.qty 		  = qty;
     }
     public void openShort(double price, double qty){
     	this.side 			= SIDE_SELL;
-    	this.position_idx 	= POSITION_IDX_SELL;
+    	this.position_idx 	= POSITION_IDX_SHORT;
     	this.price 			= price;
     	this.qty 			= qty;
     }
     public void closeLong(double price, double qty) {
     	this.side 			= SIDE_SELL;
-    	this.position_idx 	= POSITION_IDX_BUY;
+    	this.position_idx 	= POSITION_IDX_LONG;
     	this.price 			= price;
     	this.qty 			= qty;
     }
     public void closeShort(double price, double qty) {
     	this.side 			= SIDE_BUY;
-    	this.position_idx 	= POSITION_IDX_SELL;
+    	this.position_idx 	= POSITION_IDX_SHORT;
     	this.price 			= price;
     	this.qty 			= qty;
     }
+    public String getActionString() {
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Open";
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Close";
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Open";
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Close";
+    	return "UNKNOWN";
+    	
+    }
 	@Override
 	public String toString() {
-		return "BybitTrade [side=" + side + ", position_idx=" + position_idx + ", price=" + price + ", qty=" + qty
+		return "Order [side=" + side+ ", position=" + position_idx + ", price=" + price + ", qty=" + qty
 				+ "]";
 	}
 	public String getSide() {
@@ -164,6 +170,13 @@ public class BybitTrade {
 	}
 	public String getPosition_idx() {
 		return position_idx;
+	}
+	public String getPosition_name() {
+		if(position_idx.equals("0")) return "One Wary";
+		if(position_idx.equals("1")) return "Long";
+		if(position_idx.equals("2")) return "Short";
+		return position_idx;
+		
 	}
 	public void setPosition_idx(String position_idx) {
 		this.position_idx = position_idx;

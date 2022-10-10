@@ -126,4 +126,16 @@ public class AlarmPriceManager {
 		return a;
 	}
 	
+	public void printListString() {
+		LOG.info("★★★★★★★★★★\t" + list.size() + "\t★★★★★★★★★★★★★");
+		int i=0; 
+		synchronized(list) {
+			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
+			for(AlarmPrice alarm : obj) {
+				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
+			}
+		}
+		LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
+	}
+	
 }

@@ -14,11 +14,15 @@ public class AlarmPrice {
 	boolean is_over 	= false; //true <= over , false >= under
 	BybitTrade tr 		= null;
 	boolean is_reverse 	= false;
+	AlarmPrice next		= null;
 	
 	public AlarmPrice(double price, boolean is_over,boolean is_reverse) {
 		this.price 		= price;
 		this.is_over 	= is_over;
 		this.is_reverse = is_reverse;
+	}
+	public void setNextAlarm(AlarmPrice next) {
+		this.next = next;
 	}
 	public boolean compare(double price) {
 		if(is_over) {
@@ -39,24 +43,16 @@ public class AlarmPrice {
 					String side			= tr.getSide();
 					AlarmPrice newAlarm = null;
 					
-					if(position.equals(BybitTrade.POSITION_IDX_BUY)) {		// Long
-						if(side.equals(BybitTrade.SIDE_BUY)) {				//openLong
-							
+					if(position.equals(BybitTrade.POSITION_IDX_LONG)) {		// Long
+						if(side.equals(BybitTrade.SIDE_BUY)) {				// Open Long  --> Close Long
 							newAlarm = manager.createCloseLong(tr.getPrice(), !is_over, price, tr.getQty(),is_reverse);
-							
-						}else if(side.equals(BybitTrade.SIDE_SELL)) {		//closeLong		
-							
+						}else if(side.equals(BybitTrade.SIDE_SELL)) {		// Close Long  --> Open Long
 							newAlarm = manager.createOpenLong(tr.getPrice(), !is_over, price, tr.getQty(),is_reverse);
 						}
-						
-					}else if(position.equals(BybitTrade.POSITION_IDX_SELL))	{ // Short
-						
-						if(side.equals(BybitTrade.SIDE_BUY)) {				  // closeShort
-							
+					}else if(position.equals(BybitTrade.POSITION_IDX_SHORT))	{ // Short 
+						if(side.equals(BybitTrade.SIDE_BUY)) {				  // Close Short --> Open Short
 							newAlarm = manager.createOpenShort(tr.getPrice(), !is_over, price, tr.getQty(),is_reverse);
-						
-						}else if(side.equals(BybitTrade.SIDE_SELL)) {		 // openShort
-							
+						}else if(side.equals(BybitTrade.SIDE_SELL)) {		 // Open Short ---> Close Short
 							newAlarm = manager.createCloseShort(tr.getPrice(), !is_over, price, tr.getQty(),is_reverse);
 						}
 					}
@@ -64,7 +60,10 @@ public class AlarmPrice {
 				LOG.info(newAlarm.toString());
 				
 			}else {
-				if(ret_code == 0) AlarmSound.playAlert();
+				if(ret_code == 0) {
+					AlarmSound.playAlert();
+					if(next != null) manager.addAlarm(next);
+				}
 				else {
 					AlarmSound.playDistress();
 					LOG.error("[ORDER ACTION ERROR]");
@@ -100,7 +99,11 @@ public class AlarmPrice {
 	
 	@Override
 	public String toString() {
-		return "AlarmPrice [price=" + price + ", is_over=" + is_over + ", tr=" + tr.toString() + "]";
+		/*return "AlarmPrice [" + price + ", " + (is_over ? "Over" : "Under") + ", " + (is_reverse ? "R&R" : "Once") + "]" 
+				+ ", [" + tr.getActionString()+"] " + tr.toString()+" " +  (next != null ?  "--> "+next.toString() : "") ;*/
+		return "Alarm : [$" + price + "] " + (is_over ? "Over" : "Under") + " [" + tr.getActionString() + "] " +tr.getPrice() + " ," + tr.getQty() +","+ (is_reverse ? "R&R" : "Once") 
+				+ " " + (next != null ?  " --> " + next.toString() : "");
+ 		
 	}
 	
 }

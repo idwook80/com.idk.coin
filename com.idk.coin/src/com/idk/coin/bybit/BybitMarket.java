@@ -38,17 +38,19 @@ public class BybitMarket implements Runnable {
     	BybitMarket market = new BybitMarket(null);
     }
     
-    
 	public BybitMarket(BybitMain main) {
-		CoinConfig.loadConfig();
+		this(main, false);
+	}
+    public BybitMarket(BybitMain main,boolean debug){
+    	this.debug = debug;
+    	CoinConfig.loadConfig();
 		API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
 		API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
-		
 		this.main = main;
 		init();
 		Thread thread  = new Thread(this);
 		thread.start();
-	}
+    }
 	public void init() {
 		
 	}
@@ -114,6 +116,7 @@ public class BybitMarket implements Runnable {
     public long timing					= 1000/2;   	//ms
     public boolean last_dir				= false; // true ↑↑ , false ↓↓
     public int balancePollingCounter	= 100;
+    public boolean debug				= true;
     
     public void lineParsing(String str) {
     	JsonParser parser = new JsonParser();
@@ -145,6 +148,8 @@ public class BybitMarket implements Runnable {
 	       	 double buySize = main.getPositionManager().getBtcBuyPosition().getSize();
 	       	 double sellSize = main.getPositionManager().getBtcSellPosition().getSize();
 	       	 double balance =  main.getPositionManager().getWalletBalance();
+	       	 
+	       	 if(!debug) {
 		       	LOG.info(  ",[" + alarm_total_size + "]/" + main.getAlarmPriceManager().getSize()
 		       			 //+ ",\t# " + open    + "# " +  (open < price ? "↑↑" : "↓↓") 
 		       			 + ", # " + price  +  "# " +  (last_dir ? "↑↑" : "↓↓")
@@ -153,14 +158,14 @@ public class BybitMarket implements Runnable {
 		       			 +  " # " + (last_dir ? "↑↑" : "↓↓")
 		       			 + "," + (per_volume > volume_per_sec || volume > volume_max ? (per_volume > volume_per_sec * 5 || volume > volume_max ? "◀◀" : "◁◁") : "")
 		       			 +  (per_volume > volume_per_sec * 10  ?  (last_dir ? "▲▲" : "▼▼") : "") 
-		       			 + " BUY(" + buySize + ") [" + String.format("%.2f", buySize/(main.DEFAULT_QTY.doubleValue()*10)) + " : " + String.format("%.2f", sellSize/(main.DEFAULT_QTY.doubleValue()*10)) 
+		       			 + " BUY(" + buySize + ") [" + String.format("%.2f", buySize/(main.getAlarmManagerModel().DEFAULT_QTY.doubleValue()*10)) + " : " + String.format("%.2f", sellSize/(main.getAlarmManagerModel().DEFAULT_QTY.doubleValue()*10)) 
 		       			 + "] SELL(" + sellSize + ") " 
 		       			 + "Balance(" + String.format("%.2f", balance) + ")");
 		       			 //+ ", \t# " + start_at.toGMTString() + " , " + open_time.toGMTString());
 		        // LOG.info(i + " : " + start_at.toGMTString() + " , " + open_time.toGMTString());
 	       	 //}
 		       	
-	       	 
+	       	 }
 	       	last_price = price;
 	       	 if(volume > volume_max) {
 	       		 AlarmSound.alarm01();

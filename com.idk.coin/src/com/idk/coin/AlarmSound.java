@@ -10,7 +10,8 @@ import javax.sound.sampled.FloatControl;
 public class AlarmSound {
 	public static void main(String[] args) {
 		for(;;) {
-				AlarmSound.playAlert();
+				AlarmSound.playSound("piano.wav");
+				AlarmSound.playSound("wolf.wav");
 			try {
 			Thread.sleep(1000);
 			}catch(Exception e) {
@@ -41,6 +42,9 @@ public class AlarmSound {
 	}
 	public static void playDistress() {
 		playDistress("distress.wav");
+	}
+	public static void playReset() {
+		playDistress("baby.wav");
 	}
 	
 	public static boolean is_alarm = false;
