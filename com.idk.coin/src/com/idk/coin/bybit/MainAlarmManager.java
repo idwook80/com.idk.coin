@@ -67,50 +67,53 @@ public class MainAlarmManager extends AlarmManagerModel {
 		shortStopLoss(21250, QTY2);
 		shortStopLoss(21000, QTY2);
 		
-		createOpenShort(20710, OVER, 20910, QTY1, 20810, RR);
-		createOpenShort(20510, OVER, 20710, QTY1, 20610, RR);
-		createOpenShort(20310, OVER, 20510, QTY1, 20410, RR);
-		createOpenShort(20110, OVER, 20310, QTY1, 20210, RR);
-		createOpenShort(19910, OVER, 20110, QTY1, 20010, RR);
+		createOpenShort(20710, OVER, 20910, QTY, 20810, RR);
+		createOpenShort(20510, OVER, 20710, QTY, 20610, RR);
+		createOpenShort(20310, OVER, 20510, QTY, 20410, RR);
+		createOpenShort(20110, OVER, 20310, QTY, 20210, RR);
+		createOpenShort(19910, OVER, 20110, QTY, 20010, RR);
 		shortStopLoss(20750, QTY2);
 		shortStopLoss(20500, QTY2);
 		shortStopLoss(20250, QTY2);
+		shortStopLoss(20000, QTY2);
 		
-		createOpenShort(19810, OVER, 20010, QTY1, 19910, RR);
-		createOpenShort(19710, OVER, 19910, QTY1, 19810, RR);
+		
+		createOpenShort(19810, OVER, 20010, QTY, 19910, RR);
+		createOpenShort(19710, OVER, 19910, QTY, 19810, RR);
 		createOpenShort(19610, OVER, 19810, QTY, 19710, RR);
+		
 		createOpenShort(19510, OVER, 19710, QTY, 19660, RR);
 		createOpenShort(19510, OVER, 19660, QTY, 19610, RR);
+		shortStopLoss(19750, QTY2);
+		shortStopLoss(19500, QTY2);
+		
+		createOpenShort(19410, OVER, 19610, QTY, 19510, RR);
+		createOpenShort(19410, OVER, 19510, QTY, 19460, RR);
+		createOpenShort(19310, OVER, 19460, QTY, 19410, RR);
+		createOpenShort(19310, OVER, 19410, QTY, 19360, RR);
 	}
-	
-	public static boolean is_main_account = true;
-	
 	
 /**	############################################### **/
 /** ######### Short Order exists  Start ########### **/  //<<<<<<----------------------------
 /**	############################################### **/
 	public void setShort() {
-		
-		addCloseShort(19610, OVER, 19560, QTY, RR);
-		addCloseShort(19560, OVER, 19510, QTY, RR);
-		
-		addCloseShort(19510, OVER, 19460, QTY, RR);
-		addCloseShort(19460, OVER, 19410, QTY, RR);
+		addCloseShort(19360, OVER, 19310, QTY, RR);
+		addCloseShort(19310, OVER, 19210, QTY, RR);
+		addCloseShort(19260, OVER, 19160, QTY, RR);
 		
 		/** ↑↑↑↑ -------  Price Line -------  ↓↓↓↓  **/
-		addOpenShort(19310, UNDER, 19410, QTY, RR);
 		addOpenShort(19110, UNDER, 19210, QTY, RR);
-		
+		addOpenShort(19060, UNDER, 19160, QTY, RR);
+		addOpenShort(19010, UNDER, 19110, QTY, RR);
+		addOpenShort(18910, UNDER, 19010, QTY, RR);
 	}
 /**	############################################### **/
 /** ######### Short Order exists  End ############# **------------------------------------------/
 /**	############################################### **/
 	public void setShortTakeProfit() {
 		
-		createCloseShort(19210, UNDER, 19010, QTY, 19110, RR);
-		
-		addOpenShort(18960, UNDER, 18960, QTY);
-		createCloseShort(19010, UNDER, 18910, QTY, 19010, RR);
+		//addOpenShort(18960, UNDER, 18960, QTY);
+		//createCloseShort(19010, UNDER, 18910, QTY, 19010, RR);
 		createCloseShort(18910, UNDER, 18710, QTY, 18910, RR);
 		createCloseShort(18710, UNDER, 18510, QTY, 18710, RR);
 		createCloseShort(18510, UNDER, 18310, QTY, 18510, RR);
@@ -148,34 +151,28 @@ public class MainAlarmManager extends AlarmManagerModel {
 		createCloseLong(19710, OVER, 19910, QTY, 19810, RR);
 		createCloseLong(19610, OVER, 19810, QTY, 19710, RR);
 		createCloseLong(19510, OVER, 19710, QTY, 19610, RR);
-		
-		
-		
+		createCloseLong(19410, OVER, 19610, QTY, 19510, RR);
+		createCloseLong(19410, OVER, 19510, QTY, 19410, RR);
+		createCloseLong(19310, OVER, 19410, QTY, 19310, RR);
+		createCloseLong(19310, OVER, 19360, QTY, 19260, RR);
 	}
 	
-/**	############################################### **/
-/** ######### Long Order exists  Start ############ **///<<<<<<----------------------------
-/**	############################################### **/
+/**	#######################################[LONG]##### **/
+/** ######### Long Order exists  Start ####[LONG]### **///<<<<<<----------------------------
+/**	#######################################[LONG]### **/
 	public void setLong() {
-		
-		addOpenLong(19610, OVER, 19510, QTY, RR);
-		addOpenLong(19510, OVER, 19410, QTY, RR);
-		addOpenLong(19460, OVER, 19410, QTY, RR);
-		addOpenLong(19435, OVER, 19385, QTY, RR);
-		//addOpenLong(19410, OVER, 19360, QTY, RR);
+		addOpenLong(19310, OVER, 19210, QTY, RR);
+		addOpenLong(19260, OVER, 19160, QTY, RR);
+		addOpenLong(19210, OVER, 19160, QTY, RR);
 		
 		/** ↑↑↑↑ -------  Price Line -------  ↓↓↓↓  **/
-		
-		addCloseLong(19360, UNDER, 19410, QTY, RR);
-		addCloseLong(19335, UNDER, 19385, QTY, RR);
-		addCloseLong(19310, UNDER, 19360, QTY, RR);
-		addCloseLong(19285, UNDER, 19335, QTY, RR);
-		addCloseLong(19260, UNDER, 19310, QTY, RR);
-		addCloseLong(19235, UNDER, 19285, QTY, RR);
-		addCloseLong(19210, UNDER, 19260, QTY, RR);
-		addCloseLong(19160, UNDER, 19210, QTY, RR);
-		addCloseLong(19110, UNDER, 19210, QTY1, RR);
-		
+		addCloseLong(19110, UNDER, 19160, QTY, RR);
+		addCloseLong(19060, UNDER, 19110, QTY, RR);
+		addCloseLong(19010, UNDER, 19060, QTY, RR);
+		addCloseLong(18960, UNDER, 19010, QTY, RR);
+		addCloseLong(18910, UNDER, 18960, QTY, RR);
+		addCloseLong(18860, UNDER, 18910, QTY, RR);
+		addCloseLong(18810, UNDER, 18860, QTY, RR);
 	}
 /**	############################################### **/
 /** ######### Long Order exists  End ############## **---------------------------------------/
@@ -183,16 +180,17 @@ public class MainAlarmManager extends AlarmManagerModel {
 	
 	public void setLongStopLoss() {
 		
-		//longStopLoss(19250, QTY2);
-		//createOpenLong(19310, UNDER, 19110, QTY1, 19210, RR);
-		createOpenLong(19210, UNDER, 19010, QTY1, 19110, RR);
-		longStopLoss(19000, QTY2);
+		longStopLoss(18950, QTY2);
 		
-		createOpenLong(19010, UNDER, 18810, QTY1, 18910, RR);
-		createOpenLong(18810, UNDER, 18610, QTY1, 18710, RR);
-		createOpenLong(18610, UNDER, 18410, QTY1, 18510, RR);
-		createOpenLong(18410, UNDER, 18210, QTY1, 18310, RR);
-		createOpenLong(18210, UNDER, 18010, QTY1, 18110, RR);
+		createOpenLong(18910, UNDER, 18760, QTY, 18810, RR);
+		createOpenLong(18910, UNDER, 18710, QTY, 18760, RR);
+		createOpenLong(18910, UNDER, 18660, QTY, 18710, RR);
+		createOpenLong(18810, UNDER, 18610, QTY, 18660, RR);
+	
+		
+		createOpenLong(18610, UNDER, 18410, QTY, 18510, RR);
+		createOpenLong(18410, UNDER, 18210, QTY, 18310, RR);
+		createOpenLong(18210, UNDER, 18010, QTY, 18110, RR);
 		longStopLoss(18750, QTY2);
 		longStopLoss(18500, QTY2);
 		longStopLoss(18250, QTY2);

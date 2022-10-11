@@ -18,7 +18,7 @@ public class BybitMain {
 	AlarmPriceManager 	alarmPriceManager;
 	PositionManager 	positionManager;
 	AlarmManagerModel	alarmManager;
-	public static boolean is_main_account = true;
+	public static boolean is_main_account =  true;
 	public BybitMain() {
 		CoinConfig.loadConfig();
 		loadUserInfo();

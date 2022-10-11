@@ -159,9 +159,9 @@ public class BybitExecution implements Runnable {
 	        for(int i=0; i<data.size(); i++) {
 	       	 LinkedTreeMap t1 = (LinkedTreeMap)data.get(i);
 	       	 
-	       	 OrderExecution execution = new OrderExecution(t1);
-	       	 System.out.println(execution);
-	       	 notifyAlarm(execution);
+		       	 OrderExecution execution = new OrderExecution(t1);
+		       	 System.out.println(execution);
+		       	 notifyAlarm(execution);
 	        }
 	    }
 	    

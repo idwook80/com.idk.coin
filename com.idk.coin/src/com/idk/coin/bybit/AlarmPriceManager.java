@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.idk.coin.bybit.model.OrderExecution;
+
 public class AlarmPriceManager {
 	public static Logger LOG 	= LoggerFactory.getLogger(AlarmPriceManager.class.getName());
 	
@@ -24,7 +26,25 @@ public class AlarmPriceManager {
 			LOG.info("ADD Alarm :  " + alarm.toString());
 		}
 	}
-	public void checkAlarm(double price) {
+	public void checkAlarmExecution(OrderExecution execution) {
+		current_price = execution.getPrice();
+		LOG.info("★★★★★★★★★★\t Execution Checked " + list.size() + "\t★★★★★★★★★★★★★");
+		
+		if(list.isEmpty()) return;
+		synchronized(list) {
+			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
+			for(AlarmPrice alarm : obj) {
+				if(alarm.getParent_order_id() != null) {
+					if(execution.getOrder_id().equals(alarm.getParent_order_id())){
+						list.remove(alarm);
+						alarm.action();
+					}
+				}
+			}
+		}
+		checkAlarmPrice(execution.getPrice());
+	}
+	public void checkAlarmPrice(double price) {
 		current_price = price;
 		checkIdle();
 		
@@ -32,11 +52,16 @@ public class AlarmPriceManager {
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
 			for(AlarmPrice alarm : obj) {
-				if(alarm.compare(price)) {
-					list.remove(alarm);
-					alarm.action();
-					LOG.info("★★★★★★★★★★\t" + list.size() + "\t★★★★★★★★★★★★★");
+				if(alarm.getParent_order_id() == null) {
+					if(alarm.compare(price)) {
+						list.remove(alarm);
+						alarm.action();
+						LOG.info("★★★★★★★★★★\t Price Checked " + list.size() + "\t★★★★★★★★★★★★★");
+					}
 				}
+				
+				
+			
 				
 			}
 		}

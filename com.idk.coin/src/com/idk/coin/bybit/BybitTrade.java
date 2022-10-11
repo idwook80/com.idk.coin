@@ -16,6 +16,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.model.Order;
+import com.idk.coin.bybit.model.OrderExecution;
 
 public class BybitTrade {
 	public static Logger LOG 			  =   LoggerFactory.getLogger(BybitTrade.class.getName());
@@ -54,10 +56,50 @@ public class BybitTrade {
     	API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
     }
     
+    /**
+     * POST: place an active linear perpetual order
+     */
+    public  Order placeActiveOrder(String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+        Map<String, Object> map = new TreeMap(
+            new Comparator<String>() {
+                @Override
+                // sort paramKey in A-Z
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+            }
+        });
+        map.put("api_key", API_KEY);
+        map.put("timestamp", getTimestamp());
+        map.put("side", side);
+        map.put("position_idx",position_idx);
+        map.put("symbol", "BTCUSDT");
+        map.put("order_type", "Limit");
+        map.put("qty", qty);
+        map.put("price", price);
+        map.put("time_in_force", "GoodTillCancel");
+        //map.put("take_profit", "20000");
+        //map.put("stop_loss", "18000");
+        map.put("reduce_only", false);
+        map.put("close_on_trigger", false);
+        map.put("recv_window", RECV_WINDOW);
+        String signature = BybitClient.genSign(API_SECRET,map);
+        map.put("sign", signature);
+        
+        String url = "https://api.bybit.com";
+        url		  += "/private/linear/order/create";
+        
+        String response = BybitClient.post(url, map);
+        if(response != null) {
+        	//System.out.println(response);
+        	return parsingOrder(response);
+        }
+        return null;
+    }
+    
 	/**
      * POST: place an active linear perpetual order
      */
-    public  double placeActiveOrder(String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  double placeActiveOrderCode(String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
                 @Override
@@ -104,27 +146,52 @@ public class BybitTrade {
         LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
+        OrderExecution order = new OrderExecution(result);
         
         double ret_code = (Double)map.get("ret_code");
         
         return ret_code;
-        
     }
-    
+    public Order parsingOrder(String str) {
+    	JsonParser parser = new JsonParser();
+        JsonElement el =  parser.parse(str);
+        //System.out.println(el);
+        
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        LOG.info(gson.toJson(el));
+        Map<String, Object> map  = gson.fromJson(str, Map.class);
+        LinkedTreeMap result = (LinkedTreeMap)map.get("result");
+        Order order = new Order(result);
+        
+        double ret_code = (Double)map.get("ret_code");
+        
+        if(ret_code == 0) return order;
+        return null;
+    }
     
     public String getTimestamp() {
     	return Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     }
-    
-    public double executAction() {
+    public Order executAction() {
     	try {
+    		 Order order = placeActiveOrder(side,position_idx, price, qty);
+    		return order;
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
+    /*public OrderExecution executAction() {
+    	try {
+    		 OrderExecution order = placeActiveOrder(side,position_idx, price, qty);
     		double ret_code = placeActiveOrder(side,position_idx, price, qty);
     		return ret_code;
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
     	return -1;
-    }
+    }*/
     public void openLong(double price, double qty) {
     	this.side 		  = SIDE_BUY;
     	this.position_idx = POSITION_IDX_LONG;

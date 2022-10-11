@@ -177,7 +177,7 @@ public class BybitMarket implements Runnable {
 	           	 }else pre_beep = false;
 	       	 }
 	       	 
-	       	if(main != null) main.getAlarmPriceManager().checkAlarm(last_price);
+	       	if(main != null) main.getAlarmPriceManager().checkAlarmPrice(last_price);
 	       	if(balancePollingCounter-- < 0) {
 	       		main.getPositionManager().changedWalletBalance();
 	       		balancePollingCounter = 100;

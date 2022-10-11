@@ -18,9 +18,9 @@ public class BybitRealTime {
 		execution = new BybitExecution(this);
 	}
 	
-	public void eventExecution(OrderExecution e	) {
+	public void eventExecution(OrderExecution e) {
 		if(e.getLeaves_qty() == 0) {
-			main.getAlarmPriceManager().checkAlarm(e.getPrice());
+			main.getAlarmPriceManager().checkAlarmExecution(e);
 			main.getPositionManager().changedPositions();
 		}
 	}
