@@ -1,4 +1,4 @@
-package com.idk.coin.db.upbit;
+package com.idk.coin.db;
 
 import java.util.HashMap;
 import java.util.Iterator;

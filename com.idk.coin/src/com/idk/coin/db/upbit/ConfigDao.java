@@ -2,7 +2,7 @@ package com.idk.coin.db.upbit;
 
 import java.util.HashMap;
 
-import com.idk.coin.db.CoinDBManager;
+import com.idk.coin.db.DaoModel;
 import com.idk.coin.upbit.BotConfig;
 
 public class ConfigDao extends DaoModel {

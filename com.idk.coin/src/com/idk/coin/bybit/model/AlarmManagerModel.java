@@ -30,89 +30,89 @@ abstract public class AlarmManagerModel {
 	}
 	
 	/* ###################    OPEN LONG   ##################### */
-	public void createOpenLong(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) {
+	public void createOpenLong(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) throws Exception{
 		addOpenLong(trigger, is_over, price, qty);
 		addCloseLong(price, UNDER, close_price, qty, is_reverse);
 	}
-	public void createOpenLongs(double price, boolean is_over, double... prices) {
-		for(double p : prices) {
-			addOpenLong(price,is_over,p,QTY);
+	
+	public AlarmPrice addOpenLong(double price, boolean is_over, double open_price, double qty) throws Exception {
+		return addOpenLong(price, is_over, open_price, qty, ONCE);
+	}
+	
+	public AlarmPrice addOpenLong(double trigger, boolean is_over, double open_price, double qty, boolean is_reverse) throws Exception {
+		if(is_reverse && is_over == OVER) {
+			if(trigger < open_price) throw new Exception("[Warning] trigger < open_price [Long] for reverse"); 
+			//addOpenLong(18910, OVER, 18930, QTY, RR); //18920 무한
 		}
-	}
-	
-	public void addOpenLong(double price, boolean is_over, double open_price, double qty) {
-		addOpenLong(price, is_over, open_price, qty, false);
-	}
-	
-	public AlarmPrice addOpenLong(double price, boolean is_over, double open_price, double qty, boolean is_reverse) {
-		return main.getAlarmPriceManager().createOpenLong(price, is_over, open_price, qty,is_reverse);
+		
+		return main.getAlarmPriceManager().createOpenLong(trigger, is_over, open_price, qty,is_reverse);
 	}
 	
 	/* ###################    CLOSE LONG   ##################### */
-	public void createCloseLong(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) {
+	public void createCloseLong(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) throws Exception{
 			addCloseLong(trigger, is_over, price, qty, ONCE);
 			addOpenLong(price, OVER, open_price, qty, is_reverse);
 	}
-	public void createCloseLongs(double price, boolean is_over, double... prices) {
-		for(double p : prices) {
-			addCloseLong(price,is_over,p,QTY);
+	
+	public AlarmPrice addCloseLong(double price, boolean is_over, double open_price, double qty) throws Exception{
+		return addCloseLong(price, is_over, open_price, qty, ONCE);
+	}
+	
+	public AlarmPrice addCloseLong(double trigger, boolean is_over, double close_price, double qty, boolean is_reverse) throws Exception {
+		if(is_reverse && is_over == UNDER) {
+			if(trigger > close_price) throw new Exception("[Warning] trigger > close_price [Long] for reverse"); 
+			//ex addCloseLong(18930, UNDER, 18910, QTY, RR); 18920 무한
 		}
+		return main.getAlarmPriceManager().createCloseLong(trigger, is_over, close_price, qty,is_reverse);
 	}
-	
-	public void addCloseLong(double price, boolean is_over, double open_price, double qty) {
-		addCloseLong(price, is_over, open_price, qty, false);
-	}
-	
 	/* ###################    OPEN SHORT   ##################### */
-	public void createOpenShort(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) {
+	public void createOpenShort(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) throws Exception {
 			addOpenShort(trigger, is_over, price, qty, ONCE);
 			addCloseShort(price, OVER, close_price, qty, is_reverse);
 	}
-	public void createOpenShorts(double trigger, boolean is_over, double... prices) {
-		for(double p : prices) {
-			addOpenShort(trigger,is_over,p,QTY);
+	public AlarmPrice addOpenShort(double price,boolean is_over,double open_price, double qty) throws Exception {
+		return addOpenShort(price, is_over, open_price, qty, ONCE);
+	}
+	
+	
+	public AlarmPrice addOpenShort(double trigger, boolean is_over, double open_price, double qty, boolean is_reverse) throws Exception {
+		if(is_reverse && is_over == UNDER) {
+			if(trigger > open_price) throw new Exception("[Warning] trigger > open_price [Short] for reverse");
+			//addOpenShort(18930, UNDER, 18910, QTY, RR); //18920 무한 triger
 		}
-	}
-	public void addOpenShort(double price,boolean is_over,double open_price, double qty) {
-		addOpenShort(price, is_over, open_price, qty, false);
-	}
-	
-	
-	public AlarmPrice addOpenShort(double price, boolean is_over, double open_price, double qty, boolean is_reverse) {
-		return main.getAlarmPriceManager().createOpenShort(price, is_over, open_price, qty,is_reverse);
+		
+		return main.getAlarmPriceManager().createOpenShort(trigger, is_over, open_price, qty,is_reverse);
+	 
 	}
 	
-	public AlarmPrice addCloseLong(double price, boolean is_over, double open_price, double qty, boolean is_reverse) {
-		return main.getAlarmPriceManager().createCloseLong(price, is_over, open_price, qty,is_reverse);
-	}
 	
 	/* ###################    CLOSE SHORT   ##################### */
 	
-	public void createCloseShort(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) {
+	public void createCloseShort(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) throws Exception {
 		addCloseShort(trigger, is_over, price, qty, ONCE);
 		addOpenShort(price, UNDER, open_price, qty, is_reverse);
 	}
-	public void createCloseShorts(double price,boolean is_over, double... prices) {
-		for(double p : prices) {
-			addCloseShort(price,is_over,p,QTY);
+	
+	public AlarmPrice addCloseShort(double price, boolean is_over, double open_price, double qty) throws Exception {
+	 return addCloseShort(price, is_over, open_price, qty, ONCE);
+	}
+	
+	public AlarmPrice addCloseShort(double trigger, boolean is_over, double close_price, double qty, boolean is_reverse) throws Exception {
+		if(is_reverse && is_over == OVER) {
+			if(trigger < close_price) throw new Exception("[Warning] trigger < close_price [Short] for reverse");
+			 //ex) addCloseShort(18910, OVER, 18930, QTY, RR); // 18920 무한 
 		}
-	}
-	
-	public void addCloseShort(double price, boolean is_over, double open_price, double qty) {
-		addCloseShort(price, is_over, open_price, qty, false);
-	}
-	
-	public AlarmPrice addCloseShort(double price, boolean is_over, double open_price, double qty, boolean is_reverse) {
-		return main.getAlarmPriceManager().createCloseShort(price, is_over, open_price, qty,is_reverse);
+		return main.getAlarmPriceManager().createCloseShort(trigger, is_over, close_price, qty,is_reverse);
+		
 	}
 	
 	/** Only Long Close **/
-	public void longStopLoss(double trigger, boolean is_over, double close_price, double qty) {
+	public void longStopLoss(double trigger, boolean is_over, double close_price, double qty) throws Exception{
 		addCloseLong(trigger, is_over, close_price, qty);
 		
 	}
 	/** Long Close And (Long & Short) Open Package  **/
-	public void longStopLoss(double trigger, double qty) {
+	public void longStopLoss(double trigger, double qty) throws Exception {
 		addOpenLong(trigger + (MIN_PROFIT*2), UNDER, trigger, LOSS_TRIGGER_QTY);
 		addCloseLong(trigger, UNDER, trigger+5, qty);
 		
@@ -121,11 +121,11 @@ abstract public class AlarmManagerModel {
 		
 	}
 	/** Only Short Close **/
-	public void shortStopLoss(double trigger, boolean is_over, double close_price, double qty) {
+	public void shortStopLoss(double trigger, boolean is_over, double close_price, double qty)  throws Exception {
 		addCloseShort(trigger, OVER, close_price, qty);
 	}
 	/** Short Close And (Long & Short) Open Package **/
-	public void shortStopLoss(double trigger, double qty) {
+	public void shortStopLoss(double trigger, double qty)  throws Exception {
 		addOpenShort(trigger - (MIN_PROFIT*2), OVER, trigger, LOSS_TRIGGER_QTY);
 		addCloseShort(trigger, OVER, trigger+5, qty);
 		

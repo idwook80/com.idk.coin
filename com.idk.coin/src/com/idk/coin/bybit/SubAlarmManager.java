@@ -54,18 +54,17 @@ public class SubAlarmManager extends AlarmManagerModel {
 		PRICE_STEP		= 25;
 	}
 	public static int auto_change_minutes = 60;
+	public static int change_trigger = auto_change_minutes;
 	public void start() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
 				while(true) {
 					try {
-						AlarmSound.playReset();
-						cancelAllOrder();
-						double last_price = main.getBybitMarket().getLastPrice();
-						resetAlarm(Math.floor(last_price));
-						System.out.println("Changed Alarm Values");
-						boolean without_cancel = false;
-						Thread.sleep(1000 * 60 * auto_change_minutes);
+						//checkPoint();
+						if(auto_change_minutes <  ++change_trigger) {
+							changePosition();
+						}
+						Thread.sleep(1000 * 60);
 					}catch(Exception e) {
 						e.printStackTrace();
 					}
@@ -73,6 +72,29 @@ public class SubAlarmManager extends AlarmManagerModel {
 			}
 		});
 		thread.start();
+	}
+	public void checkPoint() {
+		double buyPosition = main.getPositionManager().getBtcBuyPosition().getSize();
+		double sellPosition = main.getPositionManager().getBtcSellPosition().getSize();
+		is_close_first = buyPosition > MAX_POSITION
+						&& sellPosition > MAX_POSITION;
+		is_open_first  = buyPosition < MIN_POSITION 
+						&& sellPosition < MIN_POSITION;
+		if(is_close_first || is_open_first) change_trigger = auto_change_minutes;
+		if(buyPosition > MIN_POSITION && sellPosition > MIN_POSITION) {
+			if(buyPosition < sellPosition && (buyPosition * 2) < sellPosition) change_trigger = auto_change_minutes;
+			if(sellPosition < buyPosition && (sellPosition * 2) < buyPosition) change_trigger = auto_change_minutes;
+		}
+		
+	}
+	public void changePosition() {
+		AlarmSound.playReset();
+		cancelAllOrder();
+		double last_price = main.getBybitMarket().getLastPrice();
+		resetAlarm(Math.floor(last_price));
+		change_trigger = 0;
+		System.out.println("Changed Alarm Values");
+		boolean without_cancel = false;
 	}
 	public void resetAlarm(double current_price) {
 		System.out.println("Alarm Rest Current Price : " + current_price);
@@ -93,9 +115,14 @@ public class SubAlarmManager extends AlarmManagerModel {
 	
 	public void setAlarm() {
 		System.out.println("Default Price : "+CUR_PRICE);
-		if(is_close_first) createCloseFirst();
-		else if(is_open_first) createOpenFirst();
-		else createAutoSet();
+		try {
+			if(is_close_first) createCloseFirst();
+			else if(is_open_first) createOpenFirst();
+			else createAutoSet();
+		}catch(Exception e) {
+			e.printStackTrace();
+			main.getAlarmPriceManager().clearAllAlarms();
+		}
 		main.getAlarmPriceManager().printListString();
 	}
 	public void setPrice(double c_price) {
@@ -116,44 +143,35 @@ public class SubAlarmManager extends AlarmManagerModel {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	public void createOpenFirst() {
+	public void createOpenFirst() throws Exception {
 		System.out.println("Open First");
 		createShortOverOpen();
 		createShortUnderOpen();
 		createLongOverOpen();
 		createLongUnderOpen();
 	}
-	public void createCloseFirst() {
+	public void createCloseFirst()  throws Exception {
 		System.out.println("Close First");
 		createShortOverClose();
 		createShortUnderClose();
 		createLongOverClose();
 		createLongUnderClose();
 	}
-	public void createAutoSet() {
+	public void createAutoSet() throws Exception {
 		System.out.println("Auto  Set " +(is_long_more ? "Long" : "Short"));
 		if(is_long_more) {
-			//double close_price = Math.floor(CUR_PRICE + (PRICE_STEP/2));
-			//double open_price  = close_price - MIN_PROFIT;
-			//makeLongClose(CUR_PRICE, OVER, close_price, QTY, open_price, ONCE);
-			//makeShortOpen(CUR_PRICE, OVER, close_price, QTY, open_price, RR);
 			createLongOverClose();
 			createLongUnderClose();
 			createShortOverOpen();
 			createShortUnderOpen();
+			createShortOverClose();
+			createShortUnderClose();
 		}else {
-			//double open_price = Math.floor(CUR_PRICE - (PRICE_STEP/2));
-			//double close_price  = open_price + MIN_PROFIT;
-			//makeLongOpen(CUR_PRICE, UNDER, open_price, QTY, close_price, RR);
-			//makeShortClose(CUR_PRICE, UNDER, open_price, QTY, close_price, ONCE);
+			
 			createLongOverOpen();
 			createLongUnderOpen();
+			createLongOverClose();
+			createLongUnderClose();
 			createShortOverClose();
 			createShortUnderClose();
 		}
@@ -162,7 +180,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 	}
 	
 	/** SHORT **/
-	public void createShortOverOpen() {
+	public void createShortOverOpen() throws Exception {
 		for(double i = CUR_PRICE; i < CUR_PRICE + MAX_PRICE;  i+=PRICE_STEP) {
 			double over_trigger = i ;
 			double close_price  = i - PRICE_STEP;
@@ -170,7 +188,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 			makeShortOpen(over_trigger, OVER, open_price, QTY, close_price, RR);
 		}
 	}
-	public void createShortUnderOpen() {
+	public void createShortUnderOpen() throws Exception {
 		for(double i = CUR_PRICE; i > CUR_PRICE - MAX_PRICE;  i-=PRICE_STEP) {
 			double under_trigger = i - PRICE_STEP;
 			double close_price  = i-MIN_PROFIT;
@@ -178,7 +196,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 			makeShortOpen(under_trigger, UNDER, open_price, QTY, close_price, RR);
 		}
 	}
-	public void makeShortOpen(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) {
+	public void makeShortOpen(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenShort(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new AlarmPrice(open_price, OVER, is_repeat);
 		closeAlarm.setCloseShortAction(close_price, qty);
@@ -190,7 +208,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 		}
 	}
 	
-	public void createShortOverClose() {
+	public void createShortOverClose() throws Exception {
 		for(double i = CUR_PRICE; i < CUR_PRICE + MAX_PRICE;  i+=PRICE_STEP) {
 			double over_trigger = i ;
 			double close_price  = i  - PRICE_STEP;
@@ -199,7 +217,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 			
 		}
 	}
-	public void createShortUnderClose() {
+	public void createShortUnderClose() throws Exception {
 		for(double i = CUR_PRICE; i > CUR_PRICE - MAX_PRICE;  i-=PRICE_STEP) {
 			double under_trigger = i - PRICE_STEP;
 			double open_price  = i;
@@ -207,7 +225,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 			makeShortClose(under_trigger, UNDER, close_price, QTY, open_price, RR);
 		}
 	}
-	public void makeShortClose(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) {
+	public void makeShortClose(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseShort(trigger, is_over, close_price, qty, ONCE);
 		AlarmPrice openAlarm = new AlarmPrice(close_price, UNDER, is_repeat);
 		openAlarm.setOpenShortAction(open_price, qty);
@@ -219,7 +237,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 		}
 	}
 	
-	public void createLongOverOpen() {
+	public void createLongOverOpen() throws Exception {
 		for(double i = CUR_PRICE + PRICE_STEP ; i < CUR_PRICE + MAX_PRICE;  i+=PRICE_STEP) {
 			double over_trigger = i ;
 			double open_price  = i - PRICE_STEP;
@@ -228,7 +246,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 		}
 		
 	}
-	public void createLongUnderOpen() {
+	public void createLongUnderOpen() throws Exception {
 		for(double i = CUR_PRICE; i > CUR_PRICE - MAX_PRICE;  i-=PRICE_STEP) {
 			double under_trigger = i + PRICE_STEP;
 			double open_price  = i-PRICE_STEP;
@@ -236,7 +254,7 @@ public class SubAlarmManager extends AlarmManagerModel {
 			makeLongOpen(under_trigger, UNDER, open_price, QTY, close_price, RR);
 		}
 	}
-	public void makeLongOpen(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) {
+	public void makeLongOpen(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenLong(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new AlarmPrice(open_price, UNDER, is_repeat);
 		closeAlarm.setCloseLongAction(close_price, qty);
@@ -265,12 +283,16 @@ public class SubAlarmManager extends AlarmManagerModel {
 		}
 	}
 	public void makeLongClose(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) {
-			AlarmPrice closeAlarm = addCloseLong(trigger, is_over, close_price, qty, ONCE);
-			AlarmPrice openAlarm = new AlarmPrice(close_price, OVER, is_repeat); //trigger 
-			openAlarm.setOpenLongAction(open_price, qty);
-			closeAlarm.setNextAlarm(openAlarm);
 			try {
-				if(open_price > close_price) throw new Exception(" -------[Long] open < close ---------\n " + closeAlarm.toString());
+				AlarmPrice closeAlarm = addCloseLong(trigger, is_over, close_price, qty, ONCE);
+				AlarmPrice openAlarm = new AlarmPrice(close_price, OVER, is_repeat); //trigger 
+				openAlarm.setOpenLongAction(open_price, qty);
+				closeAlarm.setNextAlarm(openAlarm);
+				try {
+					if(open_price > close_price) throw new Exception(" -------[Long] open < close ---------\n " + closeAlarm.toString());
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

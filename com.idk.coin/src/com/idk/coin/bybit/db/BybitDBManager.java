@@ -1,4 +1,4 @@
-package com.idk.coin.db;
+package com.idk.coin.bybit.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,26 +10,26 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 
-import org.apache.log4j.DailyRollingFileAppender;
 import org.apache.log4j.Logger;
 
+import com.idk.coin.CoinConfig;
+import com.idk.coin.db.DBCPDataSource;
 
-public class CoinDBManager {
-	public static final Logger LOG = Logger.getLogger(CoinDBManager.class);
+
+public class BybitDBManager {
+	public static final Logger LOG = Logger.getLogger(BybitDBManager.class);
 	
-	public static CoinDBManager DBM;
+	public static BybitDBManager DBM;
 	
-	public static CoinDBManager getInstance(){
+	public static BybitDBManager getInstance(){
 		if(DBM == null){
-			DBM = new CoinDBManager();
+			DBM = new BybitDBManager();
 		}
 		return DBM;
 	}
-	public CoinDBManager(){
+	public BybitDBManager(){
 		if(isLoaded)
 			try {
 				load();
@@ -40,10 +40,15 @@ public class CoinDBManager {
 	}
 	public static boolean isLoaded = false;
 	public static DBCPDataSource pool = null;
-	public static String DB_NAME = "upbit";
+	public static String DB_NAME = "bybit";
+	public static String url	 = "jdbc:mysql://localhost:3306/bybit";
+    public static String userid = "root";
+    public static String userpw = "80idwook";
 	public static void load() throws NamingException{
 			    isLoaded = true;
-			    pool = new DBCPDataSource();
+			    String ip = System.getProperty("BYBIT_DB_IP");
+			    url = url.replace("localhost", ip);
+			    pool = new DBCPDataSource(url, userid, userpw);
 			   if (pool == null)
 			      throw new NamingException("Unknown DataSource 'jdbc/"+DB_NAME+"'");
 	 }

@@ -22,6 +22,9 @@ import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.model.Position;
 
 public class BybitMarket implements Runnable {
+	String symbol = "BTCUSDT";
+	ArrayList listeners ;
+	
 	 static String API_KEY 		= "";
      static String API_SECRET 		= "";
     final static String TIMESTAMP 		= Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
@@ -40,6 +43,7 @@ public class BybitMarket implements Runnable {
     
 	public BybitMarket(BybitMain main) {
 		this(main, false);
+		listeners = new ArrayList();
 	}
     public BybitMarket(BybitMain main,boolean debug){
     	this.debug = debug;

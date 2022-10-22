@@ -1,27 +1,25 @@
-package com.idk.coin.db.upbit;
+package com.idk.coin.bybit.db;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import com.idk.coin.db.DaoModel;
+import com.idk.coin.db.upbit.CoinDBManager;
 import com.idk.coin.upbit.Order;
 import com.idk.coin.upbit.Orders;
 
-public class OrderDao extends DaoModel{
+public class BybitDao extends DaoModel{
 	DecimalFormat df  = new DecimalFormat("##.00");
 	
-	public volatile static OrderDao instance;
+	public volatile static BybitDao instance;
 	
-	public synchronized  static OrderDao getInstace(){
+	public synchronized  static BybitDao getInstace(){
 		if(instance == null){
-			synchronized(OrderDao.class){
-				instance = new OrderDao();
+			synchronized(BybitDao.class){
+				instance = new BybitDao();
 			}
 		}
 		return instance;

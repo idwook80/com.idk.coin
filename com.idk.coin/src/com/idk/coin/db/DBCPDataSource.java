@@ -7,25 +7,19 @@ import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
 
 public class DBCPDataSource {
-	 private static BasicDataSource ds = new BasicDataSource();
+	 private BasicDataSource ds;
 	    
-	    static {
-	        ds.setUrl("jdbc:mysql://localhost:3306/upbit");
-	        ds.setUsername("root");
-	        ds.setPassword("80idwook");
+	    public Connection getConnection() throws SQLException {
+	        return ds.getConnection();
+	    }
+	    public DBCPDataSource(String url, String userid, String userpw){ 
+	    	ds = new BasicDataSource();
+	    	ds.setUrl(url);
+	        ds.setUsername(userid);
+	        ds.setPassword(userpw);
 	        ds.setMinIdle(5);
 	        ds.setMaxIdle(10);
 	        ds.setMaxOpenPreparedStatements(100);
-	    }
-	    
-	    public static Connection getConnection() throws SQLException {
-	        return ds.getConnection();
-	    }
-	    String cs = "jdbc:mysql://localhost:3306/upbit";
-        String user = "root";
-        String password = "80idwook";
-	    public DBCPDataSource(){ 
-	    	
 	    }
 	   
 }
