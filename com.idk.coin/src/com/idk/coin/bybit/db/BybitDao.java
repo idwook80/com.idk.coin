@@ -3,6 +3,7 @@ package com.idk.coin.bybit.db;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -95,6 +96,36 @@ public class BybitDao extends DaoModel{
 		queryBuffer.append(" WHERE `uuid` = '"+order.getUuid() + "'");
 		
 		return mgr.executeUpdate(queryBuffer.toString());
+	}
+	public BybitUser selectUser(String id, String pw) throws Exception{
+		StringBuffer queryBuffer = new StringBuffer("");
+		queryBuffer.append("SELECT * FROM bybit.user A WHERE A.id = '"+ id+"' AND A.PASSWORD = '"+ pw+"'");
+		
+		System.out.println(queryBuffer.toString());
+		List arr = BybitDBManager.getInstance().selectList(queryBuffer.toString());
+		
+		for(int i=0; i<arr.size(); i++) {
+			HashMap map = (HashMap)arr.get(i);
+			BybitUser user = new BybitUser(map);
+			return user;
+		}
+		return null;
+	}
+	
+	public ArrayList<BybitUser>  selectUserList() throws Exception{
+		StringBuffer queryBuffer = new StringBuffer("");
+		queryBuffer.append("SELECT * FROM bybit.user A");
+		
+		System.out.println(queryBuffer.toString());
+		List arr = BybitDBManager.getInstance().selectList(queryBuffer.toString());
+		
+		ArrayList<BybitUser> users = new ArrayList<BybitUser>();
+		for(int i=0; i<arr.size(); i++) {
+			HashMap map = (HashMap)arr.get(i);
+			BybitUser user = new BybitUser(map);
+			users.add(user);
+		}
+		return users;
 	}
 	
 	public Orders select(String... state) throws Exception{

@@ -1,9 +1,7 @@
 package com.idk.coin.bybit.model;
 
-import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
-
-import io.contek.invoker.bybit.api.common._Position;
 
 public class Position {
 	String user_id 				= "";
@@ -229,7 +227,14 @@ public class Position {
 				+ ", mode=" + mode + "]";
 	}
 	
-	
+	public static Position getPosition(List<Position> positions, String symbol, String side) {
+			Position[] ps = positions.toArray(new Position[0]);
+			for(Position p : ps) {
+				if(p.getSymbol().equals(symbol) && 
+					p.getSide().equals(side)) return p;
+			}
+		return null;
+	}
 	
 	
 }

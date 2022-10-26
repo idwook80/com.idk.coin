@@ -158,7 +158,7 @@ public class MainAlarmManager extends AlarmManagerModel {
 		createCloseLong(20210, OVER, 20410, QTY, 20310, RR);
 		createCloseLong(20010, OVER, 20210, QTY, 20110, RR);
 		
-		createCloseLong(19810, OVER, 20010, QTY, 20010, RR);
+		createCloseLong(19810, OVER, 20010, QTY, 19910, RR);
 		createCloseLong(19610, OVER, 19810, QTY, 19710, RR);
 		createCloseLong(19410, OVER, 19610, QTY, 19510, RR);
 		

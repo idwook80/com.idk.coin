@@ -4,12 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.AlarmSound;
+import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.AlarmManager;
 import com.idk.coin.bybit.model.Order;
 
 public class AlarmPrice {
 	public static Logger LOG =   LoggerFactory.getLogger(AlarmPrice.class.getName());
 	
-	public AlarmPriceManager manager;
+	//public AlarmPriceManager manager;
 	
 	String order_id			= null;
 	String parent_order_id	= null;
@@ -19,8 +21,9 @@ public class AlarmPrice {
 	BybitTrade tr 		= null;
 	boolean is_reverse 	= false;
 	AlarmPrice next		= null;
-	
-	public AlarmPrice(double trigger, boolean is_over,boolean is_reverse) {
+	AlarmManager manager;
+	public AlarmPrice(AlarmManager manager, double trigger, boolean is_over,boolean is_reverse) {
+		this.manager = manager;
 		this.trigger 		= trigger;
 		this.is_over 	= is_over;
 		this.is_reverse = is_reverse;
@@ -35,17 +38,19 @@ public class AlarmPrice {
 			return this.trigger >= price;
 		}
 	}
-	public void action() {
+	public void action(BybitUser user) throws Exception {
+		action(user.getApi_key(), user.getApi_secret());
+	}
+	public void action(String api_key, String api_secret) throws Exception {
 		LOG.info("★★★★★★★★★★\t trigger : " + trigger + " is " + ( is_over ? "over price" : "under price" )  + "\t★★★★★★★★★★★★★ pid : " + this.getParent_order_id());
 		if(tr != null) {
-			Order order  = tr.executAction();
-			//ret_code = tr.executAction();
+			Order order  = tr.executAction(api_key, api_secret);
 			if(order != null) {
 				this.setOrder_id(order.getOrder_id());
-				if(is_reverse) LOG.info("Reverse & Repeat Order Done!");
+				if(is_reverse) LOG.info("Reverse & Repeat Order Action!");
 				else LOG.info("Once Order Done!");
 			}
-			if(order != null && is_reverse) {
+			if(order != null && is_reverse && next == null) {
 				AlarmSound.playAlert();
 				LOG.info("★★★★★★★★★★\t Reverse & Repeat Setting   \t★★★★★★★★★★★★★");
 				String position 	= tr.getPosition_idx();
@@ -54,18 +59,18 @@ public class AlarmPrice {
 				
 				if(position.equals(BybitTrade.POSITION_IDX_LONG)) {		// Long
 					if(side.equals(BybitTrade.SIDE_BUY)) {				// Open Long  --> Close Long
-						newAlarm = manager.createCloseLong(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
+						newAlarm = manager.addCloseLong(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
 					}else if(side.equals(BybitTrade.SIDE_SELL)) {		// Close Long  --> Open Long
-						newAlarm = manager.createOpenLong(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
+						newAlarm = manager.addOpenLong(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
 					}
 				}else if(position.equals(BybitTrade.POSITION_IDX_SHORT))	{ // Short 
 					if(side.equals(BybitTrade.SIDE_BUY)) {				  // Close Short --> Open Short
-						newAlarm = manager.createOpenShort(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
+						newAlarm = manager.addOpenShort(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
 					}else if(side.equals(BybitTrade.SIDE_SELL)) {		 // Open Short ---> Close Short
-						newAlarm = manager.createCloseShort(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
+						newAlarm = manager.addCloseShort(tr.getPrice(), !is_over, trigger, tr.getQty(),is_reverse);
 					}
-					newAlarm.setParent_order_id(getOrder_id());
 				}
+				newAlarm.setParent_order_id(getOrder_id());
 				LOG.info(newAlarm.toString());
 			}else {
 				if(order != null) {
@@ -73,6 +78,7 @@ public class AlarmPrice {
 					if(next != null) {
 						next.setParent_order_id(getOrder_id());
 						manager.addAlarm(next);
+						LOG.info(next.toString());
 					}
 				}
 				else {
@@ -104,9 +110,7 @@ public class AlarmPrice {
 		tr = new BybitTrade();
 		tr.closeShort(price, qty);
 	}
-	public void setManager(AlarmPriceManager manager) {
-		this.manager = manager;
-	}
+ 
 	public boolean is_executed() {
 		return is_executed;
 	}
@@ -131,7 +135,7 @@ public class AlarmPrice {
 	public String toString() {
 		/*return "AlarmPrice [" + price + ", " + (is_over ? "Over" : "Under") + ", " + (is_reverse ? "R&R" : "Once") + "]" 
 				+ ", [" + tr.getActionString()+"] " + tr.toString()+" " +  (next != null ?  "--> "+next.toString() : "") ;*/
-		return "Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+" "+ (is_reverse ? "R&R" : "Once") 
+		return "["+ manager.getUser().getId() + "] Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+" "+ (is_reverse ? "R&R" : "Once") 
 				+ " " + (next != null ?  " Waiting ---> " + next.toString() : "")
 				+ " pid : " +parent_order_id;
  		

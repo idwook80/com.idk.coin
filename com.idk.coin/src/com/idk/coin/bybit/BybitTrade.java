@@ -37,19 +37,6 @@ public class BybitTrade {
     double price;
     double qty;
     
-    public static void main(String[] args) {
-    	//BybitTrade tr = new BybitTrade();
-    	//tr.closeShort("19310", "0.1");
-    	//tr.executAction();
-    	/*tr.openLong("19010","0.001");
-    	tr.executAction();
-    	tr.openShort("19310","0.001");
-    	tr.executAction();
-    	tr.closeLong("19320","0.001");
-    	tr.executAction();
-    	tr.closeShort("19020","0.001");
-    	tr.executAction();*/
-    }
     public BybitTrade() {
     	CoinConfig.loadConfig();
     	API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
@@ -59,7 +46,7 @@ public class BybitTrade {
     /**
      * POST: place an active linear perpetual order
      */
-    public  Order placeActiveOrder(String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  Order placeActiveOrder(String api_key, String api_secret, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
                 @Override
@@ -68,7 +55,7 @@ public class BybitTrade {
                     return o1.compareTo(o2);
             }
         });
-        map.put("api_key", API_KEY);
+        map.put("api_key", api_key);
         map.put("timestamp", getTimestamp());
         map.put("side", side);
         map.put("position_idx",position_idx);
@@ -82,7 +69,7 @@ public class BybitTrade {
         map.put("reduce_only", false);
         map.put("close_on_trigger", false);
         map.put("recv_window", RECV_WINDOW);
-        String signature = BybitClient.genSign(API_SECRET,map);
+        String signature = BybitClient.genSign(api_secret,map);
         map.put("sign", signature);
         
         String url = "https://api.bybit.com";
@@ -173,9 +160,9 @@ public class BybitTrade {
     public String getTimestamp() {
     	return Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     }
-    public Order executAction() {
+    public Order executAction(String api_key, String api_secret) {
     	try {
-    		 Order order = placeActiveOrder(side,position_idx, price, qty);
+    		 Order order = placeActiveOrder(api_key, api_secret, side,position_idx, price, qty);
     		return order;
     	}catch(Exception e) {
     		e.printStackTrace();

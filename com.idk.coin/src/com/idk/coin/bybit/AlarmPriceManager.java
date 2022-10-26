@@ -14,7 +14,6 @@ public class AlarmPriceManager {
 	public static double under_price 	= 0.5;
 	public static double current_price	= 20000.0;
 	
-	ArrayList<AlarmPrice> idles = new ArrayList();
 	ArrayList<AlarmPrice> list 	= new ArrayList();
 	
 	
@@ -46,8 +45,6 @@ public class AlarmPriceManager {
 	}
 	public void checkAlarmPrice(double price) {
 		current_price = price;
-		checkIdle();
-		
 		if(list.isEmpty()) return;
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
@@ -59,10 +56,6 @@ public class AlarmPriceManager {
 						LOG.info("★★★★★★★★★★\t Price Checked " + list.size() + "\t★★★★★★★★★★★★★");
 					}
 				}
-				
-				
-			
-				
 			}
 		}
 	}
@@ -71,30 +64,6 @@ public class AlarmPriceManager {
 			list.removeAll(list);
 		}
 		LOG.info("Clear All Alarms : " + list.size());
-	}
-	
-	public void setIdleOverPrice(double price) {
-		this.over_price = price;
-	}
-	public void setIdleUnderPrice(double price) {
-		this.under_price = price;
-	}
-	public void addIldeAlarm(AlarmPrice alarm) {
-		synchronized (idles) {
-			idles.add(alarm);
-			LOG.info("ADD Idle Alarm : " + alarm.toString());
-		}
-	}
-	public void checkIdle() {
-		if(idles.isEmpty()) return;
-		if( over_price > current_price && current_price > under_price) return;
-		synchronized (idles) {
-			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
-			for(AlarmPrice alarm : obj) {
-				addAlarm(alarm);
-				idles.remove(alarm);
-			}
-		}
 	}
 	public int getSize() {
 		return list.size();

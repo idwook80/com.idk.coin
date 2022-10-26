@@ -15,7 +15,7 @@ public class BybitMain {
 	 
 	BybitMarket		 	bybitMarket;
 	BybitRealTime 	 	bybitRealTime;
-	AlarmPriceManager 	alarmPriceManager;
+	//AlarmPriceManager 	alarmPriceManager;
 	PositionManager 	positionManager;
 	AlarmManagerModel	alarmManager;
 	public static boolean is_main_account =  false;
@@ -28,7 +28,7 @@ public class BybitMain {
 	}
 	public void init() {
 		positionManager 	= new PositionManager(this);
-		alarmPriceManager   = new AlarmPriceManager();
+		//alarmPriceManager   = new AlarmPriceManager();
 		bybitRealTime 		= new BybitRealTime(this);
 		bybitMarket 		= new BybitMarket(this, !is_main_account);
 	}
@@ -56,9 +56,9 @@ public class BybitMain {
 	public BybitRealTime getBybitRealTime() {
 		return bybitRealTime;
 	}
-	public AlarmPriceManager getAlarmPriceManager() {
-		return alarmPriceManager;
-	}
+//	public AlarmPriceManager getAlarmPriceManager() {
+//		return alarmPriceManager;
+//	}
 	public PositionManager getPositionManager() {
 		return positionManager;
 	}

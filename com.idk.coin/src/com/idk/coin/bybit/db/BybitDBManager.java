@@ -1,6 +1,7 @@
 package com.idk.coin.bybit.db;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
@@ -12,9 +13,9 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.Logger;
 
-import com.idk.coin.CoinConfig;
 import com.idk.coin.db.DBCPDataSource;
 
 
@@ -39,16 +40,27 @@ public class BybitDBManager {
 			}
 	}
 	public static boolean isLoaded = false;
-	public static DBCPDataSource pool = null;
+	public static BasicDataSource pool = new BasicDataSource();
 	public static String DB_NAME = "bybit";
 	public static String url	 = "jdbc:mysql://localhost:3306/bybit";
-    public static String userid = "root";
-    public static String userpw = "80idwook";
+    public static String db_id 	= "root";
+    public static String db_pw  = "password";
 	public static void load() throws NamingException{
 			    isLoaded = true;
-			    String ip = System.getProperty("BYBIT_DB_IP");
+			    String ip = System.getProperty("SERVICE_DB_IP");
 			    url = url.replace("localhost", ip);
-			    pool = new DBCPDataSource(url, userid, userpw);
+			    db_id = System.getProperty("SERVICE_DB_ID");
+			    db_pw = System.getProperty("SERVICE_DB_PW");
+			    //pool = new DBCPDataSource(url, db_id, db_pw);
+			    pool.setDriverClassName("com.mysql.jdbc.Driver");
+			    pool.setUrl(url);
+			    pool.setUsername(db_id);
+			    pool.setPassword(db_pw);
+			    pool.setMinIdle(5);
+			    pool.setMaxIdle(10);
+			    pool.setMaxOpenPreparedStatements(100);
+			    
+			    
 			   if (pool == null)
 			      throw new NamingException("Unknown DataSource 'jdbc/"+DB_NAME+"'");
 	 }
@@ -192,7 +204,7 @@ public class BybitDBManager {
 				sql += " LIMIT "+startIndex+","+length;
 			}*/
 			
-			//System.out.println(sql);
+			System.out.println(sql);
 			//LOG.info(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			ResultSetMetaData meta = rs.getMetaData();
@@ -239,6 +251,9 @@ public class BybitDBManager {
 				}
 				list.add(resultMap);
 			 }
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw e;
 		}finally{
 			try{
 			conn.close();
