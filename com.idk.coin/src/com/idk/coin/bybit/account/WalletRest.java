@@ -13,6 +13,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.bybit.BybitClient;
+import com.idk.coin.bybit.model.Balance;
 
 public class WalletRest {
 
@@ -23,7 +24,7 @@ public class WalletRest {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public  static double getWalletBalance(String api_key,String secret,String coin) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  static Balance getWalletBalance(String api_key,String secret,String coin) throws NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Object> map = new TreeMap<>(new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -44,10 +45,10 @@ public class WalletRest {
         if(response != null) {
         	return parsing(response);
         }
-        return 0;
+        return null;
         
     }
-    public static double parsing(String str) {
+    public static Balance parsing(String str) {
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
         System.out.println(el);
@@ -62,8 +63,11 @@ public class WalletRest {
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
         
         LinkedTreeMap usdt  = (LinkedTreeMap) result.get("USDT");
-        double equity = (double)usdt.get("equity");
-        return equity;
+        Balance balance = new Balance(usdt);
+        return balance;
+        
+       // double equity = (double)usdt.get("equity");
+        //return equity;
         
     }
 }

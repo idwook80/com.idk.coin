@@ -24,14 +24,14 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public static boolean RR			= REVERSE; //reverse and repeat
 	public static boolean ONCE			= false;
 	
-	public static BigDecimal DEFAULT_QTY= new BigDecimal("0.001");
-	public static double  QTY	  		= DEFAULT_QTY.doubleValue();
-	public static double  QTY2			= DEFAULT_QTY.multiply(new BigDecimal("2")).doubleValue();
-	public static double  QTY3			= DEFAULT_QTY.multiply(new BigDecimal("3")).doubleValue();
-	public static double  QTY4			= DEFAULT_QTY.multiply(new BigDecimal("4")).doubleValue();
-	public static double  QTY5			= DEFAULT_QTY.multiply(new BigDecimal("5")).doubleValue();
-	public static double  LOSS_TRIGGER_QTY	= 0.001;
-	public static double  MIN_PROFIT		= 50;
+	public BigDecimal DEFAULT_QTY= new BigDecimal("0.001");
+	public double  QTY	  		= DEFAULT_QTY.doubleValue();
+	public double  QTY2			= DEFAULT_QTY.multiply(new BigDecimal("2")).doubleValue();
+	public double  QTY3			= DEFAULT_QTY.multiply(new BigDecimal("3")).doubleValue();
+	public double  QTY4			= DEFAULT_QTY.multiply(new BigDecimal("4")).doubleValue();
+	public double  QTY5			= DEFAULT_QTY.multiply(new BigDecimal("5")).doubleValue();
+	public double  LOSS_TRIGGER_QTY	= 0.001;
+	public double  MIN_PROFIT		= 50;
 	public boolean is_run = false;
 	public Thread thread;
 	
@@ -75,6 +75,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	
 	
 	public void startAlarmManager() {
+		LOG.info(user.getId() +" , "+ symbol + " Alarm System Start!");
 		is_run = true;
 		thread = new Thread(this);
 		thread.start();
@@ -86,7 +87,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			thread.interrupt();
 			thread = null;
 		}
-		
+		LOG.info(user.getId() +" , "+ symbol + " Alarm System Stop!");
 		
 	}
 	

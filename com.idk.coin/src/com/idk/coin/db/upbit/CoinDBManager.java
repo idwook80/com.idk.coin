@@ -43,12 +43,18 @@ public class CoinDBManager {
 	public static boolean isLoaded = false;
 	public static DBCPDataSource pool = null;
 	public static String DB_NAME = "upbit";
-	public static String url	 = "jdbc:mysql://localhost:3306/upbit";
+	public static String url	 = "jdbc:mysql://[IP]:3306/bybit";
     public static String userid = "root";
     public static String userpw = "80idwook";
       
 	public static void load() throws NamingException{
 			    isLoaded = true;
+			    String ip = System.getProperty("SERVICE_DB_IP", "localhost");
+			    url = url.replace("[IP]", ip);
+			    String userid = System.getProperty("SERVICE_DB_ID", "root");
+			    String userpw = System.getProperty("SERVICE_DB_PW", "80idwook");
+			    
+			    System.out.println(url);
 			    pool = new DBCPDataSource(url, userid, userpw);
 			   if (pool == null)
 			      throw new NamingException("Unknown DataSource 'jdbc/"+DB_NAME+"'");

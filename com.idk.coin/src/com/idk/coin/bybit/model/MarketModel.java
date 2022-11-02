@@ -20,8 +20,6 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.BybitClient;
-import com.idk.coin.bybit.BybitMain;
-import com.idk.coin.bybit.BybitMarket;
 
 public class MarketModel implements Runnable {
 	String symbol = "BTCUSDT";

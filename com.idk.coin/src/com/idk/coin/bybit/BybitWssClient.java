@@ -108,8 +108,8 @@ public class BybitWssClient{
 	    	};
 	    	Thread thread2 = new Thread() {
 	    		public void run() {
-	    			BybitExecution exSocket = new BybitExecution(null);
-	    			new BybitWssClient(exSocket, "wss://stream.bybit.com/realtime_private" , "execution");
+	    		//BybitExecution exSocket = new BybitExecution(null);
+	    		//	new BybitWssClient(exSocket, "wss://stream.bybit.com/realtime_private" , "execution");
 	    		}
 	    	};
 	    	

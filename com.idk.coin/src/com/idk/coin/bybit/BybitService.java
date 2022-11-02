@@ -75,8 +75,8 @@ public class BybitService {
 				System.out.println(user);
 				String symbol = "BTCUSDT";
 				AlarmManager am = null;
-				if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				else if(user.getAlarm_model().equals("1")) 		am = new AlarmManager01(symbol, user);
+				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
+				 if(user.getAlarm_model().equals("1")) 		am = new AlarmManager01(symbol, user);
 				else if(user.getAlarm_model().equals("2"))  am = new AlarmManager02(symbol, user);
 				if(am != null) setAlarmManager(am);
 			}

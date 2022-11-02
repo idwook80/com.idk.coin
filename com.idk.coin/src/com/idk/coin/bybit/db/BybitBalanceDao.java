@@ -14,45 +14,44 @@ import com.idk.coin.upbit.Order;
 import com.idk.coin.upbit.Orders;
 import com.idk.coin.util.TimeUtil;
 
-public class BybitDao extends DaoModel{
+public class BybitBalanceDao extends DaoModel{
 	DecimalFormat df  = new DecimalFormat("##.00");
 	
-	public volatile static BybitDao instance;
+	public volatile static BybitBalanceDao instance;
 	
-	public synchronized  static BybitDao getInstace(){
+	public synchronized  static BybitBalanceDao getInstace(){
 		if(instance == null){
-			synchronized(BybitDao.class){
-				instance = new BybitDao();
+			synchronized(BybitBalanceDao.class){
+				instance = new BybitBalanceDao();
 			}
 		}
 		return instance;
 	}
-	 
-	public int insert(Order order) throws Exception {
+	public int insert(Balance b) throws Exception {
 		CoinDBManager mgr = CoinDBManager.getInstance();
 		StringBuffer queryBuffer = new StringBuffer();
 		
 		HashMap<String,Object> map =new HashMap<>();
-		map.put("uuid", order.getUuid());
-		map.put("side", order.getSide());
-		map.put("ord_type", order.getOrd_type());
-		map.put("price", df.format(order.getPrice().doubleValue()));
-		map.put("state", order.getState());
-		map.put("market", order.getMarket());
-		map.put("volume", order.getVolume());
-		map.put("created_at", 	Timestamp.valueOf(ZonedDateTime.parse(order.getCreated_at()).toLocalDateTime()));
-		map.put("remaining_volume", order.getRemaining_volume());
-		if(order.getReserved_fee() != null) map.put("reserved_fee", order.getReserved_fee());
-		if(order.getRemaining_fee() != null) map.put("remaining_fee", order.getRemaining_fee());
-		if(order.getPaid_fee() != null) map.put("paid_fee", order.getPaid_fee());
-		if(order.getLocked() != null) map.put("locked", order.getLocked());
-		if(order.getExecuted_volume() != null) map.put("executed_volume", order.getExecuted_volume());
-		if(order.getTrades_count() != null) map.put("trades_count", order.getTrades_count());
-		if(order.getPuuid() != null) map.put("puuid", order.getPuuid());
-		if(order.getCancel_at() != null) map.put("cancel_at",Timestamp.valueOf(ZonedDateTime.parse(order.getCancel_at()).toLocalDateTime()));
-		if(order.getGoal_price() != null) map.put("goal_price",df.format(order.getGoal_price().doubleValue()));
+		map.put("id", b.getId());
+		map.put("symbol", b.getSymbol());
+		map.put("equity", b.getEquity());
+		map.put("available_balance", b.getAvailable_balance());
+		map.put("cum_realised_pnl", b.getCum_realised_pnl());
+		map.put("given_cash", b.getGiven_cash());
+		map.put("occ_closing_fee", b.getOcc_closing_fee());
+		map.put("occ_funding_fee", b.getOcc_funding_fee());
+		map.put("order_margin", b.getOrder_margin());
+		map.put("position_margin", b.getPosition_margin());
+		map.put("realised_pnl", b.getRealised_pnl());
+		map.put("service_cash", b.getService_cash());
+		map.put("unrealised_pnl", b.getUnrealised_pnl());
+		map.put("used_margin", b.getUsed_margin());
+		map.put("wallet_balance", b.getWallet_balance());
+		map.put("reg_date", TimeUtil.getDateFormat("yyyy-MM-dd",b.getReg_date()));
+		map.put("reg_datetime", TimeUtil.getDateFormat("yyyy-MM-dd HH:mm:ss",b.getReg_datetime()));
+		
 			
-		queryBuffer.append("INSERT INTO upbit.order ");
+		queryBuffer.append("INSERT INTO bybit.balance ");
 		queryBuffer.append(getInsertQuery(map));
 		
 		return mgr.executeUpdate(queryBuffer.toString());
@@ -99,20 +98,21 @@ public class BybitDao extends DaoModel{
 		
 		return mgr.executeUpdate(queryBuffer.toString());
 	}
-	public BybitUser selectUser(String id, String pw) throws Exception{
+	public Balance selectBalance(String id,String symbol, String reg_date) throws Exception{
 		StringBuffer queryBuffer = new StringBuffer("");
-		queryBuffer.append("SELECT * FROM bybit.user A WHERE A.id = '"+ id+"' AND A.PASSWORD = '"+ pw+"'");
+		queryBuffer.append("SELECT * FROM bybit.balance A WHERE A.id = '"+ id+"' AND A.symbol = '"+symbol+"' AND A.reg_date = '"+reg_date+"'");
 		
 		System.out.println(queryBuffer.toString());
 		List arr = BybitDBManager.getInstance().selectList(queryBuffer.toString());
 		
 		for(int i=0; i<arr.size(); i++) {
 			HashMap map = (HashMap)arr.get(i);
-			BybitUser user = new BybitUser(map);
-			return user;
+			Balance b = new Balance(map);
+			return b;
 		}
 		return null;
 	}
+	
 	public ArrayList<BybitUser>  selectUserList() throws Exception{
 		StringBuffer queryBuffer = new StringBuffer("");
 		queryBuffer.append("SELECT * FROM bybit.user A");

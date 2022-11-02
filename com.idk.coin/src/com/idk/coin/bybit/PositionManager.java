@@ -3,9 +3,9 @@ package com.idk.coin.bybit;
 import java.util.ArrayList;
 
 import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.account.OrderRest;
 import com.idk.coin.bybit.account.PositionRest;
 import com.idk.coin.bybit.account.WalletRest;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.Position;
 
 public class PositionManager {
@@ -15,8 +15,6 @@ public class PositionManager {
     Position btcBuyPosition;
     Position btcSellPosition;
     double walletBalance = 0.0;
-    
-    BybitMain main;
     
     
     public static void main(String[] args) {
@@ -35,8 +33,7 @@ public class PositionManager {
     	}
     }
     
-	public PositionManager(BybitMain main) {
-		this.main = main;
+	public PositionManager() {
 		CoinConfig.loadConfig();
     	API_KEY 	= System.getProperty(CoinConfig.BYBIT_KEY);
     	API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SECRET);
@@ -90,7 +87,9 @@ public class PositionManager {
 	}
 	public void changedWalletBalance() {
 		try {
-		walletBalance = WalletRest.getWalletBalance(API_KEY,API_SECRET, "USDT");
+			
+			Balance b =  WalletRest.getWalletBalance(API_KEY,API_SECRET, "USDT");
+			walletBalance = b.getEquity();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,7 @@ public class BybitUser {
 	String api_secret;
 	String user_name;
 	String alarm_model;
+	String default_qty;
 	
 	public BybitUser() {}
 	public BybitUser(Map map) {
@@ -20,6 +21,7 @@ public class BybitUser {
 		String api_secret = (String) map.get("api_secret");
 		String user_name = (String) map.get("user_name");
 		String alarm_model = (String) map.get("alarm_model");
+		String default_qty = (String) map.get("default_qty");
 		setId(id);
 		setPassword(password);
 		setUser_id(user_id);
@@ -27,6 +29,7 @@ public class BybitUser {
 		setApi_secret(api_secret);
 		setUser_name(user_name);
 		setAlarm_model(alarm_model);
+		setDefault_qty(default_qty);
 	}
 	public String getId() {
 		return id;
@@ -71,11 +74,19 @@ public class BybitUser {
 	public void setAlarm_model(String alarm_model) {
 		this.alarm_model = alarm_model;
 	}
+	public String getDefault_qty() {
+		return default_qty;
+	}
+	public void setDefault_qty(String default_qty) {
+		this.default_qty = default_qty;
+	}
 	@Override
 	public String toString() {
 		return "BybitUser [id=" + id + ", password=" + password + ", user_id=" + user_id + ", api_key=" + api_key
-				+ ", api_secret=" + api_secret + ", user_name=" + user_name + ", alarm_model=" + alarm_model + "]";
+				+ ", api_secret=" + api_secret + ", user_name=" + user_name + ", alarm_model=" + alarm_model
+				+ ", default_qty=" + default_qty + "]";
 	}
+	
 	
 	
 }

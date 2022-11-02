@@ -43,14 +43,9 @@ public class BybitExecution implements Runnable {
 	    Session session;
 	    Thread thread ;
 	    Thread readThread;
-	    BybitRealTime bybitRealTime;
-	    public static void main(String[] args) {
-	    	new BybitExecution(null);
-	    }
 	    
-	    public BybitExecution(BybitRealTime manager) {
+	    public BybitExecution() {
 			// TODO Auto-generated constructor stub
-	    	this.bybitRealTime = manager;
 	    	 CoinConfig.loadConfig();
 	    	 api_key 	= System.getProperty(CoinConfig.BYBIT_KEY);
 	         api_secret = System.getProperty(CoinConfig.BYBIT_SECRET);
@@ -218,7 +213,7 @@ public class BybitExecution implements Runnable {
 	    }
 	    
 	    public synchronized void notifyAlarm(OrderExecution e) {
-	    	bybitRealTime.eventExecution(e);
+	    	 
 	    }
 	    
 	   

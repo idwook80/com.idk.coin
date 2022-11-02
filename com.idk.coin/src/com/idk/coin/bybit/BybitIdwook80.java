@@ -1,20 +1,23 @@
 package com.idk.coin.bybit;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.alram.AlarmManager01;
-import com.idk.coin.bybit.alram.AlarmManager02;
+import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.alram.AlarmManager80;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
+import com.idk.coin.bybit.db.BybitBalanceDao;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.AlarmManager;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.ExecutionModel;
 import com.idk.coin.bybit.model.MarketModel;
+import com.idk.coin.util.TimeUtil;
 
 public class BybitIdwook80 {
 	public static Logger LOG =   LoggerFactory.getLogger(BybitIdwook80.class.getName());
@@ -50,7 +53,6 @@ public class BybitIdwook80 {
 	public void loadConfig() {
 		CoinConfig.loadConfig();
 	}
-	
 	public void init() {
 		initMarket();
 		initAlarms();
@@ -100,9 +102,65 @@ public class BybitIdwook80 {
 	}
 	
 	public void start() {
-		 marketManager.startAllMarkets();
-		 executionManager.startAllExecutions();
-		 alarmManager.startAllAlarms();
+	    marketManager.startAllMarkets();
+		executionManager.startAllExecutions();
+		alarmManager.startAllAlarms();
+		if(alarmManager.getAlarmManager("BTCUSDT", "idwook80") != null) {
+			checkBalance();
+		}
+		
+		
+	}
+	public void checkBalance() {
+		Thread thread = new Thread(new Runnable() {
+			public void run() {
+				int sleeptime = 10;
+				while(true) {
+					try {
+					System.out.println("Check User Balances");
+					Date date = new Date();
+					System.out.println(TimeUtil.getDateFormat(date));
+					int hour = date.getHours();
+					if(9 <= hour && hour < 10) {
+							if(checkUserBalances()) sleeptime = 60;
+					}
+					if( 8 <= hour && hour < 10) sleeptime = 10;
+					else sleeptime = 60;
+					Thread.sleep(1000*60*sleeptime);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		thread.start();
+	}
+	public boolean checkUserBalances() {
+		boolean ret = false;
+		try {
+		ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
+		String symbol = "USDT";
+			for(BybitUser user : users) {
+				System.out.println(user);
+				Balance balance = BybitBalanceDao.getInstace().selectBalance(user.getId(), symbol, TimeUtil.getCurrentTime("yyyy-MM-dd"));
+				System.out.println("DB Balance :  " + balance);
+				if(balance == null)  {
+					balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+					balance.setId(user.getId());
+					balance.setSymbol(symbol);
+					balance.setReg_date(new Date());
+					balance.setReg_datetime(new Date());
+					System.out.println(balance);
+					ret = BybitBalanceDao.getInstace().insert(balance) > 0 ;
+				}else {
+					ret = true;
+				}
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 	
 }
