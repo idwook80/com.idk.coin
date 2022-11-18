@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import com.idk.coin.bybit.account.PositionRest;
 import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.AlarmManager;
 import com.idk.coin.bybit.model.Balance;
+import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.Position;
 
-public class AlarmManager80 extends AlarmManager {
+public class AlarmManager80 extends BybitAlarmsModel {
 	public AlarmManager80(String symbol, BybitUser user) throws Exception{
 		super(symbol, user);
 	}
@@ -54,183 +54,289 @@ public class AlarmManager80 extends AlarmManager {
 		createOpenLong();
 	}
 	public void createOpenShort() throws Exception {
-		shortStopLoss(23000, QTY2);
-		createOpenShort(22710, OVER, 22910, QTY, 22810, RR);
-		createOpenShort(22510, OVER, 22710, QTY, 22610, RR);
-		createOpenShort(22310, OVER, 22510, QTY, 22410, RR);
-		createOpenShort(22110, OVER, 22310, QTY, 22210, RR);
-		createOpenShort(21910, OVER, 22110, QTY, 22010, RR);
-		shortStopLoss(22750, QTY2);
-		shortStopLoss(22500, QTY2);
-		shortStopLoss(22250, QTY2);
-		shortStopLoss(22000, QTY2);
+		//shortStopLoss(23000, QTY2);
+		//shortStopLoss(22750, QTY2);
+		//shortStopLoss(22500, QTY2);
+		//shortStopLoss(22250, QTY2);
+		//shortStopLoss(22000, QTY2);
+		
+		//createOpenShort(22710, OVER, 22910, QTY, 22710, RR);
+		//createOpenShort(22510, OVER, 22710, QTY, 22510, RR);
+		//createOpenShort(22310, OVER, 22510, QTY, 22310, RR);
+		//createOpenShort(22110, OVER, 22310, QTY, 22110, RR);
+		//createOpenShort(21910, OVER, 22110, QTY, 21910, RR);
 		
 		
-		shortStopLoss(21750, QTY3);
-		shortStopLoss(21500, QTY3);
-		shortStopLoss(21250, QTY2);
+		//shortStopLoss(21750, QTY3);
+		//shortStopLoss(21500, QTY3);
+		//shortStopLoss(21250, QTY3);
+		//shortStopLoss(21000, QTY3);
 		
-		createOpenShort(21710, OVER, 21910, QTY, 21810, RR);
-		createOpenShort(21510, OVER, 21710, QTY, 21610, RR);
-		createOpenShort(21310, OVER, 21510, QTY, 21410, RR);
-		createOpenShort(21110, OVER, 21310, QTY, 21210, RR);
+		//createOpenShort(21710, OVER, 21910, QTY, 21710, RR);
+		//createOpenShort(21510, OVER, 21710, QTY, 21510, RR);
+		//createOpenShort(21310, OVER, 21510, QTY, 21310, RR);
+		//createOpenShort(21110, OVER, 21310, QTY, 21110, RR);
+		//createOpenShort(20910, OVER, 21110, QTY, 20910, RR);
 		
-		shortStopLoss(21000, QTY);
-		createOpenShort(20910, OVER, 21110, QTY, 21010, RR);
+		shortStopLoss(20750, QTY2);
+		shortStopLoss(20500, QTY2);
+		shortStopLoss(20250, QTY2);
+		shortStopLoss(20000, QTY2);
+		
+		createOpenShort(20710, OVER, 20910, QTY, 20710, RR);
+		createOpenShort(20510, OVER, 20710, QTY, 20510, RR);
+		createOpenShort(20310, OVER, 20510, QTY, 20310, RR);
+		createOpenShort(20110, OVER, 20310, QTY, 20110, RR);
+		createOpenShort(19910, OVER, 20110, QTY, 20010, RR);
+		createOpenShort(19810, OVER, 20010, QTY, 19910, RR);
+		
+		shortStopLoss(19750, QTY2);
+		shortStopLoss(19500, QTY2);
+		shortStopLoss(19250, QTY);
+		shortStopLoss(19000, QTY);
+		
+		createOpenShort(19710, OVER, 19910, QTY, 19710, RR);
+		createOpenShort(19510, OVER, 19710, QTY, 19510, RR);
+		createOpenShort(19310, OVER, 19510, QTY, 19310, RR);
+		createOpenShort(19110, OVER, 19310, QTY, 19110, RR);
+		createOpenShort(18910, OVER, 19110, QTY, 18910, RR);
+		
+		shortStopLoss(18750, QTY);
+		shortStopLoss(18500, QTY);
+		shortStopLoss(18250, QTY);
+		shortStopLoss(18000, QTY);
+		
+		createOpenShort(18710, OVER, 18910, QTY, 18710, RR);
+		createOpenShort(18510, OVER, 18710, QTY, 18510, RR);
+		createOpenShort(18310, OVER, 18510, QTY, 18310, RR);
+		createOpenShort(18110, OVER, 18310, QTY, 18110, RR);
+		createOpenShort(17910, OVER, 18110, QTY, 17910, RR);
+		
+		shortStopLoss(17750, QTY2);
+		shortStopLoss(17500, QTY2);
+		shortStopLoss(17250, QTY);
+		//shortStopLoss(17000, QTY);
 		
 		
-		createOpenShort(20910, OVER, 21010, QTY, 20910, RR);
-		createOpenShort(20710, OVER, 20910, QTY, 20810, RR);
-		createOpenShort(20610, OVER, 20810, QTY, 20710, RR);
+		createOpenShort(17710, OVER, 17910, QTY, 17710, RR);
+		createOpenShort(17510, OVER, 17710, QTY, 17510, RR);
+		createOpenShort(17310, OVER, 17510, QTY, 17310, RR);
+		createOpenShort(17110, OVER, 17310, QTY, 17110, RR);
+		//createOpenShort(16910, OVER, 17110, QTY, 16910, RR);
 		
-		createOpenShort(20510, OVER, 20710, QTY, 20610, RR);
+		
+		//createOpenShort(16710, OVER, 16910, QTY, 16710, RR);
+		
+		//Short First
 	}
 	
 /**	############################################### **/
 /** ######### Short Order exists  Start ########### **/  //<[SHORT]<----------------------------
 /**	################## [idwook80] ###################### **/
 	public void setShort() throws Exception {
-		addCloseShort(20610, OVER, 20510, QTY, RR);
-		addCloseShort(20510, OVER, 20410, QTY, RR);
+		addCloseShort(17110, OVER, 16910, QTY, RR);
+		//addCloseShort(16710, OVER, 16610, QTY, RR);
 		
-		/** ↑↑↑↑ -------  Price Line 20667 -------  ↓↓↓↓  **/
-		
-		addOpenShort(20310, UNDER, 20410, QTY, RR);
-		addOpenShort(20210, UNDER, 20310, QTY, RR);
-		
+		/** ↑↑↑↑ -------  Price Line 16756  ------- long ↓↓↓↓  **/
+		//addOpenShort(16810, UNDER, 16910, QTY, ONCE);
+		addOpenShort(16710, UNDER, 16910, QTY, RR);
+		addOpenShort(16610, UNDER, 16710, QTY, RR);
+		addOpenShort(16310, UNDER, 16710, QTY, RR);
 	}
 /**	############################################### **/
 /** ######### Short Order exists  End ############# **------------------------------------------/
 /**	############################################### **/
 	public void createCloseShort() throws Exception {
 		
-		createCloseShort(20310, UNDER, 20110, QTY, 20260, RR);
-		createCloseShort(20210, UNDER, 20010, QTY, 20210, RR);
+		createCloseShort(16410, UNDER, 16210, QTY, 16610, RR);
+		createCloseShort(16310, UNDER, 16110, QTY, 16510, RR);
+	    createCloseShort(16210, UNDER, 16010, QTY, 16410, RR);
+	    
+	    
+		createCloseShort(16110, UNDER, 15910, QTY, 16110, RR);
+		createCloseShort(16010, UNDER, 15810, QTY, 16010, RR);
+		createCloseShort(15910, UNDER, 15710, QTY, 15910, RR);
+		//createCloseShort(15710, UNDER, 15510, QTY, 15710, RR);
+		createCloseShort(15510, UNDER, 15310, QTY, 15510, RR);
+		//createCloseShort(15310, UNDER, 15110, QTY, 15310, RR);
 		
+		createCloseShort(15110, UNDER, 14910, QTY, 15110, RR);
+		//createCloseShort(14910, UNDER, 14710, QTY, 14910, RR);
+		createCloseShort(14710, UNDER, 14510, QTY, 14710, RR);
+		//createCloseShort(14510, UNDER, 14310, QTY, 14510, RR);
+		createCloseShort(14310, UNDER, 14110, QTY, 14310, RR);
 		
-		//createCloseShort(20110, UNDER, 19910, QTY, 20110, RR);
-		createCloseShort(19910, UNDER, 19710, QTY, 19910, RR);
-		//createCloseShort(19710, UNDER, 19510, QTY, 19710, RR);
-		createCloseShort(19510, UNDER, 19310, QTY, 19410, RR);
-		//createCloseShort(19310, UNDER, 19110, QTY, 19210, RR);
-
-		createCloseShort(19110, UNDER, 18910, QTY, 19010, RR);
-		createCloseShort(18910, UNDER, 18710, QTY, 18810, RR);
-		createCloseShort(18710, UNDER, 18510, QTY, 18610, RR);
-		createCloseShort(18510, UNDER, 18310, QTY, 18410, RR);
-		createCloseShort(18310, UNDER, 18110, QTY, 18310, RR);
+		//createCloseShort(14110, UNDER, 13910, QTY, 14110, RR);
+		createCloseShort(13910, UNDER, 13710, QTY, 13910, RR);
+		//createCloseShort(13710, UNDER, 13510, QTY, 13710, RR);
+		createCloseShort(13510, UNDER, 13310, QTY, 13510, RR);
+		//createCloseShort(13310, UNDER, 13110, QTY, 13310, RR);
 		
-		createCloseShort(18110, UNDER, 17910, QTY, 18110, RR);
-		createCloseShort(17910, UNDER, 17710, QTY, 17910, RR);
-		createCloseShort(17710, UNDER, 17510, QTY, 17710, RR);
-		createCloseShort(17510, UNDER, 17310, QTY, 17510, RR);
-		createCloseShort(17310, UNDER, 17110, QTY, 17310, RR);
+		createCloseShort(13110, UNDER, 12910, QTY, 13110, RR);
+		//createCloseShort(12910, UNDER, 12710, QTY, 12910, RR);
+		createCloseShort(12710, UNDER, 12510, QTY, 12710, RR);
+		//createCloseShort(12510, UNDER, 12310, QTY, 12510, RR);
+		createCloseShort(12310, UNDER, 12110, QTY, 12310, RR);
 		
-		createCloseShort(17110, UNDER, 16910, QTY, 17110, RR);
-		createCloseShort(16910, UNDER, 16710, QTY, 16910, RR);
-		createCloseShort(16710, UNDER, 16510, QTY, 16710, RR);
-		createCloseShort(16510, UNDER, 16310, QTY, 16510, RR);
-		createCloseShort(16310, UNDER, 16110, QTY, 16310, RR);
+		//createCloseShort(12110, UNDER, 11910, QTY, 12110, RR);
+		//createCloseShort(11910, UNDER, 11710, QTY, 11910, RR);
+		//createCloseShort(11710, UNDER, 11510, QTY, 11710, RR);
+		//createCloseShort(11510, UNDER, 11310, QTY, 11510, RR);
+		//createCloseShort(11310, UNDER, 11110, QTY, 11310, RR);
+		
+		//createCloseShort(11110, UNDER, 10910, QTY, 11110, RR);
+		//createCloseShort(10910, UNDER, 10710, QTY, 10910, RR);
+		//createCloseShort(10710, UNDER, 10510, QTY, 10710, RR);
+		//createCloseShort(10510, UNDER, 10310, QTY, 10510, RR);
+		//createCloseShort(10310, UNDER, 10110, QTY, 10310, RR);
+		
 	}
-	
-	
 	
 	
 	
 	
 	
 /**   ############### LONG SETTINGS ####################  **/
+/**   ############### LONG SETTINGS ####################  **/	
+/**   ############### LONG SETTINGS ####################  **/
 	public void createCloseLong() throws Exception {
-		//createCloseLong(22810, OVER, 23010, QTY, 22910, RR);
-		createCloseLong(22610, OVER, 22810, QTY, 22710, RR);
-		//createCloseLong(22410, OVER, 22610, QTY, 22510, RR);
-		createCloseLong(22210, OVER, 22410, QTY, 22310, RR);
-		//createCloseLong(22010, OVER, 22210, QTY, 22110, RR);
 		
-		createCloseLong(21810, OVER, 22010, QTY, 21910, RR);
-		//createCloseLong(21610, OVER, 21810, QTY, 21710, RR);
-		createCloseLong(21410, OVER, 21610, QTY, 21510, RR);
-		//createCloseLong(21210, OVER, 21410, QTY, 21310, RR);
-		createCloseLong(21010, OVER, 21210, QTY, 21110, RR);
-
-		createCloseLong(20910, OVER, 21010, QTY, 20910, RR);
-		createCloseLong(20710, OVER, 20910, QTY, 20710, RR);
 		
-		createCloseLong(20610, OVER, 20810, QTY, 20710, RR);
-		createCloseLong(20510, OVER, 20710, QTY, 20610, RR);
+		//createCloseLong(22810, OVER, 23010, QTY, 22810, RR);
+		//createCloseLong(22610, OVER, 22810, QTY, 22610, RR);
+		//createCloseLong(22410, OVER, 22610, QTY, 22410, RR);
+		//createCloseLong(22210, OVER, 22410, QTY, 22210, RR);
+		//createCloseLong(22010, OVER, 22210, QTY, 22010, RR);
+		//createCloseLong(21810, OVER, 22010, QTY, 21810, RR);
 		
+		//createCloseLong(21610, OVER, 21810, QTY, 21610, RR);
+		//createCloseLong(21410, OVER, 21610, QTY, 21410, RR);
+		//createCloseLong(21210, OVER, 21410, QTY, 21210, RR);
+		//createCloseLong(21010, OVER, 21210, QTY, 21010, RR);
+		//createCloseLong(20810, OVER, 21010, QTY, 20810, RR);
+		
+		createCloseLong(20610, OVER, 20810, QTY, 20610, RR);
+		//createCloseLong(20410, OVER, 20610, QTY, 20410, RR);
+		createCloseLong(20210, OVER, 20410, QTY, 20210, RR);
+		//createCloseLong(20010, OVER, 20210, QTY, 20010, RR);
+		createCloseLong(19810, OVER, 20010, QTY, 19810, RR);
+		
+		//createCloseLong(19610, OVER, 19810, QTY, 19610, RR);
+		createCloseLong(19410, OVER, 19610, QTY, 19410, RR);
+		//createCloseLong(19210, OVER, 19410, QTY, 19210, RR);
+		createCloseLong(19010, OVER, 19210, QTY, 19010, RR);
+		//createCloseLong(18810, OVER, 19010, QTY, 18810, RR);
+		
+		createCloseLong(18610, OVER, 18810, QTY, 18610, RR);
+		//createCloseLong(18410, OVER, 18610, QTY, 18410, RR);
+		createCloseLong(18210, OVER, 18410, QTY, 18210, RR);
+		//createCloseLong(18010, OVER, 18210, QTY, 18010, RR);
+		createCloseLong(17810, OVER, 18010, QTY, 17810, RR);
+		
+		//createCloseLong(17610, OVER, 17810, QTY, 17610, RR);
+		createCloseLong(17410, OVER, 17610, QTY, 17410, RR);
+		//createCloseLong(17210, OVER, 17410, QTY, 17210, RR);
+		createCloseLong(17010, OVER, 17210, QTY, 17010, RR);
+		//createCloseLong(16810, OVER, 17010, QTY, 16810, RR);
+		
+		//createCloseLong(16610, OVER, 16810, QTY, 16610, RR);
+		//createCloseLong(16410, OVER, 16610, QTY, 16410, RR);
 		
 	}
 /**	#######################################[LONG]##### **/
 /** ######### Long Order exists  Start ####[LONG]### **///<[LONG]<----------------------------
-/**	#######################################[LONG]20410## **/
+/**	#######################################[LONG]## **/
 	public void setLong() throws Exception {
-		addOpenLong(20610, OVER, 20510, QTY, RR);
-		addOpenLong(20510, OVER, 20410, QTY, RR);
-		addOpenLong(20460, OVER, 20410, QTY, RR);
+		//addOpenLong(16810, OVER, 16610, QTY, RR);
+		//addOpenLong(16610, OVER, 16510, QTY, RR);
+		//addOpenLong(16510, OVER, 16460, QTY, RR);
 		
-		/** ↑↑↑↑ -------  Price Line 20383 -------  ↓↓↓↓  **/
-		addCloseLong(20360, UNDER, 20410, QTY, RR);
-		addCloseLong(20310, UNDER, 20360, QTY, RR);
-		addCloseLong(20260, UNDER, 20310, QTY, ONCE);
-		addCloseLong(20210, UNDER, 20310, QTY, RR);
 		
+		/** ↑↑↑↑ -------  Price Line 16520  -------  ↓↓↓↓ long **/
+		addCloseLong(16610, UNDER, 16810, QTY, RR);
+		addCloseLong(16510, UNDER, 16610, QTY, RR);
+		addCloseLong(16460, UNDER, 16510, QTY, RR);
+		addCloseLong(16410, UNDER, 16460, QTY, RR);
+		addCloseLong(16360, UNDER, 16410, QTY, RR);
+		addCloseLong(16310, UNDER, 16360, QTY, RR);
+		addCloseLong(16260, UNDER, 16310, QTY, RR);
 	}
 /**	############################################### **/
 /** ######### Long Order exists  End ############## **---------------------------------------/
 /**	############################################### **/
 	
 	public void createOpenLong() throws Exception {
-		createOpenLong(20310, UNDER, 20160, QTY, 20210, ONCE);
-		createOpenLong(20310, UNDER, 20110, QTY, 20160, RR);
-		createOpenLong(20210, UNDER, 20060, QTY, 20110, ONCE);
-		createOpenLong(20210, UNDER, 20010, QTY, 20060, RR);
 		
 		
-		longStopLoss(20000, QTY);
+		createOpenLong(16410, UNDER, 16210, QTY, 16410, RR);
+		createOpenLong(16310, UNDER, 16110, QTY, 16310, RR);
+		createOpenLong(16210, UNDER, 16010, QTY, 16210, RR);
 		
-		createOpenLong(20010, UNDER, 19810, QTY, 19910, RR);
-		createOpenLong(19810, UNDER, 19610, QTY, 19710, RR);
-		createOpenLong(19610, UNDER, 19410, QTY, 19510, RR);
-		createOpenLong(19410, UNDER, 19210, QTY, 19310, RR);
-		createOpenLong(19210, UNDER, 19010, QTY, 19110, RR);
+		//longStopLoss(15750, QTY);
+		//longStopLoss(15500, QTY);
+		longStopLoss(15250, QTY);
+		longStopLoss(15000, QTY);
 		
-		longStopLoss(19750, QTY);
-		longStopLoss(19500, QTY2);
-		longStopLoss(19250, QTY2);
-		longStopLoss(19000, QTY2);
+		createOpenLong(16010, UNDER, 15810, QTY, 16010, RR);
+		createOpenLong(15810, UNDER, 15610, QTY, 15810, RR);
+		createOpenLong(15610, UNDER, 15410, QTY, 15610, ONCE);
+		createOpenLong(15410, UNDER, 15210, QTY, 15410, RR);
+		createOpenLong(15210, UNDER, 15010, QTY, 15210, RR);
 		
-		createOpenLong(19010, UNDER, 18810, QTY, 18910, RR);
-		createOpenLong(18810, UNDER, 18610, QTY, 18710, RR);
-		createOpenLong(18610, UNDER, 18410, QTY, 18510, RR);
-		createOpenLong(18410, UNDER, 18210, QTY, 18310, RR);
-		createOpenLong(18210, UNDER, 18010, QTY, 18110, RR);
+		longStopLoss(14750, QTY);
+		longStopLoss(14500, QTY2);
+		longStopLoss(14250, QTY2);
+		longStopLoss(14000, QTY);
 		
-		longStopLoss(18750, QTY3);
-		longStopLoss(18500, QTY3);
-		longStopLoss(18250, QTY3);
-		longStopLoss(18000, QTY3);
+		createOpenLong(15010, UNDER, 14810, QTY, 15010, RR);
+		createOpenLong(14810, UNDER, 14610, QTY, 14810, RR);
+		createOpenLong(14610, UNDER, 14410, QTY, 14610, ONCE);
+		createOpenLong(14410, UNDER, 14210, QTY, 14410, RR);
+		createOpenLong(14210, UNDER, 14010, QTY, 14210, RR);
 		
-		createOpenLong(18010, UNDER, 17810, QTY, 17910, RR);
-		createOpenLong(17810, UNDER, 17610, QTY, 17710, RR);
-		createOpenLong(17610, UNDER, 17410, QTY, 17510, RR);
-		createOpenLong(17410, UNDER, 17210, QTY, 17310, RR);
-		createOpenLong(17210, UNDER, 17010, QTY, 17110, RR);
-		longStopLoss(17750, QTY3);
-		longStopLoss(17500, QTY3);
-		longStopLoss(17250, QTY3);
-		longStopLoss(17000, QTY3);
+		longStopLoss(13750, QTY);
+		longStopLoss(13500, QTY2);
+		longStopLoss(13250, QTY2);
+		longStopLoss(13000, QTY);
 		
-		createOpenLong(17010, UNDER, 16810, QTY, 16910, RR);
-		createOpenLong(16810, UNDER, 16610, QTY, 16710, RR);
-		createOpenLong(16610, UNDER, 16410, QTY, 16510, RR);
-		createOpenLong(16410, UNDER, 16210, QTY, 16310, RR);
-		createOpenLong(16210, UNDER, 16010, QTY, 16110, RR);
-		longStopLoss(16750, QTY3);
-		longStopLoss(16500, QTY3);
-		longStopLoss(16250, QTY3);
-		longStopLoss(16000, QTY3);
+		createOpenLong(14010, UNDER, 13810, QTY, 14010, RR);
+		createOpenLong(13810, UNDER, 13610, QTY, 13810, RR);
+		createOpenLong(13610, UNDER, 13410, QTY, 13610, ONCE);
+		createOpenLong(13410, UNDER, 13210, QTY, 13410, RR);
+		createOpenLong(13210, UNDER, 13010, QTY, 13210, RR);
 		
+		longStopLoss(12750, QTY);
+		longStopLoss(12500, QTY2);
+		longStopLoss(12250, QTY2);
+		longStopLoss(12000, QTY);
+		
+		createOpenLong(13010, UNDER, 12810, QTY, 13010, RR);
+		createOpenLong(12810, UNDER, 12610, QTY, 12810, RR);
+		createOpenLong(12610, UNDER, 12410, QTY, 12610, ONCE);
+		createOpenLong(12410, UNDER, 12210, QTY, 12410, RR);
+		createOpenLong(12210, UNDER, 12010, QTY, 12210, RR);
+		
+		//longStopLoss(11750, QTY);
+		//longStopLoss(11500, QTY2);
+		//longStopLoss(11250, QTY2);
+		//longStopLoss(11000, QTY);
+		
+		//createOpenLong(12010, UNDER, 11810, QTY, 12010, RR);
+		//createOpenLong(11810, UNDER, 11610, QTY, 11810, RR);
+		//createOpenLong(11610, UNDER, 11410, QTY, 11610, ONCE);
+		//createOpenLong(11410, UNDER, 11210, QTY, 11410, RR);
+		//createOpenLong(11210, UNDER, 11010, QTY, 11210, RR);
+		
+		//longStopLoss(10750, QTY);
+		//longStopLoss(10500, QTY2);
+		//longStopLoss(10250, QTY2);
+		//longStopLoss(10000, QTY);
+		
+		//createOpenLong(11010, UNDER, 10810, QTY, 11010, RR);
+		//createOpenLong(10810, UNDER, 10610, QTY, 10810, RR);
+		//createOpenLong(10610, UNDER, 10410, QTY, 10610, ONCE);
+		//createOpenLong(10410, UNDER, 10210, QTY, 10410, RR);
+		//createOpenLong(10210, UNDER, 10010, QTY, 10210, RR);
 	}
 	
 	

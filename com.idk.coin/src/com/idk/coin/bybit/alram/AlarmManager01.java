@@ -3,15 +3,13 @@ package com.idk.coin.bybit.alram;
 import java.util.ArrayList;
 
 import com.idk.coin.AlarmSound;
-import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.account.OrderRest;
 import com.idk.coin.bybit.account.PositionRest;
-import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.AlarmManager;
+import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.Position;
 
-public class AlarmManager01 extends AlarmManager {
+public class AlarmManager01 extends BybitAlarmsModel {
 	
 	public static double  DEF_PRICE		 	= 0.0;
 	public static double  PRICE_STEP		= 25;

@@ -18,35 +18,20 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.model.Order;
 import com.idk.coin.bybit.model.OrderExecution;
+import com.idk.coin.model.TradeModel;
 
-public class BybitTrade {
-	public static Logger LOG 			  =   LoggerFactory.getLogger(BybitTrade.class.getName());
-	static String API_KEY 		  		  = "";
-    static String API_SECRET 	 	  	  = "";
-    final static String RECV_WINDOW 	  = "10000";
-    
-    final static String SIDE_BUY		  = "Buy";			// LongOpen , ShortClose
-    final static String SIDE_SELL		  = "Sell";			// LongClose, ShortOpen	
-    
-    final static String POSITION_IDX_BOTH = "0";
-    final static String POSITION_IDX_LONG  = "1";			// Long
-    final static String POSITION_IDX_SHORT = "2";			// Short
-    
-    String side;
-    String position_idx;
-    double price;
-    double qty;
+public class BybitTrade extends TradeModel{
     
     public BybitTrade() {
-    	CoinConfig.loadConfig();
-    	API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
-    	API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
+    	//CoinConfig.loadConfig();
+    	//API_KEY = System.getProperty(CoinConfig.BYBIT_KEY);
+    	//API_SECRET = System.getProperty(CoinConfig.BYBIT_SECRET);
     }
     
     /**
      * POST: place an active linear perpetual order
      */
-    public  Order placeActiveOrder(String api_key, String api_secret, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  Order placeActiveOrder(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
                 @Override
@@ -59,7 +44,7 @@ public class BybitTrade {
         map.put("timestamp", getTimestamp());
         map.put("side", side);
         map.put("position_idx",position_idx);
-        map.put("symbol", "BTCUSDT");
+        map.put("symbol", symbol);
         map.put("order_type", "Limit");
         map.put("qty", qty);
         map.put("price", price);
@@ -81,46 +66,6 @@ public class BybitTrade {
         	return parsingOrder(response);
         }
         return null;
-    }
-    
-	/**
-     * POST: place an active linear perpetual order
-     */
-    public  double placeActiveOrderCode(String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
-        Map<String, Object> map = new TreeMap(
-            new Comparator<String>() {
-                @Override
-                // sort paramKey in A-Z
-                public int compare(String o1, String o2) {
-                    return o1.compareTo(o2);
-            }
-        });
-        map.put("api_key", API_KEY);
-        map.put("timestamp", getTimestamp());
-        map.put("side", side);
-        map.put("position_idx",position_idx);
-        map.put("symbol", "BTCUSDT");
-        map.put("order_type", "Limit");
-        map.put("qty", qty);
-        map.put("price", price);
-        map.put("time_in_force", "GoodTillCancel");
-        //map.put("take_profit", "20000");
-        //map.put("stop_loss", "18000");
-        map.put("reduce_only", false);
-        map.put("close_on_trigger", false);
-        map.put("recv_window", RECV_WINDOW);
-        String signature = BybitClient.genSign(API_SECRET,map);
-        map.put("sign", signature);
-        
-        String url = "https://api.bybit.com";
-        url		  += "/private/linear/order/create";
-        
-        String response = BybitClient.post(url, map);
-        if(response != null) {
-        	//System.out.println(response);
-        	return parsing(response);
-        }
-        return -1;
     }
     
     public double parsing(String str) {
@@ -157,100 +102,16 @@ public class BybitTrade {
         return null;
     }
     
-    public String getTimestamp() {
-    	return Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
-    }
-    public Order executAction(String api_key, String api_secret) {
+   
+    public Order executAction(String api_key, String api_secret,String symbol) {
     	try {
-    		 Order order = placeActiveOrder(api_key, api_secret, side,position_idx, price, qty);
+    		 Order order = placeActiveOrder(api_key, api_secret, symbol, side,position_idx, price, qty);
     		return order;
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
     	return null;
     }
-    /*public OrderExecution executAction() {
-    	try {
-    		 OrderExecution order = placeActiveOrder(side,position_idx, price, qty);
-    		double ret_code = placeActiveOrder(side,position_idx, price, qty);
-    		return ret_code;
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
-    	return -1;
-    }*/
-    public void openLong(double price, double qty) {
-    	this.side 		  = SIDE_BUY;
-    	this.position_idx = POSITION_IDX_LONG;
-    	this.price 		  = price;
-    	this.qty 		  = qty;
-    }
-    public void openShort(double price, double qty){
-    	this.side 			= SIDE_SELL;
-    	this.position_idx 	= POSITION_IDX_SHORT;
-    	this.price 			= price;
-    	this.qty 			= qty;
-    }
-    public void closeLong(double price, double qty) {
-    	this.side 			= SIDE_SELL;
-    	this.position_idx 	= POSITION_IDX_LONG;
-    	this.price 			= price;
-    	this.qty 			= qty;
-    }
-    public void closeShort(double price, double qty) {
-    	this.side 			= SIDE_BUY;
-    	this.position_idx 	= POSITION_IDX_SHORT;
-    	this.price 			= price;
-    	this.qty 			= qty;
-    }
-    public String getActionString() {
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Open";
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Close";
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Open";
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Close";
-    	return "UNKNOWN";
-    	
-    }
-	@Override
-	public String toString() {
-		return "Order [side=" + side+ ", position=" + position_idx + ", price=" + price + ", qty=" + qty
-				+ "]";
-	}
-	public String getSide() {
-		return side;
-	}
-	public void setSide(String side) {
-		this.side = side;
-	}
-	public String getPosition_idx() {
-		return position_idx;
-	}
-	public String getPosition_name() {
-		if(position_idx.equals("0")) return "One Wary";
-		if(position_idx.equals("1")) return "Long";
-		if(position_idx.equals("2")) return "Short";
-		return position_idx;
-		
-	}
-	public void setPosition_idx(String position_idx) {
-		this.position_idx = position_idx;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public double getQty() {
-		return qty;
-	}
-	public void setQty(double qty) {
-		this.qty = qty;
-	}
-    
-	
-	
-	
-	
+  
     
 }

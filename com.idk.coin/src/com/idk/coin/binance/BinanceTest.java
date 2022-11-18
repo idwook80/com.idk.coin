@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.binance.client.RequestOptions;
 import com.binance.client.SyncRequestClient;
-import com.binance.client.model.market.MarkPrice;
+import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
 import com.idk.coin.upbit.BTCbot;
 import com.binance.client.model.enums.CandlestickInterval;
@@ -44,12 +44,12 @@ public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName()
        return  list.toString();
 	}
 	public static  void getCandle() {
-		playSound();
+		//playSound();
 		LOG.warn("test log");
 		RequestOptions options = new RequestOptions();
 	    SyncRequestClient syncRequestClient = SyncRequestClient.create(System.getProperty(CoinConfig.BINANCE_KEY), System.getProperty(CoinConfig.BINANCE_SECRET), options);
 	    int before 		= 0;
-	    double interval = 5;
+	    double interval = 1;
 	    int ration 		= 10;	//10,15,20
 	    int maxValue 	= 500; //500,800,1000
 	    
@@ -81,10 +81,10 @@ public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName()
 	    					LOG.warn(datetime.toGMTString()+ " : " + c);
 	    					if(volume.intValue() > maxValue) {
 	    						interval = maxInter;
-	    						playAlarm();
+	    						AlarmSound.beep01();
 	    					}
-	    					else if(curVol > (comp*2)) playBeep03();
-	    					else playBeep01();
+	    					else if(curVol > (comp*2)) AlarmSound.beep04();
+	    					else AlarmSound.beep02();
 	    					
 	    					List<Trade> trades = syncRequestClient.getRecentTrades("BTCUSDT", 10);
 	    					
@@ -127,58 +127,17 @@ public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName()
 	    }
         
 	}
-	public static void playBeep01() {
-		LOG.warn("##########################대량 거래 01 ~~~#################################");
-		playSound("beep01.wav");	
-	}
-	public static void playBeep02() {
-		playSound("beep02.wav");
-	}
-	public static void playBeep03() {
-		LOG.warn("##########################대량 거래 04 ~~~#################################");
-		playSound("beep04.wav");
-	}
-	public static void playAlarm() {
-	//playSound("distress.wav");
-	//playSound("beep-07a.wav");
-		playSound("Alarm02.wav");
-	}
-	public static void playSound() {
-		playSound("Alarm02.wav");
-	}
-	public static void playSound(String filename) {
-		try {
-			
-			URL url = BinanceTest.class.getResource(filename);
-			File file = new File(url.getPath());
-			final Clip clip =  AudioSystem.getClip();
-			 
-			 clip.open(AudioSystem.getAudioInputStream(file));
-			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			 double gain = .5D; // number between 0 and 1 (loudest)
-			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-			 gainControl.setValue(gainControl.getMaximum());
-			// float ovol  = gainControl.getValue();
-			// gainControl.setValue(10.0f);
-			 clip.start();
-			 
-			 
-			 new Thread(new Runnable() {
-				 public void run() {
-					 try {
-					 Thread.sleep(1000*2); 
-					 }catch(Exception e) {
-						 
-					 }
-					 clip.stop();
-					// gainControl.setValue(ovol);
-					 
-				 }
-			 }).start();
-			 
-		}catch(Exception e) {
-			e.printStackTrace();
+	public BigDecimal getSymbolPriceTicker() {
+		RequestOptions options = new RequestOptions();
+	    SyncRequestClient syncRequestClient = SyncRequestClient.create(System.getProperty(CoinConfig.BINANCE_KEY), System.getProperty(CoinConfig.BINANCE_SECRET), options);
+	   
+		List<SymbolPrice> list = syncRequestClient.getSymbolPriceTicker("BTCUSDT");
+		BigDecimal ret = null;
+		for(SymbolPrice l : list) {
+			//System.out.println(l);
+			ret =  l.getPrice();
 		}
+		return ret;
 	}
 	
 	

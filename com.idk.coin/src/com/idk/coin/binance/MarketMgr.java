@@ -36,11 +36,10 @@ public class MarketMgr {
 		
 		for(;;) {
 				getCandleStick(CandlestickInterval.ONE_MINUTE);
-				getCandleStick(CandlestickInterval.FIVE_MINUTES);
-				System.out.println("######\n");
-				
+				//getCandleStick(CandlestickInterval.FIVE_MINUTES);
+				//System.out.println("######\n");
 				try {
-						Thread.sleep(1000*1);
+						Thread.sleep(500*1);
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -51,8 +50,8 @@ public class MarketMgr {
 	    syncRequestClient = SyncRequestClient.create(API_KEY, API_SECRET, options);
 
 	}
-	public void getCandleStick(CandlestickInterval interval) {
-		List<Candlestick> list = syncRequestClient.getCandlestick("BTCUSDT", interval, null, null, 2);
+	public synchronized void getCandleStick(CandlestickInterval interval) {
+		List<Candlestick> list = syncRequestClient.getCandlestick("BTCUSDT", interval, null, null, 1);
 		int sec  = new Date(System.currentTimeMillis()).getSeconds();
 		
 		
@@ -75,17 +74,19 @@ public class MarketMgr {
 			double close  = c.getClose().doubleValue();
 			double high   = c.getHigh().doubleValue();
 			double cur    = getSymbolPriceTicker().doubleValue();
-			if(open < close) System.out.println("▲▲▲ ↑↑↑↑ ↑↑↑↑  ↑↑↑↑ ▲▲▲");
-			else if(open > close) System.out.println("▼▼▼ ↓↓↓↓ ↓↓↓↓ ↓↓↓↓ ▼▼▼");
+			//if(open < close) System.out.println("▲▲▲ ↑↑↑↑ ↑↑↑↑  ↑↑↑↑ ▲▲▲");
+			//else if(open > close) System.out.println("▼▼▼ ↓↓↓↓ ↓↓↓↓ ↓↓↓↓ ▼▼▼");
 			//System.out.println(c);
 			int compare = (int)(volume - before.getVolume().doubleValue());
 			
-			System.out.println(interval + " , " + datetime.toGMTString() 
+			System.out.println(interval + "("+list.size() +") , " + datetime.toGMTString() 
 				+ " open:"+ open + " , close : " + close 
 				+ " , current : "+ cur 
-				+ " , volume[" + c.getVolume().doubleValue() + "]" 
-				+ compare
-				+ ((sec * secVol ) < c.getVolume().intValue()));
+				+ " , volume[" + volume + "] " 
+				+ compare + " "
+				+ ((sec * secVol ) < c.getVolume().intValue())
+				+ "   === > " + c
+					);
 			
 		}
 	}

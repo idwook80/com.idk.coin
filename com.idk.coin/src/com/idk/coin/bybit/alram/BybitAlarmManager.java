@@ -3,7 +3,7 @@ package com.idk.coin.bybit.alram;
 import java.util.ArrayList;
 
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.AlarmManager;
+import com.idk.coin.model.AlarmManager;
 
 public class BybitAlarmManager {
 	ArrayList<AlarmManager> list ;

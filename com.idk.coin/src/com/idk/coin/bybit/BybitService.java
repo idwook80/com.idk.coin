@@ -12,9 +12,9 @@ import com.idk.coin.bybit.alram.AlarmManager80;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.AlarmManager;
 import com.idk.coin.bybit.model.ExecutionModel;
 import com.idk.coin.bybit.model.MarketModel;
+import com.idk.coin.model.AlarmManager;
 
 public class BybitService {
 	public static Logger LOG =   LoggerFactory.getLogger(BybitService.class.getName());

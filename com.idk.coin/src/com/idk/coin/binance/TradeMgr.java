@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.binance.client.RequestOptions;
 import com.binance.client.SubscriptionClient;
+import com.binance.client.SubscriptionListener;
 import com.binance.client.SyncRequestClient;
 import com.binance.client.model.enums.NewOrderRespType;
 import com.binance.client.model.enums.OrderSide;
@@ -11,9 +12,17 @@ import com.binance.client.model.enums.OrderType;
 import com.binance.client.model.enums.PositionSide;
 import com.binance.client.model.enums.TimeInForce;
 import com.binance.client.model.enums.WorkingType;
+import com.binance.client.model.event.SymbolTickerEvent;
+import com.binance.client.model.market.ExchangeInformation;
 import com.binance.client.model.trade.AccountBalance;
+import com.binance.client.model.trade.AccountInformation;
 import com.binance.client.model.trade.MyTrade;
 import com.binance.client.model.trade.Order;
+import com.binance.client.model.trade.Position;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.idk.coin.CoinConfig;
 
 public class TradeMgr {
@@ -23,14 +32,14 @@ public class TradeMgr {
 	String API_SECRET = "";
 	public static void main(String... args) {
 		TradeMgr tr = new TradeMgr();
-		tr.getAccountInformation();
-		tr.getPositionSide();
+		//tr.getAccountInformation();
+		//tr.getPositionSide();
 		//tr.getPositionRisk();
-		tr.getAccountTrades();
-		tr.getBalance();
+		//tr.getAccountTrades();
+		//tr.getBalance();
 		//tr.orderTest();
-		tr.getOpenOrder();
-		//tr.subscriptionClient();
+		//tr.getOpenOrder();
+		tr.subscriptionClient();
 	}
 	
 	RequestOptions options = new RequestOptions();
@@ -43,7 +52,24 @@ public class TradeMgr {
 		 syncRequestClient = SyncRequestClient.create(API_KEY, API_SECRET, options);
 	}
 	public void getAccountInformation () {
-		System.out.println(syncRequestClient.getAccountInformation());
+		AccountInformation ai = syncRequestClient.getAccountInformation();
+		List<Position> positions = ai.getPositions();
+		for(Position p : positions) {
+			if(p.getSymbol().equals("BTCUSDT")){
+				System.out.println(p);
+			}
+		}
+		for(;;) {
+			ai = syncRequestClient.getAccountInformation();
+			System.out.println(ai.getTotalMarginBalance()+ " , " +ai.getTotalWalletBalance() + " , " + ai.getTotalUnrealizedProfit() );
+			System.out.println(ai.getTotalMarginBalance().doubleValue() + ai.getTotalUnrealizedProfit().doubleValue());
+			System.out.println(ai.getTotalWalletBalance().doubleValue() + ai.getTotalUnrealizedProfit().doubleValue());
+			try {
+				Thread.sleep(1000*3);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	public void getAccountTrades() {
 		
@@ -68,7 +94,11 @@ public class TradeMgr {
 	public void getOrder() {
 	}
 	public void getPositionSide() {
-		 System.out.println(syncRequestClient.getPositionSide());
+		JsonParser parser = new JsonParser();
+        JsonElement el =  parser.parse(syncRequestClient.getPositionSide().toString());
+        //System.out.println(el);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(el));
 	}
 	
 	public void getPositionRisk() {
@@ -80,6 +110,7 @@ public class TradeMgr {
 		//openShortOrder(SYM_BTCUSDT, "0.001", "20010");
 		//closeLongOrder(SYM_BTCUSDT, "0.001", "20010");
 		//closeShortOrder(SYM_BTCUSDT, "0.001", "19710");
+		//closeShortOrder("BTCUSDT", "0.001", "16910");
 	}
 	public void postOrder(String symbol,OrderSide side,PositionSide positionSide, String quantity, String price) {
 		OrderType 		orderType 			= OrderType.LIMIT;
@@ -90,9 +121,9 @@ public class TradeMgr {
         WorkingType 	workingType 		= null;
         NewOrderRespType newOrderRespType 	= NewOrderRespType.RESULT;
         
-        syncRequestClient.postOrder(symbol, side, positionSide, orderType, timeInForce,
+        Order order = syncRequestClient.postOrder(symbol, side, positionSide, orderType, timeInForce,
                 quantity, price, reduceOnly, newClientOrderId, stopPrice, workingType, NewOrderRespType.RESULT);
-        
+        System.out.println(order);
 		/* syncRequestClient.postOrder("BTCUSDT", OrderSide.SELL, PositionSide.SHORT, OrderType.LIMIT, TimeInForce.GTC,
 	                "1", "9000", null, null, null, null, NewOrderRespType.RESULT);*/
 	}
@@ -123,7 +154,16 @@ public class TradeMgr {
 
 	        SubscriptionClient client = SubscriptionClient.create();
 
-	   
-	        client.subscribeUserDataEvent(listenKey, System.out::println, null);
+	       // client.subscribeSymbolTickerEvent("btcusdt", System.out::println, null);
+	        //client.subscribeUserDataEvent(listenKey, System.out::println, null);
+	        client.subscribeSymbolTickerEvent("btcusdt", new SubscriptionListener<SymbolTickerEvent>() {
+				
+				@Override
+				public void onReceive(SymbolTickerEvent data) {
+					// TODO Auto-generated method stub
+					System.out.println(data.getLastPrice().doubleValue());
+					
+				}
+			}, null);
 	}
 }

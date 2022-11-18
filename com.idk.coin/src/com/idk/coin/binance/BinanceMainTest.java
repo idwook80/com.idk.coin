@@ -1,4 +1,4 @@
-package com.idk.coin.bybit;
+package com.idk.coin.binance;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,9 +6,14 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.binance.client.RequestOptions;
+import com.binance.client.SyncRequestClient;
+import com.binance.client.model.trade.AccountInformation;
 import com.idk.coin.CoinConfig;
+import com.idk.coin.binance.alarm.BinanceAlarmManager;
+import com.idk.coin.binance.model.BinanceMarketModel;
+import com.idk.coin.bybit.BybitMarketManager;
 import com.idk.coin.bybit.account.WalletRest;
-import com.idk.coin.bybit.alram.AlarmManager80;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
 import com.idk.coin.bybit.db.BybitBalanceDao;
 import com.idk.coin.bybit.db.BybitDao;
@@ -19,24 +24,26 @@ import com.idk.coin.bybit.model.MarketModel;
 import com.idk.coin.model.AlarmManager;
 import com.idk.coin.util.TimeUtil;
 
-public class BybitIdwook80 {
-	public static Logger LOG =   LoggerFactory.getLogger(BybitIdwook80.class.getName());
+public class BinanceMainTest {
+	public static Logger LOG =   LoggerFactory.getLogger(BinanceMainTest.class.getName());
 	
 	public static void main(String[] args) {
-		new BybitIdwook80();
+		new BinanceMainTest();
 		
 	}
-	BybitMarketManager  	marketManager;
-	BybitExecutionManager 	executionManager;
+	
+	BinanceMarketModel      marketModel;
+	//BybitMarketManager  	marketManager;
+	//BybitExecutionManager 	executionManager;
 	BybitAlarmManager   	alarmManager;
 	
 	BybitUser root;
 	public static boolean is_main_account =  false;
-	public BybitIdwook80() {
+	public BinanceMainTest() {
 		load();
 		init();
 		start();
-		LOG.info("Start Bybit Alarm System!!");
+		LOG.info("Start Binance Alarm System!!");
 	}
 	public void load() {
 		loadConfig();
@@ -44,7 +51,7 @@ public class BybitIdwook80 {
 	}
 	public void loadDB() {
 		try {
-			root = 	BybitDao.getInstace().selectUser("idwook80", "1122");
+			root = 	BybitDao.getInstace().selectUser("binance01", "1122");
 			System.out.println(root);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -58,22 +65,21 @@ public class BybitIdwook80 {
 		initAlarms();
 	}
 	public void initMarket() {
-		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret());
+		//marketManager = new BybitMarketManager();
+		//MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret());
+		marketModel = new BinanceMarketModel("BTCUSDT", root.getApi_key(), root.getApi_secret());
+	
 	}
 	public void initAlarms() {
 		alarmManager = new BybitAlarmManager();
-		executionManager = new BybitExecutionManager();
+		//executionManager = new BybitExecutionManager();
 		try {
 			ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 			for(BybitUser user : users) {
 				System.out.println(user);
 				String symbol = "BTCUSDT";
 				AlarmManager am = null;
-				if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				/*else if(user.getAlarm_model().equals("1")) 		am = new AlarmManager01(symbol, user);
-				else if(user.getAlarm_model().equals("2"))  am = new AlarmManager02(symbol, user);
-				*/
+				if(user.getAlarm_model().equals("10")) 		am = new BinanceAlarmManager(symbol, user);
 				if(am != null) setAlarmManager(am);
 			}
 		}catch(Exception e) {
@@ -82,33 +88,34 @@ public class BybitIdwook80 {
 	}
 	public void setAlarmManager(AlarmManager am) {
 		alarmManager.addAlarmManager(am);
-		MarketModel m = getMarketModel(am.symbol);
+		BinanceMarketModel m = getMarketModel(am.symbol);
 	    m.addPriceListener(am);
-		ExecutionModel em = getExecutionModel(am.user);
-		em.addPriceListener(am);
+		//ExecutionModel em = getExecutionModel(am.user);
+		//em.addPriceListener(am);
 	}
-	public MarketModel getMarketModel(String symbol) {
-		MarketModel m = marketManager.getMarketModel(symbol);
+	public BinanceMarketModel getMarketModel(String symbol) {
+		/*MarketModel m = marketManager.getMarketModel(symbol);
 		if(m == null) {
 			m  = marketManager.createMarket(symbol, root.getApi_key(), root.getApi_secret());
 			m.setDebug(true);
 		}
-		return m;
+		return m;*/
+		return marketModel;
 	}
 	public ExecutionModel getExecutionModel(BybitUser user) {
-		ExecutionModel em = executionManager.getExecutionModel(user.getId());
-		if(em == null) em = executionManager.createExecution(user);
-		return em;
+		//ExecutionModel em = executionManager.getExecutionModel(user.getId());
+		//if(em == null) em = executionManager.createExecution(user);
+		return null;
 	}
 	
 	public void start() {
-	    marketManager.startAllMarkets();
-		executionManager.startAllExecutions();
+	  //  marketManager.startAllMarkets();
+		//executionManager.startAllExecutions();
+		marketModel.startMarket();
 		alarmManager.startAllAlarms();
-		if(alarmManager.getAlarmManager("BTCUSDT", "idwook80") != null) {
+		if(alarmManager.getAlarmManager("BTCUSDT", "binance01") != null) {
 			checkBalance();
 		}
-		//checkUserBalances();
 		
 	}
 	public void checkBalance() {
@@ -141,24 +148,32 @@ public class BybitIdwook80 {
 		ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 		String symbol = "USDT";
 			for(BybitUser user : users) {
-				Balance balance = BybitBalanceDao.getInstace().selectBalance(user.getId(), symbol, TimeUtil.getCurrentTime("yyyy-MM-dd"));
-				System.out.println("DB Balance :  " + balance);
-				if(balance == null && Integer.parseInt(user.getAlarm_model()) < 10)  {
-					balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
-					balance.setId(user.getId());
-					balance.setSymbol(symbol);
-					balance.setReg_date(new Date());
-					balance.setReg_datetime(new Date());
-					ret = BybitBalanceDao.getInstace().insert(balance) > 0 ;
-				}else {
-					ret = true;
+				if(user.getAlarm_model().equals("10")){
+					Balance balance = BybitBalanceDao.getInstace().selectBalance(user.getId(), symbol, TimeUtil.getCurrentTime("yyyy-MM-dd"));
+					System.out.println("DB Balance :  " + balance);
+					if(balance == null) {
+						balance = new Balance();
+						balance.setId(user.getId());
+						balance.setSymbol("USDT");
+						balance.setEquity(getBalance(user.getApi_key(), user.getApi_secret()));
+						balance.setReg_date(new Date());
+						balance.setReg_datetime(new Date());
+						
+						ret = BybitBalanceDao.getInstace().insert(balance) > 0 ;
+					}else {
+						ret = true;
+					}
 				}
-				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return ret;
 	}
-	
+	public double getBalance(String api_key, String api_secret) {
+		RequestOptions options = new RequestOptions();
+		SyncRequestClient syncRequestClient = SyncRequestClient.create(api_key, api_secret, options);
+		AccountInformation ai = syncRequestClient.getAccountInformation();
+		return ai.getTotalMarginBalance().doubleValue();
+	}
 }

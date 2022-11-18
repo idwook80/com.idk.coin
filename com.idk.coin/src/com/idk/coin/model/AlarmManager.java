@@ -1,4 +1,4 @@
-package com.idk.coin.bybit.model;
+package com.idk.coin.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.OrderExecution;
+import com.idk.coin.bybit.model.PriceListener;
 
 abstract public class AlarmManager implements Runnable ,PriceListener{
 	public static Logger LOG 	= LoggerFactory.getLogger(AlarmManager.class.getName());
@@ -40,7 +42,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public String web_id				= "";
 	public BybitUser user;
 	
-	ArrayList<AlarmPrice> list 	= new ArrayList();
+	public ArrayList<AlarmPrice> list 	= new ArrayList();
 	public AlarmManager(String symbol, BybitUser user) throws Exception{
 		list 	= new ArrayList();
 		this.symbol = symbol;
@@ -108,7 +110,6 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}
 	}
 	public void checkAlarmExecution(OrderExecution execution) {
-		current_price = execution.getPrice();
 		LOG.info("★★★★★★★★★★\t Execution Checked " + list.size() + "\t★★★★★★★★★★★★★");
 		
 		if(list.isEmpty() || !is_run) return;
@@ -117,9 +118,10 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			for(AlarmPrice alarm : obj) {
 				if(alarm.getParent_order_id() != null) {
 					if(execution.getOrder_id().equals(alarm.getParent_order_id())){
+						current_price = execution.getPrice();
 						list.remove(alarm);
 						try {
-							alarm.action(user);
+							alarm.action(user, symbol);
 						}catch(Exception e) {
 							e.printStackTrace();
 						}
@@ -127,7 +129,8 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 				}
 			}
 		}
-		checkAlarmPrice(execution.getPrice());
+		if(symbol.equals(execution.getSymbol())) checkAlarmPrice(execution.getPrice());
+		
 	}
 	public void checkAlarmPrice(double price) {
 		current_price = price;
@@ -140,7 +143,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 						LOG.info("found : "+ alarm + " user : " + user);
 						list.remove(alarm);
 						try {
-							alarm.action(user);
+							alarm.action(user, symbol);
 						}catch(Exception e) {
 							e.printStackTrace();
 						}
@@ -182,7 +185,8 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public AlarmPrice addOpenLong(double price, boolean is_over, double open_price, double qty) throws Exception {
 		return addOpenLong(price, is_over, open_price, qty, ONCE);
 	}
-	public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty, boolean is_reverse)throws Exception {
+	abstract public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty, boolean is_reverse)throws Exception;
+	/*public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty, boolean is_reverse)throws Exception {
 		AlarmPrice a = new AlarmPrice(this, trigger, is_over, is_reverse);
 		a.setOpenLongAction(price, qty);
 		if(is_reverse && is_over == OVER) {
@@ -191,19 +195,19 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}
 		addAlarm(a);
 		return a;
-	}
+	}*/
 	public void createOpenLong(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) throws Exception {
 		addOpenLong(trigger, is_over, price, qty);
 		addCloseLong(price, UNDER, close_price, qty, is_reverse);
 		//makeLongOpen(trigger, is_over, price, qty, close_price, is_reverse);
 	}
-	
-	public void makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception {
+	abstract public void makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception;
+	/*public void makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenLong(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new AlarmPrice(this, open_price, UNDER, is_repeat);
 		closeAlarm.setCloseLongAction(close_price, qty);
 		openAlarm.setNextAlarm(closeAlarm);
-	}
+	}*/
 	
 	
 	
@@ -211,7 +215,8 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public AlarmPrice addCloseLong(double price, boolean is_over, double open_price, double qty) throws Exception{
 		return addCloseLong(price, is_over, open_price, qty, ONCE);
 	}
-	public AlarmPrice addCloseLong(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception {
+	abstract public AlarmPrice addCloseLong(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception; 
+	/*public AlarmPrice addCloseLong(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception {
 		AlarmPrice a = new AlarmPrice(this, trigger, is_over,is_reverse);
 		a.setCloseLongAction(price, qty);
 		if(is_reverse && is_over == UNDER) {
@@ -220,25 +225,27 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}
 		addAlarm(a);
 		return a;
-	}
+	}*/
 	public void createCloseLong(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) throws Exception{
 		addCloseLong(trigger, is_over, price, qty, ONCE);
 		addOpenLong(price, OVER, open_price, qty, is_reverse);
 		//makeLongClose(trigger, is_over, price, qty, open_price, is_reverse);
-}
-	public void makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
+	}
+	abstract public void makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception;
+	/*public void makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseLong(trigger, is_over, close_price, qty, ONCE);
 		AlarmPrice openAlarm = new AlarmPrice(this, close_price, OVER, is_repeat); //trigger 
 		openAlarm.setOpenLongAction(open_price, qty);
 		closeAlarm.setNextAlarm(openAlarm);
-	}
+	}*/
 	
 	
 	/* ###################    OPEN SHORT   ##################### */
 	public AlarmPrice addOpenShort(double price,boolean is_over,double open_price, double qty) throws Exception {
 		return addOpenShort(price, is_over, open_price, qty, ONCE);
 	}
-	public AlarmPrice addOpenShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception {
+	abstract public AlarmPrice addOpenShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception;
+	/*public AlarmPrice addOpenShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse)throws Exception {
 		AlarmPrice a = new AlarmPrice(this, trigger, is_over,is_reverse);
 		a.setOpenShortAction(price, qty);
 		if(is_reverse && is_over == UNDER) {
@@ -247,17 +254,18 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}
 		addAlarm(a);
 		return a;
-	}
+	}*/
 	public void createOpenShort(double trigger, boolean is_over, double price, double qty, double close_price, boolean is_reverse) throws Exception {
 		addOpenShort(trigger, is_over, price, qty, ONCE);
 		addCloseShort(price, OVER, close_price, qty, is_reverse);
 	}
-	public void makeOpenShort(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception {
+	abstract public void makeOpenShort(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception;
+	/*public void makeOpenShort(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenShort(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new AlarmPrice(this, open_price, OVER, is_repeat);
 		closeAlarm.setCloseShortAction(close_price, qty);
 		openAlarm.setNextAlarm(closeAlarm);
-	}
+	}*/
  
 	
 	
@@ -265,7 +273,8 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public AlarmPrice addCloseShort(double price, boolean is_over, double open_price, double qty) throws Exception {
 		 return addCloseShort(price, is_over, open_price, qty, ONCE);
 	}
-	public AlarmPrice addCloseShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse) throws Exception {
+	abstract public AlarmPrice addCloseShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse) throws Exception;
+	/*public AlarmPrice addCloseShort(double trigger,boolean is_over,double price,double qty,boolean is_reverse) throws Exception {
 		AlarmPrice a = new AlarmPrice(this, trigger, is_over,is_reverse);
 		a.setCloseShortAction(price, qty);
 		if(is_reverse && is_over == OVER) {
@@ -274,17 +283,18 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}
 		addAlarm(a);
 		return a;
-	}
+	}*/
 	public void createCloseShort(double trigger, boolean is_over, double price, double qty, double open_price, boolean is_reverse) throws Exception {
 		addCloseShort(trigger, is_over, price, qty, ONCE);
 		addOpenShort(price, UNDER, open_price, qty, is_reverse);
 	}
-	public void makeCloseShort(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
+	abstract public void makeCloseShort(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception;
+	/*public void makeCloseShort(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseShort(trigger, is_over, close_price, qty, ONCE);
 		AlarmPrice openAlarm = new AlarmPrice(this, close_price, UNDER, is_repeat);
 		openAlarm.setOpenShortAction(open_price, qty);
 		closeAlarm.setNextAlarm(openAlarm);
-	}
+	}*/
 	
 	
 	/** Only Long Close **/
