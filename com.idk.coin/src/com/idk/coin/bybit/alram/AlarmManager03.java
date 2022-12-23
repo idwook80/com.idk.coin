@@ -9,12 +9,12 @@ import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.Position;
 
-public class AlarmManager01 extends BybitAlarmsModel {
+public class AlarmManager03 extends BybitAlarmsModel {
 	
 	public static double  DEF_PRICE		 	= 0.0;
-	public static double  PRICE_STEP		= 25;
-	public final  double  MAX_PRICE 		= 500;
-	public static int auto_change_minutes 	= 15;
+	public static double  PRICE_STEP		= 50;
+	public final  double  MAX_PRICE 		= 2000;
+	public static int auto_change_minutes 	= 60*12;
 	public static int change_trigger = auto_change_minutes+1;
 	public static double  MAX_POSITION		= 0.040;
 	public static double  MIN_POSITION		= 0.010;
@@ -22,10 +22,10 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	public static boolean is_close_first 	= true;
 	public static boolean is_long_more		= true;
 	
-	public AlarmManager01(String symbol, BybitUser user) throws Exception{
+	public AlarmManager03(String symbol, BybitUser user) throws Exception{
 		super(symbol, user);
 	}
-	public AlarmManager01(String symbol, String web_id, String web_pw) throws Exception{
+	public AlarmManager03(String symbol, String web_id, String web_pw) throws Exception{
 		super(symbol, web_id, web_pw);
 	}
 	public void userSet() throws Exception{
@@ -35,7 +35,7 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	  
 	}
 	public void run() {
-		System.out.println("Alarm01 Start! " +current_price);
+		System.out.println("Alarm03 Start! " +current_price);
 		while(is_run) {
 		
 			try {
@@ -48,7 +48,7 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		while(is_run) {
 			try {
 				if(auto_change_minutes <  ++change_trigger) {
-					///changePosition();
+					changePosition();
 				}
 				Thread.sleep(1000 * 60);
 			}catch(Exception e) {
@@ -109,7 +109,7 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		try {
 			//if(is_close_first) createCloseFirst();
 			//else if(is_open_first) createOpenFirst();
-			//else createAutoSet();
+			createAutoSet();
 		}catch(Exception e) {
 			e.printStackTrace();
 			clearAllAlarms();
@@ -132,28 +132,14 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	}
 	public void createAutoSet() throws Exception {
 		System.out.println("Auto  Set " +(is_long_more ? "Long" : "Short"));
-		if(is_long_more) {
-			createLongOverClose();
-			createLongUnderClose();
-			//createLongUnderOpen();
-			
-			createShortOverOpen();
-			createShortUnderOpen();
-			//createShortUnderClose();
-		}else {
-			
-			createLongOverOpen();
-			createLongUnderOpen();
-			//createLongOverClose();
-			
-			//createShortOverOpen();
-			createShortOverClose();
-			createShortUnderClose();
-		}
+		createLongOverClose();
+		createLongUnderOpen();
+		
+		createShortOverOpen();
+		createShortUnderClose();
 	}
 	public void createAutoSetDefault() throws Exception {
 		createLongOverClose();
-		//createLongUnderClose();
 		createLongUnderOpen();
 		
 		createShortOverOpen();
@@ -163,9 +149,9 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	/** SHORT **/
 	public void createShortOverOpen() throws Exception {
 		for(double i = DEF_PRICE; i < DEF_PRICE + MAX_PRICE;  i+=PRICE_STEP) {
-			double over_trigger = i ;
-			double close_price  = i - PRICE_STEP;
-			double open_price = close_price +  MIN_PROFIT;
+			double over_trigger = i - PRICE_STEP;
+			double close_price  = i;
+			double open_price = close_price + PRICE_STEP;
 			makeOpenShort(over_trigger, OVER, open_price, QTY, close_price, RR);
 		}
 	}
@@ -189,9 +175,9 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	}
 	public void createShortUnderClose() throws Exception {
 		for(double i = DEF_PRICE; i > DEF_PRICE - MAX_PRICE;  i-=PRICE_STEP) {
-			double under_trigger = i - PRICE_STEP;
+			double under_trigger = i + PRICE_STEP;
 			double open_price  = i;
-			double close_price = i - MIN_PROFIT;
+			double close_price = i - PRICE_STEP;
 			makeCloseShort(under_trigger, UNDER, close_price, QTY, open_price, RR);
 		}
 	}
@@ -209,15 +195,15 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		for(double i = DEF_PRICE; i > DEF_PRICE - MAX_PRICE;  i-=PRICE_STEP) {
 			double under_trigger = i + PRICE_STEP;
 			double open_price  = i-PRICE_STEP;
-			double close_price = open_price +  MIN_PROFIT;
+			double close_price = open_price +  PRICE_STEP;
 			makeOpenLong(under_trigger, UNDER, open_price, QTY, close_price, RR);
 		}
 	}
 	public void createLongOverClose() throws Exception {
 		for(double i = DEF_PRICE; i < DEF_PRICE + MAX_PRICE;  i+=PRICE_STEP) {
-			double over_trigger = i ;
-			double open_price  = i  - PRICE_STEP;
-			double close_price = open_price +  MIN_PROFIT;
+			double over_trigger = i - PRICE_STEP ;
+			double open_price  = i;
+			double close_price = open_price +  PRICE_STEP;
 			makeCloseLong(over_trigger, OVER, close_price, QTY, open_price, RR);
 		}
 		

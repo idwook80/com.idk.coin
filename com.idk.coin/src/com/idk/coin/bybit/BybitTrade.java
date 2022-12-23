@@ -88,8 +88,6 @@ public class BybitTrade extends TradeModel{
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
         //System.out.println(el);
-        
-        
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);

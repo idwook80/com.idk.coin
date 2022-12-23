@@ -47,86 +47,89 @@ public class AlarmManager02 extends BybitAlarmsModel {
 	public void createOpenShort()  throws Exception{
 		shortStopLoss(23000, QTY2);
 		
+		shortStopLoss(22750, QTY);
+		shortStopLoss(22500, QTY2);
+		shortStopLoss(22250, QTY2);
+		shortStopLoss(22000, QTY);
 		makeOpenShort(22710, OVER, 22910, QTY, 22810, RR);
 		makeOpenShort(22510, OVER, 22710, QTY, 22610, RR);
 		makeOpenShort(22310, OVER, 22510, QTY, 22410, RR);
 		makeOpenShort(22110, OVER, 22310, QTY, 22210, RR);
 		makeOpenShort(21910, OVER, 22110, QTY, 22010, RR);
-		shortStopLoss(22750, QTY3);
-		shortStopLoss(22500, QTY3);
-		shortStopLoss(22250, QTY3);
-		shortStopLoss(22000, QTY3);
 		
-		
-		shortStopLoss(21750, QTY2);
+		shortStopLoss(21750, QTY);
 		shortStopLoss(21500, QTY2);
-		shortStopLoss(21250, QTY);
+		shortStopLoss(21250, QTY2);
 		shortStopLoss(21000, QTY);
-		
 		makeOpenShort(21710, OVER, 21910, QTY, 21810, RR);
 		makeOpenShort(21510, OVER, 21710, QTY, 21610, RR);
 		makeOpenShort(21310, OVER, 21510, QTY, 21410, RR);
 		makeOpenShort(21110, OVER, 21310, QTY, 21210, RR);
 		makeOpenShort(20910, OVER, 21110, QTY, 21010, RR);
 		
-		
-		shortStopLoss(20750, QTY2);
+		shortStopLoss(20750, QTY);
 		shortStopLoss(20500, QTY2);
 		shortStopLoss(20250, QTY2);
-		shortStopLoss(20000, QTY2);
-		
+		shortStopLoss(20000, QTY);
 		makeOpenShort(20710, OVER, 20910, QTY, 20710, RR);
 		makeOpenShort(20510, OVER, 20710, QTY, 20510, RR);
 		makeOpenShort(20310, OVER, 20510, QTY, 20310, RR);
 		makeOpenShort(20110, OVER, 20310, QTY, 20110, RR);
 		makeOpenShort(19910, OVER, 20110, QTY, 19910, RR);
 		
-		shortStopLoss(19750, QTY);
-		shortStopLoss(19500, QTY);
-		shortStopLoss(19250, QTY);
-		shortStopLoss(19000, QTY);
-		
 		makeOpenShort(19710, OVER, 19910, QTY, 19710, RR);
 		makeOpenShort(19510, OVER, 19710, QTY, 19510, RR);
 		makeOpenShort(19310, OVER, 19510, QTY, 19310, RR);
 		makeOpenShort(19110, OVER, 19310, QTY, 19110, RR);
 		makeOpenShort(18910, OVER, 19110, QTY, 18910, RR);
-		
-		shortStopLoss(18750, QTY);
-		shortStopLoss(18500, QTY);
-		shortStopLoss(18250, QTY);
-		shortStopLoss(18000, QTY);
+		shortStopLoss(19750, QTY);
+		shortStopLoss(19500, QTY2);
+		shortStopLoss(19250, QTY);
+		shortStopLoss(19000, QTY2);
 		
 		makeOpenShort(18710, OVER, 18910, QTY, 18710, RR);
 		makeOpenShort(18510, OVER, 18710, QTY, 18510, RR);
 		makeOpenShort(18310, OVER, 18510, QTY, 18310, RR);
 		makeOpenShort(18110, OVER, 18310, QTY, 18110, RR);
 		makeOpenShort(17910, OVER, 18110, QTY, 17910, RR);
-		
-		shortStopLoss(17750, QTY2);
-		shortStopLoss(17500, QTY2);
-		//shortStopLoss(17250, QTY);
-		//shortStopLoss(17000, QTY);
+		shortStopLoss(18750, QTY);
+		shortStopLoss(18500, QTY2);
+		shortStopLoss(18250, QTY);
 		
 		makeOpenShort(17710, OVER, 17910, QTY, 17710, RR);
-		makeOpenShort(17510, OVER, 17710, QTY, 17510, RR);
-		makeOpenShort(17310, OVER, 17510, QTY, 17310, RR);
-		makeOpenShort(17110, OVER, 17310, QTY, 17110, RR);
-		makeOpenShort(16910, OVER, 17110, QTY, 16910, RR);
+		makeOpenShort(17510, OVER, 17710, QTY, 17610, RR);
+		makeOpenShort(17410, OVER, 17610, QTY, 17510, RR);
+		makeOpenShort(17310, OVER, 17510, QTY, 17410, RR);
+		makeOpenShort(17210, OVER, 17410, QTY, 17360, RR);
 		
-		makeOpenShort(16710, OVER, 16910, QTY, 16710, RR);
+		makeOpenShort(17110, OVER, 17360, QTY, 17310, RR);
+		makeOpenShort(17110, OVER, 17310, QTY, 17260, RR);
+		
+		makeOpenShort(17010, OVER, 17260, QTY, 17210, RR);
+		makeOpenShort(17010, OVER, 17210, QTY, 17160, RR);
+		makeOpenShort(17010, OVER, 17160, QTY, 17110, RR);
+		makeOpenShort(16910, OVER, 17110, QTY, 17010, RR);
 		
 	}
-	
 	/** ###########  [Model 02] ########### [SHORT]  **/
 	public void setShort() throws Exception{
-		addCloseShort(16710, OVER, 16510, QTY, RR);
-		/** ↑↑↑↑ -------  Price Line 16621 0.75 -------  Long First ↓↓↓↓  **/
-		addOpenShort(16310, UNDER, 16510, QTY, RR);
+		addCloseShort(17060, OVER, 16960, QTY, RR);
+		addCloseShort(17010, OVER, 16910, QTY, RR);
+		addCloseShort(16960, OVER, 16810, QTY, RR);
+		addCloseShort(16910, OVER, 16760, QTY, RR);
+		
+		/** ↑↑↑↑ -------  Price Line 17370 0.90 -------  Long First ↓↓↓↓  **/
+		
+		//addOpenShort(16760, UNDER, 16910, QTY, RR);
+		addOpenShort(16710, UNDER, 16810, QTY, RR);
+	 
 	}
 	/** ###########  [Model 02] ########### **/
 	public void createCloseShort()throws Exception{
-		
+		makeCloseShort(16710, UNDER, 16610, QTY, 16760, RR);
+		makeCloseShort(16710, UNDER, 16510, QTY, 16710, RR);
+		makeCloseShort(16610, UNDER, 16410, QTY, 16610, RR);
+		makeCloseShort(16510, UNDER, 16310, QTY, 16510, RR);
 		makeCloseShort(16310, UNDER, 16110, QTY, 16310, RR);
 		
 		//makeCloseShort(16110, UNDER, 15910, QTY, 16110, RR);
@@ -209,98 +212,109 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		//makeCloseLong(18010, OVER, 18210, QTY, 18010, RR);
 		
 		makeCloseLong(17810, OVER, 18010, QTY, 17810, RR);
-		//makeCloseLong(17610, OVER, 17810, QTY, 17610, RR);
-		makeCloseLong(17410, OVER, 17610, QTY, 17410, RR);
-		//makeCloseLong(17210, OVER, 17410, QTY, 17210, RR);
-		makeCloseLong(17010, OVER, 17210, QTY, 17010, RR);
+		makeCloseLong(17610, OVER, 17810, QTY, 17710, RR);
+		makeCloseLong(17510, OVER, 17710, QTY, 17610, RR);
+		makeCloseLong(17410, OVER, 17610, QTY, 17510, RR);
+		makeCloseLong(17310, OVER, 17510, QTY, 17410, RR);
 		
-		makeCloseLong(16810, OVER, 17010, QTY, 16810, RR);
-		makeCloseLong(16610, OVER, 16810, QTY, 16610, RR);
+		makeCloseLong(17210, OVER, 17410, QTY, 17310, RR);
+		makeCloseLong(17110, OVER, 17310, QTY, 17210, RR);
+		
+		makeCloseLong(17010, OVER, 17210, QTY, 17110, RR);
+		
+		makeCloseLong(16910, OVER, 17110, QTY, 17010, RR);
 	}
 	
 	/** ###########  [Model 02] ########### [LONG] **/
 	public void setLong() throws Exception{
+		addOpenLong(17060, OVER, 17010, QTY, RR);
+		addOpenLong(17010, OVER, 16960, QTY, RR);
+		addOpenLong(16960, OVER, 16910, QTY, RR);
+		addOpenLong(16910, OVER, 16860, QTY, RR);
+		addOpenLong(16860, OVER, 16810, QTY, RR);
 		
-		//addOpenLong(16610, OVER, 16410, QTY, RR);
 		
-		/** ↑↑↑↑ -------  Price Line 16602 0.7 ------- short  ↓↓↓↓  **/
-		
-		addCloseLong(16410, UNDER, 16610, QTY, RR);
-		addCloseLong(16210, UNDER, 16410, QTY, RR);
-		
+		/** ↑↑↑↑ -------  Price Line 17068 1.85------- short  ↓↓↓↓  **/
+		//addCloseLong(16810, UNDER, 16860, QTY, RR);
+		addCloseLong(16760, UNDER, 16810, QTY, RR);
+		addCloseLong(16710, UNDER, 16760, QTY, RR);
+		addCloseLong(16660, UNDER, 16710, QTY, RR);
+		addCloseLong(16610, UNDER, 16660, QTY, RR);
 	}
 	/** ###########  [Model 02] ########### **/
 	public void createOpenLong() throws Exception{
 		
-		//makeOpenLong(16410, UNDER, 16210, QTY, 16410, RR);
-		makeOpenLong(16210, UNDER, 16010, QTY, 16210, RR);
+		makeOpenLong(16710, UNDER, 16560, QTY, 16610, RR);
+		makeOpenLong(16710, UNDER, 16510, QTY, 16560, RR);
+		makeOpenLong(16610, UNDER, 16460, QTY, 16510, RR);
+		makeOpenLong(16610, UNDER, 16410, QTY, 16460, RR);
 		
-		//longStopLoss(15750, QTY);
-		longStopLoss(15500, QTY);
-		longStopLoss(15250, QTY);
-		longStopLoss(15000, QTY);
+		makeOpenLong(16510, UNDER, 16310, QTY, 16410, RR);
+		makeOpenLong(16410, UNDER, 16210, QTY, 16310, RR);
+		makeOpenLong(16310, UNDER, 16110, QTY, 16210, RR);
+		makeOpenLong(16210, UNDER, 16010, QTY, 16110, RR);
+		//longStopLoss(16250, QTY);
+		longStopLoss(16000, QTY);
 		
 		makeOpenLong(16010, UNDER, 15810, QTY, 16010, RR);
 		makeOpenLong(15810, UNDER, 15610, QTY, 15810, RR);
 		//makeOpenLong(15610, UNDER, 15410, QTY, 15610, RR);
 		makeOpenLong(15410, UNDER, 15210, QTY, 15410, RR);
 		makeOpenLong(15210, UNDER, 15010, QTY, 15210, RR);
-		
-		longStopLoss(14750, QTY2);
-		longStopLoss(14500, QTY2);
-		longStopLoss(14250, QTY);
-		longStopLoss(14000, QTY);
+		longStopLoss(15750, QTY2);
+		longStopLoss(15500, QTY);
+		longStopLoss(15250, QTY2);
+		longStopLoss(15000, QTY);
 		
 		makeOpenLong(15010, UNDER, 14810, QTY, 15010, RR);
 		makeOpenLong(14810, UNDER, 14610, QTY, 14810, RR);
 		//makeOpenLong(14610, UNDER, 14410, QTY, 14610, RR);
 		makeOpenLong(14410, UNDER, 14210, QTY, 14410, RR);
 		makeOpenLong(14210, UNDER, 14010, QTY, 14210, RR);
-		
-		longStopLoss(13750, QTY);
-		longStopLoss(13500, QTY2);
-		longStopLoss(13250, QTY2);
-		longStopLoss(13000, QTY);
+		longStopLoss(14750, QTY);
+		longStopLoss(14500, QTY2);
+		longStopLoss(14250, QTY2);
+		longStopLoss(14000, QTY);
 		
 		makeOpenLong(14010, UNDER, 13810, QTY, 14010, RR);
 		makeOpenLong(13810, UNDER, 13610, QTY, 13810, RR);
 		//makeOpenLong(13610, UNDER, 13410, QTY, 13610, RR);
 		makeOpenLong(13410, UNDER, 13210, QTY, 13410, RR);
 		makeOpenLong(13210, UNDER, 13010, QTY, 13210, RR);
-		
-		longStopLoss(12750, QTY);
-		longStopLoss(12500, QTY2);
-		longStopLoss(12250, QTY2);
-		longStopLoss(12000, QTY);
+		longStopLoss(13750, QTY);
+		longStopLoss(13500, QTY2);
+		longStopLoss(13250, QTY2);
+		longStopLoss(13000, QTY);
 		
 		makeOpenLong(13010, UNDER, 12810, QTY, 13010, RR);
 		makeOpenLong(12810, UNDER, 12610, QTY, 12810, RR);
 		//makeOpenLong(12610, UNDER, 12410, QTY, 12610, RR);
 		makeOpenLong(12410, UNDER, 12210, QTY, 12410, RR);
 		makeOpenLong(12210, UNDER, 12010, QTY, 12210, RR);
-		
-		longStopLoss(11750, QTY);
-		longStopLoss(11500, QTY2);
-		longStopLoss(11250, QTY2);
-		longStopLoss(11000, QTY);
+		longStopLoss(12750, QTY);
+		longStopLoss(12500, QTY2);
+		longStopLoss(12250, QTY2);
+		longStopLoss(12000, QTY);
 		
 		makeOpenLong(12010, UNDER, 11810, QTY, 12010, RR);
 		makeOpenLong(11810, UNDER, 11610, QTY, 11810, RR);
 		//makeOpenLong(11610, UNDER, 11410, QTY, 11610, RR);
 		makeOpenLong(11410, UNDER, 11210, QTY, 11410, RR);
 		makeOpenLong(11210, UNDER, 11010, QTY, 11210, RR);
-		
-		longStopLoss(10750, QTY);
-		longStopLoss(10500, QTY);
-		longStopLoss(10250, QTY);
-		longStopLoss(10000, QTY);
+		longStopLoss(11750, QTY);
+		longStopLoss(11500, QTY2);
+		longStopLoss(11250, QTY2);
+		longStopLoss(11000, QTY);
 		
 		makeOpenLong(11010, UNDER, 10810, QTY, 11010, RR);
 		makeOpenLong(10810, UNDER, 10610, QTY, 10810, RR);
 		//makeOpenLong(10610, UNDER, 10410, QTY, 10610, RR);
 		makeOpenLong(10410, UNDER, 10210, QTY, 10410, RR);
 		makeOpenLong(10210, UNDER, 10010, QTY, 10210, RR);
-		
+		longStopLoss(10750, QTY);
+		longStopLoss(10500, QTY);
+		longStopLoss(10250, QTY);
+		longStopLoss(10000, QTY);
 		
 		
 		

@@ -102,6 +102,7 @@ public abstract class TradeModel {
     		e.printStackTrace();
     	}
     	return -1;
+    	
     }*/
     public void openLong(double price, double qty) {
     	this.side 		  = SIDE_BUY;

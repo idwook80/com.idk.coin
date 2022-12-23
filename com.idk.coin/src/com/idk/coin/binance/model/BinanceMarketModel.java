@@ -85,29 +85,13 @@ public class BinanceMarketModel  implements Runnable {
 		while(is_run) {
 			try {
 				getCandlestick();
-			Thread.sleep(300);
+			Thread.sleep(500);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
 		 syncRequestClient.closeUserDataStream(listenKey);
 	}
-	public void subscriptionClient() {
-        // Start user data stream
-       
-     
-
-       
-
-        // Close user data stream
-       
-
-     
-
-       // client.subscribeSymbolTickerEvent("btcusdt", System.out::println, null);
-        //client.subscribeUserDataEvent(listenKey, System.out::println, null);
-      
-}
 	
 	public void addPriceListener(PriceListener l) {
 		synchronized (listeners) {
@@ -120,6 +104,7 @@ public class BinanceMarketModel  implements Runnable {
 		}
 	}
 	public synchronized void notifyPrice(double price) {
+		//LOG.info(" # " + price + " # ");
 		PriceListener[] ls = listeners.toArray(new PriceListener[0]);
 		for(PriceListener l : ls) {
 			l.checkAlarmPrice(price);
