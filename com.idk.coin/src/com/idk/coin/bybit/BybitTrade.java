@@ -32,7 +32,10 @@ public class BybitTrade extends TradeModel{
      * POST: place an active linear perpetual order
      */
     public  Order placeActiveOrder(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
-        Map<String, Object> map = new TreeMap(
+        
+    	return placeActiveOrderV3(api_key, api_secret, symbol, side, position_idx, price, qty);
+    	/*
+    	Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
                 @Override
                 // sort paramKey in A-Z
@@ -45,10 +48,12 @@ public class BybitTrade extends TradeModel{
         map.put("side", side);
         map.put("position_idx",position_idx);
         map.put("symbol", symbol);
-        map.put("order_type", "Limit");
+        //map.put("order_type", "Limit");
+        map.put("orderType", "Limit");
         map.put("qty", qty);
         map.put("price", price);
-        map.put("time_in_force", "GoodTillCancel");
+        //map.put("time_in_force", "GoodTillCancel");
+        map.put("timeInForce", "GoodTillCancel");
         //map.put("take_profit", "20000");
         //map.put("stop_loss", "18000");
         map.put("reduce_only", false);
@@ -62,17 +67,16 @@ public class BybitTrade extends TradeModel{
         
         String response = BybitClient.post(url, map);
         if(response != null) {
-        	//System.out.println(response);
+        	System.out.println(response);
         	return parsingOrder(response);
         }
-        return null;
+        return null;*/
     }
     
     public double parsing(String str) {
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
         //System.out.println(el);
-        
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         LOG.info(gson.toJson(el));
@@ -86,8 +90,8 @@ public class BybitTrade extends TradeModel{
     }
     public Order parsingOrder(String str) {
     	JsonParser parser = new JsonParser();
+    	//System.out.println(str);
         JsonElement el =  parser.parse(str);
-        //System.out.println(el);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
@@ -110,6 +114,65 @@ public class BybitTrade extends TradeModel{
     	}
     	return null;
     }
-  
+    
+    /**
+     * POST: place an active linear perpetual order
+     */
+    public  Order placeActiveOrderV3(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+        Map<String, Object> map = new TreeMap(
+            new Comparator<String>() {
+                @Override
+                // sort paramKey in A-Z
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+            }
+        });
+        
+        map.put("category", "linear");
+        map.put("symbol", symbol);
+        map.put("side", side);
+        map.put("orderType", "Limit");
+        map.put("qty", String.valueOf(qty));
+        map.put("price", String.valueOf(price));
+        map.put("positionIdx", position_idx);
+        map.put("timeInForce", "GoodTillCancel");
+        
+        
+        String url = "https://api.bybit.com";
+        url		  += "/contract/v3/private/order/create";
+        
+        String response = BybitClientV3.post(url, map, api_key, api_secret, getTimestamp(), RECV_WINDOW);
+        if(response != null) {
+        	System.out.println(response);
+        	return parsingOrderV3(response,map.get("symbol").toString()
+        								  ,map.get("side").toString()
+        								  ,map.get("price").toString()
+        								  ,map.get("qty").toString());
+        }
+        return null;
+    }
+    public Order parsingOrderV3(String str,String symbol, String side, String price, String qty) {
+    	JsonParser parser = new JsonParser();
+    	//System.out.println(str);
+        JsonElement el =  parser.parse(str);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        LOG.info(gson.toJson(el));
+        Map<String, Object> map  = gson.fromJson(str, Map.class);
+        LinkedTreeMap result = (LinkedTreeMap)map.get("result");
+        
+        String order_id 	= result.get("orderId").toString();
+        result.put("order_id", order_id);
+        result.put("symbol", symbol);
+        result.put("side", side);
+        result.put("price", price);
+        result.put("qty", qty);
+        
+        Order order = new Order(result);
+	 
+        double ret_code = (Double)map.get("retCode");
+        
+        if(ret_code == 0) return order;
+        return null;
+    }
     
 }

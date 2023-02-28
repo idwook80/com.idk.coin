@@ -75,32 +75,40 @@ public class BinanceAlarmManager extends BinanceAlarmsModel {
 		createOpenShort(17310, OVER, 17510, QTY, 17310, RR);
 		createOpenShort(17210, OVER, 17410, QTY, 17210, RR);
 		
-		createOpenShort(17110, OVER, 17310, QTY, 17110, RR);
-		createOpenShort(17010, OVER, 17210, QTY, 17010, RR);
-		createOpenShort(16910, OVER, 17110, QTY, 16910, RR);
-		
+		createOpenShort(17110, OVER, 17310, QTY, 17210, RR);
+		createOpenShort(17010, OVER, 17210, QTY, 17110, RR);
+		createOpenShort(16910, OVER, 17160, QTY, 17060, RR);
+		createOpenShort(16910, OVER, 17110, QTY, 17010, RR);
 	}
 	
 /**	############################################### **/
 /** ######### Short Order exists  Start ########### **/  //<[SHORT]<----------------------------
 /**	################## [binance01] ###################### **/
 	public void setShort() throws Exception {
-		
+		addCloseShort(17060, OVER, 16910, QTY, RR);
 		addCloseShort(17010, OVER, 16810, QTY, RR);
-		addCloseShort(16910, OVER, 16710, QTY, RR);
 		
-		/** ↑↑↑↑ -------  Price Line 17104 0.018 ------- long ↓↓↓↓  **/
-		//addOpenShort(16710, UNDER, 16910, QTY, RR);
+		//addCloseShort(16910, OVER, 16710, QTY, RR);
+		
+		/** ↑↑↑↑ -------  Price Line 17068 0.016 ------- long ↓↓↓↓  **/
+		addOpenShort(16710, UNDER, 16910, QTY, RR);
+		
+		addOpenShort(16660, UNDER, 16860, QTY, RR);
 		addOpenShort(16610, UNDER, 16810, QTY, RR);
 	}
 /**	############################################### **/
 /** ######### Short Order exists  End ############# **------------------------------------------/
 /**	############################################### **/
 	public void createCloseShort() throws Exception {
+		createCloseShort(16760, UNDER, 16560, QTY, 16760, RR);
 		
+		createCloseShort(16710, UNDER, 16510, QTY, 16710, RR);
 		createCloseShort(16710, UNDER, 16510, QTY, 16610, RR);
+		
+		createCloseShort(16610, UNDER, 16460, QTY, 16660, RR);
 		createCloseShort(16610, UNDER, 16410, QTY, 16510, RR);
 		createCloseShort(16510, UNDER, 16310, QTY, 16410, RR);
+		
 		createCloseShort(16310, UNDER, 16110, QTY, 16210, RR);
 		//createCloseShort(16210, UNDER, 16010, QTY, 16110, RR);
 		
@@ -136,6 +144,8 @@ public class BinanceAlarmManager extends BinanceAlarmsModel {
 		createCloseLong(18210, OVER, 18410, QTY, 18210, RR);
 		//createCloseLong(18010, OVER, 18210, QTY, 18010, RR);
 		createCloseLong(17810, OVER, 18010, QTY, 17810, RR);
+		
+		
 		createCloseLong(17610, OVER, 17810, QTY, 17710, RR);
 		createCloseLong(17510, OVER, 17710, QTY, 17610, RR);
 		createCloseLong(17410, OVER, 17610, QTY, 17510, RR);
@@ -145,22 +155,30 @@ public class BinanceAlarmManager extends BinanceAlarmsModel {
 		createCloseLong(17010, OVER, 17210, QTY, 17110, RR);
 		createCloseLong(16910, OVER, 17110, QTY, 17010, RR);
 		
+		
+		
 	}
 /**	#######################################[LONG]##### **/
 /** ######### Long Order exists  Start ####[LONG]### **///<[LONG]<----------------------------
 /**	#######################################[LONG]## **/
 	public void setLong() throws Exception {
-		
 		addOpenLong(17010, OVER, 16910, QTY, RR);
+		
 		addOpenLong(16910, OVER, 16860, QTY, RR);
 		addOpenLong(16860, OVER, 16810, QTY, RR);
 		
-		/** ↑↑↑↑ -------  Price Line 17039 0.021 -------  ↓↓↓↓ long **/
+		/** ↑↑↑↑ -------  Price Line 16793 0.026 -------  ↓↓↓↓ long **/
 		//addCloseLong(16810, UNDER, 16860, QTY, RR);
 		addCloseLong(16760, UNDER, 16810, QTY, RR);
+		
+		addCloseLong(16710, UNDER, 16810, QTY, ONCE);
 		addCloseLong(16710, UNDER, 16760, QTY, RR);
+		
 		addCloseLong(16660, UNDER, 16710, QTY, RR);
+		
+		addCloseLong(16635, UNDER, 16685, QTY, RR);
 		addCloseLong(16610, UNDER, 16660, QTY, RR);
+		
 	}
 /**	############################################### **/
 /** ######### Long Order exists  End ############## **---------------------------------------/
@@ -168,22 +186,30 @@ public class BinanceAlarmManager extends BinanceAlarmsModel {
 	
 	
 	public void createOpenLong() throws Exception {
-		createOpenLong(16710, UNDER, 16510, QTY, 16610, RR);
-		createOpenLong(16610, UNDER, 16410, QTY, 16510, RR);
+		createOpenLong(16760, UNDER, 16585, QTY, 16635, RR);
+		createOpenLong(16760, UNDER, 16560, QTY, 16610, RR);
+		
+		createOpenLong(16710, UNDER, 16535, QTY, 16585, RR);
+		createOpenLong(16710, UNDER, 16510, QTY, 16560, RR);
+		
+		createOpenLong(16610, UNDER, 16460, QTY, 16510, RR);
+		createOpenLong(16610, UNDER, 16410, QTY, 16460, RR);
+		
 		createOpenLong(16410, UNDER, 16210, QTY, 16410, RR);
 		createOpenLong(16210, UNDER, 16010, QTY, 16210, RR);
 		createOpenLong(16010, UNDER, 15810, QTY, 15910, RR);
 		
+		longStopLoss(15750, QTY2);
 		longStopLoss(15500, QTY);
-		longStopLoss(15250, QTY);
+		longStopLoss(15250, QTY2);
 		longStopLoss(15000, QTY);
 		createOpenLong(15810, UNDER, 15610, QTY, 15810, RR);
 		createOpenLong(15610, UNDER, 15410, QTY, 15610, RR);
 		createOpenLong(15410, UNDER, 15210, QTY, 15410, RR);
 		createOpenLong(15210, UNDER, 15010, QTY, 15210, RR);
 		
-		longStopLoss(14750, QTY);
-		longStopLoss(14500, QTY2);
+		longStopLoss(14750, QTY2);
+		longStopLoss(14500, QTY);
 		longStopLoss(14250, QTY2);
 		longStopLoss(14000, QTY);
 		

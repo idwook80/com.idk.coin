@@ -109,7 +109,7 @@ public class AlarmManager03 extends BybitAlarmsModel {
 		try {
 			//if(is_close_first) createCloseFirst();
 			//else if(is_open_first) createOpenFirst();
-			createAutoSet();
+			//createAutoSet();
 		}catch(Exception e) {
 			e.printStackTrace();
 			clearAllAlarms();

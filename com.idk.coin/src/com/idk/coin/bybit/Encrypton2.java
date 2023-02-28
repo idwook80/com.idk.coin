@@ -29,8 +29,8 @@ import io.contek.invoker.bybit.api.common._Position;
 
 
 public class Encrypton2 {
-	static String API_KEY = "";
-    static String API_SECRET = "";
+	static String API_KEY = "xx";
+    static String API_SECRET = "xx";
     
     final static String TIMESTAMP 	= Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
     final static String RECV_WINDOW = "10000";
@@ -42,9 +42,9 @@ public class Encrypton2 {
     	Encrypton2 encryptionTest = new Encrypton2();
     	
     	//encryptionTest.getServerTime();
-    	//encryptionTest.getActiveOrder();
+    	encryptionTest.getActiveOrder();
     
-    	encryptionTest.getActiveMyPosition();
+    	//encryptionTest.getActiveMyPosition();
     	//encryptionTest.placeActiveOrder();
     	//encryptionTest.getActiveKline();
     	/*for(;;) {
@@ -60,8 +60,8 @@ public class Encrypton2 {
 
     	CoinConfig.loadConfig();
     	
-    	API_KEY 	= System.getProperty(CoinConfig.BYBIT_KEY);
-    	API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SECRET);
+    	//API_KEY 	= System.getProperty(CoinConfig.BYBIT_KEY);
+    	//API_SECRET 	= System.getProperty(CoinConfig.BYBIT_SECRET);
     	
     }
     public void getServerTime() throws NoSuchAlgorithmException, InvalidKeyException {
