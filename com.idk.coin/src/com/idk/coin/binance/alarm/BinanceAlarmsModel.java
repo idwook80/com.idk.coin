@@ -50,11 +50,12 @@ abstract public class BinanceAlarmsModel extends AlarmManager{
 		return a;
 	}
  
-	public void makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception {
+	public AlarmPrice makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenLong(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new BinanceAlarmPrice(this, open_price, UNDER, is_repeat);
 		closeAlarm.setCloseLongAction(close_price, qty);
 		openAlarm.setNextAlarm(closeAlarm);
+		return openAlarm;
 	}
 	
 	
@@ -71,11 +72,12 @@ abstract public class BinanceAlarmsModel extends AlarmManager{
 		return a;
 	}
 	 
-	public void makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
+	public AlarmPrice makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseLong(trigger, is_over, close_price, qty, ONCE);
 		AlarmPrice openAlarm = new BinanceAlarmPrice(this, close_price, OVER, is_repeat); //trigger 
 		openAlarm.setOpenLongAction(open_price, qty);
 		closeAlarm.setNextAlarm(openAlarm);
+		return closeAlarm;
 	}
 	
 	
@@ -91,11 +93,12 @@ abstract public class BinanceAlarmsModel extends AlarmManager{
 		return a;
 	}
 	 
-	public void makeOpenShort(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception {
+	public AlarmPrice makeOpenShort(double trigger, boolean is_over, double open_price, double qty, double close_price,boolean is_repeat) throws Exception {
 		AlarmPrice openAlarm = addOpenShort(trigger, is_over, open_price, qty, ONCE);
 		AlarmPrice closeAlarm = new BinanceAlarmPrice(this, open_price, OVER, is_repeat);
 		closeAlarm.setCloseShortAction(close_price, qty);
 		openAlarm.setNextAlarm(closeAlarm);
+		return openAlarm;
 	}
  
 	
@@ -112,11 +115,13 @@ abstract public class BinanceAlarmsModel extends AlarmManager{
 		addAlarm(a);
 		return a;
 	}
-	public void makeCloseShort(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
+	public AlarmPrice makeCloseShort(double trigger, boolean is_over, double close_price, double qty, double open_price, boolean is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseShort(trigger, is_over, close_price, qty, ONCE);
 		AlarmPrice openAlarm = new BinanceAlarmPrice(this, close_price, UNDER, is_repeat);
 		openAlarm.setOpenShortAction(open_price, qty);
 		closeAlarm.setNextAlarm(openAlarm);
+		
+		return closeAlarm;
 	}
 	
 	

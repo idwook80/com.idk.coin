@@ -22,9 +22,9 @@ import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.BybitClient;
 
 public class MarketModel implements Runnable {
-	String symbol = "BTCUSDT";
-	String api_key = "";
-	String api_secret = "";
+	String symbol 				= "BTCUSDT";
+	String api_key 				= "";
+	String api_secret 			= "";
 	ArrayList<PriceListener> listeners;
     Thread thread;
     public boolean is_run;
@@ -162,7 +162,7 @@ public class MarketModel implements Runnable {
 	       	 last_dir 	= (last_price == price ? last_dir : last_price < price ? true : false) ;
 	       	 
 	       	 if(!debug || 0 > --debug_count) {
-		       	LOG.info( "["+symbol + "][" + listeners.size() + "]" 
+		       	LOG.info( "["+symbol + "][" + listeners.toString() + "]" 
 		       			 //+ ",\t# " + open    + "# " +  (open < price ? "↑↑" : "↓↓") 
 		       			 + ", # " + price  +  "# " +  (last_dir ? "↑↑" : "↓↓")
 		       			 + ",  # " + String.format("%.2f",volume) 

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.alram.AlarmManager01;
 import com.idk.coin.bybit.alram.AlarmManager02;
 import com.idk.coin.bybit.alram.AlarmManager03;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
@@ -71,13 +72,17 @@ public class BybitService {
 		try {
 			ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 			for(BybitUser user : users) {
-				System.out.println(user);
 				String symbol = "BTCUSDT";
 				AlarmManager am = null;
+				
 				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				 if(user.getAlarm_model().equals("1")) 		am = new AlarmManager03(symbol, user);
-				 else if(user.getAlarm_model().equals("2"))  am = new AlarmManager02(symbol, user);
-				if(am != null) setAlarmManager(am);
+				 //if(user.getAlarm_model().equals("1")) 		 	am = new AlarmManager01(symbol, user);
+				 if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
+				 //else if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
+				if(am != null) {
+					System.out.println(user);
+					setAlarmManager(am);
+				}
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

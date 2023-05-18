@@ -15,16 +15,16 @@ abstract public class AlarmPrice {
 	public String order_id			= null;
 	public String parent_order_id	= null;
 	public boolean is_executed		= false;
-	public double trigger 		= 0;
-	public boolean is_over 	= false; //true <= over , false >= under
-	public TradeModel tr 		= null;
-	public boolean is_reverse 	= false;
-	public AlarmPrice next		= null;
+	public double trigger 			= 0;
+	public boolean is_over 			= false; //true <= over , false >= under
+	public TradeModel tr 			= null;
+	public boolean is_reverse 		= false;
+	public AlarmPrice next			= null;
 	public AlarmManager manager;
 	
 	public AlarmPrice(AlarmManager manager, double trigger, boolean is_over,boolean is_reverse) {
-		this.manager = manager;
-		this.trigger 		= trigger;
+		this.manager 	= manager;
+		this.trigger 	= trigger;
 		this.is_over 	= is_over;
 		this.is_reverse = is_reverse;
 	}

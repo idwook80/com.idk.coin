@@ -20,6 +20,8 @@ public class BybitAlarmPrice extends AlarmPrice {
 		if(tr != null) {
 			com.idk.coin.bybit.model.Order order  =
 					(com.idk.coin.bybit.model.Order) tr.executAction(api_key, api_secret, symbol);
+			
+			
 			if(order != null) {
 				this.setOrder_id(order.getOrder_id());
 				if(is_reverse) LOG.info("Reverse & Repeat Order Action!");
