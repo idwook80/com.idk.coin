@@ -11,17 +11,19 @@ public class BybitUser {
 	String user_name;
 	String alarm_model;
 	String default_qty;
+	String symbol;
 	
 	public BybitUser() {}
 	public BybitUser(Map map) {
-		String id = (String) map.get("id");
-		String password = (String) map.get("password");
-		String user_id = (String) map.get("user_id");
-		String api_key = (String) map.get("api_key");
-		String api_secret = (String) map.get("api_secret");
-		String user_name = (String) map.get("user_name");
-		String alarm_model = (String) map.get("alarm_model");
-		String default_qty = (String) map.get("default_qty");
+		String id 			= (String) map.get("id");
+		String password		= (String) map.get("password");
+		String user_id 		= (String) map.get("user_id");
+		String api_key 		= (String) map.get("api_key");
+		String api_secret 	= (String) map.get("api_secret");
+		String user_name 	= (String) map.get("user_name");
+		String alarm_model 	= (String) map.get("alarm_model");
+		String default_qty 	= (String) map.get("default_qty");
+		String symbol		= (String) map.get("symbol");
 		setId(id);
 		setPassword(password);
 		setUser_id(user_id);
@@ -80,13 +82,18 @@ public class BybitUser {
 	public void setDefault_qty(String default_qty) {
 		this.default_qty = default_qty;
 	}
+	
+	public String getSymbol() {
+		return symbol;
+	}
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
 	@Override
 	public String toString() {
 		return "BybitUser [id=" + id + ", password=" + password + ", user_id=" + user_id + ", api_key=" + api_key
 				+ ", api_secret=" + api_secret + ", user_name=" + user_name + ", alarm_model=" + alarm_model
-				+ ", default_qty=" + default_qty + "]";
+				+ ", default_qty=" + default_qty + ", symbol=" + symbol + "]";
 	}
-	
-	
 	
 }

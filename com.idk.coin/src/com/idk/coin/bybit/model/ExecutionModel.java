@@ -24,8 +24,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
-import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.BybitWssClient;
 import com.idk.coin.bybit.db.BybitUser;
 
 @ClientEndpoint
@@ -180,14 +178,13 @@ public class ExecutionModel implements Runnable {
 	        String topic = (String)map.get("topic");
 	        if(topic == null || !topic.equals("execution")) return;
 	        
-	        System.out.println(gson.toJson(el));
+	       // System.out.println(gson.toJson(el));
 	        ArrayList data = (ArrayList)map.get("data");
-	        
 	        for(int i=0; i<data.size(); i++) {
 	       	 LinkedTreeMap t1 = (LinkedTreeMap)data.get(i);
 	       	 
 		       	 OrderExecution execution = new OrderExecution(t1);
-		       	 System.out.println(execution);
+		       	// System.out.println(execution);
 		       	notifyPriceListener(execution);
 	        }
 	    }

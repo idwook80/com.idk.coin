@@ -2,20 +2,15 @@ package com.idk.coin.bybit;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.ZonedDateTime;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
-import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.model.Order;
 import com.idk.coin.bybit.model.OrderExecution;
 import com.idk.coin.model.TradeModel;
@@ -79,7 +74,7 @@ public class BybitTrade extends TradeModel{
         //System.out.println(el);
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        LOG.info(gson.toJson(el));
+       // LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
         OrderExecution order = new OrderExecution(result);
@@ -93,7 +88,7 @@ public class BybitTrade extends TradeModel{
     	//System.out.println(str);
         JsonElement el =  parser.parse(str);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        LOG.info(gson.toJson(el));
+        //LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
         Order order = new Order(result);
@@ -156,7 +151,7 @@ public class BybitTrade extends TradeModel{
     	//System.out.println(str);
         JsonElement el =  parser.parse(str);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        LOG.info(gson.toJson(el));
+        //LOG.info(gson.toJson(el));
         Map<String, Object> map  = gson.fromJson(str, Map.class);
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
         

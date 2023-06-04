@@ -1,4 +1,4 @@
-package com.idk.coin.bybit;
+package com.idk.coin.bybit.service;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.BybitExecutionManager;
+import com.idk.coin.bybit.BybitMarketManager;
 import com.idk.coin.bybit.alram.AlarmManager01;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
 import com.idk.coin.bybit.db.BybitDao;
@@ -14,11 +16,11 @@ import com.idk.coin.bybit.model.ExecutionModel;
 import com.idk.coin.bybit.model.MarketModel;
 import com.idk.coin.model.AlarmManager;
 
-public class BybitService {
-	public static Logger LOG =   LoggerFactory.getLogger(BybitService.class.getName());
+public class BTCAlarm01Service {
+	public static Logger LOG =   LoggerFactory.getLogger(BTCAlarm01Service.class.getName());
 	
 	public static void main(String[] args) {
-		new BybitService();
+		new BTCAlarm01Service();
 		
 	}
 	BybitMarketManager  	marketManager;
@@ -27,7 +29,7 @@ public class BybitService {
 	
 	BybitUser root;
 	public static boolean is_main_account =  false;
-	public BybitService() {
+	public BTCAlarm01Service() {
 		load();
 		init();
 		start();
@@ -55,7 +57,7 @@ public class BybitService {
 	}
 	public void initMarket() {
 		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), false);
+		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), true);
 		//btcMarket.startMarket();
 		
 		//MarketModel xrpMarket = marketManager.createMarket("XRPUSDT", root.getApi_key(), root.getApi_secret());

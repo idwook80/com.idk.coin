@@ -1,4 +1,4 @@
-package com.idk.coin.bybit;
+package com.idk.coin.bybit.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
+import com.idk.coin.bybit.BybitExecutionManager;
+import com.idk.coin.bybit.BybitMarketManager;
 import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.alram.AlarmManager80;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
@@ -19,11 +21,11 @@ import com.idk.coin.bybit.model.MarketModel;
 import com.idk.coin.model.AlarmManager;
 import com.idk.coin.util.TimeUtil;
 
-public class BybitIdwook80 {
-	public static Logger LOG =   LoggerFactory.getLogger(BybitIdwook80.class.getName());
+public class BTCAlarm80Service {
+	public static Logger LOG =   LoggerFactory.getLogger(BTCAlarm80Service.class.getName());
 	
 	public static void main(String[] args) {
-		new BybitIdwook80();
+		new BTCAlarm80Service();
 		
 	}
 	BybitMarketManager  	marketManager;
@@ -32,7 +34,7 @@ public class BybitIdwook80 {
 	
 	BybitUser root;
 	public static boolean is_main_account =  false;
-	public BybitIdwook80() {
+	public BTCAlarm80Service() {
 		load();
 		init();
 		start();
@@ -59,7 +61,7 @@ public class BybitIdwook80 {
 	}
 	public void initMarket() {
 		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret());
+		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), false);
 	}
 	public void initAlarms() {
 		alarmManager = new BybitAlarmManager();
@@ -90,7 +92,7 @@ public class BybitIdwook80 {
 	public MarketModel getMarketModel(String symbol) {
 		MarketModel m = marketManager.getMarketModel(symbol);
 		if(m == null) {
-			m  = marketManager.createMarket(symbol, root.getApi_key(), root.getApi_secret());
+			m  = marketManager.createMarket(symbol, root.getApi_key(), root.getApi_secret(),false);
 			m.setDebug(true);
 		}
 		return m;

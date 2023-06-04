@@ -3,9 +3,7 @@ package com.idk.coin.bybit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.idk.coin.AlarmSound;
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.Order;
 import com.idk.coin.model.AlarmManager;
 import com.idk.coin.model.TradeModel;
 
@@ -18,15 +16,16 @@ abstract public class AlarmPrice {
 	public double trigger 			= 0;
 	public boolean is_over 			= false; //true <= over , false >= under
 	public TradeModel tr 			= null;
-	public boolean is_reverse 		= false;
+	public int repeat 				= 0;
+	public AlarmPrice parent		= null;
 	public AlarmPrice next			= null;
 	public AlarmManager manager;
 	
-	public AlarmPrice(AlarmManager manager, double trigger, boolean is_over,boolean is_reverse) {
+	public AlarmPrice(AlarmManager manager, double trigger, boolean is_over,int repeat) {
 		this.manager 	= manager;
 		this.trigger 	= trigger;
 		this.is_over 	= is_over;
-		this.is_reverse = is_reverse;
+		this.repeat = repeat;
 	}
 	public void setNextAlarm(AlarmPrice next) {
 		this.next = next;
@@ -42,23 +41,10 @@ abstract public class AlarmPrice {
 		action(user.getApi_key(), user.getApi_secret(), symbol);
 	}
 	abstract public void action(String api_key, String api_secret, String symbol) throws Exception;  
-	
-	public void setOpenLongAction(double price, double qty) {
-		//tr = new BybitTrade();
-		//tr.openLong(price, qty);
-	}
-	public void setOpenShortAction(double price, double qty) {
-		//tr = new BybitTrade();
-		//tr.openShort(price, qty);
-	}
-	public void setCloseLongAction(double price, double qty) {
-		//tr = new BybitTrade();
-		//tr.closeLong(price, qty);
-	}
-	public void setCloseShortAction(double price,double qty) {
-		//tr = new BybitTrade();
-		//tr.closeShort(price, qty);
-	}
+	abstract public void setOpenLongAction(double price, double qty);
+	abstract public void setOpenShortAction(double price, double qty);  
+	abstract public void setCloseLongAction(double price, double qty); 
+	abstract public void setCloseShortAction(double price,double qty);
  
 	public boolean is_executed() {
 		return is_executed;
@@ -76,16 +62,40 @@ abstract public class AlarmPrice {
 	public void setParent_order_id(String order_id) {
 		this.parent_order_id = order_id;
 	}
+	public AlarmPrice getParent() {
+		return parent;
+	}
+	public void setParent(AlarmPrice parent) {
+		this.parent = parent;
+	}
 	public String getParent_order_id() {
 		return parent_order_id;
 	}
+	public int getRepeat() {
+		return repeat;
+	}
+	public void setRepeat(int repeat) {
+		this.repeat = repeat;
+	}
+	public void descreseRepeat() {
+		this.repeat--;
+	}
+	public boolean isReverse() {
+		return repeat > 0;
+	}
 	
+	public String toAlarm() {
+		return "["+trigger + "," + (is_over ? "Over" : "Under") + "]";
+	}
+	public String toActionString() {
+		return "["+ tr.getPrice() + ","+tr.qty+ "," + tr.getActionString()+"]";
+	}
 	@Override
 	public String toString() {
 		/*return "AlarmPrice [" + price + ", " + (is_over ? "Over" : "Under") + ", " + (is_reverse ? "R&R" : "Once") + "]" 
 				+ ", [" + tr.getActionString()+"] " + tr.toString()+" " +  (next != null ?  "--> "+next.toString() : "") ;*/
-		return "["+ manager.getUser().getId() + "] Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+" "+ (is_reverse ? "R&R" : "Once") 
-				+ " " + (next != null ?  " Waiting ---> " + next.toString() : "")
+		return "["+ manager.getUser().getId() + "] Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+"[R:"+ repeat +"]"
+				+ " " + (next != null ?  "Next Alarm -> " + next.toString() : "")
 				+ " pid : " +parent_order_id;
  		
 	}

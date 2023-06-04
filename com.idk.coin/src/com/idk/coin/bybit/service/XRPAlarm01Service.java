@@ -1,4 +1,4 @@
-package com.idk.coin.bybit;
+package com.idk.coin.bybit.service;
 
 import java.util.ArrayList;
 
@@ -6,19 +6,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.alram.AlarmManager01;
+import com.idk.coin.bybit.BybitExecutionManager;
+import com.idk.coin.bybit.BybitMarketManager;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
+import com.idk.coin.bybit.alram.XRPAlarmManager01;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.ExecutionModel;
 import com.idk.coin.bybit.model.MarketModel;
 import com.idk.coin.model.AlarmManager;
 
-public class BybitService {
-	public static Logger LOG =   LoggerFactory.getLogger(BybitService.class.getName());
+public class XRPAlarm01Service {
+	public static Logger LOG =   LoggerFactory.getLogger(XRPAlarm01Service.class.getName());
 	
 	public static void main(String[] args) {
-		new BybitService();
+		new XRPAlarm01Service();
 		
 	}
 	BybitMarketManager  	marketManager;
@@ -27,7 +29,7 @@ public class BybitService {
 	
 	BybitUser root;
 	public static boolean is_main_account =  false;
-	public BybitService() {
+	public XRPAlarm01Service() {
 		load();
 		init();
 		start();
@@ -55,10 +57,10 @@ public class BybitService {
 	}
 	public void initMarket() {
 		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), false);
+		//MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret());
 		//btcMarket.startMarket();
 		
-		//MarketModel xrpMarket = marketManager.createMarket("XRPUSDT", root.getApi_key(), root.getApi_secret());
+		MarketModel xrpMarket = marketManager.createMarket("XRPUSDT", root.getApi_key(), root.getApi_secret(),true);
 		//xrpMarket.startMarket();
 		
 		//MarketModel etcMarket = marketManager.createMarket("ETCUSDT", root.getApi_key(), root.getApi_secret());
@@ -70,11 +72,11 @@ public class BybitService {
 		try {
 			ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 			for(BybitUser user : users) {
-				String symbol = "BTCUSDT";
+				String symbol = "XRPUSDT";
 				AlarmManager am = null;
 				
 				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				 if(user.getAlarm_model().equals("1")) 		 	am = new AlarmManager01(symbol, user);
+				 if(user.getAlarm_model().equals("1")) 		 	am = new XRPAlarmManager01(symbol, user);
 				 //if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				 //else if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				if(am != null) {
@@ -96,7 +98,7 @@ public class BybitService {
 	public MarketModel getMarketModel(String symbol) {
 		MarketModel m = marketManager.getMarketModel(symbol);
 		if(m == null) {
-			m  = marketManager.createMarket(symbol, root.getApi_key(), root.getApi_secret(), false);
+			m  = marketManager.createMarket(symbol, root.getApi_key(), root.getApi_secret(),false);
 		}
 		return m;
 	}

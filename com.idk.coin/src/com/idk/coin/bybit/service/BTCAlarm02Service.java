@@ -1,4 +1,4 @@
-package com.idk.coin.bybit;
+package com.idk.coin.bybit.service;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.alram.AlarmManager01;
+import com.idk.coin.bybit.BybitExecutionManager;
+import com.idk.coin.bybit.BybitMarketManager;
+import com.idk.coin.bybit.alram.AlarmManager02;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
@@ -14,11 +16,11 @@ import com.idk.coin.bybit.model.ExecutionModel;
 import com.idk.coin.bybit.model.MarketModel;
 import com.idk.coin.model.AlarmManager;
 
-public class BybitService {
-	public static Logger LOG =   LoggerFactory.getLogger(BybitService.class.getName());
+public class BTCAlarm02Service {
+	public static Logger LOG =   LoggerFactory.getLogger(BTCAlarm02Service.class.getName());
 	
 	public static void main(String[] args) {
-		new BybitService();
+		new BTCAlarm02Service();
 		
 	}
 	BybitMarketManager  	marketManager;
@@ -27,7 +29,7 @@ public class BybitService {
 	
 	BybitUser root;
 	public static boolean is_main_account =  false;
-	public BybitService() {
+	public BTCAlarm02Service() {
 		load();
 		init();
 		start();
@@ -74,8 +76,8 @@ public class BybitService {
 				AlarmManager am = null;
 				
 				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				 if(user.getAlarm_model().equals("1")) 		 	am = new AlarmManager01(symbol, user);
-				 //if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
+				 //if(user.getAlarm_model().equals("1")) 		 	am = new AlarmManager01(symbol, user);
+				 if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				 //else if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				if(am != null) {
 					System.out.println(user);

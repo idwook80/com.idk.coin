@@ -31,10 +31,10 @@ public class BybitMarketManager {
 		}
 		return null;
 	}
-	public MarketModel createMarket(String symbol, String api_key, String api_secret) {
+	public MarketModel createMarket(String symbol, String api_key, String api_secret, boolean debug) {
 		MarketModel m = getMarketModel(symbol);
 		if(m == null) {
-			m = new MarketModel(symbol, api_key, api_secret);
+			m = new MarketModel(symbol, api_key, api_secret, debug);
 			addMarketModel(m);
 		}
 		return m;

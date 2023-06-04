@@ -3,9 +3,7 @@ package com.idk.coin.model;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.ZonedDateTime;
-import java.util.Comparator;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +13,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
-import com.idk.coin.CoinConfig;
-import com.idk.coin.bybit.BybitClient;
 import com.idk.coin.bybit.BybitTrade;
 import com.idk.coin.bybit.model.Order;
 import com.idk.coin.bybit.model.OrderExecution;
@@ -133,12 +129,18 @@ public abstract class TradeModel {
     	this.qty 			= qty;
     }
     public String getActionString() {
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Open";
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Long Close";
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Open";
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Short Close";
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Open Long(Buy)";
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Close Long(Sell)";
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Open Short(Sell)";
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Close Short(Buy)";
     	return "UNKNOWN";
-    	
+    }
+    public String getReverseActionString() {
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Close Long(Sell)"; 
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Open Long(Buy)";
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Close Short(Buy)";
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Open Short(Sell)";
+    	return "UNKNOWN";
     }
 	@Override
 	public String toString() {
