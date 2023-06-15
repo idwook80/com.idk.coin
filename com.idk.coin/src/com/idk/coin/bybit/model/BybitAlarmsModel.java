@@ -1,7 +1,10 @@
 package com.idk.coin.bybit.model;
 
+import java.util.ArrayList;
+
 import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.BybitAlarmPrice;
+import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.model.AlarmManager;
@@ -139,6 +142,52 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		return closeAlarm;
 	}
 	
+	public void enableDatabase() {
+		clearAlarmDatabase();
+		registerAlarmDatabase();
+	}
 	
+	public void loadAlarmDatabase() {
+		
+	}
+	public void registerAlarmDatabase() {
+		try {
+			ArrayList<BybitUser>  users = BybitDao.getInstace().selectUserList();
+	
+			LOG.info("★★★["+user.getUser_id()+"]★★★★★\t[알람데이터베이스 등록]\t★★★["+getSymbol()+"]★★★★★");
+			int i=1; 
+			synchronized(list) {
+				AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
+				for(AlarmPrice alarm : obj) {
+					int lastIdx = BybitAlarmDao.getInstace().insert(alarm);
+					alarm.setAlarm_id(String.valueOf(lastIdx));
+					if(alarm.getNext() != null) {
+						AlarmPrice next = alarm.getNext();
+						next.setParent_alarm_id(alarm.getAlarm_id());
+						lastIdx = BybitAlarmDao.getInstace().insert(next);
+						next.setAlarm_id(String.valueOf(lastIdx));
+						BybitAlarmDao.getInstace().update(alarm);
+					}
+				}
+			}
+			LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void clearAlarmDatabase() {
+		LOG.info("★★★["+user.getUser_id()+"]★★★★★\t[알람데이터베이스 전체 삭제]\t★★★["+getSymbol()+"]★★★★★");
+		
+		try {
+			BybitAlarmDao.getInstace().deleteAll(getUser().getUser_id(), getSymbol());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 }

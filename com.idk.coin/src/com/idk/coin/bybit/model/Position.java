@@ -1,5 +1,6 @@
 package com.idk.coin.bybit.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -37,8 +38,7 @@ public class Position {
 		setMap(map);
 	}
 	public void setMap(Map map) {
-		map.get("user_id");
-		user_id 			= map.get("user_id").toString();
+		user_id 			= Double.class.isInstance( map.get("user_id")) ? new BigDecimal((double)map.get("user_id")).toString() : map.get("user_id").toString();
 		symbol 				= map.get("symbol").toString();
 		side				= map.get("side").toString();
 		size				= Double.valueOf(map.get("size").toString());

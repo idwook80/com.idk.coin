@@ -21,9 +21,9 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	
 	public static boolean OVER  		= true;
 	public static boolean UNDER 		= false;
-	public static int REVERSE			= 100;
-	public static int REPEAT			= 100;
-	public static int RR				= 100; //reverse and repeat
+	public static int REVERSE			= 99;
+	public static int REPEAT			= 99;
+	public static int RR				= 99; //reverse and repeat
 	public static int ONCE				= 1;
 	public static int TWICE				= 3;
 	public static int THIRD				= 5;
@@ -134,9 +134,9 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}else {
 			side_name = " [Close Short] 또는 [Open Long]";
 		}
-		LOG.info("####################################[주문체결]################################################");
+		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
 		LOG.info("주문체결 : ["+current_price+"],("+exec_qty+"/"+qty+")주(" +leave_qty+") ["+ side + "]("+side_name+") 주문이 체결되었습니다.(" + execution.getOrder_id()+ ")\t##");
-		LOG.info("####################################[주문체결]################################################");
+		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
 		if(list.isEmpty() || !is_run) return;
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
@@ -179,7 +179,6 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 						LOG.info("##############################[알람처리 시작]##################################");
 						LOG.info("알람확인: "+price +" 확인된 [가격알람]이있습니다. " + alarm.toAlarm());
 						//LOG.info("알람 확인 : "+ alarm + " 사용자 : " + user);
-					
 						list.remove(alarm);
 						try {
 							alarm.action(user, symbol);
@@ -206,12 +205,14 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	
 	
 	public void printListString() {
-		LOG.info("★★★★★★★★★★\t" + list.size() + "\t★★★★★★★★★★★★★");
-		int i=0; 
+		 
+		LOG.info("★★★["+user.getUser_id()+"]★★★★★\t" + list.size() + "\t★★★["+getSymbol()+"]★★★★★");
+		int i=1; 
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
 			for(AlarmPrice alarm : obj) {
 				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
+				//LOG.info("["+alarm.getAlarm_id()+"]" +  alarm.toString());
 			}
 		}
 		LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");

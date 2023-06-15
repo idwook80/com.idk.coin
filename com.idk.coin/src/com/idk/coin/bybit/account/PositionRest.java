@@ -39,7 +39,7 @@ public class PositionRest {
         String tt = Long.toString(ZonedDateTime.now().toInstant().toEpochMilli());
         map.put("api_key", api_key);
         map.put("timestamp", tt);
-        map.put("symbol", "BTCUSDT");
+        map.put("symbol", symbol);
         //map.put("order_status", "Created,New,Filled,Cancelled");
         //map.put("order_status", "Created,New");
         String signature = BybitClient.genSign(api_secret,map);
@@ -62,7 +62,10 @@ public class PositionRest {
         
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-       // LOG.info(gson.toJson(el));
+       // System.out.println(gson.toJson(el));
+        
+        
+        
         Map<String, Object> map  = gson.fromJson(el, Map.class);
         ArrayList result = (ArrayList)map.get("result");
         Date time_now = BybitUtil.getTimeNow((String)map.get("time_now"));

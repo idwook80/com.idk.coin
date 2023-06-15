@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.AlarmSound;
+import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.model.AlarmManager;
 
 public class BybitAlarmPrice extends AlarmPrice {
@@ -56,7 +57,12 @@ public class BybitAlarmPrice extends AlarmPrice {
 					}
 				}
 				newAlarm.setParent(this);
+				newAlarm.setParent_alarm_id("0");
 				newAlarm.setParent_order_id(getOrder_id());
+				
+				int id = insertDatabase(newAlarm);
+				if(id > 0) newAlarm.setAlarm_id(String.valueOf(id));
+				
 				//홀수 자기자신 짝수는 반대가 끝
 				last_order = newAlarm.getRepeat()%2 == 0 ? newAlarm.getParent().toActionString() : newAlarm.toActionString();
 				//LOG.info(newAlarm.toString());
@@ -66,9 +72,11 @@ public class BybitAlarmPrice extends AlarmPrice {
 					if(next != null) {
 						LOG.info("리버스 &반복 :(자식)알람을 가져옵니다. !") ;
 						next.setParent(this);
+						next.setParent_alarm_id("0");
 						next.setParent_order_id(getOrder_id());
 						//next.setRepeat(getRepeat());
 						manager.addAlarm(next);
+						updateDatabase(next);
 						//LOG.info(next.toString());
 						//홀수 자기자신 짝수는 반대가 끝
 						last_order = next.getRepeat()%2 == 0 ? next.getParent().toActionString() : next.toActionString();
@@ -81,6 +89,8 @@ public class BybitAlarmPrice extends AlarmPrice {
 				}
 			}
 			
+			this.setParent_alarm_id("-1");
+			deleteDatabase(this);
 			
 			if(isReverse())LOG.info("리버스&반복 유지: ("+getRepeat()+ ")회 남았습니다. 마지막 주문 : "+last_order );
 			else {
@@ -94,8 +104,28 @@ public class BybitAlarmPrice extends AlarmPrice {
 			LOG.info("");
 		}
 	}
-
-	
+	public void deleteDatabase(AlarmPrice alarm) {
+		try {
+			BybitAlarmDao.getInstace().delete(alarm);
+		}catch(Exception e) {
+			
+		}
+	}
+	public int insertDatabase(AlarmPrice alarm) {
+		try {
+			return BybitAlarmDao.getInstace().insert(alarm);
+		}catch(Exception e) {
+			
+		}
+		return 0;
+	}
+	public void updateDatabase(AlarmPrice alarm	) {
+		try {
+			BybitAlarmDao.getInstace().update(alarm);
+		}catch(Exception e) {
+			
+		}
+	}
 	
 	public void setOpenLongAction(double price, double qty) {
 		tr = new BybitTrade();
@@ -114,25 +144,7 @@ public class BybitAlarmPrice extends AlarmPrice {
 		tr.closeShort(price, qty);
 	}
  
-	public boolean is_executed() {
-		return is_executed;
-	}
-	public void setIs_executed(boolean b) {
-		this.is_executed = b;
-	}
-	public void setOrder_id(String order_id) {
-		this.order_id = order_id;
-		this.is_executed = true;
-	}
-	public String getOrder_id() {
-		return order_id;
-	}
-	public void setParent_order_id(String order_id) {
-		this.parent_order_id = order_id;
-	}
-	public String getParent_order_id() {
-		return parent_order_id;
-	}
+ 
 	@Override
 	public String toAlarm() {
 		return "["+trigger + ", " + (is_over ? " ↑이상" : " ↓이하") + "]";
@@ -145,14 +157,14 @@ public class BybitAlarmPrice extends AlarmPrice {
 	@Override
 	public String toString() {
 		if(parent_order_id == null) {
-			return "["+ manager.getUser().getId() + ", "+manager.getSymbol()+"] 알람정보 : 가격 [" + trigger + "," + (is_over ? " ↑이상" : " ↓이하") +"]알림\t ->["
-					+ tr.getPrice() + " , " + tr.getQty()  + "주][" + tr.getActionString() + "]주문 에약합니다. "+"[반복&리버스 ("+ repeat + ")회]\t" 
+			return "["+getAlarm_id()+"]["+ manager.getUser().getId() + ", "+manager.getSymbol()+"] 알람정보 : 가격 [" + trigger + "," + (is_over ? " ↑이상" : " ↓이하") +"]감시\t->["
+					+ tr.getPrice() + " , " + tr.getQty()  + "주][" + tr.getActionString() + "]주문 실행합니다. "+"[반복&리버스 ("+ repeat + ")회]\t" 
 					+ " " + (next != null ?  "다음 알림설정 -> " + next.toString() : "")
 					+ " pid : " +parent_order_id;
 		}else {
 		
-			return "["+ manager.getUser().getId() + ", "+manager.getSymbol()+"] 알람정보 : 체결 " + parent.toActionString()+ "알림\t ->["
-					+ tr.getPrice() + " , " + tr.getQty()  + "주][" + tr.getActionString() + "]주문 에약합니다. "+"[반복&리버스 ("+ repeat + ")회]\t" 
+			return "["+getAlarm_id()+"]["+  manager.getUser().getId() + ", "+manager.getSymbol()+"] 알람정보 : 체결 " + parent.toActionString()+ "감시\t->["
+					+ tr.getPrice() + " , " + tr.getQty()  + "주][" + tr.getActionString() + "]주문 실행합니다. "+"[반복&리버스 ("+ repeat + ")회]\t" 
 					+ " " + (next != null ?  "다음 알림설정 -> " + next.toString() : "")
 					+ " pid : " +parent_order_id;
 		}

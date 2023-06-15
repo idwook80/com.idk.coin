@@ -18,17 +18,17 @@ import com.idk.coin.bybit.model.Order;
 import com.idk.coin.bybit.model.OrderExecution;
 
 public abstract class TradeModel {
-	public static Logger LOG 			  =   LoggerFactory.getLogger(BybitTrade.class.getName());
-	public String API_KEY 		  		  = "";
-    public String API_SECRET 	 	  	  = "";
-    public final static String RECV_WINDOW 	  = "10000";
+	public static Logger LOG 			  		=   LoggerFactory.getLogger(BybitTrade.class.getName());
+	public String API_KEY 		  		  		= "";
+    public String API_SECRET 	 	  	 	 	= "";
+    public final static String RECV_WINDOW 	  	= "10000";
     
-    public final static String SIDE_BUY		  = "Buy";			// LongOpen , ShortClose
-    public final static String SIDE_SELL		  = "Sell";			// LongClose, ShortOpen	
+    public final static String SIDE_BUY		 	= "Buy";			// LongOpen , ShortClose
+    public final static String SIDE_SELL		= "Sell";			// LongClose, ShortOpen	
     
-    public final static String POSITION_IDX_BOTH = "0";
-    public final static String POSITION_IDX_LONG  = "1";			// Long
-    public final static String POSITION_IDX_SHORT = "2";			// Short
+    public final static String POSITION_IDX_BOTH 	= "0";
+    public final static String POSITION_IDX_LONG  	= "1";			// Long
+    public final static String POSITION_IDX_SHORT 	= "2";			// Short
     
     public final static String POSITION_BOTH	= "BOTH";
     public final static String POSITION_LONG	= "LONG";
@@ -129,17 +129,24 @@ public abstract class TradeModel {
     	this.qty 			= qty;
     }
     public String getActionString() {
+    	switch(position_idx) {
+    	case POSITION_IDX_LONG : return this.side.equals(SIDE_BUY) ? "Open Long" : "Close Long";
+    	case POSITION_IDX_SHORT : return this.side.equals(SIDE_SELL) ? "Open Short" : "Close Short";
+    	}
+    	return "UNKNOWN";
+    	/**
     	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Open Long(Buy)";
     	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Close Long(Sell)";
     	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Open Short(Sell)";
     	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Close Short(Buy)";
     	return "UNKNOWN";
+    	**/
     }
     public String getReverseActionString() {
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Close Long(Sell)"; 
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Open Long(Buy)";
-    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Close Short(Buy)";
-    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Open Short(Sell)";
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_LONG)) return "Close Long"; //(Sell)
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_LONG)) return "Open Long"; //(Buy)
+    	if(this.side.equals(SIDE_SELL) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Close Short"; //(Buy)
+    	if(this.side.equals(SIDE_BUY) && this.position_idx.equals(POSITION_IDX_SHORT)) return "Open Short"; //(Sell)
     	return "UNKNOWN";
     }
 	@Override
@@ -153,6 +160,13 @@ public abstract class TradeModel {
 	public void setSide(String side) {
 		this.side = side;
 	}
+	public String setSide_idx() {
+		switch(side) {
+		case SIDE_SELL : return "S";
+		case SIDE_BUY  : return "B";
+		}
+		return "";
+	}
 	public String getPosition_idx() {
 		return position_idx;
 	}
@@ -165,6 +179,13 @@ public abstract class TradeModel {
 	}
 	public void setPosition_idx(String position_idx) {
 		this.position_idx = position_idx;
+		
+		switch(position_idx) {
+		case POSITION_IDX_BOTH : position = POSITION_BOTH; break;
+		case POSITION_IDX_LONG : position = POSITION_LONG; break;
+		case POSITION_IDX_SHORT : position = POSITION_SHORT; break;
+		
+		}
 	}
 	public double getPrice() {
 		return price;

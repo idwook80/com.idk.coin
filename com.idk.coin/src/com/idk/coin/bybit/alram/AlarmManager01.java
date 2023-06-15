@@ -22,9 +22,10 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	public void run() {
 		while(is_run) {
 			try {
-				Thread.sleep(1000* 60 * 10);
 				LOG.info(this.getSize() + "  : " + this.getClass().getName());
 				this.printListString();
+				
+				Thread.sleep(1000* 60 * 10);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -39,6 +40,7 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		createCloseLong();
 		setLong();
 		createOpenLong();
+		enableDatabase();
 	}
 	
 /**
@@ -56,8 +58,8 @@ public class AlarmManager01 extends BybitAlarmsModel {
 			makeOpenShort(alarm, OVER, open, QTY, close, RR);
 		}
 		if(isLoss) {
-			shortStopLoss(end-profitLimit   , QTY2);
-			shortStopLoss(start+profitLimit , QTY2);
+			//shortStopLoss(end-profitLimit   , QTY2);
+			//shortStopLoss(start+profitLimit , QTY2);
 		}
 		
 		
@@ -67,41 +69,38 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		startMakeOpenShort(32110, 32910, 200, true);
 		startMakeOpenShort(31110, 31910, 200, true);
 		startMakeOpenShort(29110, 29910, 200, true);
-		startMakeOpenShort(27610, 28910, 100, false);
+		startMakeOpenShort(28110, 28910, 200, true);
 		
-		makeOpenShort(27360, OVER, 27510, QTY, 27410, RR);
-		//makeOpenShort(27260, OVER, 27410, QTY, 27310, RR);
+		startMakeOpenShort(25810, 27910, 100, false);
+		
+		makeOpenShort(25560, OVER, 25710, QTY, 25510, THIRD);
+		makeOpenShort(25460, OVER, 25610, QTY, 25410, THIRD);
+		makeOpenShort(25360, OVER, 25510, QTY, 25310, THIRD);
+		makeOpenShort(25260, OVER, 25410, QTY, 25210, THIRD);
+		//makeOpenShort(25960, OVER, 26110, QTY, 26010, THIRD);
 	}
 	/** ###########  [Model 01] ########### [SHORT]  **/
 	public void setShort() throws Exception{
-		closeShort(27410, OVER, 27360, QTY, 3);
-		closeShort(27360, OVER, 27310, QTY, TWICE);
-		closeShort(27310, OVER, 27260, QTY, TWICE);
-		closeShort(27260, OVER, 27210, QTY, 3);
-		//closeShort(27210, OVER, 27160, QTY, 3);
-		//closeShort(27160, OVER, 27060, QTY, TWICE);
-		//closeShort(27110, OVER, 26910, QTY, RR);
-		/** ↑↑↑↑ -------  Price Line  27349  -------  Long First ↓↓↓↓  **/
-		openShort(27160, UNDER, 27210, QTY, 4);
-		openShort(27060, UNDER, 27160, QTY, 4);
 		
-		openShort(27010, UNDER, 27110, QTY, 4);
-		openShort(26910, UNDER, 27060, QTY, 4);
-		openShort(26810, UNDER, 27010, QTY, 4);
-	
+		closeShort(25310, OVER, 25110, QTY, THIRD);//<--
+		closeShort(25210, OVER, 25010, QTY, THIRD);//<--
+		/** ↑↑↑↑ -------  Price Line  26636  -------  Long First ↓↓↓↓  **/
+		//openShort(25810, UNDER, 26010, QTY, 6);
+		//openShort(25710, UNDER, 25910, QTY, 6);
+	 
+		//<-- sync //<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createCloseShort()throws Exception{
-		//makeCloseShort(26960, UNDER, 26810, QTY, 27010, RR);
 		
-		openShort(26710, UNDER, 26910, QTY, RR, 26760);
+		//makeCloseShort(26460, UNDER, 26310, QTY, 26510, RR);
+		openShort(24910, UNDER, 25110, QTY, RR, 24960);
 		
-		startOpenShort(26810, 26210, 100);
+		startOpenShort(25010, 24310, 100);
 		
-		startOpenShort(26110, 25310, 200);
-		startOpenShort(25110, 24310, 200);
 		startOpenShort(24110, 23310, 200);
 		startOpenShort(23110, 22310, 200);
+		startOpenShort(22110, 21310, 200);
 		//makeCloseShort(26210, UNDER, 26010, QTY, 26210, RR);
 	}
 	public void startOpenShort(double start, double end, double limit) throws Exception{
@@ -150,44 +149,32 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		startOpenLong(30010, 30810, 200);
 		startOpenLong(29010, 29810, 200);
 		startOpenLong(28010, 28810, 200);
+		startOpenLong(27010, 27810, 200);
 		
-		startOpenLong(27310, 27910, 100);
-		openLong(27410, OVER, 27210, QTY, RR, 27360);
-		//openLong(27310, OVER, 27110, QTY, RR, 27260);
-	
+		startOpenLong(25710, 26910, 100);
+		
+		makeCloseLong(25460, OVER, 25610, QTY, 25510, THIRD);
+		makeCloseLong(25360, OVER, 25510, QTY, 25410, THIRD);
+		makeCloseLong(25260, OVER, 25410, QTY, 25310, THIRD);
+		makeCloseLong(25160, OVER, 25310, QTY, 25210, THIRD);
 	}
 	
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
-		//openLong(27210, OVER, 27060, QTY, RR);
-		openLong(27310, OVER, 27110, QTY, THIRD);
-	//openLong(27260, OVER, 27060, QTY, 2);
-		/** ↑↑↑↑ -------  Price Line 27129 ------- short  ↓↓↓↓  **/
-		//closeLong(26960, UNDER, 27010, QTY, RR);
-		closeLong(27060, UNDER, 27260, QTY, TWICE);
-		closeLong(27010, UNDER, 27160, QTY, RR);
-		closeLong(26960, UNDER, 27010, QTY, TWICE);
-		closeLong(26910, UNDER, 26960, QTY, TWICE);
-		closeLong(26860, UNDER, 26910, QTY, TWICE);
-		closeLong(26810, UNDER, 26860, QTY, 5);
+		openLong(25210, OVER, 25110, QTY, RR);
+		
+		/** ↑↑↑↑ -------  Price Line 26256 ------- short  ↓↓↓↓  **/
+		closeLong(25010, UNDER, 25110, QTY, THIRD);
 		//<-- sync//<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createOpenLong() throws Exception{
-		//makeOpenLong(27160, UNDER, 27010, QTY, 27060, TWICE);
-		//makeOpenLong(27110, UNDER, 26960, QTY, 27010, 1);
-		//makeOpenLong(27060, UNDER, 26910, QTY, 26960, TWICE);
-		//makeOpenLong(26960, UNDER, 26810, QTY, 26910, RR);
-		makeOpenLong(26810, UNDER, 26710, QTY, 26760, TWICE);
-		makeOpenLong(26760, UNDER, 26610, QTY, 26660, TWICE);
 		
-		startMakeOpenLong(26510, 26010, 100, false);
-		startMakeOpenLong(25810, 25010, 100, false);
+		makeOpenLong(25060, UNDER, 24910, QTY, 25010, THIRD);
 		
-		startMakeOpenLong(24810, 24010, 200, true);
-		startMakeOpenLong(23810, 23010, 200, true);
+		startMakeOpenLong(24810, 23010, 100, false);
 		startMakeOpenLong(22810, 22010, 200, true);
-		
+		startMakeOpenLong(21810, 21010, 200, true);
 	}
 	
 	
@@ -203,10 +190,30 @@ public class AlarmManager01 extends BybitAlarmsModel {
 			makeOpenLong(alarm, UNDER, open, QTY, close, RR);
 		}
 		if(isLoss) {
-			longStopLoss(start-profitLimit  , QTY2);
-			longStopLoss(end+profitLimit 	, QTY2);
+			//longStopLoss(start-profitLimit  , QTY2);
+			//longStopLoss(end+profitLimit 	, QTY2);
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

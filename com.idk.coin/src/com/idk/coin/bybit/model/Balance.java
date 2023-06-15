@@ -62,6 +62,9 @@ public class Balance {
 		setUnrealised_pnl((double)map.get("unrealised_pnl"));
 		setUsed_margin((double)map.get("used_margin"));
 		setWallet_balance((double)map.get("wallet_balance"));
+		
+		setReg_date(new Date());
+		setReg_datetime(new Date());
 	}
 	public String getId() {
 		return id;

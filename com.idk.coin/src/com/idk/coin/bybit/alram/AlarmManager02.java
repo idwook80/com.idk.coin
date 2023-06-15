@@ -38,6 +38,7 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		createCloseLong();
 		setLong();
 		createOpenLong();
+		enableDatabase();
 	}
 	
 /**
@@ -77,22 +78,31 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		shortStopLoss(29210, QTY2);
 		makeOpenShort(28910, OVER, 29110, QTY, 29010, RR);
 		
-		makeOpenShort(28710, OVER, 28910, QTY, 28810, RR);
+		makeOpenShort(28710, OVER, 28910, QTY, 28860, THIRD);
 		shortStopLoss(28810, QTY2);
-		makeOpenShort(28510, OVER, 28710, QTY, 28660, ONCE);
-		makeOpenShort(28310, OVER, 28510, QTY, 28460, ONCE);
-		makeOpenShort(28110, OVER, 28310, QTY, 28260, ONCE);
-		makeOpenShort(27910, OVER, 28110, QTY, 28060, ONCE);
+		makeOpenShort(28510, OVER, 28710, QTY, 28660, THIRD);
+		makeOpenShort(28310, OVER, 28510, QTY, 28460, THIRD);
+		makeOpenShort(28110, OVER, 28310, QTY, 28260, THIRD);
+		makeOpenShort(27910, OVER, 28110, QTY, 28060, THIRD);
 		
-		makeOpenShort(27860, OVER, 28010, QTY, 27960, ONCE);
-		makeOpenShort(27710, OVER, 27910, QTY, 27860, RR);
-		makeOpenShort(27610, OVER, 27810, QTY, 27760, ONCE);
-		makeOpenShort(27510, OVER, 27710, QTY, 27660, RR);
-		makeOpenShort(27410, OVER, 27610, QTY, 27560, ONCE);
-		makeOpenShort(27310, OVER, 27510, QTY, 27460, RR);
-		//makeOpenShort(27210, OVER, 27410, QTY, 27360, ONCE);
-		//makeOpenShort(27110, OVER, 27310, QTY, 27110, RR);
+		makeOpenShort(27760, OVER, 27910, QTY, 27860, THIRD);
+		makeOpenShort(27560, OVER, 27710, QTY, 27660, THIRD);
+		makeOpenShort(27360, OVER, 27510, QTY, 27460, THIRD);
+		makeOpenShort(27160, OVER, 27310, QTY, 27260, THIRD);
+		makeOpenShort(26960, OVER, 27110, QTY, 27060, THIRD);
 		
+		makeOpenShort(26760, OVER, 26910, QTY, 26860, THIRD);
+		makeOpenShort(26560, OVER, 26710, QTY, 26660, THIRD);
+		makeOpenShort(26360, OVER, 26510, QTY, 26460, THIRD);
+		makeOpenShort(26160, OVER, 26310, QTY, 26260, THIRD);
+		makeOpenShort(25960, OVER, 26110, QTY, 26060, THIRD);
+		
+		makeOpenShort(25760, OVER, 25910, QTY, 25860, THIRD);
+		makeOpenShort(25560, OVER, 25710, QTY, 25660, THIRD);
+		makeOpenShort(25460, OVER, 25610, QTY, 25560, THIRD);
+		makeOpenShort(25410, OVER, 25560, QTY, 25410, THIRD);
+		makeOpenShort(25360, OVER, 25510, QTY, 25310, THIRD);
+		makeOpenShort(25260, OVER, 25410, QTY, 25210, THIRD);
 		//Short First ## http://172.16.203.17:8081/mvest/bybit/
 		//POSITION  --> [LONG] 
 		
@@ -101,46 +111,22 @@ public class AlarmManager02 extends BybitAlarmsModel {
 	/** ###########  [Model idwook02][BTCUSDT] ########### [SHORT]  **/
 	/** ###########  [Model idwook02][BTCUSDT] ########### [SHORT]  **/
 	public void setShort() throws Exception{
-		//closeShort(27510, OVER, 27460, QTY, RR);
-		closeShort(27410, OVER, 27360, QTY, TWICE);
-		closeShort(27360, OVER, 27310, QTY, ONCE);
-		closeShort(27310, OVER, 27110, QTY, RR);
-		
-		
-		//closeShort(27210, OVER, 27010, QTY, RR);
-		//closeShort(27110, OVER, 26910, QTY, RR); 
-		 
+		closeShort(25310, OVER, 25110, QTY, THIRD); 
+		closeShort(25210, OVER, 25010, QTY, THIRD); //<--
+		closeShort(25110, OVER, 24910, QTY, THIRD);
 		/** ↑↑↑↑ -------  Price Line  27432  -------  Long First ↓↓↓↓  **/
-		openShort(27010, UNDER, 27210, QTY, RR);
-		openShort(26910, UNDER, 27110, QTY, RR);
-		//openShort(26910, UNDER, 27110, QTY, RR);
-		openShort(26810, UNDER, 27010, QTY, RR);
-	
-	
+	 
 		//<-- sync //<--
 	}
 	/** ###########  [Model 02] ########### **/
 	public void createCloseShort()throws Exception{
-		openShort(26710, UNDER, 26910, QTY, RR, 26760);
-		openShort(26610, UNDER, 26810, QTY, RR, 26660);
-		openShort(26510, UNDER, 26710, QTY, RR, 26560);
-		openShort(26410, UNDER, 26610, QTY, RR, 26460);
-		openShort(26310, UNDER, 26510, QTY, RR, 26310);
-		openShort(26110, UNDER, 26310, QTY, RR, 26160);
-		openShort(25910, UNDER, 26110, QTY, RR, 25960);
+	 
 		
-		openShort(25810, UNDER, 26010, QTY, RR, 25860);
-		openShort(25710, UNDER, 25910, QTY, RR, 25760);
-		openShort(25510, UNDER, 25710, QTY, RR, 25560);
-		openShort(25310, UNDER, 25510, QTY, RR, 25360);
-		openShort(25110, UNDER, 25310, QTY, RR, 25160);
-		//createCloseShort(26110, UNDER, 25910, QTY, 26110, RR);
-		
-		openShort(24910, UNDER, 25110, QTY, RR, 24960);
-		openShort(24710, UNDER, 24910, QTY, RR, 24760);
-		openShort(24510, UNDER, 24710, QTY, RR, 24560);
-		openShort(24310, UNDER, 24510, QTY, RR, 24360);
-		openShort(24110, UNDER, 24310, QTY, RR, 24160);
+		//openShort(24910, UNDER, 25110, QTY, 6, 24960);
+		openShort(24710, UNDER, 24910, QTY, 6, 24760);
+		openShort(24510, UNDER, 24710, QTY, 6, 24560);
+		openShort(24310, UNDER, 24510, QTY, 6, 24360);
+		openShort(24110, UNDER, 24310, QTY, 6, 24160);
 		//createCloseShort(25110, UNDER, 24910, QTY, 25110, RR);
 		
 		openShort(23910, UNDER, 24110, QTY, RR, 23960);
@@ -197,16 +183,23 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		openLong(28410, OVER, 28210, QTY, RR, 28360);
 		openLong(28210, OVER, 28010, QTY, RR, 28160);
 		
-		openLong(28110, OVER, 27910, QTY, RR, 28060);
 		openLong(28010, OVER, 27810, QTY, RR, 27960);
-		openLong(27910, OVER, 27710, QTY, RR, 27860);
 		openLong(27810, OVER, 27610, QTY, RR, 27760);
-		openLong(27710, OVER, 27510, QTY, RR, 27660);
 		openLong(27610, OVER, 27410, QTY, RR, 27560);
-		openLong(27510, OVER, 27310, QTY, RR, 27460);
 		openLong(27410, OVER, 27210, QTY, RR, 27360);
-		//openLong(27310, OVER, 27110, QTY, RR, 27260);
+		openLong(27210, OVER, 27010, QTY, RR, 27160);
 		
+		openLong(27010, OVER, 26810, QTY, RR, 26960);
+		openLong(26810, OVER, 26610, QTY, RR, 26760);
+		openLong(26610, OVER, 26410, QTY, RR, 26560);
+		openLong(26410, OVER, 26210, QTY, RR, 26360);
+		openLong(26210, OVER, 26010, QTY, RR, 26160);
+		
+		openLong(26010, OVER, 25810, QTY, RR, 25960);
+		openLong(25810, OVER, 25610, QTY, RR, 25760);
+		openLong(25610, OVER, 25410, QTY, RR, 25560);
+		
+		createCloseLong(25260, OVER, 25360, QTY, 25310, RR);
 	}
 	/** ###########  [Model idwook02][BTCUSDT] ########### [LONG] **/
 	/** ###########  [Model idwook02][BTCUSDT] ########### [LONG] **/
@@ -214,47 +207,26 @@ public class AlarmManager02 extends BybitAlarmsModel {
 	public void setLong() throws Exception{
 		
 		//<-- sync //<--
-		//openLong(27210, OVER, 27010, QTY, RR);
-		openLong(27310, OVER, 27110, QTY, RR);
-		//openLong(27210, OVER, 27010, QTY, RR);
-		//openLong(27110, OVER, 27010, QTY, RR);
-		
+		//openLong(25410, OVER, 25360, QTY, 6);
+		openLong(25310, OVER, 25260, QTY, 6);//<--
+		openLong(25260, OVER, 25210, QTY, 6);
+		openLong(25210, OVER, 25160, QTY, 6);
+		openLong(25160, OVER, 25110, QTY, 6);
+		openLong(25110, OVER, 25060, QTY, 6);
+		openLong(25060, OVER, 25010, QTY, 6);
 		/** ↑↑↑↑ -------  Price Line 27049 ------- short  ↓↓↓↓  **/
-		closeLong(27010, UNDER, 27210, QTY, RR);
-		closeLong(27010, UNDER, 27110, QTY, RR);//<--
-		closeLong(26960, UNDER, 27010, QTY, RR); 
-		closeLong(26910, UNDER, 26960, QTY, TWICE);
-		closeLong(26860, UNDER, 26910, QTY, ONCE);
-		closeLong(26810, UNDER, 26860, QTY, RR);
-		closeLong(26710, UNDER, 26760, QTY, THIRD);
+		closeLong(24910, UNDER, 24960, QTY, THIRD);
+		closeLong(24810, UNDER, 24860, QTY, THIRD);
 		//<-- sync //<--
 	}
 	/** ###########  [Model 02] ########### **/
 	public void createOpenLong() throws Exception{
-		//makeOpenLong(27010, UNDER, 26860, QTY, 26910, ONCE);
-		//makeOpenLong(26960, UNDER, 26810, QTY, 26860, RR);
-		//makeOpenLong(26860, UNDER, 26710, QTY, 26760, ONCE);
-		makeOpenLong(26760, UNDER, 26610, QTY, 26660, RR);
-		makeOpenLong(26660, UNDER, 26510, QTY, 26560, ONCE);
-		makeOpenLong(26560, UNDER, 26410, QTY, 26460, RR);
-		makeOpenLong(26460, UNDER, 26310, QTY, 26360, ONCE);
-		makeOpenLong(26360, UNDER, 26210, QTY, 26260, RR);
-		makeOpenLong(26260, UNDER, 26110, QTY, 26160, ONCE);
-		makeOpenLong(26160, UNDER, 26010, QTY, 26060, ONCE);
-		
-		makeOpenLong(26010, UNDER, 25810, QTY, 25860, ONCE);
-		makeOpenLong(25810, UNDER, 25610, QTY, 25660, ONCE);
-		makeOpenLong(25610, UNDER, 25410, QTY, 25460, ONCE);
-		makeOpenLong(25410, UNDER, 25210, QTY, 25260, ONCE);
-		longStopLoss(25110, QTY2);
-		makeOpenLong(25210, UNDER, 25010, QTY, 25110, RR);
-		
-		makeOpenLong(25010, UNDER, 24810, QTY, 24910, RR);
-		longStopLoss(24710, QTY2);
-		makeOpenLong(24810, UNDER, 24610, QTY, 24710, RR);
-		makeOpenLong(24610, UNDER, 24410, QTY, 24510, RR);
-		makeOpenLong(24410, UNDER, 24210, QTY, 24310, RR);
-		longStopLoss(24110, QTY2);
+		//makeOpenLong(25160, UNDER, 25010, QTY, 25060, THIRD);
+		//makeOpenLong(25110, UNDER, 24910, QTY, 24960, THIRD);
+		//makeOpenLong(25010, UNDER, 24810, QTY, 24860, THIRD);
+		makeOpenLong(24810, UNDER, 24610, QTY, 24660, THIRD);
+		makeOpenLong(24610, UNDER, 24410, QTY, 24460, THIRD);
+		makeOpenLong(24410, UNDER, 24210, QTY, 24260, THIRD);
 		makeOpenLong(24210, UNDER, 24010, QTY, 24110, RR);
 		
 		

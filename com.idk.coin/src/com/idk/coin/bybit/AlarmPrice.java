@@ -10,6 +10,10 @@ import com.idk.coin.model.TradeModel;
 abstract public class AlarmPrice {
 	public static Logger LOG =   LoggerFactory.getLogger(AlarmPrice.class.getName());
 	
+	
+	public String alarm_id			= "0";
+	public String parent_alarm_id	= "0";
+	public String alarm_kind		= "P"; //price , trade /P:price T: trade
 	public String order_id			= null;
 	public String parent_order_id	= null;
 	public boolean is_executed		= false;
@@ -17,6 +21,7 @@ abstract public class AlarmPrice {
 	public boolean is_over 			= false; //true <= over , false >= under
 	public TradeModel tr 			= null;
 	public int repeat 				= 0;
+	
 	public AlarmPrice parent		= null;
 	public AlarmPrice next			= null;
 	public AlarmManager manager;
@@ -25,7 +30,8 @@ abstract public class AlarmPrice {
 		this.manager 	= manager;
 		this.trigger 	= trigger;
 		this.is_over 	= is_over;
-		this.repeat = repeat;
+		this.repeat 	= repeat;
+		this.alarm_kind = "P";
 	}
 	public void setNextAlarm(AlarmPrice next) {
 		this.next = next;
@@ -61,6 +67,7 @@ abstract public class AlarmPrice {
 	}
 	public void setParent_order_id(String order_id) {
 		this.parent_order_id = order_id;
+		this.setAlarm_kind("T");
 	}
 	public AlarmPrice getParent() {
 		return parent;
@@ -94,10 +101,64 @@ abstract public class AlarmPrice {
 	public String toString() {
 		/*return "AlarmPrice [" + price + ", " + (is_over ? "Over" : "Under") + ", " + (is_reverse ? "R&R" : "Once") + "]" 
 				+ ", [" + tr.getActionString()+"] " + tr.toString()+" " +  (next != null ?  "--> "+next.toString() : "") ;*/
-		return "["+ manager.getUser().getId() + "] Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+"[R:"+ repeat +"]"
+		return "["+getAlarm_id()+"]["+ manager.getUser().getId() + "] Alarm : [" + trigger + "," + (is_over ? "Over" : "Under") +"],["+ tr.getPrice() + " , " + tr.getQty()  + "],[" + tr.getActionString() + "] "+"[R:"+ repeat +"]"
 				+ " " + (next != null ?  "Next Alarm -> " + next.toString() : "")
 				+ " pid : " +parent_order_id;
  		
 	}
+	public String getAlarm_id() {
+		return alarm_id;
+	}
+	public void setAlarm_id(String alarm_id) {
+		this.alarm_id = alarm_id;
+	}
+	public String getAlarm_kind() {
+		return alarm_kind;
+	}
+	public void setAlarm_kind(String alarm_kind) {
+		this.alarm_kind = alarm_kind;
+	}
+	public double getTrigger() {
+		return trigger;
+	}
+	public void setTrigger(double trigger) {
+		this.trigger = trigger;
+	}
+	public boolean isIs_over() {
+		return is_over;
+	}
+	public void setIs_over(boolean is_over) {
+		this.is_over = is_over;
+	}
+	public TradeModel getTr() {
+		return tr;
+	}
+	public void setTr(TradeModel tr) {
+		this.tr = tr;
+	}
+	public AlarmPrice getNext() {
+		return next;
+	}
+	public void setNext(AlarmPrice next) {
+		this.next = next;
+	}
+	public AlarmManager getManager() {
+		return manager;
+	}
+	public void setManager(AlarmManager manager) {
+		this.manager = manager;
+	}
+	public boolean isIs_executed() {
+		return is_executed;
+	}
+	public String getParent_alarm_id() {
+		return parent_alarm_id;
+	}
+	public void setParent_alarm_id(String parent_alarm_id) {
+		this.parent_alarm_id = parent_alarm_id;
+	}
+	
+	 
+	
 	
 }

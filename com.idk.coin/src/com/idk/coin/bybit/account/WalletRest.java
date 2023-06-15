@@ -51,15 +51,18 @@ public class WalletRest {
     public static Balance parsing(String str) {
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
-        System.out.println(el);
+       // System.out.println(el);
         
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      //  System.out.println(gson.toJson(el));
+        //System.out.println(gson.toJson(el));
         
         Map<String, Object> map  = gson.fromJson(str, Map.class);
         double ret_code = (Double)map.get("ret_code");
-       
+        String time_now	= (String)map.get("time_now");
+        double rate_limit_reset_ms = (Double)map.get("rate_limit_reset_ms");
+        
+        
         LinkedTreeMap result = (LinkedTreeMap)map.get("result");
         
         LinkedTreeMap usdt  = (LinkedTreeMap) result.get("USDT");
