@@ -14,18 +14,16 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.model.Position;
 
-
 import io.contek.invoker.bybit.api.common._Order;
-import io.contek.invoker.bybit.api.common._Position;
 
 
 public class Encrypton2 {
@@ -316,12 +314,12 @@ public class Encrypton2 {
         // LOG.info(i + " : " + start_at.toGMTString() + " , " + open_time.toGMTString());
        	 
        	 if(volume > volume_max) {
-       		 AlarmSound.alarm01();
+       		 AlarmSound.maxVolAlarm();
        		 is_alarm = true;
        	 }else {
        		 if(per_volume > volume_per_sec) {
-           		 if(pre_beep) AlarmSound.beep04();
-           		 AlarmSound.beep01();
+           		 if(pre_beep) AlarmSound.minMaxVolBeep4();
+           		 AlarmSound.minMaxVolBeep();
            		 pre_beep = true;
            	 }else pre_beep = false;
        	 }

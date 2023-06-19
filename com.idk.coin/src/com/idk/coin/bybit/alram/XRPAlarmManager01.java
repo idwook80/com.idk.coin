@@ -55,7 +55,7 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		setLong();
 		createOpenLong();
 		
-		enableDatabase();
+		enableDatabase(false);
 	}
 	
 /**
@@ -94,10 +94,8 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		
 		makeOpenShort(0.5050, OVER, 0.5100, QTY, 0.5000, THIRD);
 		makeOpenShort(0.5000, OVER, 0.5050, QTY, 0.4950, THIRD);
-		makeOpenShort(0.4950, OVER, 0.5000, QTY, 0.4900, THIRD);
-		makeOpenShort(0.4900, OVER, 0.4950, QTY, 0.4850, THIRD);
-		//makeOpenShort(0.4850, OVER, 0.4900, QTY, 0.4800, THIRD);
-		//makeOpenShort(0.4800, OVER, 0.4850, QTY, 0.4750, THIRD);
+		//makeOpenShort(0.4950, OVER, 0.5000, QTY, 0.4900, THIRD);
+		//makeOpenShort(0.4900, OVER, 0.4950, QTY, 0.4850, THIRD);
 		//홀수 자신 짝수는 반대
 	}
 	/** ###########  [Model idwook01 XRPUSDT] ########### [SHORT]  **/
@@ -105,21 +103,23 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 	/** ###########  [Model idwook01 XRPUSDT] ########### [SHORT]  **/
 	
 	public void setShort() throws Exception{
-		closeShort(0.4900, OVER, 0.4800, QTY, THIRD);
+		closeShort(0.5000, OVER, 0.4900, QTY, THIRD);//<--
+		closeShort(0.4950, OVER, 0.4850, QTY, THIRD);//<--
+		//closeShort(0.4925, OVER, 0.4825, QTY, ONCE);//<--
+		//closeShort(0.4900, OVER, 0.4800, QTY, THIRD);
+		//closeShort(0.4850, OVER, 0.4750, QTY, THIRD);
 		/** ↑↑↑↑ -------  Price Line  481  -------  Long First ↓↓↓↓  **/
 		
+		//openShort(0.4850, UNDER, 0.4950, QTY, RR);
+		openShort(0.4800, UNDER, 0.4900, QTY, RR);
 		openShort(0.4750, UNDER, 0.4850, QTY, RR);
-		//openShort(0.4900, UNDER, 0.5000, QTY, RR);
+		openShort(0.4700, UNDER, 0.4800, QTY, RR);
 	
-		
-
-		//<-- sync//<--
+		//<-- sync //<--
 	}
 	/** ###########  [XRP 01] ########### **/
 	public void createCloseShort()throws Exception{
-		
-		//openShort(0.5000, UNDER, 0.5100, QTY, RR, 0.4950);
-		openShort(0.4700, UNDER, 0.4800, QTY, RR, 0.4700);
+		openShort(0.4650, UNDER, 0.4750, QTY, RR, 0.4650);
 		openShort(0.4600, UNDER, 0.4700, QTY, RR, 0.4600);
 		openShort(0.4500, UNDER, 0.4600, QTY, RR, 0.4500);
 		openShort(0.4400, UNDER, 0.4500, QTY, RR, 0.4400);
@@ -160,40 +160,37 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		openLong(0.5200, OVER, 0.5100, QTY, RR, 0.5150);
 		openLong(0.5100, OVER, 0.5000, QTY, RR, 0.5050);
 		
-		makeCloseLong(0.5000, OVER, 0.5050, QTY, 0.4975, RR);
-		makeCloseLong(0.4950, OVER, 0.5000, QTY, 0.4950, RR);
-		makeCloseLong(0.4925, OVER, 0.4975, QTY, 0.4925, RR);
-		makeCloseLong(0.4900, OVER, 0.4950, QTY, 0.4900, RR);
-		makeCloseLong(0.4875, OVER, 0.4925, QTY, 0.4875, RR);
-		//makeCloseLong(0.4850, OVER, 0.4900, QTY, 0.4850, RR);
-		//makeCloseLong(0.4825, OVER, 0.4875, QTY, 0.4825, RR);
-		//makeCloseLong(0.4800, OVER, 0.4850, QTY, 0.4800, RR);
+		makeCloseLong(0.5000, OVER, 0.5050, QTY, 0.4950, RR);
+		//makeCloseLong(0.4900, OVER, 0.4950, QTY, 0.4850, RR);
+		//makeCloseLong(0.4875, OVER, 0.4925, QTY, 0.4850, RR);
 	}
 	
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
+		openLong(0.5000, OVER, 0.4900, QTY, RR);
+		openLong(0.4950, OVER, 0.4850, QTY, RR);
+		//openLong(0.4925, OVER, 0.4825, QTY, RR);
 		
-		openLong(0.4900, OVER, 0.4850, QTY, RR);
-		openLong(0.4875, OVER, 0.4825, QTY, RR);
-		//openLong(0.4850, OVER, 0.4800, QTY, RR);
-		//openLong(0.4825, OVER, 0.4775, QTY, RR);
+		//openLong(0.4900, OVER, 0.4800, QTY, RR);
+		//openLong(0.4875, OVER, 0.4750, QTY, RR);
+		//openLong(0.4850, OVER, 0.4775, QTY, RR);
+		//openLong(0.4800, OVER, 0.4750, QTY, RR);
 		/** ↑↑↑↑ -------  Price Line 0.499 ------- short  ↓↓↓↓  **/
-		closeLong(0.4800, UNDER, 0.4850, QTY, THIRD); 
-		closeLong(0.4775, UNDER, 0.4825, QTY, THIRD); 
 		
-		//closeLong(0.4750, UNDER, 0.4800, QTY, THIRD); 
+		//closeLong(0.4850, UNDER, 0.4950, QTY, THIRD);
+		closeLong(0.4850, UNDER, 0.4900, QTY, ONCE);//<--
+		closeLong(0.4800, UNDER, 0.4900, QTY, THIRD);//<--
+		closeLong(0.4775, UNDER, 0.4850, QTY, THIRD);
+		closeLong(0.4750, UNDER, 0.4800, QTY, THIRD);
+		closeLong(0.4725, UNDER, 0.4775, QTY, THIRD);
+		closeLong(0.4700, UNDER, 0.4750, QTY, THIRD);
+		closeLong(0.4675, UNDER, 0.4725, QTY, THIRD);
+		closeLong(0.4650, UNDER, 0.4700, QTY, THIRD);
 		//<-- sync//<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createOpenLong() throws Exception{
-		
-		//makeOpenLong(0.4800, UNDER, 0.4750, QTY, 0.4800, THIRD);
-		
-		makeOpenLong(0.4800, UNDER, 0.4750, QTY, 0.4800, THIRD);
-		makeOpenLong(0.4775, UNDER, 0.4725, QTY, 0.4775, THIRD);
-		makeOpenLong(0.4750, UNDER, 0.4700, QTY, 0.4750, THIRD);
-		makeOpenLong(0.4725, UNDER, 0.4675, QTY, 0.4725, THIRD);
-		makeOpenLong(0.4700, UNDER, 0.4650, QTY, 0.4700, THIRD);
+		//makeOpenLong(0.4700, UNDER, 0.4650, QTY, 0.4700, THIRD);
 		makeOpenLong(0.4675, UNDER, 0.4625, QTY, 0.4675, THIRD);
 		makeOpenLong(0.4650, UNDER, 0.4600, QTY, 0.4650, THIRD);
 		makeOpenLong(0.4625, UNDER, 0.4575, QTY, 0.4625, THIRD);

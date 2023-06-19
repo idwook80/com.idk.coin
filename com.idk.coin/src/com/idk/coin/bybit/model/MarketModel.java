@@ -35,13 +35,17 @@ public class MarketModel implements Runnable {
     final static String RECV_WINDOW 	= "10000";
     
     public static Logger LOG =   LoggerFactory.getLogger(MarketModel.class.getName());
-	public MarketModel(String symbol, String api_key, String api_secret, boolean debug) {
-		listeners = new ArrayList();
+    public MarketModel(String symbol, String api_key, String api_secret, boolean debug,int debug_count) {
+    	listeners = new ArrayList();
 		this.symbol = symbol;
 		this.api_key  = api_key;
 		this.api_secret = api_secret;
 		this.debug = debug;
+		this.max_debug_count = debug_count;
 		init();
+    }
+	public MarketModel(String symbol, String api_key, String api_secret, boolean debug) {
+		this(symbol, api_key, api_secret, debug, 10);
 	}
 	public MarketModel(String symbol, String api_key, String api_secret) {
 		this(symbol, api_key, api_secret, false);
@@ -179,12 +183,12 @@ public class MarketModel implements Runnable {
 	       	//debug_count--;
 	       	last_price = price;
 	       	 if(volume > volume_max) {
-	       		 AlarmSound.alarm01();
+	       		 AlarmSound.maxVolAlarm();
 	       		debug_count = -1;
 	       	 }else {
 	       		 if(per_volume > volume_per_sec) {
-	           		 if(pre_beep) AlarmSound.beep04();
-	           		 AlarmSound.beep01();
+	           		 if(pre_beep) AlarmSound.minMaxVolBeep4();
+	           		 AlarmSound.minMaxVolBeep();
 	           		debug_count = -1;
 	           		 pre_beep = true;
 	           	 }else pre_beep = false;

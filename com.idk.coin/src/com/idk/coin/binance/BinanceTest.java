@@ -1,24 +1,21 @@
 package com.idk.coin.binance;
 
-import java.awt.Toolkit;
-import java.lang.reflect.GenericArrayType;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
-import com.binance.client.RequestOptions;
-import com.binance.client.SyncRequestClient;
-import com.idk.coin.AlarmSound;
-import com.idk.coin.CoinConfig;
-import com.idk.coin.upbit.BTCbot;
-import com.binance.client.model.enums.CandlestickInterval;
-import com.binance.client.model.market.*;
-import java.io.*;
-import javax.sound.sampled.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.binance.client.RequestOptions;
+import com.binance.client.SyncRequestClient;
+import com.binance.client.model.enums.CandlestickInterval;
+import com.binance.client.model.market.Candlestick;
+import com.binance.client.model.market.MarkPrice;
+import com.binance.client.model.market.SymbolPrice;
+import com.binance.client.model.market.Trade;
+import com.idk.coin.AlarmSound;
+import com.idk.coin.CoinConfig;
 
 
 
@@ -81,10 +78,10 @@ public static Logger LOG =   LoggerFactory.getLogger(BinanceTest.class.getName()
 	    					LOG.warn(datetime.toGMTString()+ " : " + c);
 	    					if(volume.intValue() > maxValue) {
 	    						interval = maxInter;
-	    						AlarmSound.beep01();
+	    						AlarmSound.minMaxVolBeep();
 	    					}
-	    					else if(curVol > (comp*2)) AlarmSound.beep04();
-	    					else AlarmSound.beep02();
+	    					else if(curVol > (comp*2)) AlarmSound.minMaxVolBeep4();
+	    					else AlarmSound.minMaxVolBeep2();
 	    					
 	    					List<Trade> trades = syncRequestClient.getRecentTrades("BTCUSDT", 10);
 	    					

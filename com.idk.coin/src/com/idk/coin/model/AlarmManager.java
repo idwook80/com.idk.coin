@@ -15,8 +15,8 @@ import com.idk.coin.bybit.model.PriceListener;
 abstract public class AlarmManager implements Runnable ,PriceListener{
 	public static Logger LOG 			= LoggerFactory.getLogger(AlarmManager.class.getName());
 
-	public static double over_price 	= 999999.0;
-	public static double under_price 	= 0.001;
+	public static double max_price 	= 999999.0;
+	public static double min_price 	= 0.001;
 	public static double current_price	= -1;
 	
 	public static boolean OVER  		= true;
@@ -49,12 +49,15 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public String symbol				= "";
 	public String web_id				= "";
 	public BybitUser user;
+	public boolean db_enable					= false;
 	
-	public ArrayList<AlarmPrice> list 	= new ArrayList();
+	public ArrayList<AlarmPrice> list;
+	public ArrayList<AlarmPrice> idles;
 	public AlarmManager(String symbol, BybitUser user) throws Exception{
-		list 	= new ArrayList();
+		list 		= new ArrayList();
+		idles		= new ArrayList();
 		this.symbol = symbol;
-		this.user = user;
+		this.user 	= user;
 		if(user != null) this.web_id  = user.getId();
 		userSet();
 		alarmSet();
@@ -121,7 +124,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	}
 	public void checkAlarmExecution(OrderExecution execution) {
 		if(!symbol.equals(execution.getSymbol()))  return;
-		current_price 		= execution.getPrice();
+		double price 		= execution.getPrice();
 		String side 		= execution.getSide();
 		String side_name 	= side;
 		double qty			= execution.getOrder_qty();
@@ -135,7 +138,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			side_name = " [Close Short] 또는 [Open Long]";
 		}
 		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
-		LOG.info("주문체결 : ["+current_price+"],("+exec_qty+"/"+qty+")주(" +leave_qty+") ["+ side + "]("+side_name+") 주문이 체결되었습니다.(" + execution.getOrder_id()+ ")\t##");
+		LOG.info("주문체결 : ["+price+"],("+exec_qty+"/"+qty+")주(" +leave_qty+") ["+ side + "]("+side_name+") 주문이 체결되었습니다.(" + execution.getOrder_id()+ ")\t##");
 		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
 		if(list.isEmpty() || !is_run) return;
 		synchronized(list) {
@@ -163,11 +166,14 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			}
 			
 		}
-		if(symbol.equals(execution.getSymbol())) checkAlarmPrice(execution.getPrice());
+		if(symbol.equals(execution.getSymbol())) { 
+			checkAlarmPrice(price);
+			//checkAlarmIdles();
+		}
 		
 	}
 	public void checkAlarmPrice(double price) {
-		current_price = price;
+		setCurrentPrice(price);
 		if(list.isEmpty() || !is_run) return;
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
@@ -192,6 +198,12 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			
 		}
 	}
+	public synchronized void setCurrentPrice(double price) {
+		this.current_price = price;
+	}
+	public double getCurrentPrice() {
+		return this.current_price;
+	}
 	public void clearAllAlarms() {
 		synchronized (list) {
 			list.removeAll(list);
@@ -206,10 +218,20 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	
 	public void printListString() {
 		 
-		LOG.info("★★★["+user.getUser_id()+"]★★★★★\t" + list.size() + "\t★★★["+getSymbol()+"]★★★★★");
+		LOG.info("★★★["+user.getUser_id()+"]★[Actives]★\t" + list.size() + "\t★★★["+getSymbol()+"]★★★★★");
 		int i=1; 
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
+			for(AlarmPrice alarm : obj) {
+				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
+				//LOG.info("["+alarm.getAlarm_id()+"]" +  alarm.toString());
+			}
+		}
+		LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
+		LOG.info("★★★["+user.getUser_id()+"]★[Idles]★\t" + idles.size() + "\t★★★["+getSymbol()+"]★★★★★");
+		 i=1; 
+		synchronized(list) {
+			AlarmPrice[] obj = idles.toArray(new AlarmPrice[0]);
 			for(AlarmPrice alarm : obj) {
 				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
 				//LOG.info("["+alarm.getAlarm_id()+"]" +  alarm.toString());
@@ -299,8 +321,19 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		addOpenShort(trigger, OVER, trigger+MIN_PROFIT, QTY);
 		addOpenLong(trigger, OVER, trigger-MIN_PROFIT, QTY);
 	}
-	
-	
+
+	public void enableDatabase(boolean enable) {
+		db_enable = enable;
+	}
+	public abstract void checkAlarmIdles();
+	public abstract void loadAlarmDatabase() ;
+	public abstract void registerAlarmDatabase();
+	 
+	public abstract void clearAlarmDatabase() ;
+	public abstract void deleteDatabase(AlarmPrice alarm);  
+	public abstract int insertDatabase(AlarmPrice alarm);
+	public abstract void updateDatabase(AlarmPrice alarm);	 
+	 
 	public String toString() {
 		return user.getId();
 	}

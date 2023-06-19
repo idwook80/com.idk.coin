@@ -57,7 +57,7 @@ public class BTCAlarm01Service {
 	}
 	public void initMarket() {
 		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), true);
+		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), true, 100);
 		//btcMarket.startMarket();
 		
 		//MarketModel xrpMarket = marketManager.createMarket("XRPUSDT", root.getApi_key(), root.getApi_secret());
@@ -67,8 +67,8 @@ public class BTCAlarm01Service {
 		//etcMarket.startMarket();
 	}
 	public void initAlarms() {
-		alarmManager = new BybitAlarmManager();
-		executionManager = new BybitExecutionManager();
+		alarmManager 		= new BybitAlarmManager();
+		executionManager 	= new BybitExecutionManager();
 		try {
 			ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 			for(BybitUser user : users) {

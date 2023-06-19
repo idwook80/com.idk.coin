@@ -36,11 +36,14 @@ public class BybitAlarmDao extends DaoModel{
 		
 		
 		HashMap<String,Object> map =new HashMap<>();
+		if(!alarm.getAlarm_id().equals("0")) {
+			map.put("alarm_id", alarm.getAlarm_id());
+		}
 		
 		map.put("user_id",user.getUser_id());
 		map.put("symbol", amg.getSymbol());
 		map.put("trigger", alarm.getTrigger());
-		map.put("is_over", alarm.is_over ? "Y" : "N");
+		map.put("is_over", alarm.isIs_over() ? "Y" : "N");
 		map.put("position", tr.getPosition_idx() );
 		map.put("side", tr.setSide_idx());
 		map.put("price", tr.getPrice());
@@ -49,6 +52,7 @@ public class BybitAlarmDao extends DaoModel{
 		map.put("alarm_kind", alarm.getAlarm_kind());
 		map.put("parent_alarm_id", alarm.getParent_alarm_id());
 		map.put("msg", alarm.toActionString());
+		map.put("is_active", alarm.isIs_active() ? "Y" : "N");
 		
 		if(alarm.getParent_order_id() != null) map.put("parent_order_id", alarm.getParent_order_id());
 		if(alarm.getOrder_id() != null) map.put("order_id", alarm.getOrder_id());
@@ -57,7 +61,12 @@ public class BybitAlarmDao extends DaoModel{
 		
 		queryBuffer.append("INSERT INTO bybit.alarm ");
 		queryBuffer.append(getInsertQuery(map));
-		return mgr.insertAndIndex(queryBuffer.toString());
+		if(!alarm.getAlarm_id().equals("0")) {
+			return mgr.insert(queryBuffer.toString());
+		}else {
+			return mgr.insertAndIndex(queryBuffer.toString());
+		}
+		
 		
 	}
 	public int update(AlarmPrice alarm) throws Exception{
@@ -81,7 +90,7 @@ public class BybitAlarmDao extends DaoModel{
 		map.put("repeat", alarm.getRepeat());
 		map.put("alarm_kind", alarm.getAlarm_kind());
 		map.put("parent_alarm_id", alarm.getParent_alarm_id());
-		
+		map.put("is_active", alarm.isIs_active() ? "Y" : "N");
 		map.put("msg", alarm.toActionString());
 		 
 		

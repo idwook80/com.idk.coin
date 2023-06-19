@@ -21,6 +21,7 @@ abstract public class AlarmPrice {
 	public boolean is_over 			= false; //true <= over , false >= under
 	public TradeModel tr 			= null;
 	public int repeat 				= 0;
+	public boolean is_active		= true;
 	
 	public AlarmPrice parent		= null;
 	public AlarmPrice next			= null;
@@ -127,8 +128,14 @@ abstract public class AlarmPrice {
 	public boolean isIs_over() {
 		return is_over;
 	}
-	public void setIs_over(boolean is_over) {
-		this.is_over = is_over;
+	public void setIs_over(boolean is_active) {
+		this.is_over = is_active;
+	}
+	public boolean isIs_active() {
+		return is_active;
+	}
+	public void setIs_active(boolean is_active) {
+		this.is_active = is_active;
 	}
 	public TradeModel getTr() {
 		return tr;

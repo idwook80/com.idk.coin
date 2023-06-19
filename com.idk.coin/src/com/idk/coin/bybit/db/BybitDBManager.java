@@ -1,7 +1,6 @@
 package com.idk.coin.bybit.db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
@@ -15,8 +14,6 @@ import javax.naming.NamingException;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.Logger;
-
-import com.idk.coin.db.DBCPDataSource;
 
 
 public class BybitDBManager {
@@ -163,6 +160,7 @@ public class BybitDBManager {
 		try {
 			conn = pool.getConnection();
 			 stmt = conn.createStatement();
+			 System.out.println(sql);
 			 int result = stmt.executeUpdate(sql);
 			 if(result > 0) {
 				 ResultSet rs  = stmt.executeQuery("SELECT LAST_INSERT_ID()");

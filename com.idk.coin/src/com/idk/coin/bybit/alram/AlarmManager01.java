@@ -1,7 +1,13 @@
 package com.idk.coin.bybit.alram;
 
+import java.util.ArrayList;
+
+import com.idk.coin.bybit.account.PositionRest;
+import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
+import com.idk.coin.bybit.model.Position;
 
 public class AlarmManager01 extends BybitAlarmsModel {
 	
@@ -12,25 +18,13 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		super(symbol, web_id, web_pw);
 	}
 	public void userSet() throws Exception{
-		String default_qty = user.getDefault_qty();
+		String default_qty 		= user.getDefault_qty();
 		if(default_qty == null) default_qty = "0.001";
 		setDefault_qty(Double.valueOf(default_qty));
-		LOSS_TRIGGER_QTY= 0.001;
+		LOSS_TRIGGER_QTY			= 0.001;
 	    MIN_PROFIT		= 50;
+	   this.getUser().setUser_id("123456");
 	  
-	}
-	public void run() {
-		while(is_run) {
-			try {
-				LOG.info(this.getSize() + "  : " + this.getClass().getName());
-				this.printListString();
-				
-				Thread.sleep(1000* 60 * 10);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
 	}
 	public void alarmSet() throws Exception{
 		createOpenShort();
@@ -40,7 +34,41 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		createCloseLong();
 		setLong();
 		createOpenLong();
-		enableDatabase();
+		enableDatabase(false);
+	}
+	public static int IDLE_TIME = 10;
+	public int idle_check_time = 0; //min
+	public static int RESET_TIME = 60;
+	public int reset_check_time = 0; //min
+	public void run() {
+		while(is_run) {
+			try {
+				
+				//currentStatus();
+				LOG.info(this.getSize() + "  : " + this.getClass().getName());
+				Thread.sleep(1000* 60 * 1);
+				
+				if(idle_check_time-- < 0) {
+					checkAlarmIdles();
+					idle_check_time = IDLE_TIME;
+				}
+				if(reset_check_time-- < 0) {
+					//reset alarm
+					reset_check_time = RESET_TIME;
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public void currentStatus() throws Exception{
+		ArrayList<Position> ps =  PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
+		Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+		Position buy =  Position.getPosition(ps, symbol, "Buy");
+		Position sell = Position.getPosition(ps, symbol, "Sell");
+		CalculatePosition cal = new CalculatePosition(getCurrentPrice(), buy, sell, balance, QTY);
+		cal.status();
 	}
 	
 /**
@@ -62,7 +90,6 @@ public class AlarmManager01 extends BybitAlarmsModel {
 			//shortStopLoss(start+profitLimit , QTY2);
 		}
 		
-		
 	}
 	public void createOpenShort()  throws Exception{
 		//makeOpenShort(26610, OVER, 26810, QTY, 26610, RR);
@@ -71,32 +98,41 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		startMakeOpenShort(29110, 29910, 200, true);
 		startMakeOpenShort(28110, 28910, 200, true);
 		
-		startMakeOpenShort(25810, 27910, 100, false);
+		startMakeOpenShort(27010, 27910, 100, false);
 		
-		makeOpenShort(25560, OVER, 25710, QTY, 25510, THIRD);
-		makeOpenShort(25460, OVER, 25610, QTY, 25410, THIRD);
-		makeOpenShort(25360, OVER, 25510, QTY, 25310, THIRD);
-		makeOpenShort(25260, OVER, 25410, QTY, 25210, THIRD);
+		makeOpenShort(26760, OVER, 26910, QTY, 26810, THIRD);
+		makeOpenShort(26660, OVER, 26810, QTY, 26710, THIRD);
+		//makeOpenShort(26560, OVER, 26710, QTY, 26610, THIRD);
 		//makeOpenShort(25960, OVER, 26110, QTY, 26010, THIRD);
 	}
 	/** ###########  [Model 01] ########### [SHORT]  **/
 	public void setShort() throws Exception{
 		
-		closeShort(25310, OVER, 25110, QTY, THIRD);//<--
-		closeShort(25210, OVER, 25010, QTY, THIRD);//<--
+		//closeShort(26810, OVER, 26710, QTY, THIRD);
+		closeShort(26710, OVER, 26610, QTY, THIRD);
+		closeShort(26610, OVER, 26510, QTY, THIRD);
+		//closeShort(26510, OVER, 26410, QTY, THIRD);
 		/** ↑↑↑↑ -------  Price Line  26636  -------  Long First ↓↓↓↓  **/
-		//openShort(25810, UNDER, 26010, QTY, 6);
-		//openShort(25710, UNDER, 25910, QTY, 6);
-	 
+		//openShort(26510, UNDER, 26610, QTY, 6);
+		openShort(26410, UNDER, 26510, QTY, 6);
+		openShort(25310, UNDER, 25410, QTY, 6);
+		openShort(26210, UNDER, 26310, QTY, 6);
 		//<-- sync //<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createCloseShort()throws Exception{
 		
-		//makeCloseShort(26460, UNDER, 26310, QTY, 26510, RR);
-		openShort(24910, UNDER, 25110, QTY, RR, 24960);
+		//makeCloseShort(26560, UNDER, 26410, QTY, 26510, RR);
+		//makeCloseShort(26460, UNDER, 26310, QTY, 26410, RR);
+		//makeCloseShort(26360, UNDER, 26210, QTY, 26310, RR);
+		makeCloseShort(26260, UNDER, 26110, QTY, 26210, RR);
+		makeCloseShort(26160, UNDER, 26010, QTY, 26110, RR);
+		makeCloseShort(26060, UNDER, 25910, QTY, 26010, RR);
+		makeCloseShort(25960, UNDER, 25810, QTY, 25910, RR);
 		
-		startOpenShort(25010, 24310, 100);
+		openShort(25710, UNDER, 25860, QTY, RR, 25760);
+		
+		startOpenShort(25710, 24010, 100);
 		
 		startOpenShort(24110, 23310, 200);
 		startOpenShort(23110, 22310, 200);
@@ -149,30 +185,38 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		startOpenLong(30010, 30810, 200);
 		startOpenLong(29010, 29810, 200);
 		startOpenLong(28010, 28810, 200);
-		startOpenLong(27010, 27810, 200);
 		
-		startOpenLong(25710, 26910, 100);
+		startOpenLong(26910, 27910, 100);
 		
-		makeCloseLong(25460, OVER, 25610, QTY, 25510, THIRD);
-		makeCloseLong(25360, OVER, 25510, QTY, 25410, THIRD);
-		makeCloseLong(25260, OVER, 25410, QTY, 25310, THIRD);
-		makeCloseLong(25160, OVER, 25310, QTY, 25210, THIRD);
+		//makeCloseLong(25660, OVER, 25810, QTY, 25610, 8);
+		//makeCloseLong(25560, OVER, 25710, QTY, 25510, 8);
 	}
 	
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
-		openLong(25210, OVER, 25110, QTY, RR);
-		
+		openLong(26810, OVER, 26610, QTY, 6);//<--
+		openLong(26710, OVER, 26510, QTY, 6);//<--
+		openLong(26610, OVER, 26410, QTY, 6);
+		//openLong(26510, OVER, 26310, QTY, 6);//<--
 		/** ↑↑↑↑ -------  Price Line 26256 ------- short  ↓↓↓↓  **/
-		closeLong(25010, UNDER, 25110, QTY, THIRD);
+		closeLong(26310, UNDER, 26510, QTY, THIRD);
+		closeLong(26210, UNDER, 26410, QTY, THIRD);
 		//<-- sync//<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createOpenLong() throws Exception{
+		//makeOpenLong(26560, UNDER, 26410, QTY, 26610, THIRD);
+		//makeOpenLong(26460, UNDER, 26310, QTY, 26510, THIRD);
+		//makeOpenLong(26360, UNDER, 26210, QTY, 26410, THIRD);
+		makeOpenLong(26260, UNDER, 26110, QTY, 26310, THIRD);
+		makeOpenLong(26160, UNDER, 26010, QTY, 26210, THIRD);
+		makeOpenLong(26010, UNDER, 25910, QTY, 26110, THIRD);
+		makeOpenLong(25960, UNDER, 25810, QTY, 26010, THIRD);
+		makeOpenLong(25860, UNDER, 25710, QTY, 25910, THIRD);
 		
-		makeOpenLong(25060, UNDER, 24910, QTY, 25010, THIRD);
 		
-		startMakeOpenLong(24810, 23010, 100, false);
+		startMakeOpenLong(25610, 23010, 100, false);
+		
 		startMakeOpenLong(22810, 22010, 200, true);
 		startMakeOpenLong(21810, 21010, 200, true);
 	}

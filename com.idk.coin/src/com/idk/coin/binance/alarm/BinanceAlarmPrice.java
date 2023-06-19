@@ -20,6 +20,7 @@ public class BinanceAlarmPrice extends AlarmPrice {
 			System.out.println(tr);
 			com.binance.client.model.trade.Order order  =
 					(com.binance.client.model.trade.Order) tr.executAction(api_key, api_secret, symbol);
+			AlarmSound.orderSound();
 			descreseRepeat();
 			
 			if(order != null) {
@@ -29,7 +30,6 @@ public class BinanceAlarmPrice extends AlarmPrice {
 			}
 			
 			if(order != null && isReverse() && next == null) {
-				AlarmSound.playAlert();
 				LOG.info("★★★★★★★★★★\t Reverse Setting   \t★★★★★★★★★★★★★");
 				String position 	= tr.getPosition_idx();
 				String side			= tr.getSide();
@@ -53,7 +53,6 @@ public class BinanceAlarmPrice extends AlarmPrice {
 				LOG.info(newAlarm.toString());
 			}else {
 				if(order != null) {
-					AlarmSound.playAlert();
 					if(next != null) {
 						next.setParent(this);
 						next.setParent_order_id(getOrder_id());

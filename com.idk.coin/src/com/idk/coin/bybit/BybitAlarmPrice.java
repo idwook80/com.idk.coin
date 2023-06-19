@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.AlarmSound;
-import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.model.AlarmManager;
 
 public class BybitAlarmPrice extends AlarmPrice {
@@ -18,6 +17,7 @@ public class BybitAlarmPrice extends AlarmPrice {
 		if(tr != null) {
 			com.idk.coin.bybit.model.Order order  =
 					(com.idk.coin.bybit.model.Order) tr.executAction(api_key, api_secret, symbol);
+			AlarmSound.orderSound();
 			
 			int last = getRepeat();
 			String last_order =  toActionString();
@@ -37,7 +37,6 @@ public class BybitAlarmPrice extends AlarmPrice {
 				//LOG.info("리버스&반복 ("+getRepeat()+ ")회 남았습니다.");
 			}
 			if(order != null && isReverse() && next == null) {
-				AlarmSound.playAlert();
 				LOG.info("리버스 &반복:(새로운)알람을  생성합니다. !") ;
 				String position 	= tr.getPosition_idx();
 				String side			= tr.getSide();
@@ -60,7 +59,7 @@ public class BybitAlarmPrice extends AlarmPrice {
 				newAlarm.setParent_alarm_id("0");
 				newAlarm.setParent_order_id(getOrder_id());
 				
-				int id = insertDatabase(newAlarm);
+				int id = manager.insertDatabase(newAlarm);
 				if(id > 0) newAlarm.setAlarm_id(String.valueOf(id));
 				
 				//홀수 자기자신 짝수는 반대가 끝
@@ -68,7 +67,6 @@ public class BybitAlarmPrice extends AlarmPrice {
 				//LOG.info(newAlarm.toString());
 			}else {
 				if(order != null) {
-					AlarmSound.playAlert();
 					if(next != null) {
 						LOG.info("리버스 &반복 :(자식)알람을 가져옵니다. !") ;
 						next.setParent(this);
@@ -76,7 +74,7 @@ public class BybitAlarmPrice extends AlarmPrice {
 						next.setParent_order_id(getOrder_id());
 						//next.setRepeat(getRepeat());
 						manager.addAlarm(next);
-						updateDatabase(next);
+						manager.updateDatabase(next);
 						//LOG.info(next.toString());
 						//홀수 자기자신 짝수는 반대가 끝
 						last_order = next.getRepeat()%2 == 0 ? next.getParent().toActionString() : next.toActionString();
@@ -90,7 +88,7 @@ public class BybitAlarmPrice extends AlarmPrice {
 			}
 			
 			this.setParent_alarm_id("-1");
-			deleteDatabase(this);
+			manager.deleteDatabase(this);
 			
 			if(isReverse())LOG.info("리버스&반복 유지: ("+getRepeat()+ ")회 남았습니다. 마지막 주문 : "+last_order );
 			else {
@@ -102,28 +100,6 @@ public class BybitAlarmPrice extends AlarmPrice {
 			
 			LOG.info("##########################[알람처리 완료]###################################");
 			LOG.info("");
-		}
-	}
-	public void deleteDatabase(AlarmPrice alarm) {
-		try {
-			BybitAlarmDao.getInstace().delete(alarm);
-		}catch(Exception e) {
-			
-		}
-	}
-	public int insertDatabase(AlarmPrice alarm) {
-		try {
-			return BybitAlarmDao.getInstace().insert(alarm);
-		}catch(Exception e) {
-			
-		}
-		return 0;
-	}
-	public void updateDatabase(AlarmPrice alarm	) {
-		try {
-			BybitAlarmDao.getInstace().update(alarm);
-		}catch(Exception e) {
-			
 		}
 	}
 	

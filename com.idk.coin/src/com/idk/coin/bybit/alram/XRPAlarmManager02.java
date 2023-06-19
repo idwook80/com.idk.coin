@@ -76,7 +76,7 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
 		setLong();
 		createOpenLong();
 		
-		enableDatabase();
+		enableDatabase(true);
 		this.printListString();
 		//clearAlarmDatabase();
 		//loadAlarmDatabase();

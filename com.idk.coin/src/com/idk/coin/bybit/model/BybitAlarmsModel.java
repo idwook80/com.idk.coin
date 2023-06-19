@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.BybitAlarmPrice;
+import com.idk.coin.bybit.account.PositionRest;
+import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
@@ -141,20 +143,105 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		closeAlarm.setNextAlarm(openAlarm);
 		return closeAlarm;
 	}
+	public void status() {
+		try {
+			LOG.info(current_price + " , "  + this.getSize() + "  : " + this.getClass().getName());
+			ArrayList<Position> ps 		= PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
+			Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+			Position buy =  Position.getPosition(ps, symbol, "Buy");
+			Position sell = Position.getPosition(ps, symbol, "Sell");
+			LOG.info(buy.getSize() + " , [" +  String.format("%.2f",(buy.getSize()/QTY)/10) + "]:" 
+					 + "[" +  String.format("%.2f", (sell.getSize()/QTY)/10)+"] , "+ sell.getSize()
+			 		+" , ["+String.format("%.2f",balance.getEquity()) + "]");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	int percent = 5;
+	public void checkAlarmIdles() {
+		double price = getCurrentPrice();
+		double per_5	=  (price / 100) * percent;
+		double over_price =  price + per_5;
+		double under_price = price - per_5;
+		LOG.info("Active :  " +list.size() + " , Idles : " + idles.size());
+		checkActives(getCurrentPrice(), over_price, under_price);
+		checkIdles(getCurrentPrice() , over_price, under_price);
+		LOG.info("Active :  " +list.size() + " , Idles : " + idles.size());
+	}
+	public void checkActives(double price, double over, double under) {
+		
+		LOG.info(over + " **** actives idles - > idles ****" + under);
+		AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
+		
+		for(AlarmPrice alarm : obj) {
+			double trigger = alarm.trigger;
+			boolean is_over = alarm.isIs_over();
+			boolean is_move	= false;
+			if(is_over) {
+				if(over < trigger) is_move = true;
+			}else {
+				if(under > trigger) is_move = true;
+			}
+			
+			if(is_move) {
+				deleteDatabase(alarm);
+				AlarmPrice next = alarm.getNext();
+				if(next != null) {
+					next.setIs_active(false);
+					deleteDatabase(next);
+				}
+				alarm.setIs_active(false);
+				list.remove(alarm);
+				idles.add(alarm);
+				LOG.info("[알람 비활성] 되었습니다. : " + alarm);
+			}
+			
+		}
+	}
+	public void checkIdles(double price, double over, double under) {
+		LOG.info("**************** check idles - > actives ***********");
+		AlarmPrice[] obj = idles.toArray(new AlarmPrice[0]);
+		
+		for(AlarmPrice alarm : obj) {
+			double trigger = alarm.trigger;
+			boolean is_over = alarm.isIs_over();
+			boolean is_move	= false;
+			if(is_over) {
+				if(over > trigger) is_move = true;
+			}else {
+				if(under < trigger) is_move = true;
+			}
+			
+			if(is_move) {
+				idles.remove(alarm);
+				list.add(alarm);
+				AlarmPrice next = alarm.getNext();
+				alarm.setIs_active(true);
+				insertDatabase(alarm);
+				if(next != null) {
+					next.setIs_active(true);
+					insertDatabase(next);
+				}
+				
+				LOG.info("[알람 활성화] 되었습니다. : " + alarm);
+			}
+			
+		}
+	}
 	
-	public void enableDatabase() {
+	public void enableDatabase(boolean enable) {
+		super.enableDatabase(enable);
 		clearAlarmDatabase();
 		registerAlarmDatabase();
 	}
-	
 	public void loadAlarmDatabase() {
-		
+		if(!db_enable) return;
 	}
 	public void registerAlarmDatabase() {
+		if(!db_enable) return;
+		LOG.info("★★★["+user.getUser_id()+"]★★★★★\t[알람데이터베이스 등록]\t★★★["+getSymbol()+"]★★★★★");
 		try {
 			ArrayList<BybitUser>  users = BybitDao.getInstace().selectUserList();
-	
-			LOG.info("★★★["+user.getUser_id()+"]★★★★★\t[알람데이터베이스 등록]\t★★★["+getSymbol()+"]★★★★★");
 			int i=1; 
 			synchronized(list) {
 				AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
@@ -179,8 +266,8 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		
 	}
 	public void clearAlarmDatabase() {
+		if(!db_enable) return;
 		LOG.info("★★★["+user.getUser_id()+"]★★★★★\t[알람데이터베이스 전체 삭제]\t★★★["+getSymbol()+"]★★★★★");
-		
 		try {
 			BybitAlarmDao.getInstace().deleteAll(getUser().getUser_id(), getSymbol());
 		} catch (Exception e) {
@@ -188,6 +275,31 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			e.printStackTrace();
 		}
 		
+	}
+	public void deleteDatabase(AlarmPrice alarm) {
+		if(!db_enable) return;
+		try {
+			BybitAlarmDao.getInstace().delete(alarm);
+		}catch(Exception e) {
+			
+		}
+	}
+	public int insertDatabase(AlarmPrice alarm) {
+		if(!db_enable) return 0;
+		try {
+			return BybitAlarmDao.getInstace().insert(alarm);
+		}catch(Exception e) {
+			
+		}
+		return 0;
+	}
+	public void updateDatabase(AlarmPrice alarm	) {
+		if(!db_enable) return;
+		try {
+			BybitAlarmDao.getInstace().update(alarm);
+		}catch(Exception e) {
+			
+		}
 	}
 	
 }

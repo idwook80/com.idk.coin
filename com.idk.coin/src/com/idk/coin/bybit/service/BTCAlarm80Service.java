@@ -61,7 +61,7 @@ public class BTCAlarm80Service {
 	}
 	public void initMarket() {
 		marketManager = new BybitMarketManager();
-		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), false);
+		MarketModel btcMarket = marketManager.createMarket("BTCUSDT", root.getApi_key(), root.getApi_secret(), true);
 	}
 	public void initAlarms() {
 		alarmManager = new BybitAlarmManager();

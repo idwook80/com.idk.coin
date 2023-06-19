@@ -20,7 +20,6 @@ import com.binance.client.model.market.SymbolPrice;
 import com.binance.client.model.market.Trade;
 import com.idk.coin.AlarmSound;
 import com.idk.coin.CoinConfig;
-import com.idk.coin.binance.BinanceTest;
 import com.idk.coin.bybit.model.PriceListener;
 
 public class BinanceMarketModel  implements Runnable {
@@ -183,10 +182,10 @@ public class BinanceMarketModel  implements Runnable {
 	    					LOG.warn(datetime.toGMTString()+ " : " + c);
 	    					if(volume.intValue() > maxValue) {
 	    						interval = maxInter;
-	    						AlarmSound.beep01();
+	    						AlarmSound.minMaxVolBeep();
 	    					}
-	    					else if(curVol > (comp*2)) AlarmSound.beep04();
-	    					else AlarmSound.beep02();
+	    					else if(curVol > (comp*2)) AlarmSound.minMaxVolBeep4();
+	    					else AlarmSound.minMaxVolBeep2();
 	    					
 	    					List<Trade> trades = syncRequestClient.getRecentTrades("BTCUSDT", 10);
 	    					
