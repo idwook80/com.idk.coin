@@ -34,12 +34,22 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		
 	
 	}
+	public static int IDLE_TIME 	= 10;      // 10분마다
+	public int idle_check_time 		= -1; //min
+	public static int RESET_TIME 	= 60 * 4; //reset 4시간마다
+	public int reset_check_time 	= RESET_TIME; //min
+	
 	public void run() {
 		while(is_run) {
 			try {
-				Thread.sleep(1000* 60 * 10);
-				LOG.info(this.getSize() + "  : " + this.getClass().getName());
-				this.printListString();
+				Thread.sleep(1000* 60 *1);
+				LOG.info(this.getSize() + "  : " + this.getClass().getName() +" 알람 리셋 : " + reset_check_time + "분, 알랑 활성체크: " + idle_check_time + "분");
+				status();
+				if(idle_check_time-- < 0) {
+					this.printListString();
+					checkAlarmIdles(10);
+					idle_check_time = IDLE_TIME;
+				}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -55,7 +65,7 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		setLong();
 		createOpenLong();
 		
-		enableDatabase(false);
+		enableDatabase(DISABLE);
 	}
 	
 /**
@@ -93,7 +103,7 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		makeOpenShort(0.5100, OVER, 0.5150, QTY, 0.5100, THIRD);
 		
 		makeOpenShort(0.5050, OVER, 0.5100, QTY, 0.5000, THIRD);
-		makeOpenShort(0.5000, OVER, 0.5050, QTY, 0.4950, THIRD);
+		//makeOpenShort(0.5000, OVER, 0.5050, QTY, 0.4950, THIRD);
 		//makeOpenShort(0.4950, OVER, 0.5000, QTY, 0.4900, THIRD);
 		//makeOpenShort(0.4900, OVER, 0.4950, QTY, 0.4850, THIRD);
 		//홀수 자신 짝수는 반대
@@ -103,17 +113,21 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 	/** ###########  [Model idwook01 XRPUSDT] ########### [SHORT]  **/
 	
 	public void setShort() throws Exception{
-		closeShort(0.5000, OVER, 0.4900, QTY, THIRD);//<--
-		closeShort(0.4950, OVER, 0.4850, QTY, THIRD);//<--
-		//closeShort(0.4925, OVER, 0.4825, QTY, ONCE);//<--
+		closeShort(0.5050, OVER, 0.4950, QTY, THIRD);
+		
+		//closeShort(0.5000, OVER, 0.4900, QTY, THIRD);//<--
+		//closeShort(0.4950, OVER, 0.4850, QTY, THIRD);
+		//closeShort(0.4900, OVER, 0.4850, QTY, ONCE);//<--
 		//closeShort(0.4900, OVER, 0.4800, QTY, THIRD);
 		//closeShort(0.4850, OVER, 0.4750, QTY, THIRD);
 		/** ↑↑↑↑ -------  Price Line  481  -------  Long First ↓↓↓↓  **/
 		
-		//openShort(0.4850, UNDER, 0.4950, QTY, RR);
-		openShort(0.4800, UNDER, 0.4900, QTY, RR);
-		openShort(0.4750, UNDER, 0.4850, QTY, RR);
-		openShort(0.4700, UNDER, 0.4800, QTY, RR);
+		
+		openShort(0.4900, UNDER, 0.5000, QTY, 8);
+		openShort(0.4850, UNDER, 0.4950, QTY, 8);
+		openShort(0.4800, UNDER, 0.4900, QTY, 8);
+		openShort(0.4750, UNDER, 0.4850, QTY, 8);//<--
+		openShort(0.4700, UNDER, 0.4800, QTY, 8);
 	
 		//<-- sync //<--
 	}
@@ -160,26 +174,21 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 		openLong(0.5200, OVER, 0.5100, QTY, RR, 0.5150);
 		openLong(0.5100, OVER, 0.5000, QTY, RR, 0.5050);
 		
-		makeCloseLong(0.5000, OVER, 0.5050, QTY, 0.4950, RR);
+		//makeCloseLong(0.5000, OVER, 0.5050, QTY, 0.4950, RR);
 		//makeCloseLong(0.4900, OVER, 0.4950, QTY, 0.4850, RR);
 		//makeCloseLong(0.4875, OVER, 0.4925, QTY, 0.4850, RR);
 	}
 	
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
-		openLong(0.5000, OVER, 0.4900, QTY, RR);
-		openLong(0.4950, OVER, 0.4850, QTY, RR);
-		//openLong(0.4925, OVER, 0.4825, QTY, RR);
-		
-		//openLong(0.4900, OVER, 0.4800, QTY, RR);
-		//openLong(0.4875, OVER, 0.4750, QTY, RR);
-		//openLong(0.4850, OVER, 0.4775, QTY, RR);
-		//openLong(0.4800, OVER, 0.4750, QTY, RR);
+		openLong(0.5050, OVER, 0.4950, QTY, 6);
+		//openLong(0.5000, OVER, 0.4900, QTY, 6);
 		/** ↑↑↑↑ -------  Price Line 0.499 ------- short  ↓↓↓↓  **/
 		
-		//closeLong(0.4850, UNDER, 0.4950, QTY, THIRD);
-		closeLong(0.4850, UNDER, 0.4900, QTY, ONCE);//<--
-		closeLong(0.4800, UNDER, 0.4900, QTY, THIRD);//<--
+		
+		closeLong(0.4900, UNDER, 0.5000, QTY, THIRD);//<--
+		closeLong(0.4850, UNDER, 0.4950, QTY, THIRD);//<--
+		closeLong(0.4800, UNDER, 0.4900, QTY, THIRD);
 		closeLong(0.4775, UNDER, 0.4850, QTY, THIRD);
 		closeLong(0.4750, UNDER, 0.4800, QTY, THIRD);
 		closeLong(0.4725, UNDER, 0.4775, QTY, THIRD);

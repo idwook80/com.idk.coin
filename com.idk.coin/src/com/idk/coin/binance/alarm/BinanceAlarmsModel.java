@@ -125,7 +125,7 @@ abstract public class BinanceAlarmsModel extends AlarmManager{
 		clearAlarmDatabase();
 		registerAlarmDatabase();
 	}
-	public void checkAlarmIdles(){
+	public void checkAlarmIdles(int percent){
 		
 	}
 	public void loadAlarmDatabase() {

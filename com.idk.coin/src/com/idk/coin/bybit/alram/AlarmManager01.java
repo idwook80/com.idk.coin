@@ -22,39 +22,50 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		if(default_qty == null) default_qty = "0.001";
 		setDefault_qty(Double.valueOf(default_qty));
 		LOSS_TRIGGER_QTY			= 0.001;
-	    MIN_PROFIT		= 50;
-	   this.getUser().setUser_id("123456");
+	    MIN_PROFIT					= 50;
 	  
 	}
 	public void alarmSet() throws Exception{
-		createOpenShort();
-		setShort();
-		createCloseShort();
+		LOG.info("Alarm Set");
+		boolean debug = true;
+		if(!debug) {
+			//createOpenShort();
+			///setShort();
+			//createCloseShort();
+			
+			//createCloseLong();
+			//setLong();
+			//createOpenLong();
+		}
+		clearAllAlarms();
+		//cancelAllOrder();
+		currentStatus(DEBUGGING);
+		enableDatabase(DISABLE);
 		
-		createCloseLong();
-		setLong();
-		createOpenLong();
-		enableDatabase(false);
 	}
-	public static int IDLE_TIME = 10;
+	public static int IDLE_TIME = 10;      // 10분마다
 	public int idle_check_time = 0; //min
-	public static int RESET_TIME = 60;
-	public int reset_check_time = 0; //min
+	public static int RESET_TIME = 60 * 4; //reset 4시간마다
+	public int reset_check_time = RESET_TIME; //min
 	public void run() {
+		try {
+			Thread.sleep(1000*3);
+			alarmSet();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		while(is_run) {
 			try {
 				
-				//currentStatus();
-				LOG.info(this.getSize() + "  : " + this.getClass().getName());
+				LOG.info(this.getSize() + "  : " + this.getClass().getName() +" 알람 리셋 : " + reset_check_time + "분, 알랑 활성체크: " + idle_check_time + "분");
 				Thread.sleep(1000* 60 * 1);
-				
-				if(idle_check_time-- < 0) {
-					checkAlarmIdles();
-					idle_check_time = IDLE_TIME;
-				}
 				if(reset_check_time-- < 0) {
-					//reset alarm
-					reset_check_time = RESET_TIME;
+					alarmSet();
+				}
+				if(idle_check_time-- < 0) {
+					checkAlarmIdles(5);
+					idle_check_time = IDLE_TIME;
 				}
 				
 			}catch(Exception e) {
@@ -62,13 +73,30 @@ public class AlarmManager01 extends BybitAlarmsModel {
 			}
 		}
 	}
-	public void currentStatus() throws Exception{
-		ArrayList<Position> ps =  PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
-		Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
-		Position buy =  Position.getPosition(ps, symbol, "Buy");
-		Position sell = Position.getPosition(ps, symbol, "Sell");
-		CalculatePosition cal = new CalculatePosition(getCurrentPrice(), buy, sell, balance, QTY);
-		cal.status();
+	public void currentStatus(boolean debug) throws Exception{
+		double price = getCurrentPrice();
+		int count = 5;
+		while(price < 0	) {
+			price = getCurrentPrice();
+			thread.sleep(1000 * 1);
+			System.out.println("wait");
+			if(count-- < 0) break;
+		}
+		
+		if(price > 0) {
+			ArrayList<Position> ps =  PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
+			Balance balance 	   =  WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+			Position buy =  Position.getPosition(ps, symbol, "Buy");
+			Position sell = Position.getPosition(ps, symbol, "Sell");
+			
+			CalculatePosition cal = new CalculatePosition(this,getCurrentPrice(), buy, sell, balance, QTY, debug);
+			cal.setSizeValue(40, 10, 5);
+			cal.calculateStatus();
+			LOG.debug(cal.toString());
+			reset_check_time = RESET_TIME;
+		}else {
+			LOG.info("아직 price 를 가져오지 못했슨니다." +getCurrentPrice() );
+		}
 	}
 	
 /**

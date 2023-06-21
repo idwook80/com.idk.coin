@@ -1,14 +1,9 @@
 package com.idk.coin.bybit.alram;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
-import com.idk.coin.bybit.account.PositionRest;
-import com.idk.coin.bybit.account.WalletRest;
 import com.idk.coin.bybit.db.BybitUser;
-import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
-import com.idk.coin.bybit.model.Position;
 
 public class XRPAlarmManager02 extends BybitAlarmsModel {
 	public static double  HALF		= 0.0;
@@ -39,29 +34,29 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
 		
 	
 	}
+	
+	public static int IDLE_TIME = 3;
+	public int idle_check_time = -1; //min
+	public static int RESET_TIME = 60;
+	public int reset_check_time = 0; //min
 	public void run() {
 		while(is_run) {
 			try {
-				this.printListString();
-				LOG.info(this.getSize() + "  : " + this.getClass().getName());
-				ArrayList<Position> ps = PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
-				Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
-				Position buy =  Position.getPosition(ps, symbol, "Buy");
-				Position sell = Position.getPosition(ps, symbol, "Sell");
-				LOG.info(balance.toString());
-				LOG.info(buy.toString());
-				LOG.info(sell.toString());
 				
-				LOG.info("현재가:["+current_price + "],잔고 : [" + String.format("%.2f",balance.getEquity())  + "]"
-						+","+ "SHORT : [" + sell.getEntry_price() + "]," + String.format("%.2f",sell.getSize()) + "주"
-						+","+ "LONG : ["+ buy.getEntry_price() +"],"+ String.format("%.2f",buy.getSize()) + "주"); 
+				LOG.info(this.getSize() + "  : " + this.getClass().getName());
+				Thread.sleep(1000* 60 * 1);
+				
+				if(idle_check_time-- < 0) {
+					checkAlarmIdles(10);
+					idle_check_time = IDLE_TIME;
+				}
+				if(reset_check_time-- < 0) {
+					//reset alarm
+					reset_check_time = RESET_TIME;
+				}
+				
 			}catch(Exception e) {
 				e.printStackTrace();
-			}
-			try {
-				Thread.sleep(1000* 60 * 5);
-			}catch(Exception e) {
-				
 			}
 			
 		}
@@ -75,15 +70,7 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
 		createCloseLong();
 		setLong();
 		createOpenLong();
-		
 		enableDatabase(true);
-		this.printListString();
-		//clearAlarmDatabase();
-		//loadAlarmDatabase();
-		//registerAlarmDatabase();
-		
-		
-	
 	}
 	
 
@@ -94,22 +81,20 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
  */
  
 	public void createOpenShort()  throws Exception{
+		makeOpenShort(0.6900, OVER, 0.7000, 1, 0.6900, THIRD);
+		makeOpenShort(0.6700, OVER, 0.6800, 1, 0.6700, THIRD);
+		makeOpenShort(0.6500, OVER, 0.6600, 1, 0.6500, THIRD);
+		makeOpenShort(0.6300, OVER, 0.6400, 1, 0.6300, THIRD);
+		makeOpenShort(0.6100, OVER, 0.6200, 1, 0.6100, THIRD);
 		
-		makeOpenShort(0.5270, OVER, 0.5290, 1, 0.5270, THIRD);
-		makeOpenShort(0.5250, OVER, 0.5270, 1, 0.5250, THIRD);
-		makeOpenShort(0.5230, OVER, 0.5250, 1, 0.5230, THIRD);
-		makeOpenShort(0.5210, OVER, 0.5230, 1, 0.5210, THIRD);
-		makeOpenShort(0.5190, OVER, 0.5210, 1, 0.5190, THIRD);
-		makeOpenShort(0.5170, OVER, 0.5190, 1, 0.5170, THIRD);
-		makeOpenShort(0.5150, OVER, 0.5170, 1, 0.5150, THIRD);
+		makeOpenShort(0.5900, OVER, 0.6000, 1, 0.5900, THIRD);
+		makeOpenShort(0.5700, OVER, 0.5800, 1, 0.5700, THIRD);
+		makeOpenShort(0.5500, OVER, 0.5600, 1, 0.5500, THIRD);
+		makeOpenShort(0.5300, OVER, 0.5400, 1, 0.5300, THIRD);
+		makeOpenShort(0.5100, OVER, 0.5200, 1, 0.5100, THIRD);
 		
-		makeOpenShort(0.527, OVER, 0.529, 1, 0.527, 5);
-		makeOpenShort(0.525, OVER, 0.527, 1, 0.525, 5);
-		makeOpenShort(0.523, OVER, 0.525, 1, 0.523, 5);
-		makeOpenShort(0.521, OVER, 0.523, 1, 0.521, 5);
-		makeOpenShort(0.519, OVER, 0.521, 1, 0.519, 5);
-		makeOpenShort(0.517, OVER, 0.519, 1, 0.517, 5);
-		makeOpenShort(0.515, OVER, 0.517, 1, 0.515, 5);
+		makeOpenShort(0.4900, OVER, 0.5000, 1, 0.4900, THIRD);
+		//makeOpenShort(0.4700, OVER, 0.4800, 1, 0.4700, THIRD);
 		
 		//홀수 자신 짝수는 반대
 	}
@@ -118,29 +103,29 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
 	/** ###########  [Model idwook01 XRPUSDT] ########### [SHORT]  **/
 	
 	public void setShort() throws Exception{
-		//closeShort(0.5170, OVER, 0.5150, 1, THIRD);
-		closeShort(0.5150, OVER, 0.5130, 1, THIRD);
-		closeShort(0.5130, OVER, 0.5110, 1, THIRD);
+		closeShort(0.4800, OVER, 0.4700, 1, THIRD);
 		
 		
 		/** ↑↑↑↑ -------  Price Line  481  -------  Long First ↓↓↓↓  **/
-		openShort(0.5090, UNDER, 0.5110, 1, RR);
-		openShort(0.5070, UNDER, 0.5090, 1, RR);
-		openShort(0.5050, UNDER, 0.5070, 1, RR);
+		openShort(0.4600, UNDER, 0.4800, 1, RR);
 		
 	}
 	/** ###########  [XRP 01] ########### **/
 	public void createCloseShort()throws Exception{
-		makeCloseShort(0.5050, UNDER, 0.5030, 1, 0.5050, RR);
-		makeCloseShort(0.5030, UNDER, 0.5010, 1, 0.5030, RR);
+		//makeCloseShort(0.4800, UNDER, 0.4600, 1, 0.4800, RR);
+		makeCloseShort(0.4600, UNDER, 0.4400, 1, 0.4600, RR);
+		makeCloseShort(0.4400, UNDER, 0.4200, 1, 0.4400, RR);
+		makeCloseShort(0.4200, UNDER, 0.4000, 1, 0.4200, RR);
+		makeCloseShort(0.4000, UNDER, 0.3800, 1, 0.4000, RR);
 		
-		makeCloseShort(0.5010, UNDER, 0.4990, 1, 0.5010, RR);
-		makeCloseShort(0.4990, UNDER, 0.4970, 1, 0.4990, RR);
-		makeCloseShort(0.4970, UNDER, 0.4950, 1, 0.4970, RR);
-		makeCloseShort(0.4950, UNDER, 0.4930, 1, 0.4950, RR);
-		makeCloseShort(0.4930, UNDER, 0.4910, 1, 0.4930, RR);
 		
-		openShort(0.4890, UNDER, 0.4910, 1, RR, 0.4890);
+		makeCloseShort(0.3800, UNDER, 0.3600, 1, 0.3800, RR);
+		makeCloseShort(0.3600, UNDER, 0.3400, 1, 0.3600, RR);
+		makeCloseShort(0.3400, UNDER, 0.3200, 1, 0.3400, RR);
+		makeCloseShort(0.3200, UNDER, 0.3000, 1, 0.3200, RR);
+		makeCloseShort(0.3000, UNDER, 0.2800, 1, 0.3000, RR);
+		
+		openShort(0.2600, UNDER, 0.2800, 1, RR, 0.2600);
 		
 	}
 	
@@ -152,41 +137,48 @@ public class XRPAlarmManager02 extends BybitAlarmsModel {
  */
 
 	public void createCloseLong() throws Exception{
-		openLong(0.5320, OVER, 0.5300, 1, RR, 0.5320);
+		openLong(0.7200, OVER, 0.7000, 1, RR, 0.7200);
 		
-		makeCloseLong(0.5280, OVER, 0.5300, 1, 0.5280, RR);
-		makeCloseLong(0.5260, OVER, 0.5280, 1, 0.5260, RR);
-		makeCloseLong(0.5240, OVER, 0.5260, 1, 0.5240, RR);
-		makeCloseLong(0.5220, OVER, 0.5240, 1, 0.5220, RR);
-		makeCloseLong(0.5200, OVER, 0.5220, 1, 0.5200, RR);
+		makeCloseLong(0.6900, OVER, 0.7000, 1, 0.6900, THIRD);
+		makeCloseLong(0.6700, OVER, 0.6800, 1, 0.6700, THIRD);
+		makeCloseLong(0.6500, OVER, 0.6600, 1, 0.6500, THIRD);
+		makeCloseLong(0.6300, OVER, 0.6400, 1, 0.6300, THIRD);
+		makeCloseLong(0.6100, OVER, 0.6200, 1, 0.6100, THIRD);
 		
-		makeCloseLong(0.5180, OVER, 0.5200, 1, 0.5180, THIRD);
-		makeCloseLong(0.5160, OVER, 0.5180, 1, 0.5160, THIRD);
-		makeCloseLong(0.5140, OVER, 0.5160, 1, 0.5140, THIRD);
+		makeCloseLong(0.5900, OVER, 0.6000, 1, 0.5900, THIRD);
+		makeCloseLong(0.5700, OVER, 0.5800, 1, 0.5700, THIRD);
+		makeCloseLong(0.5500, OVER, 0.5600, 1, 0.5500, THIRD);
+		makeCloseLong(0.5300, OVER, 0.5400, 1, 0.5300, THIRD);
+		makeCloseLong(0.5100, OVER, 0.5200, 1, 0.5100, THIRD);
+		
+		makeCloseLong(0.4900, OVER, 0.5000, 1, 0.4900, THIRD);
+		//makeCloseLong(0.4700, OVER, 0.4800, 1, 0.4700, THIRD);
 	}
 	
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
-		//openLong(0.5160, OVER, 0.5140, 1, THIRD);
-		openLong(0.5140, OVER, 0.5120, 1, THIRD);
-		openLong(0.5120, OVER, 0.5100, 1, THIRD);
+		openLong(0.4800, OVER, 0.4700, 1, THIRD);
 		/** ↑↑↑↑ -------  Price Line 0.499 ------- short  ↓↓↓↓  **/
-		closeLong(0.5080, UNDER, 0.5100, 1, TWICE);
-		closeLong(0.5060, UNDER, 0.5080, 1, TWICE);
+		closeLong(0.4600, UNDER, 0.4800, 1, TWICE);
 		
 		//<-- sync//<--
 	}
 	/** ###########  [Model 01] ########### **/
 	public void createOpenLong() throws Exception{
-		makeOpenLong(0.5060, UNDER, 0.5040, 1, 0.5060, THIRD);
-		makeOpenLong(0.5040, UNDER, 0.5020, 1, 0.5040, THIRD);
-		makeOpenLong(0.5020, UNDER, 0.5000, 1, 0.5020, THIRD);
 		
-		makeOpenLong(0.5000, UNDER, 0.4980, 1, 0.5000, THIRD);
-		makeOpenLong(0.4980, UNDER, 0.4960, 1, 0.4980, THIRD);
-		makeOpenLong(0.4960, UNDER, 0.4940, 1, 0.4960, THIRD);
-		makeOpenLong(0.4940, UNDER, 0.4920, 1, 0.4940, THIRD);
-		makeOpenLong(0.4920, UNDER, 0.4900, 1, 0.4920, THIRD);
+		//makeOpenLong(0.4800, UNDER, 0.4600, 1, 0.4800, RR);
+		makeOpenLong(0.4600, UNDER, 0.4400, 1, 0.4600, RR);
+		makeOpenLong(0.4400, UNDER, 0.4200, 1, 0.4400, RR);
+		makeOpenLong(0.4200, UNDER, 0.4000, 1, 0.4200, RR);
+		makeOpenLong(0.4000, UNDER, 0.3800, 1, 0.4000, RR);
+		
+		
+		makeOpenLong(0.3800, UNDER, 0.3600, 1, 0.3800, RR);
+		makeOpenLong(0.3600, UNDER, 0.3400, 1, 0.3600, RR);
+		makeOpenLong(0.3400, UNDER, 0.3200, 1, 0.3400, RR);
+		makeOpenLong(0.3200, UNDER, 0.3000, 1, 0.3200, RR);
+		makeOpenLong(0.3000, UNDER, 0.2800, 1, 0.3000, RR);
+	
 	}
 	
 	

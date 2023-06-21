@@ -76,7 +76,7 @@ public class XRPAlarm02Service {
 				AlarmManager am = null;
 				
 				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
-				 if(user.getAlarm_model().equals("3")) 		 	am = new XRPAlarmManager02(symbol, user);
+				 if(user.getAlarm_model().equals("1")) 		 	am = new XRPAlarmManager02(symbol, user);
 				 //if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				 //else if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				if(am != null) {

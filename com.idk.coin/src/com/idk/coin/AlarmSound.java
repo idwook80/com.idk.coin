@@ -6,6 +6,7 @@ import java.util.Hashtable;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 public class AlarmSound {
 	public static Hashtable<String,Clip>   table;
@@ -38,11 +39,23 @@ public class AlarmSound {
 		//AlarmSound.playSound("wolf.wav");
 		for(;;) {
 			try {
+				System.out.println("play sound");
+				AlarmSound.minMaxVolBeep();
+				Thread.sleep(1000*3);
+				AlarmSound.minMaxVolBeep2();
+				Thread.sleep(1000*3);
+				AlarmSound.minMaxVolBeep4();
 				Thread.sleep(1000*3);
 				AlarmSound.maxVolAlarm();
 				Thread.sleep(1000*3);
 				AlarmSound.playSound();
-				Thread.sleep(1000*5);
+				Thread.sleep(1000*3);
+				AlarmSound.orderSound ();
+				Thread.sleep(1000*3);
+				AlarmSound.playDistress();
+				Thread.sleep(1000*3);
+				AlarmSound.playReset();
+				Thread.sleep(1000*3);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -122,6 +135,8 @@ public class AlarmSound {
 			File file = new File(url.getPath());
 			Clip clip =  AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(file));
+			FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+			 gainControl.setValue(default_dp);
 			 getInstance().addClip(filename, clip);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -131,26 +146,23 @@ public class AlarmSound {
 		if(is_alarm) return ;
 		is_alarm = true;
 		
+		/*try {
+			URL url = AlarmSound.class.getResource(filename);
+			File file = new File(url.getPath());
+			Clip clip =  AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(file));
+			
+			 //FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+			 //double gain = .5D; // number between 0 and 1 (loudest)
+			// float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
+			// gainControl.setValue(default_dp + 5 );
+			 getInstance().addClip(filename, clip);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		
 		if(!getInstance(). containsKey(filename)) {
 			loadAudioFile(filename);
-			
-			try {
-				
-				URL url = AlarmSound.class.getResource(filename);
-				File file = new File(url.getPath());
-				Clip clip =  AudioSystem.getClip();
-				clip.open(AudioSystem.getAudioInputStream(file));
-				
-				 //FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-				 //double gain = .5D; // number between 0 and 1 (loudest)
-				// float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
-				// gainControl.setValue(default_dp + 5 );
-				 
-				 
-				 getInstance().addClip(filename, clip);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		}
 	
 		 new Thread(new Runnable() {
@@ -184,8 +196,7 @@ public class AlarmSound {
 			if(!getInstance(). containsKey(filename)) {
 				loadAudioFile(filename);
 			}
-			/*
-			URL url = AlarmSound.class.getResource(filename);
+			/*URL url = AlarmSound.class.getResource(filename);
 			 File file = new File(url.getPath());
 			final Clip clip =  AudioSystem.getClip();
 			 
@@ -196,7 +207,7 @@ public class AlarmSound {
 			
 			 gainControl.setValue(default_dp);
 	 
-			 clip.start();*/
+			 clip.start(); */
 			 
 			 
 			 new Thread(new Runnable() {
@@ -223,16 +234,18 @@ public class AlarmSound {
 	public static void playSound(String filename) {
 		try {
 			
-			/*URL url = AlarmSound.class.getResource(filename);
+/*		 URL url = AlarmSound.class.getResource(filename);
 			File file = new File(url.getPath());
 			final Clip clip =  AudioSystem.getClip();
 			 
 			 clip.open(AudioSystem.getAudioInputStream(file));
 			 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			 gainControl.setValue(default_dp);
-			 clip.start();*/
+			 clip.start(); */
 			 
-			 if(!getInstance(). containsKey(filename))  loadAudioFile(filename);
+			 if(!getInstance(). containsKey(filename)) {
+				 loadAudioFile(filename);
+			 }
 					
 			 
 			 Clip clip = getInstance().getClip(filename);
@@ -261,7 +274,7 @@ public class AlarmSound {
 		///if(is_beep) return;
 		//is_beep = true;
 		try {
-			/*URL url = AlarmSound.class.getResource(filename);
+			/* URL url = AlarmSound.class.getResource(filename);
 			File file = new File(url.getPath());
 			final Clip clip =  AudioSystem.getClip();
 			 
@@ -270,8 +283,13 @@ public class AlarmSound {
 			 double gain = .5D; // number between 0 and 1 (loudest)
 			 float dB = (float)(Math.log(gain) / Math.log(10.0) * 20.0);
 			 gainControl.setValue(default_dp);
-			 clip.start();*/
-			 if(!getInstance(). containsKey(filename))  loadAudioFile(filename);
+			 clip.start(); */
+			 if(!getInstance(). containsKey(filename))  {
+				 loadAudioFile(filename);
+				 Clip clip = getInstance().getClip(filename);
+				 FloatControl gainControl =  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+				 gainControl.setValue(default_dp+5);
+			 }
 			 
 			 new Thread(new Runnable() {
 				 public void run() {

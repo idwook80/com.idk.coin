@@ -3,22 +3,15 @@ package com.idk.coin.bybit.account;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.internal.LinkedTreeMap;
 import com.idk.coin.bybit.BybitClient;
-import com.idk.coin.bybit.BybitUtil;
-import com.idk.coin.bybit.model.Position;
 
 public class OrderRest {
 	 public static final String bybit_url  ="https://api.bybit.com";
@@ -72,7 +65,7 @@ public class OrderRest {
 	    public static double parsing(String str) {
 	    	JsonParser parser = new JsonParser();
 	        JsonElement el =  parser.parse(str);
-	        //System.out.println(el);
+	        System.out.println(el);
 	        
 	        
 	        Gson gson = new GsonBuilder().setPrettyPrinting().create();

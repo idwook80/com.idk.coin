@@ -12,6 +12,11 @@ import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.model.AlarmManager;
 
 abstract public class BybitAlarmsModel extends AlarmManager{
+	
+	public boolean DEBUGGING = true;
+	public boolean ENABLE 	 = true;
+	public boolean DISABLE 	 = false;
+	
 	public BybitAlarmsModel(String symbol, BybitUser user) throws Exception{
 		super(symbol, user);
 		
@@ -158,19 +163,24 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		}
 	}
 	int percent = 5;
-	public void checkAlarmIdles() {
+	public void checkAlarmIdles(int percent) {
+		this.percent = percent;
 		double price = getCurrentPrice();
-		double per_5	=  (price / 100) * percent;
-		double over_price =  price + per_5;
-		double under_price = price - per_5;
-		LOG.info("Active :  " +list.size() + " , Idles : " + idles.size());
+		double per	=  (price / 100) * percent;
+		double over_price =  price + per;
+		double under_price = price - per;
+		int oldActives = list.size();
+		int oldIdles   = idles.size();
+		
 		checkActives(getCurrentPrice(), over_price, under_price);
 		checkIdles(getCurrentPrice() , over_price, under_price);
-		LOG.info("Active :  " +list.size() + " , Idles : " + idles.size());
+		LOG.info("+"+percent+"% ["+over_price + "] ~  ["+price+"] ~  [" + under_price+"] -"+percent+"%");
+	
+		LOG.info("Active :  " +oldActives+" -> " +list.size() + " , Idles : " +oldIdles +" -> "+idles.size());
 	}
 	public void checkActives(double price, double over, double under) {
 		
-		LOG.info(over + " **** actives idles - > idles ****" + under);
+		LOG.info(over + " **** actives -- > idles ****" + under);
 		AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
 		
 		for(AlarmPrice alarm : obj) {
@@ -231,6 +241,7 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	
 	public void enableDatabase(boolean enable) {
 		super.enableDatabase(enable);
+		if(!enable) LOG.info("데이터베이스 사용하지 않습니다.");
 		clearAlarmDatabase();
 		registerAlarmDatabase();
 	}

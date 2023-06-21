@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idk.coin.bybit.AlarmPrice;
+import com.idk.coin.bybit.account.OrderRest_V3;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.OrderExecution;
@@ -204,11 +205,23 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public double getCurrentPrice() {
 		return this.current_price;
 	}
+	public void cancelAllOrder() {
+		try {
+			OrderRest_V3.cancelAllOrder(user.getApi_key(),user.getApi_secret(),symbol);
+			//OrderRest.cancelAllOrder(user.getApi_key(),user.getApi_secret(),symbol);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public void clearAllAlarms() {
 		synchronized (list) {
 			list.removeAll(list);
 		}
-		LOG.info("Clear All Alarms : " + list.size());
+		LOG.info("Clear Actives Alarms : " + list.size());
+		synchronized (idles) {
+			idles.remove(idles);
+		}
+		LOG.info("Clear Idles Alarms : " + idles.size());
 	}
 	public int getSize() {
 		return list.size();
@@ -325,7 +338,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public void enableDatabase(boolean enable) {
 		db_enable = enable;
 	}
-	public abstract void checkAlarmIdles();
+	public abstract void checkAlarmIdles(int percent);
 	public abstract void loadAlarmDatabase() ;
 	public abstract void registerAlarmDatabase();
 	 
