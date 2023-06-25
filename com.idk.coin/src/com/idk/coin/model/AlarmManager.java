@@ -16,8 +16,8 @@ import com.idk.coin.bybit.model.PriceListener;
 abstract public class AlarmManager implements Runnable ,PriceListener{
 	public static Logger LOG 			= LoggerFactory.getLogger(AlarmManager.class.getName());
 
-	public static double max_price 	= 999999.0;
-	public static double min_price 	= 0.001;
+	public static double max_price 		= 999999.0;
+	public static double min_price 		= 0.001;
 	public static double current_price	= -1;
 	
 	public static boolean OVER  		= true;
@@ -206,6 +206,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		return this.current_price;
 	}
 	public void cancelAllOrder() {
+		LOG.info("Cancel All Orders ");
 		try {
 			OrderRest_V3.cancelAllOrder(user.getApi_key(),user.getApi_secret(),symbol);
 			//OrderRest.cancelAllOrder(user.getApi_key(),user.getApi_secret(),symbol);
@@ -229,28 +230,32 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	
 	
 	
-	public void printListString() {
-		 
-		LOG.info("★★★["+user.getUser_id()+"]★[Actives]★\t" + list.size() + "\t★★★["+getSymbol()+"]★★★★★");
+	public String printListString() {
+		StringBuffer message = new StringBuffer();
+		
+		
+		message.append("★★★["+user.getUser_id()+"]★[Actives]★\t" + list.size() + "\t★★★["+getSymbol()+"]★★★★★\n");
 		int i=1; 
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
 			for(AlarmPrice alarm : obj) {
-				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
+				message.append("["+String.format("%03d",i++)+"]" +  alarm.toString()+"\n");
 				//LOG.info("["+alarm.getAlarm_id()+"]" +  alarm.toString());
 			}
 		}
-		LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
-		LOG.info("★★★["+user.getUser_id()+"]★[Idles]★\t" + idles.size() + "\t★★★["+getSymbol()+"]★★★★★");
+		message.append("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★"+"\n");
+		message.append("★★★["+user.getUser_id()+"]★[Idles]★\t" + idles.size() + "\t★★★["+getSymbol()+"]★★★★★"+"\n");
 		 i=1; 
 		synchronized(list) {
 			AlarmPrice[] obj = idles.toArray(new AlarmPrice[0]);
 			for(AlarmPrice alarm : obj) {
-				LOG.info("["+String.format("%03d",i++)+"]" +  alarm.toString());
+				message.append("["+String.format("%03d",i++)+"]" +  alarm.toString()+"\n");
 				//LOG.info("["+alarm.getAlarm_id()+"]" +  alarm.toString());
 			}
 		}
-		LOG.info("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
+		message.append("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★"+"\n");
+		
+		return message.toString();
 	}
 	
 	
@@ -261,11 +266,11 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty) throws Exception {
 		return addOpenLong(trigger, is_over, price, qty, ONCE);
 	}
-	abstract public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty, int is_reverse)throws Exception;
- 
 	public AlarmPrice createOpenLong(double trigger, boolean is_over, double price, double qty, double close_price, int is_reverse) throws Exception {
 		return makeOpenLong(trigger, is_over, price, qty, close_price, is_reverse);
 	}
+	
+	abstract public AlarmPrice addOpenLong(double trigger, boolean is_over, double price, double qty, int is_reverse)throws Exception;
 	abstract public AlarmPrice makeOpenLong(double trigger, boolean is_over, double open_price, double qty, double close_price, int is_reverse) throws Exception;
  
 	

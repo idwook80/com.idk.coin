@@ -50,7 +50,12 @@ public class Position {
 		auto_add_margin 	= Double.valueOf(map.get("auto_add_margin").toString());
 		is_isolated 		= Boolean.valueOf(map.get("is_isolated").toString());
 		position_margin 	= Double.valueOf(map.get("position_margin").toString());
-		occ_closing_fee 	= Double.valueOf(map.get("occ_closing_fee").toString());
+		BigDecimal b		 = new BigDecimal(Double.parseDouble(map.get("occ_closing_fee").toString()));
+		//System.out.println(b.toString()+" , "+ b.toPlainString() + " , " + b.doubleValue() + " , "+b.setScale(4, BigDecimal.ROUND_HALF_UP));
+		occ_closing_fee 	= b.doubleValue();
+		//occ_closing_fee 	= Double.valueOf(map.get("occ_closing_fee").toString());
+		 
+		 
 		realised_pnl 		= Double.valueOf(map.get("realised_pnl").toString());
 		cum_realised_pnl 	= Double.valueOf(map.get("cum_realised_pnl").toString());
 		free_qty 			= Double.valueOf(map.get("free_qty").toString());
@@ -219,7 +224,7 @@ public class Position {
 		return "Position [user_id=" + user_id + ", symbol=" + symbol + ", side=" + side + ", size=" + size
 				+ ", position_value=" + position_value + ", entry_price=" + entry_price + ", liq_price=" + liq_price
 				+ ", bust_price=" + bust_price + ", leverage=" + leverage + ", auto_add_margin=" + auto_add_margin
-				+ ", is_isolated=" + is_isolated + ", position_margin=" + position_margin + ", occ_closing_fee="
+				+ ", is_isolated=" + is_isolated + ", position_margin=" + position_margin + ",\n occ_closing_fee="
 				+ occ_closing_fee + ", realised_pnl=" + realised_pnl + ", cum_realised_pnl=" + cum_realised_pnl
 				+ ", free_qty=" + free_qty + ", tp_sl_mode=" + tp_sl_mode + ", unrealised_pnl=" + unrealised_pnl
 				+ ", deleverage_indicator=" + deleverage_indicator + ", risk_id=" + risk_id + ", stop_loss=" + stop_loss

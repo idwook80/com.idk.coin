@@ -19,13 +19,12 @@ public class BybitAlarmPrice extends AlarmPrice {
 					(com.idk.coin.bybit.model.Order) tr.executAction(api_key, api_secret, symbol);
 			AlarmSound.orderSound();
 			
-			int last = getRepeat();
-			String last_order =  toActionString();
+			int last 			= getRepeat();
+			String last_order 	=  toActionString();
 			if(isReverse()) {
 				//홀수 자기자신 짝수는 반대가 끝
 				last_order = last%2 == 0 ? tr.getReverseActionString() :  toActionString();
 			}
-			
 			descreseRepeat();
 			
 		
@@ -40,19 +39,23 @@ public class BybitAlarmPrice extends AlarmPrice {
 				LOG.info("리버스 &반복:(새로운)알람을  생성합니다. !") ;
 				String position 	= tr.getPosition_idx();
 				String side			= tr.getSide();
+				double price		= tr.getPrice();
+				double qty			= tr.getQty();
+				int repeat			= getRepeat();
+				
 				AlarmPrice newAlarm = null;
 				
 				if(position.equals(BybitTrade.POSITION_IDX_LONG)) {		// Long
-					if(side.equals(BybitTrade.SIDE_BUY)) {				// Open Long  --> Close Long
-						newAlarm = manager.addCloseLong(tr.getPrice(), !is_over, trigger, tr.getQty(),getRepeat());
-					}else if(side.equals(BybitTrade.SIDE_SELL)) {		// Close Long  --> Open Long
-						newAlarm = manager.addOpenLong(tr.getPrice(), !is_over, trigger, tr.getQty(),getRepeat());
+					if(side.equals(BybitTrade.SIDE_BUY)) {												// Open Long  --> Close Long
+						newAlarm = manager.addCloseLong(price, !is_over, trigger, qty, repeat);
+					}else if(side.equals(BybitTrade.SIDE_SELL)) {										// Close Long  --> Open Long
+						newAlarm = manager.addOpenLong(price, !is_over, trigger, qty, repeat);
 					}
 				}else if(position.equals(BybitTrade.POSITION_IDX_SHORT))	{ // Short 
-					if(side.equals(BybitTrade.SIDE_BUY)) {				  // Close Short --> Open Short
-						newAlarm = manager.addOpenShort(tr.getPrice(), !is_over, trigger, tr.getQty(),getRepeat());
-					}else if(side.equals(BybitTrade.SIDE_SELL)) {		 // Open Short ---> Close Short
-						newAlarm = manager.addCloseShort(tr.getPrice(), !is_over, trigger, tr.getQty(),getRepeat());
+					if(side.equals(BybitTrade.SIDE_BUY)) {				  								// Close Short --> Open Short
+						newAlarm = manager.addOpenShort(price, !is_over, trigger, qty, repeat);
+					}else if(side.equals(BybitTrade.SIDE_SELL)) {		 								// Open Short ---> Close Short
+						newAlarm = manager.addCloseShort(price, !is_over, trigger, qty, repeat);
 					}
 				}
 				newAlarm.setParent(this);
@@ -102,7 +105,6 @@ public class BybitAlarmPrice extends AlarmPrice {
 			LOG.info("");
 		}
 	}
-	
 	public void setOpenLongAction(double price, double qty) {
 		tr = new BybitTrade();
 		tr.openLong(price, qty);

@@ -114,7 +114,7 @@ public class AlarmManager03 extends BybitAlarmsModel {
 			e.printStackTrace();
 			clearAllAlarms();
 		}
-		printListString();
+		LOG.info(printListString());
 	}
 	public void createOpenFirst() throws Exception {
 		System.out.println("Open First");

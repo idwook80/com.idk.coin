@@ -26,9 +26,9 @@ public class BybitTrade extends TradeModel{
     /**
      * POST: place an active linear perpetual order
      */
-    public  Order placeActiveOrder(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  Order placeActiveOrder(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty,String orderType) throws NoSuchAlgorithmException, InvalidKeyException {
         
-    	return placeActiveOrderV3(api_key, api_secret, symbol, side, position_idx, price, qty);
+    	return placeActiveOrderV3(api_key, api_secret, symbol, side, position_idx, price, qty, orderType);
     	/*
     	Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
@@ -102,7 +102,7 @@ public class BybitTrade extends TradeModel{
    
     public Order executAction(String api_key, String api_secret,String symbol) {
     	try {
-    		 Order order = placeActiveOrder(api_key, api_secret, symbol, side,position_idx, price, qty);
+    		 Order order = placeActiveOrder(api_key, api_secret, symbol, side,position_idx, price, qty , orderType);
     		return order;
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -113,7 +113,7 @@ public class BybitTrade extends TradeModel{
     /**
      * POST: place an active linear perpetual order
      */
-    public  Order placeActiveOrderV3(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+    public  Order placeActiveOrderV3(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty, String orderType) throws NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Object> map = new TreeMap(
             new Comparator<String>() {
                 @Override
@@ -126,7 +126,7 @@ public class BybitTrade extends TradeModel{
         map.put("category", "linear");
         map.put("symbol", symbol);
         map.put("side", side);
-        map.put("orderType", "Limit");
+        map.put("orderType", orderType);
         map.put("qty", String.valueOf(qty));
         map.put("price", String.valueOf(price));
         map.put("positionIdx", position_idx);

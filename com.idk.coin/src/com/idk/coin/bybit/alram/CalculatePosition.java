@@ -148,7 +148,7 @@ public class CalculatePosition {
 				int size = Math.abs(over_size/3);
 				end_close	= start_close - (size * INTERVAL_100);
 				startOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "Over Size common");
-				start_close = end_close - PROFIT_200;
+				start_close = end_close - PROFIT_100;
 			} 
 			
 			if(enable_close_size > 0 ) {

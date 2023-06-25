@@ -26,7 +26,38 @@ public class BybitAlarmDao extends DaoModel{
 		}
 		return instance;
 	}
-	 
+	public int insertMessage(String id, String user_id, String symbol, double old_equity,double new_equity,
+			double profit,double percent,int no, String message) throws Exception {
+		BybitDBManager mgr =BybitDBManager.getInstance();
+		StringBuffer queryBuffer = new StringBuffer();
+		
+		HashMap<String,Object> map =new HashMap<>();
+		
+		map.put("id",id);
+		map.put("user_id", user_id);
+		map.put("symbol", symbol);
+		map.put("old_equity", old_equity);
+		map.put("new_equity", new_equity);
+		map.put("profit", profit);
+		map.put("percent", percent);
+		map.put("no", no);
+		map.put("message", message);
+		 
+		queryBuffer.append("INSERT INTO bybit.alarm_message ");
+		queryBuffer.append(getInsertQuery(map));
+		System.out.println(queryBuffer.toString());
+		return mgr.insert(queryBuffer.toString());
+	}
+	public int deleteMessage(String id, String user_id, String symbol) throws Exception {
+		BybitDBManager mgr =BybitDBManager.getInstance();
+		StringBuffer queryBuffer = new StringBuffer();
+		
+		queryBuffer.append("DELETE FROM bybit.alarm_message ");
+		queryBuffer.append(" WHERE `id` = '"+ id + "' AND `user_id` = '" + user_id +"' AND `symbol` = '"+symbol+"'");
+		
+		return mgr.executeUpdate(queryBuffer.toString());
+	}
+	
 	public int insert(AlarmPrice alarm) throws Exception {
 		BybitDBManager mgr =BybitDBManager.getInstance();
 		StringBuffer queryBuffer = new StringBuffer();

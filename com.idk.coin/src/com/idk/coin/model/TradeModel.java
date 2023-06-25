@@ -30,13 +30,17 @@ public abstract class TradeModel {
     public final static String POSITION_IDX_LONG  	= "1";			// Long
     public final static String POSITION_IDX_SHORT 	= "2";			// Short
     
-    public final static String POSITION_BOTH	= "BOTH";
-    public final static String POSITION_LONG	= "LONG";
-    public final static String POSITION_SHORT	= "SHORT";
+    public final static String POSITION_BOTH	= "Both";
+    public final static String POSITION_LONG	= "Long";
+    public final static String POSITION_SHORT	= "Short";
+    
+    public final static String TYPE_LIMIT 		= "Limit";
+    public final static String TYPE_MARKET 		= "Market";
     
     public String side;
     public String position_idx;
     public String position;
+    public String orderType;
     public double price;
     public double qty;
     
@@ -46,7 +50,7 @@ public abstract class TradeModel {
     /**
      * POST: place an active linear perpetual order
      */
-    abstract public Object placeActiveOrder(String api_key, String api_secret, String symbol, String side,String position_idx,double price,double qty) 
+    abstract public Object placeActiveOrder(String api_key, String api_secret, String symbol, String side,String position_idx,double price,double qty,String orderType) 
     						throws NoSuchAlgorithmException, InvalidKeyException;   
     abstract public Object executAction(String api_key, String api_secret, String symbol); 
     
@@ -103,30 +107,36 @@ public abstract class TradeModel {
     public void openLong(double price, double qty) {
     	this.side 		  = SIDE_BUY;
     	this.position_idx = POSITION_IDX_LONG;
-    	this.position	  = "LONG";
+    	this.position	  =  POSITION_LONG;
     	this.price 		  = price;
     	this.qty 		  = qty;
+    	this.orderType    = TYPE_LIMIT;
     }
     public void openShort(double price, double qty){
     	this.side 			= SIDE_SELL;
     	this.position_idx 	= POSITION_IDX_SHORT;
-    	this.position	    = "SHORT";
+    	this.position	    = POSITION_SHORT;
     	this.price 			= price;
     	this.qty 			= qty;
+    	this.orderType 		= TYPE_LIMIT;
     }
+ 
     public void closeLong(double price, double qty) {
     	this.side 			= SIDE_SELL;
     	this.position_idx 	= POSITION_IDX_LONG;
-    	this.position	  = "LONG";
+    	this.position	  	= POSITION_LONG;
     	this.price 			= price;
     	this.qty 			= qty;
+    	this.orderType		= TYPE_LIMIT;
     }
+ 
     public void closeShort(double price, double qty) {
     	this.side 			= SIDE_BUY;
     	this.position_idx 	= POSITION_IDX_SHORT;
-    	this.position	    = "SHORT";
+    	this.position	    = POSITION_SHORT;
     	this.price 			= price;
     	this.qty 			= qty;
+    	this.orderType		= TYPE_LIMIT;
     }
     public String getActionString() {
     	switch(position_idx) {

@@ -13,9 +13,11 @@ import com.idk.coin.model.AlarmManager;
 
 abstract public class BybitAlarmsModel extends AlarmManager{
 	
-	public boolean DEBUGGING = true;
-	public boolean ENABLE 	 = true;
-	public boolean DISABLE 	 = false;
+	public final static boolean DEBUG_ON  = true;
+	public final static boolean DEBUG_OFF = false;
+	
+	public final static boolean ENABLE 	 = true;
+	public final static boolean DISABLE 	 = false;
 	
 	public BybitAlarmsModel(String symbol, BybitUser user) throws Exception{
 		super(symbol, user);
@@ -91,7 +93,7 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	 
 	public AlarmPrice makeCloseLong(double trigger, boolean is_over, double close_price, double qty, double open_price, int is_repeat) throws Exception {
 		AlarmPrice closeAlarm = addCloseLong(trigger, is_over, close_price, qty, ONCE);
-		AlarmPrice openAlarm = new BybitAlarmPrice(this, close_price, OVER, is_repeat); //trigger 
+		AlarmPrice openAlarm = new BybitAlarmPrice(this, close_price, OVER, is_repeat); //trigger wait order
 		openAlarm.setOpenLongAction(open_price, qty);
 		closeAlarm.setNextAlarm(openAlarm);
 		return closeAlarm;
@@ -155,6 +157,9 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
 			Position buy =  Position.getPosition(ps, symbol, "Buy");
 			Position sell = Position.getPosition(ps, symbol, "Sell");
+			LOG.info(sell.getRealised_pnl()+"," + sell.getCum_realised_pnl());
+			LOG.info(buy.getRealised_pnl()+"," + buy.getCum_realised_pnl());
+			
 			LOG.info(buy.getSize() + " , [" +  String.format("%.2f",(buy.getSize()/QTY)/10) + "]:" 
 					 + "[" +  String.format("%.2f", (sell.getSize()/QTY)/10)+"] , "+ sell.getSize()
 			 		+" , ["+String.format("%.2f",balance.getEquity()) + "]");

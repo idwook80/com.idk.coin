@@ -26,21 +26,23 @@ public class BinanceTrade extends TradeModel{
 	public BinanceTrade() {
 		super();
 	}
-	public  Object placeActiveOrder(String api_key, String api_secret,String symbol, String side,String position_idx,double price,double qty) throws NoSuchAlgorithmException, InvalidKeyException {
+	public  Object placeActiveOrder(String api_key, String api_secret,String symbol, String side,
+				String position_idx,double price,double qty, String orderType) throws NoSuchAlgorithmException, InvalidKeyException {
        this.API_KEY = api_key;
        this.API_SECRET = api_secret;
+       
 		if(side.toUpperCase().equals(SIDE_BUY.toUpperCase()) && position_idx.equals(POSITION_IDX_LONG)) 
-				return openLongOrder(symbol, String.valueOf(price), String.valueOf(qty));
+				return openLongOrder(symbol, String.valueOf(price), String.valueOf(qty), orderType);
 		if(side.toUpperCase().equals(SIDE_SELL.toUpperCase()) && position_idx.equals(POSITION_IDX_SHORT)) 
-				return openShortOrder(symbol, String.valueOf(price), String.valueOf(qty)	);
+				return openShortOrder(symbol, String.valueOf(price), String.valueOf(qty), orderType	);
 		if(side.toUpperCase().equals(SIDE_SELL.toUpperCase()) && position_idx.equals(POSITION_IDX_LONG)) 
-				return closeLongOrder(symbol, String.valueOf(price), String.valueOf(qty)	);
+				return closeLongOrder(symbol, String.valueOf(price), String.valueOf(qty), orderType	);
 		if(side.toUpperCase().equals(SIDE_BUY.toUpperCase()) && position_idx.equals(POSITION_IDX_SHORT)) 
-				return closeShortOrder(symbol, String.valueOf(price), String.valueOf(qty)	);
+				return closeShortOrder(symbol, String.valueOf(price), String.valueOf(qty), orderType);
 		return null;
     }
-	public Object postOrder(String symbol,OrderSide side,PositionSide positionSide, String price, String qty){
-		OrderType 		orderType 			= OrderType.LIMIT;
+	public Object postOrder(String symbol,OrderSide side,PositionSide positionSide, String price, String qty, OrderType orderType){
+		//OrderType 		orderType 			= OrderType.LIMIT;
         TimeInForce 	timeInForce 		= TimeInForce.GTC;
         String 			reduceOnly 			= null;
         String 			newClientOrderId 	= null;
@@ -49,22 +51,27 @@ public class BinanceTrade extends TradeModel{
         NewOrderRespType newOrderRespType 	= NewOrderRespType.RESULT;
     	RequestOptions options = new RequestOptions();
 		SyncRequestClient syncRequestClient = SyncRequestClient.create(API_KEY, API_SECRET, options);
+		
         Order order = syncRequestClient.postOrder(symbol, side, positionSide, orderType, timeInForce,
                 qty, price, reduceOnly, newClientOrderId, stopPrice, workingType, NewOrderRespType.RESULT);
         return order;
 	}
-	public Object openLongOrder(String symbol, String price, String qty) {
-		return postOrder(symbol,OrderSide.BUY, PositionSide.LONG, price, qty);
+	public Object openLongOrder(String symbol, String price, String qty, String orderType) {
+		return postOrder(symbol,OrderSide.BUY, PositionSide.LONG, price, qty,  orderTypeParsing(orderType));
 	}
-	public Object openShortOrder(String symbol, String price, String qty) {
-		return postOrder(symbol,OrderSide.SELL, PositionSide.SHORT, price, qty);
+	public Object openShortOrder(String symbol, String price, String qty, String orderType) {
+		return postOrder(symbol,OrderSide.SELL, PositionSide.SHORT, price, qty, orderTypeParsing(orderType));
 	}
-	public Object closeLongOrder(String symbol, String price, String qty) {
-		return postOrder(symbol, OrderSide.SELL, PositionSide.LONG, price, qty);
+	public Object closeLongOrder(String symbol, String price, String qty, String orderType) {
+		return postOrder(symbol, OrderSide.SELL, PositionSide.LONG, price, qty, orderTypeParsing(orderType));
 	}
-	public Object closeShortOrder(String symbol, String price, String qty) {
-		return postOrder(symbol, OrderSide.BUY, PositionSide.SHORT, price, qty);
+	public Object closeShortOrder(String symbol, String price, String qty, String orderType) {
+		return postOrder(symbol, OrderSide.BUY, PositionSide.SHORT, price, qty,  orderTypeParsing(orderType));
 	}
+	public OrderType orderTypeParsing(String orderType) {
+		return orderType.equals(TradeModel.TYPE_MARKET) ?  OrderType.MARKET : OrderType.LIMIT;
+	}
+	
     public double parsing(String str) {
     	JsonParser parser = new JsonParser();
         JsonElement el =  parser.parse(str);
@@ -102,7 +109,7 @@ public class BinanceTrade extends TradeModel{
    
     public Object executAction(String api_key, String api_secret, String symbol) {
     	try {
-    		return placeActiveOrder(api_key, api_secret,symbol, side,position_idx, price, qty);
+    		return placeActiveOrder(api_key, api_secret,symbol, side,position_idx, price, qty, orderType);
     	}catch(Exception e) {
     		e.printStackTrace();
     	}

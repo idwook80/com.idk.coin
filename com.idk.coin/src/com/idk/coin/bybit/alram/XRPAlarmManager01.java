@@ -114,17 +114,16 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 	
 	public void setShort() throws Exception{
 		closeShort(0.5050, OVER, 0.4950, QTY, THIRD);
-		
-		//closeShort(0.5000, OVER, 0.4900, QTY, THIRD);//<--
-		//closeShort(0.4950, OVER, 0.4850, QTY, THIRD);
-		//closeShort(0.4900, OVER, 0.4850, QTY, ONCE);//<--
+		closeShort(0.5000, OVER, 0.4900, QTY, THIRD);
+		closeShort(0.4950, OVER, 0.4850, QTY, THIRD);//<--
+		//closeShort(0.4900, OVER, 0.4800, QTY, THIRD);//<--
 		//closeShort(0.4900, OVER, 0.4800, QTY, THIRD);
 		//closeShort(0.4850, OVER, 0.4750, QTY, THIRD);
 		/** ↑↑↑↑ -------  Price Line  481  -------  Long First ↓↓↓↓  **/
 		
 		
-		openShort(0.4900, UNDER, 0.5000, QTY, 8);
-		openShort(0.4850, UNDER, 0.4950, QTY, 8);
+		//openShort(0.4900, UNDER, 0.5000, QTY, 8);
+		//openShort(0.4850, UNDER, 0.4950, QTY, 8);
 		openShort(0.4800, UNDER, 0.4900, QTY, 8);
 		openShort(0.4750, UNDER, 0.4850, QTY, 8);//<--
 		openShort(0.4700, UNDER, 0.4800, QTY, 8);
@@ -182,12 +181,15 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 	/** ###########  [Model 01] ########### [LONG] **/
 	public void setLong() throws Exception{
 		openLong(0.5050, OVER, 0.4950, QTY, 6);
-		//openLong(0.5000, OVER, 0.4900, QTY, 6);
+		openLong(0.5000, OVER, 0.4900, QTY, 6);
+		openLong(0.4950, OVER, 0.4850, QTY, 6);
+		//openLong(0.4900, OVER, 0.4800, QTY, 6);
+		
 		/** ↑↑↑↑ -------  Price Line 0.499 ------- short  ↓↓↓↓  **/
 		
 		
-		closeLong(0.4900, UNDER, 0.5000, QTY, THIRD);//<--
-		closeLong(0.4850, UNDER, 0.4950, QTY, THIRD);//<--
+		//closeLong(0.4900, UNDER, 0.5000, QTY, THIRD);//<--
+		closeLong(0.4850, UNDER, 0.4900, QTY, ONCE);//<--
 		closeLong(0.4800, UNDER, 0.4900, QTY, THIRD);
 		closeLong(0.4775, UNDER, 0.4850, QTY, THIRD);
 		closeLong(0.4750, UNDER, 0.4800, QTY, THIRD);

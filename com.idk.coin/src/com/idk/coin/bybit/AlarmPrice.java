@@ -48,6 +48,12 @@ abstract public class AlarmPrice {
 		action(user.getApi_key(), user.getApi_secret(), symbol);
 	}
 	abstract public void action(String api_key, String api_secret, String symbol) throws Exception;  
+	
+	//abstract public void setOpenLongAction(double price, double qty,String orderType);
+	///abstract public void setOpenShortAction(double price, double qty,String orderType);  
+	//abstract public void setCloseLongAction(double price, double qty,String orderType); 
+	//abstract public void setCloseShortAction(double price,double qty,String orderType);
+	
 	abstract public void setOpenLongAction(double price, double qty);
 	abstract public void setOpenShortAction(double price, double qty);  
 	abstract public void setCloseLongAction(double price, double qty); 
