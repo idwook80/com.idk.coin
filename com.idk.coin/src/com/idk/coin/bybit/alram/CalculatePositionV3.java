@@ -66,10 +66,10 @@ public class CalculatePositionV3 {
 	public final static double PROFIT_100	= 100;
 	public final static double PROFIT_200	= 200;
 	
+	public int MAX_100_OPEN_SIZE = 20;
 	public int MAX_200_OPEN_SIZE = 10;
-	public int MAX_100_OPEN_SIZE = 40;
 	public int MAX_OPEN_SIZE 	= MAX_100_OPEN_SIZE+ MAX_200_OPEN_SIZE;
-	public int MIN_OPEN_SIZE		= 5;
+	public int MIN_OPEN_SIZE	= 5;
 	public void setSizeValue(int open_100,int open_200,int open_min) {
 		this.MAX_100_OPEN_SIZE	= open_100;
 		this.MAX_200_OPEN_SIZE 	= open_200;
@@ -93,6 +93,10 @@ public class CalculatePositionV3 {
 		int price_between_size	= Math.abs((int)((price - short_price)/PROFIT_100));
 		boolean is_high		 	= price < short_price; 
 		
+		if(vs_size == 0) {
+			if(default_price < price && is_high) start_close = default_price;   
+		}
+		
 		logInfo("");
 		logInfo("############################# 	SHORT STATUS START ################################");
 		logInfo(sell.toString());
@@ -103,6 +107,7 @@ public class CalculatePositionV3 {
 		logInfo("가격 차이 : "  + (current_price - short_price) + " , 현재가대비 : "+ ( is_high ? "Short 진입이 높다(순익)" : "Short 진입이 낮다(손실)" ));
 		logInfo("vs[PRICE]사이즈 : "  + price_between_size);
 		logInfo("vs[LONG]사이즈 : "  + vs_size + " 개 " +(vs_size > 0 ? "SHORT 많다" : " SHORT 적다") );
+		
 		logInfo("############################# 	LONG STATUS END	################################");
 		
 		calculateShortOpen(default_price, start_open, enable_open_size, is_high, price_between_size, vs_size);
@@ -243,6 +248,10 @@ public class CalculatePositionV3 {
 		
 		int price_between_size	= Math.abs((int)( (price - long_price) / PROFIT_100 ) );
 		boolean is_high		 	= price < long_price; 
+		
+		if(vs_size == 0) {
+			if(default_price > price && !is_high) start_close = default_price;   
+		}
 		
 		logInfo("");
 		logInfo("############################# 	LONG STATUS START ################################");
@@ -518,5 +527,44 @@ public class CalculatePositionV3 {
 		d = d > 50 ? 110 : 10;
 		return m + h + d;
 	}
+	public Position getBuy() {
+		return buy;
+	}
+	public void setBuy(Position buy) {
+		this.buy = buy;
+	}
+	public Position getSell() {
+		return sell;
+	}
+	public void setSell(Position sell) {
+		this.sell = sell;
+	}
+	public Balance getBalance() {
+		return balance;
+	}
+	public void setBalance(Balance balance) {
+		this.balance = balance;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getQty() {
+		return qty;
+	}
+	public void setQty(double qty) {
+		this.qty = qty;
+	}
+	public BybitAlarmsModel getParent() {
+		return parent;
+	}
+	public void setParent(BybitAlarmsModel parent) {
+		this.parent = parent;
+	}
+	
+	
+	
  
 }

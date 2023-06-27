@@ -225,7 +225,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		LOG.info("Clear Idles Alarms : " + idles.size());
 	}
 	public int getSize() {
-		return list.size();
+		return list.size() + idles.size();
 	}
 	
 	

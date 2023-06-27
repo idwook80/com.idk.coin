@@ -6,6 +6,7 @@ import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.BybitAlarmPrice;
 import com.idk.coin.bybit.account.PositionRest;
 import com.idk.coin.bybit.account.WalletRest;
+import com.idk.coin.bybit.alram.CalculatePositionV3;
 import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
@@ -42,6 +43,144 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		    	user.setApi_key(System.getProperty("BYBIT_API_KEY_" + web_id.toUpperCase()));
 		    	user.setApi_secret(System.getProperty("BYBIT_API_SECRET" + web_id.toUpperCase()));
 		    }
+	}
+	
+	public static int IDLE_TIME 		= 10;      		
+	public int idle_check_time 			= 0; 			//min
+	public static int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
+	public int reset_check_time 		= RESET_TIME; 	//min
+	public CalculatePositionV3 startCalculateModel;
+	public CalculatePositionV3 calculator;
+	public double startCalculateEquity = 454.5079;
+	public double take_1		= 2.5;
+	public double take_2 		= 5;
+	public int max_open_size	= 20;
+	public int over_open_size	= 5;
+	public int min_open_size	= 5;
+	public boolean clear_profit = false;
+	
+	public void checkBalance() throws Exception{
+		LOG.info("["+user.getId()+"] Actives:"+list.size() + ",Idles:"+idles.size()
+		+",설정가 : [" + calculator.getPrice()+"]" +"현재가 : " + getCurrentPrice()
+		+" 알람 리셋 : " + reset_check_time + "/"+RESET_TIME+"분, 알랑 활성체크: " 
+		+ idle_check_time + "/"+IDLE_TIME+"분");
+		
+		Balance balance 	   	=  WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+		double oldEquity		= 0.0;
+		if(startCalculateModel != null) {
+			oldEquity	= startCalculateModel.getBalance().getEquity();
+		}
+	
+		double newEquity 	= balance.getEquity();
+		double profit	 	= oldEquity == 0 ? 0 : newEquity - oldEquity;
+		double per		 	= profit == 0 ? 0 : profit / (oldEquity/100);
+		LOG.info("Balance : " + newEquity + " - " + oldEquity + "  =  " + profit + "  ( "+ per+" %)" );
+	}
+
+	public void currentStatus(boolean debug) throws Exception{
+		double price = getCurrentPrice();
+		int count = 5;
+		while(price < 0	) {
+			price = getCurrentPrice();
+			thread.sleep(1000 * 1);
+			System.out.println("wait");
+			if(count-- < 0) break;
+		}
+		if(price > 0) {
+			ArrayList<Position> ps	=  PositionRest.getActiveMyPosition(user.getApi_key(),user.getApi_secret(), symbol);
+			Balance balance 	   	=  WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
+			Position buy			=  Position.getPosition(ps, symbol, "Buy");
+			Position sell 			=  Position.getPosition(ps, symbol, "Sell");
+			
+			if(checkClearProfit(price, balance, buy, sell)) return;
+			
+			calculator = new CalculatePositionV3(this,price, buy, sell, balance, QTY, debug);
+			calculator.setSizeValue(max_open_size, over_open_size, min_open_size);
+			calculator.calculateStatus();
+			
+			LOG.debug(calculator.toAlarmString());
+			insertAlarmMessageToDatabase(calculator);
+			if(startCalculateModel == null)  	{
+				startCalculateModel = calculator;
+				if(startCalculateEquity > 0 ) startCalculateModel.getBalance().setEquity(startCalculateEquity);
+			}
+			reset_check_time = RESET_TIME;
+			
+		}else {
+			LOG.info("아직 price 를 가져오지 못했슨니다." +getCurrentPrice() );
+		}
+	}
+	
+	public int message_count = 1;
+	public void insertAlarmMessageToDatabase(CalculatePositionV3 cal) throws Exception{
+		if(!db_enable) return;
+		double oldEquity = startCalculateModel != null ? startCalculateModel.getBalance().getEquity() : startCalculateEquity;
+		double newEquity = cal.getBalance().getEquity();
+		double profit	 = oldEquity == 0 ? 0 : newEquity - oldEquity;
+		double per		 = profit == 0 ? 0 : profit / (oldEquity/100);
+	
+		BybitAlarmDao.getInstace().insertMessage(user.getId(), user.getUser_id(), getSymbol(),
+				oldEquity,newEquity,profit,per,message_count++,cal.toAlarmString());
+	}
+	
+	public boolean checkClearProfit(double price, Balance balance,Position buy, Position sell)throws Exception {
+		if(!clear_profit) return false;
+		
+		double oldEquity = startCalculateModel != null ? startCalculateModel.getBalance().getEquity() : 0.0;
+		double newEquity = balance.getEquity();
+		double profit	 = oldEquity == 0 ? 0 : newEquity - oldEquity;
+		double per		 = profit == 0 ? 0 : profit / (oldEquity/100);
+	
+		if(per > take_2) {								//all take profit 매시간 검사
+			if(clearProfit(price, balance, buy, sell, oldEquity,newEquity,profit, take_2)) return true;
+		}else if(per > take_1) { 						//half take profit message_count/4 4시간 검사
+			if(message_count % 2 == 0)  {
+				if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, take_1)) return true;
+			}
+		}
+		return false;
+	}
+	public boolean clearProfit(double price,Balance balance,Position buy, Position sell ,double oldEquity, double newEquity, 
+			double profit, double per)throws Exception {
+			int min_open 			= calculator.MIN_OPEN_SIZE;
+			int long_size 			= (int) (buy.getSize()/QTY);
+			int short_size 			= (int) (buy.getSize()/QTY);
+			
+			if(min_open > long_size || min_open > short_size) return false;
+			
+			int short_close_size	= per == take_1 ? ((short_size - min_open)/2) : (short_size - min_open);
+			int long_close_size		= per == take_1 ? ((long_size - min_open)/2) : (long_size - min_open);
+			
+			double default_price 	= getDefaultPrice(price);
+			
+			double close_long_size		= long_close_size * QTY;
+			double close_short_size  	= short_close_size * QTY;
+			
+			StringBuffer msg = new StringBuffer();
+			msg.append("Take Profit : "+profit+"( < "+ per+"%) , Count : " + message_count);
+			double long_trigger		= default_price-50;
+			double short_trigger	= default_price+50;
+			
+			closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
+			closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
+			
+			msg.append("closeLong("+long_trigger+", OVER, "+long_trigger+", "+close_long_size+",ONCE)");
+			msg.append("closeShort("+short_trigger+", UNDER, "+short_trigger+", "+close_short_size+",ONCE)");
+			
+			startCalculateModel = calculator;
+			reset_check_time = 1;
+			message_count = 0;
+			BybitAlarmDao.getInstace().insertMessage(user.getId(), user.getUser_id(), getSymbol(),
+				oldEquity,newEquity,profit,per,message_count++,msg.toString());
+			
+			startCalculateModel.getBalance().setEquity(newEquity);
+			return true;
+			}
+	public double getDefaultPrice(double c_price) {
+		double m = Math.floor(c_price / 1000) *1000;
+		double h = Math.floor((c_price - m) / 100) * 100;
+		double d = Math.round((c_price -m -h)/ 10) * 10;
+		return m + h + d;
 	}
 	//abstract public void userSet() throws Exception;
 	//abstract public void alarmSet() throws Exception;
