@@ -22,7 +22,7 @@ public class AlarmManager80 extends BybitAlarmsModel {
 	    MIN_PROFIT		= 50;
 	    IDLE_TIME 		= 10; // 10분마다
 	    RESET_TIME 		= 60 * 1;// 1시간마다
-	    startCalculateEquity = 51.9196;
+	    startCalculateEquity = 52.7300;
 	
 		max_open_size	= 20;
 		over_open_size	= 5;
@@ -38,12 +38,15 @@ public class AlarmManager80 extends BybitAlarmsModel {
 		boolean is_debug  = DEBUG_OFF;
 		clearAllAlarms();
 		if(is_debug) {
-			currentStatus(DEBUG_ON);
 			enableDatabase(DISABLE);
+			currentStatus(DEBUG_ON);
 		}else {
 			cancelAllOrder();
-			currentStatus(DEBUG_OFF);
 			enableDatabase(ENABLE);
+			currentStatus(DEBUG_OFF);
+			clearAlarmDatabase();
+			registerAlarmDatabase();
+			
 		}
 		
 	}

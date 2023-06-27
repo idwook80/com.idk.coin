@@ -20,6 +20,8 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	public final static boolean ENABLE 	 = true;
 	public final static boolean DISABLE 	 = false;
 	
+
+	
 	public BybitAlarmsModel(String symbol, BybitUser user) throws Exception{
 		super(symbol, user);
 		
@@ -45,25 +47,13 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		    }
 	}
 	
-	public static int IDLE_TIME 		= 10;      		
-	public int idle_check_time 			= 0; 			//min
-	public static int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
-	public int reset_check_time 		= RESET_TIME; 	//min
-	public CalculatePositionV3 startCalculateModel;
-	public CalculatePositionV3 calculator;
-	public double startCalculateEquity = 454.5079;
-	public double take_1		= 2.5;
-	public double take_2 		= 5;
-	public int max_open_size	= 20;
-	public int over_open_size	= 5;
-	public int min_open_size	= 5;
-	public boolean clear_profit = false;
 	
 	public void checkBalance() throws Exception{
 		LOG.info("["+user.getId()+"] Actives:"+list.size() + ",Idles:"+idles.size()
 		+",설정가 : [" + calculator.getPrice()+"]" +"현재가 : " + getCurrentPrice()
 		+" 알람 리셋 : " + reset_check_time + "/"+RESET_TIME+"분, 알랑 활성체크: " 
 		+ idle_check_time + "/"+IDLE_TIME+"분");
+	
 		
 		Balance balance 	   	=  WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
 		double oldEquity		= 0.0;
@@ -100,10 +90,12 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			
 			LOG.debug(calculator.toAlarmString());
 			insertAlarmMessageToDatabase(calculator);
+			
 			if(startCalculateModel == null)  	{
 				startCalculateModel = calculator;
 				if(startCalculateEquity > 0 ) startCalculateModel.getBalance().setEquity(startCalculateEquity);
 			}
+			
 			reset_check_time = RESET_TIME;
 			
 		}else {
@@ -114,6 +106,8 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	public int message_count = 1;
 	public void insertAlarmMessageToDatabase(CalculatePositionV3 cal) throws Exception{
 		if(!db_enable) return;
+		if(startCalculateModel != null) LOG.info("startCalculateModel "+startCalculateModel.getBalance().getEquity() + "")	;
+		LOG.info("startCalculateEquity  " +startCalculateEquity );
 		double oldEquity = startCalculateModel != null ? startCalculateModel.getBalance().getEquity() : startCalculateEquity;
 		double newEquity = cal.getBalance().getEquity();
 		double profit	 = oldEquity == 0 ? 0 : newEquity - oldEquity;
@@ -161,8 +155,8 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			double long_trigger		= default_price-50;
 			double short_trigger	= default_price+50;
 			
-			closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
-			closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
+			if(close_long_size>0) closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
+			if(close_short_size>0) closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
 			
 			msg.append("closeLong("+long_trigger+", OVER, "+long_trigger+", "+close_long_size+",ONCE)");
 			msg.append("closeShort("+short_trigger+", UNDER, "+short_trigger+", "+close_short_size+",ONCE)");
@@ -386,8 +380,9 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	public void enableDatabase(boolean enable) {
 		super.enableDatabase(enable);
 		if(!enable) LOG.info("데이터베이스 사용하지 않습니다.");
-		clearAlarmDatabase();
-		registerAlarmDatabase();
+		else LOG.info("데이터베이스 사용  합니다.");
+		//clearAlarmDatabase();
+		//registerAlarmDatabase();
 	}
 	public void loadAlarmDatabase() {
 		if(!db_enable) return;

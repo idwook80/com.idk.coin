@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.account.OrderRest_V3;
+import com.idk.coin.bybit.alram.CalculatePositionV3;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.OrderExecution;
@@ -52,6 +53,20 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public BybitUser user;
 	public boolean db_enable					= false;
 	
+	public static int IDLE_TIME 		= 10;      		
+	public int idle_check_time 			= 0; 			//min
+	public static int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
+	public int reset_check_time 		= RESET_TIME; 	//min
+	public CalculatePositionV3 startCalculateModel = null;
+	public CalculatePositionV3 calculator 			= null;
+	public double startCalculateEquity = 0.0;
+	public double take_1		= 2.5;
+	public double take_2 		= 5;
+	public int max_open_size	= 20;
+	public int over_open_size	= 5;
+	public int min_open_size	= 5;
+	public boolean clear_profit = false;
+	
 	public ArrayList<AlarmPrice> list;
 	public ArrayList<AlarmPrice> idles;
 	public AlarmManager(String symbol, BybitUser user) throws Exception{
@@ -61,7 +76,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		this.user 	= user;
 		if(user != null) this.web_id  = user.getId();
 		userSet();
-		alarmSet();
+		//alarmSet();
 		
 	}
 	public AlarmManager(String symbol, String web_id,String web_pw) throws Exception{

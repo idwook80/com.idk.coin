@@ -94,7 +94,7 @@ public class CalculatePositionV3 {
 		boolean is_high		 	= price < short_price; 
 		
 		if(vs_size == 0) {
-			if(default_price < price && is_high) start_close = default_price;   
+			if(default_price < price && is_high && enable_close_size > 0) start_close = default_price;   
 		}
 		
 		logInfo("");
@@ -250,7 +250,7 @@ public class CalculatePositionV3 {
 		boolean is_high		 	= price < long_price; 
 		
 		if(vs_size == 0) {
-			if(default_price > price && !is_high) start_close = default_price;   
+			if(default_price > price && !is_high && enable_close_size > 0) start_close = default_price;   
 		}
 		
 		logInfo("");

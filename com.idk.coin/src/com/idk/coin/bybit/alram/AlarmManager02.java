@@ -10,18 +10,17 @@ public class AlarmManager02 extends BybitAlarmsModel {
 	public AlarmManager02(String symbol, String web_id, String web_pw) throws Exception{
 		super(symbol, web_id, web_pw);
 	}
-	
-	
-	
 	public void userSet() throws Exception{
 		String default_qty = user.getDefault_qty();
 		if(default_qty == null) default_qty = "0.001";
 		setDefault_qty(Double.valueOf(default_qty));
 		LOSS_TRIGGER_QTY= 0.001;
 	    MIN_PROFIT		= 50;
+	    
+	    
 	    IDLE_TIME 		= 10; // 10분마다
 	    RESET_TIME 		= 60 * 1;// 1시간마다
-	    startCalculateEquity = 454.5079;
+	    startCalculateEquity = 475.98;
 		
 		max_open_size	= 20;
 		over_open_size	= 5;
@@ -37,12 +36,15 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		boolean is_debug  = DEBUG_OFF;
 		clearAllAlarms();
 		if(is_debug) {
-			currentStatus(DEBUG_ON);
 			enableDatabase(DISABLE);
+			currentStatus(DEBUG_ON);
 		}else {
 			cancelAllOrder();
-			currentStatus(DEBUG_OFF);
 			enableDatabase(ENABLE);
+			currentStatus(DEBUG_OFF);
+			clearAlarmDatabase();
+			registerAlarmDatabase();
+			
 		}
 		
 	}
@@ -56,14 +58,13 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		
 		while(is_run) {
 			try {
-				
 				checkBalance();
 				Thread.sleep(1000* 60 * 1);
-				if(reset_check_time-- < 0) {
+				if(reset_check_time-- <= 0) {
 					alarmSet();
 					idle_check_time = -1;
 				}
-				if(idle_check_time-- < 0) {
+				if(idle_check_time-- <= 0) {
 					checkAlarmIdles(5);
 					idle_check_time = IDLE_TIME;
 				}
