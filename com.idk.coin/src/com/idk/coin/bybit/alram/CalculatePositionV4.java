@@ -5,19 +5,19 @@ import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.Position;
 
-public class CalculatePositionV3 extends CalculateModel {
+public class CalculatePositionV4 extends CalculateModel {
 	
-	public CalculatePositionV3(BybitAlarmsModel parent,double price,Position buy, Position sell, Balance balance,double qty, boolean debug) {
+	public CalculatePositionV4(BybitAlarmsModel parent,double price,Position buy, Position sell, Balance balance,double qty, boolean debug) {
 		 super(parent, price, buy, sell, balance, qty, debug);
 	}
 	public double getDefaultPrice(double c_price) {
 		double m = Math.floor(c_price / 1000) *1000;
 		double h = Math.floor((c_price - m) / 100) * 100;
-		//double d = Math.floor((c_price -m -h)/ 10) * 10;
 		double d = Math.round((c_price -m -h)/ 10) * 10;
-		d = d > 50 ? 110 : 10;
+		//d = d > 50 ? 110 : 10;
 		return m + h + d;
 	}
+	
 	public void calculateStatus() throws Exception{
 		logInfo("########### [ "+parent.getUser().getId()+" ]################");
 		logInfo("#  		    MY START			 	     #");
@@ -117,7 +117,7 @@ public class CalculatePositionV3 extends CalculateModel {
 					enable_open_size -= between_size;
 				}
 			}else {
-				logInfo("#   [SHORT LOW] 현재가가  SHORT(매도가)보다 높음(손실) SHORT 많을 가능성 높음 \t#");
+				logInfo("#   [SHORT LOW] 현재가가  SHORT(매도가)보다 높음(손실) 공매도(SHORT) 많을 가능성 높음 \t#");
 				logInfo("#   1 가능 매도수량까지 100,100 매수함  \t#########");
 				logInfo("#   2 이후 최대치까지는 200,100 -stopLoss 생각해야함  \t#########");
 			}
@@ -145,7 +145,7 @@ public class CalculatePositionV3 extends CalculateModel {
 		int between_size		= price_between_size;
 		//상승 대비 close는 ShortOpen이 대신함
 		if(is_high) {  
-			logInfo("#   [SHORT HIGH]	현재가가 SHORT 보다 낮음(순익)		LONG 많을가능성 많음 \t#");
+			logInfo("#   [SHORT HIGH]	현재가가 SHORT(매도가)보다 낮음(순익)		공매수(LONG) 많을가능성 많음 \t#");
 			logInfo("#   1 가능한 size 100, 200 만큼 close함 -- short 사이즈와 비교해야함  \t#########");
 			logInfo("#   2 이후 가능사이즈 없으면  OPEN 함 \t#########");
 			if(vs_size < 0 ) { //short이 적다 if(vs_size < 0 && enable_close_size < 0) {
@@ -154,33 +154,28 @@ public class CalculatePositionV3 extends CalculateModel {
 					boolean is_long = enable_close_size < Math.abs(vs_size);  //long 너무 많은경우 먼전 long 클로즈 
 					start_close += INTERVAL_100;
 					end_close	= start_close - (size * INTERVAL_100);
-					if(is_long) startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21.[하락][포지션반대][단가?] < Long 2배이상 I100,P200("+size+")");
+					if(is_long) startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21.[하락][반대가능][단가?] < Long 2배이상 I100,P200("+size+")");
 					else startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "21.[하락][오픈가능][단가?] < Long 2배이하 I100,P200("+size+")");
 					start_close = end_close - PROFIT_200;
 				}
 			} 
 			
 		}else {
-			logInfo("#  [SHORT LOW] 현재가가  SHORT보다 높음(손실) SHORT 많을 가능성 높음 \t#" + between_size + " , " + vs_size);
+			logInfo("#  [SHORT LOW] 현재가가  SHORT(매도가)보다 높음(손실) SHORT 많을 가능성 높음 \t#" + between_size + " , " + vs_size);
 			logInfo("#  1 SHORT(매도가)까지 100, 100 close함 -- 가능한 size확인필요 \t#########");
 			logInfo("#  1-1 매도가 많은경우 추가 \t#########");
 			logInfo("#  2 SHORT(매도가)이후 나머지 가능한 size 만큼 100,200 close 함  \t#########");
 			logInfo("#  3 이후 계속 상승시 max_100 , max_200만큼  OPEN 으로 변경함 \t#########");
 			
-			if(vs_size < 0 ) { //short 많을 가능성이 크나 반대로 Long 많은 경우
+			if(vs_size < 0 ) { //short이 적은경우
 				int size = Math.abs(vs_size/3);
 				if(size > 0) {
 					boolean is_long = enable_close_size < Math.abs(vs_size);  //long 너무 많은경우 먼전 long 클로즈 
 					start_close += INTERVAL_100;
 					end_close	= start_close - (size * INTERVAL_100);
-					if(is_long) {
-						startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21-1.[하락][포지션반대][단가?] < Long 2배이상 I100,P200("+size+")");
-						start_close = end_close;
-					}else {
-						startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "21-2.[하락][오픈가능][단가?] < Long 2배이하 I100,P200("+size+")");
-						start_close = end_close - INTERVAL_100;
-					}
-			
+					if(is_long) startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21-1.[하락][반대가능][단가?] < Long 2배이상 I100,P200("+size+")");
+					else startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "21-2.[하락][오픈가능][단가?] < Long 2배이하 I100,P200("+size+")");
+					start_close = end_close - PROFIT_100;
 				}
 			}else { //if(vs_size > 0) short 많은경우
 				between_size += vs_size/2;

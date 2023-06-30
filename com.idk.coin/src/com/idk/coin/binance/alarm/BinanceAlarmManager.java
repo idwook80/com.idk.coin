@@ -1,15 +1,12 @@
 package com.idk.coin.binance.alarm;
 
-import java.util.ArrayList;
-
 import com.idk.coin.bybit.AlarmPrice;
-import com.idk.coin.bybit.account.PositionRest;
-import com.idk.coin.bybit.account.WalletRest;
+import com.idk.coin.bybit.alram.CalculateModel;
 import com.idk.coin.bybit.db.BybitUser;
 import com.idk.coin.bybit.model.Balance;
+import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.OrderExecution;
 import com.idk.coin.bybit.model.Position;
-import com.idk.coin.model.AlarmManager;
 
 public class BinanceAlarmManager extends BinanceAlarmsModel {
 	public BinanceAlarmManager(String symbol, BybitUser user) throws Exception{
@@ -26,7 +23,13 @@ public class BinanceAlarmManager extends BinanceAlarmsModel {
 		LOSS_TRIGGER_QTY= 0.001;
 	    MIN_PROFIT		= 50;
 	  
+	    
 	}
+	public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+	 		Position sell, Balance balance,double qty, boolean debug) {
+	 return null;
+	}
+	
 	public void run() {
 		while(is_run) {
 			try {

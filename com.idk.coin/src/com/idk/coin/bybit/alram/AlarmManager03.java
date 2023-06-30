@@ -6,6 +6,7 @@ import com.idk.coin.AlarmSound;
 import com.idk.coin.bybit.account.OrderRest;
 import com.idk.coin.bybit.account.PositionRest;
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.Position;
 
@@ -34,6 +35,12 @@ public class AlarmManager03 extends BybitAlarmsModel {
 	    MIN_PROFIT		= 50;
 	  
 	}
+	public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+	 		Position sell, Balance balance,double qty, boolean debug) {
+	 return new CalculatePositionV3(parent, price, buy, sell, balance, qty, debug);
+	}
+	
+	
 	public void run() {
 		System.out.println("Alarm03 Start! " +current_price);
 		while(is_run) {

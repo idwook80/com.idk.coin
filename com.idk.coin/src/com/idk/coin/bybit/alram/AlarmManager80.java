@@ -1,7 +1,9 @@
 package com.idk.coin.bybit.alram;
 
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
+import com.idk.coin.bybit.model.Position;
 
 public class AlarmManager80 extends BybitAlarmsModel {
 	public static int ONE1		= 1;
@@ -22,38 +24,46 @@ public class AlarmManager80 extends BybitAlarmsModel {
 	    MIN_PROFIT		= 50;
 	    IDLE_TIME 		= 10; // 10분마다
 	    RESET_TIME 		= 60 * 1;// 1시간마다
-	    startCalculateEquity = 52.7300;
+	    startCalculateEquity = 55.0000;
+	    message_count		 = 13;
+		//max_open_size	= 20;
+		//over_open_size	= 5;
+		//min_open_size	= 5;
 	
-		max_open_size	= 20;
-		over_open_size	= 5;
-		min_open_size	= 5;
 		
 		take_1			= 1.5;
 		take_2 			= 3;
-		clear_profit    = ENABLE;
+		loss_1			= -5;
+		//clear_profit    = ENABLE;
 	}
  
 	public void alarmSet() throws Exception{
 		LOG.info("Alarm Set");
-		boolean is_debug  = DEBUG_OFF;
+		boolean is_debug  = DEBUG_ON;
 		clearAllAlarms();
 		if(is_debug) {
 			enableDatabase(DISABLE);
 			currentStatus(DEBUG_ON);
+			clear_profit = DISABLE;
 		}else {
 			cancelAllOrder();
 			enableDatabase(ENABLE);
 			currentStatus(DEBUG_OFF);
+			clear_profit = ENABLE;
 			clearAlarmDatabase();
 			registerAlarmDatabase();
 			
 		}
 		
 	}
-	public static int IDLE_TIME = 10;      // 10분마다
-	public int idle_check_time = 0; //min
-	public static int RESET_TIME = 60 * 1; //reset 4시간마다
-	public int reset_check_time = RESET_TIME; //min
+	 public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+			 		Position sell, Balance balance,double qty, boolean debug) {
+		 CalculateModel model =  new CalculatePositionV4(parent, price, buy, sell, balance, qty, debug);
+		 model.setSizeValue(20, 5, 5);
+		 //model.setIntervalProfit(50, 100, 50, 100);
+		 
+		 return model;
+	 }
 	public void run() {
 		try {
 			Thread.sleep(1000*3);

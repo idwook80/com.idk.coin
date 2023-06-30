@@ -6,7 +6,7 @@ import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.BybitAlarmPrice;
 import com.idk.coin.bybit.account.PositionRest;
 import com.idk.coin.bybit.account.WalletRest;
-import com.idk.coin.bybit.alram.CalculatePositionV3;
+import com.idk.coin.bybit.alram.CalculateModel;
 import com.idk.coin.bybit.db.BybitAlarmDao;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
@@ -84,8 +84,9 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			
 			if(checkClearProfit(price, balance, buy, sell)) return;
 			
-			calculator = new CalculatePositionV3(this,price, buy, sell, balance, QTY, debug);
-			calculator.setSizeValue(max_open_size, over_open_size, min_open_size);
+			calculator = createCalculateModel(this,price, buy, sell, balance, QTY, debug);
+			//new CalculatePositionV3(this,price, buy, sell, balance, QTY, debug);
+			//calculator.setSizeValue(max_open_size, over_open_size, min_open_size);
 			calculator.calculateStatus();
 			
 			LOG.debug(calculator.toAlarmString());
@@ -104,7 +105,7 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 	}
 	
 	public int message_count = 1;
-	public void insertAlarmMessageToDatabase(CalculatePositionV3 cal) throws Exception{
+	public void insertAlarmMessageToDatabase(CalculateModel cal) throws Exception{
 		if(!db_enable) return;
 		if(startCalculateModel != null) LOG.info("startCalculateModel "+startCalculateModel.getBalance().getEquity() + "")	;
 		LOG.info("startCalculateEquity  " +startCalculateEquity );
@@ -126,24 +127,34 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		double per		 = profit == 0 ? 0 : profit / (oldEquity/100);
 	
 		if(per > take_2) {								//all take profit 매시간 검사
-			if(clearProfit(price, balance, buy, sell, oldEquity,newEquity,profit, take_2)) return true;
-		}else if(per > take_1) { 						//half take profit message_count/4 4시간 검사
-			if(message_count % 2 == 0)  {
-				if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, take_1)) return true;
-			}
+			if(clearProfit(price, balance, buy, sell, oldEquity,newEquity,profit, per)) return true;
+		}else if(per > take_1) { 						//half take profit message_count/4 2시간 검사
+			//if(message_count % 2 == 0)  {
+				if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per)) return true;
+			//}
+		}else if(per < loss_1) {
+			if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per)) return true;
 		}
 		return false;
 	}
-	public boolean clearProfit(double price,Balance balance,Position buy, Position sell ,double oldEquity, double newEquity, 
-			double profit, double per)throws Exception {
+	public boolean clearProfit(double price,Balance balance,Position buy, Position sell ,
+			double oldEquity, double newEquity, double profit, double per)throws Exception {
 			int min_open 			= calculator.MIN_OPEN_SIZE;
 			int long_size 			= (int) (buy.getSize()/QTY);
-			int short_size 			= (int) (buy.getSize()/QTY);
+			int short_size 			= (int) (sell.getSize()/QTY);
 			
-			if(min_open > long_size || min_open > short_size) return false;
+			if(min_open > long_size && min_open > short_size) return false;
 			
-			int short_close_size	= per == take_1 ? ((short_size - min_open)/2) : (short_size - min_open);
-			int long_close_size		= per == take_1 ? ((long_size - min_open)/2) : (long_size - min_open);
+			int short_close_size	= 0;
+			int long_close_size		= 0;
+			if(per > take_2) {
+				short_close_size =  (short_size - min_open);
+				long_close_size  =  (long_size - min_open);
+			}else {
+				short_close_size =  Math.round((short_size/100) * 30);
+				long_close_size  =  Math.round((long_size/100) * 30);
+			}
+			
 			
 			double default_price 	= getDefaultPrice(price);
 			
@@ -151,15 +162,20 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			double close_short_size  	= short_close_size * QTY;
 			
 			StringBuffer msg = new StringBuffer();
-			msg.append("Take Profit : "+profit+"( < "+ per+"%) , Count : " + message_count);
+			msg.append(per > 0 ? "Take Profit : " : "Stop Loss : ");
+			
+			msg.append(" "+profit+"( "+ per+"% ) , Count : " + message_count+"\n");
+			msg.append("LONG :  " + buy.getEntry_price() + " , " + buy.getSize() + "\n");
+			msg.append("SHORT :  " + sell.getEntry_price() + " , " + sell.getSize() + "\n");
+			
 			double long_trigger		= default_price-50;
 			double short_trigger	= default_price+50;
 			
-			if(close_long_size>0) closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
-			if(close_short_size>0) closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
+			if(close_long_size > 0) closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
+			if(close_short_size > 0) closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
 			
-			msg.append("closeLong("+long_trigger+", OVER, "+long_trigger+", "+close_long_size+",ONCE)");
-			msg.append("closeShort("+short_trigger+", UNDER, "+short_trigger+", "+close_short_size+",ONCE)");
+			msg.append("closeLong("+long_trigger+", OVER, "+long_trigger+", "+close_long_size+",ONCE)\n");
+			msg.append("closeShort("+short_trigger+", UNDER, "+short_trigger+", "+close_short_size+",ONCE)\n");
 			
 			startCalculateModel = calculator;
 			reset_check_time = 1;
@@ -290,8 +306,6 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			Balance balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
 			Position buy =  Position.getPosition(ps, symbol, "Buy");
 			Position sell = Position.getPosition(ps, symbol, "Sell");
-			LOG.info(sell.getRealised_pnl()+"," + sell.getCum_realised_pnl());
-			LOG.info(buy.getRealised_pnl()+"," + buy.getCum_realised_pnl());
 			
 			LOG.info(buy.getSize() + " , [" +  String.format("%.2f",(buy.getSize()/QTY)/10) + "]:" 
 					 + "[" +  String.format("%.2f", (sell.getSize()/QTY)/10)+"] , "+ sell.getSize()

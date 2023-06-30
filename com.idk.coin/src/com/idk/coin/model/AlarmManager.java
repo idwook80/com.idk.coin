@@ -8,10 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import com.idk.coin.bybit.AlarmPrice;
 import com.idk.coin.bybit.account.OrderRest_V3;
-import com.idk.coin.bybit.alram.CalculatePositionV3;
+import com.idk.coin.bybit.alram.CalculateModel;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
+import com.idk.coin.bybit.model.BybitAlarmsModel;
 import com.idk.coin.bybit.model.OrderExecution;
+import com.idk.coin.bybit.model.Position;
 import com.idk.coin.bybit.model.PriceListener;
 
 abstract public class AlarmManager implements Runnable ,PriceListener{
@@ -57,11 +60,12 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public int idle_check_time 			= 0; 			//min
 	public static int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
 	public int reset_check_time 		= RESET_TIME; 	//min
-	public CalculatePositionV3 startCalculateModel = null;
-	public CalculatePositionV3 calculator 			= null;
+	public CalculateModel startCalculateModel = null;
+	public CalculateModel calculator 			= null;
 	public double startCalculateEquity = 0.0;
 	public double take_1		= 2.5;
 	public double take_2 		= 5;
+	public double loss_1		= -3;
 	public int max_open_size	= 20;
 	public int over_open_size	= 5;
 	public int min_open_size	= 5;
@@ -101,6 +105,8 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	}
 	abstract public void userSet() throws Exception;
 	abstract public void alarmSet() throws Exception;
+	abstract public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+	 		Position sell, Balance balance,double qty, boolean debug);
 	
 	public String getSymbol() {
 		return symbol;

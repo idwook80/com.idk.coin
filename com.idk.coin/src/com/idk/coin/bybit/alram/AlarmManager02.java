@@ -1,7 +1,9 @@
 package com.idk.coin.bybit.alram;
 
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
+import com.idk.coin.bybit.model.Position;
 
 public class AlarmManager02 extends BybitAlarmsModel {
 	public AlarmManager02(String symbol, BybitUser user) throws Exception{
@@ -17,19 +19,20 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		LOSS_TRIGGER_QTY= 0.001;
 	    MIN_PROFIT		= 50;
 	    
-	    
 	    IDLE_TIME 		= 10; // 10분마다
 	    RESET_TIME 		= 60 * 1;// 1시간마다
 	    startCalculateEquity = 475.98;
+	    message_count		 = 0;
 		
-		max_open_size	= 20;
-		over_open_size	= 5;
-		min_open_size	= 5;
+		//max_open_size	= 20;
+		//over_open_size	= 5;
+		//min_open_size	= 5;
+		take_1			= 2;
+		take_2 			= 4;
+		loss_1			= -6;
 		
-		take_1			= 2.5;
-		take_2 			= 5;
-		clear_profit    = ENABLE;
 	}
+	 
 	
 	public void alarmSet() throws Exception{
 		LOG.info("Alarm Set");
@@ -38,16 +41,26 @@ public class AlarmManager02 extends BybitAlarmsModel {
 		if(is_debug) {
 			enableDatabase(DISABLE);
 			currentStatus(DEBUG_ON);
+			clear_profit    = DISABLE;
 		}else {
 			cancelAllOrder();
 			enableDatabase(ENABLE);
 			currentStatus(DEBUG_OFF);
+			clear_profit    = ENABLE;
 			clearAlarmDatabase();
 			registerAlarmDatabase();
 			
 		}
-		
 	}
+	
+	public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+	 		Position sell, Balance balance,double qty, boolean debug) {
+		CalculateModel model =  new CalculatePositionV3(parent, price, buy, sell, balance, qty, debug);
+		model.setSizeValue(20, 5, 5);
+		return model;
+	}
+	
+	
 	public void run() {
 		try {
 			Thread.sleep(1000*1);

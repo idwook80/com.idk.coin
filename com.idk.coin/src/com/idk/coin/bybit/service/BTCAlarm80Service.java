@@ -1,5 +1,6 @@
 package com.idk.coin.bybit.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -116,18 +117,11 @@ public class BTCAlarm80Service {
 	public void checkBalance() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
-				int sleeptime = 10;
+				int sleeptime = 60;
 				while(true) {
 					try {
-					System.out.println("Check User Balances");
-					Date date = new Date();
-					System.out.println(TimeUtil.getDateFormat(date));
-					int hour = date.getHours();
-					if(7 <= hour && hour < 8) {
-							if(checkUserBalances()) sleeptime = 60;
-					}else if( 6 <= hour && hour < 7) sleeptime = 10;
-					 else sleeptime = 60;
-					
+					System.out.println("Check Today User Balances");
+					dailyUserBalance();
 					Thread.sleep(1000*60*sleeptime);
 					}catch(Exception e) {
 						e.printStackTrace();
@@ -143,8 +137,11 @@ public class BTCAlarm80Service {
 		ArrayList<BybitUser> users = BybitDao.getInstace().selectUserList();
 		String symbol = "USDT";
 			for(BybitUser user : users) {
-				Balance balance = BybitBalanceDao.getInstace().selectBalance(user.getId(), symbol, TimeUtil.getCurrentTime("yyyy-MM-dd"));
-				System.out.println("DB Balance :  " + balance);
+				LocalDateTime date = LocalDateTime.now();
+				String dateString = TimeUtil.getDateFormat("yyyy-MM-dd", java.sql.Timestamp.valueOf(date));
+				
+				Balance balance = BybitBalanceDao.getInstace().selectBalance(user.getId(), symbol, dateString);
+				if(balance != null) System.out.println(dateString + " 오늘 잔고  "+user.getId() + " 이미 등록 되었습니다. " + balance);
 				if(balance == null && Integer.parseInt(user.getAlarm_model()) < 10)  {
 					balance 		 =   WalletRest.getWalletBalance(user.getApi_key(),user.getApi_secret(), "USDT");
 					balance.setId(user.getId());
@@ -161,6 +158,22 @@ public class BTCAlarm80Service {
 			e.printStackTrace();
 		}
 		return ret;
+	}
+	public void dailyUserBalance() {
+		LocalDateTime date = LocalDateTime.now();
+		LocalDateTime AM7  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), 6, 50);
+		LocalDateTime AM8  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), 8, 10);
+		if(date.isAfter(AM7) && date.isBefore(AM8) ){
+			System.out.println("현 시간은  : " + AM7 + " ~ " + AM8 + " 입니다.");
+			checkUserBalances();
+		}else {
+			Date dt = java.sql.Timestamp.valueOf(date);
+			//TimeUtil.getDateFormat(dt);
+			
+			System.out.println("현 시간은  : " + AM7 + " ~ " + AM8 + " 아닙니다. " );
+			
+		}
+	 
 	}
 	
 }

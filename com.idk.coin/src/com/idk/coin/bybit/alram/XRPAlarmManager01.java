@@ -3,7 +3,9 @@ package com.idk.coin.bybit.alram;
 import java.math.BigDecimal;
 
 import com.idk.coin.bybit.db.BybitUser;
+import com.idk.coin.bybit.model.Balance;
 import com.idk.coin.bybit.model.BybitAlarmsModel;
+import com.idk.coin.bybit.model.Position;
 
 public class XRPAlarmManager01 extends BybitAlarmsModel {
 	public static double  HALF		= 0.0;
@@ -39,7 +41,18 @@ public class XRPAlarmManager01 extends BybitAlarmsModel {
 	public static int RESET_TIME 	= 60 * 4; //reset 4시간마다
 	public int reset_check_time 	= RESET_TIME; //min
 	
+	
+	public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
+	 		Position sell, Balance balance,double qty, boolean debug) {
+	 return new CalculatePositionV3(parent, price, buy, sell, balance, qty, debug);
+	}
+	
 	public void run() {
+		try {
+			alarmSet();
+		}catch(Exception e){
+			
+		}
 		while(is_run) {
 			try {
 				Thread.sleep(1000* 60 *1);
