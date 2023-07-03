@@ -56,9 +56,9 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public BybitUser user;
 	public boolean db_enable					= false;
 	
-	public static int IDLE_TIME 		= 10;      		
+	public int IDLE_TIME 		= 10;      		
 	public int idle_check_time 			= 0; 			//min
-	public static int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
+	public int RESET_TIME 		= 60 * 1; 		//reset 4시간마다
 	public int reset_check_time 		= RESET_TIME; 	//min
 	public CalculateModel startCalculateModel = null;
 	public CalculateModel calculator 			= null;
@@ -70,6 +70,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public int over_open_size	= 5;
 	public int min_open_size	= 5;
 	public boolean clear_profit = false;
+	public int message_count = 1;
 	
 	public ArrayList<AlarmPrice> list;
 	public ArrayList<AlarmPrice> idles;
@@ -141,7 +142,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 	public void addAlarm(AlarmPrice alarm) {
 		synchronized(list) {
 			list.add(alarm);
-			LOG.info("알람추가  " + alarm.toString());
+			LOG.info("["+getUser().getId()+"]알람추가  " + alarm.toString());
 		}
 	}
 	public void checkAlarmExecution(OrderExecution execution) {
@@ -159,9 +160,6 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 		}else {
 			side_name = " [Close Short] 또는 [Open Long]";
 		}
-		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
-		LOG.info("주문체결 : ["+price+"],("+exec_qty+"/"+qty+")주(" +leave_qty+") ["+ side + "]("+side_name+") 주문이 체결되었습니다.(" + execution.getOrder_id()+ ")\t##");
-		LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
 		if(list.isEmpty() || !is_run) return;
 		synchronized(list) {
 			AlarmPrice[] obj = list.toArray(new AlarmPrice[0]);
@@ -169,9 +167,10 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 			for(AlarmPrice alarm : obj) {
 				if(alarm.getParent_order_id() != null) {
 					if(execution.getOrder_id().equals(alarm.getParent_order_id())){
-						LOG.info("");
+						LOG.info("#############["+getUser().getId()+"]##############[주문체결]######################["+getSymbol()+"]#################");
+						LOG.info("["+getUser().getId()+"]주문체결 : ["+price+"],("+exec_qty+"/"+qty+")주(" +leave_qty+") ["+ side + "]("+side_name+") 주문이 체결되었습니다.(" + execution.getOrder_id()+ ")\t##");
 						LOG.info("##############################[알람처리 시작]##################################");
-						LOG.info("알람확인 : 확인된 [체결알람]이있습니다. " + alarm.toAlarm() + "\t"+alarm.getParent_order_id());
+						LOG.info("["+getUser().getId()+"]알람확인 : 확인된 [체결알람]이있습니다. " + alarm.toAlarm() + "\t"+alarm.getParent_order_id());
 						//LOG.info("알람 : "+ alarm + " 사용자 : " + user);
 						//current_price 	= execution.getPrice();
 						//String side 	= execution.getSide();
@@ -205,7 +204,7 @@ abstract public class AlarmManager implements Runnable ,PriceListener{
 					if(alarm.compare(price)) {
 						LOG.info("");
 						LOG.info("##############################[알람처리 시작]##################################");
-						LOG.info("알람확인: "+price +" 확인된 [가격알람]이있습니다. " + alarm.toAlarm());
+						LOG.info("["+getUser().getId()+"]알람확인: "+price +" 확인된 [가격알람]이있습니다. " + alarm.toAlarm());
 						//LOG.info("알람 확인 : "+ alarm + " 사용자 : " + user);
 						list.remove(alarm);
 						try {

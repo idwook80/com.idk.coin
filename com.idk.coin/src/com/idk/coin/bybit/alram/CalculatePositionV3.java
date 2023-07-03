@@ -13,14 +13,14 @@ public class CalculatePositionV3 extends CalculateModel {
 	public double getDefaultPrice(double c_price) {
 		double m = Math.floor(c_price / 1000) *1000;
 		double h = Math.floor((c_price - m) / 100) * 100;
-		//double d = Math.floor((c_price -m -h)/ 10) * 10;
 		double d = Math.round((c_price -m -h)/ 10) * 10;
-		d = d > 50 ? 110 : 10;
+		d = d > 60 ? 110 : 10;
 		return m + h + d;
 	}
+	
 	public void calculateStatus() throws Exception{
 		logInfo("########### [ "+parent.getUser().getId()+" ]################");
-		logInfo("#  		    MY START			 	     #");
+		logInfo("#  		    MY START V3			 	     #");
 		
 		logInfo("기본 수량 : " + MAX_100_OPEN_SIZE + " , 초과 수량 : " + MAX_200_OPEN_SIZE );
 		logInfo("최대 수량 : " + MAX_OPEN_SIZE + " , 최소 수량 : " + MIN_OPEN_SIZE );
@@ -46,12 +46,8 @@ public class CalculatePositionV3 extends CalculateModel {
 		logInfo("");
 		logInfo("############################# LONG START ################################");
 		calculateLongStatus(long_entry, long_size, price, ls-ss);
-
+		AlarmSound.playReset();
 	}
-	
-	//############################## SHORT  #############################
-	//############################## SHORT  #############################
-	//############################## SHORT  #############################
 	public void calculateShortStatus(double short_price,double short_size, double current_price, int vs_size) throws Exception{
 		double default_price 	= getDefaultPrice(current_price);
 		double start_open		= default_price + PROFIT_100;
@@ -65,7 +61,7 @@ public class CalculatePositionV3 extends CalculateModel {
 		boolean is_high		 	= price < short_price; 
 		
 		if(vs_size == 0) {
-			if(default_price < price && is_high && enable_close_size > 0) start_close = default_price;   
+			if(default_price < price && is_high && enable_close_size >= 0) start_close = default_price;   
 		}
 		
 		logInfo("");
@@ -84,139 +80,6 @@ public class CalculatePositionV3 extends CalculateModel {
 		calculateShortOpen(default_price, start_open, enable_open_size, is_high, price_between_size, vs_size);
 		calculateShortClose(default_price, start_close, enable_close_size, is_high, price_between_size, vs_size);
 	}
-	
-	
-	
-	public void calculateShortOpen(double default_price, double start_open, 
-			int enable_open_size,boolean is_high, int price_between_size, int vs_size) throws Exception{
-		logInfo("");
-		logInfo("############################# SHORT OPEN(SELL) STRATEGY ################################"); 
-		
-		double end_open 		= 0.0;
-		int between_size		= price_between_size;
-		//가격 상승시 전략
-		if(enable_open_size < 0) {  //더이상 open 불가 short stoploss 개념
-			int over_size = Math.abs(enable_open_size);
-			start_open -= PROFIT_100;
-			end_open = start_open + (over_size * INTERVAL_100);
-			startOverCloseShort(start_open, end_open, INTERVAL_100, PROFIT_200, "11.[상승][오픈 불가][단가 ?] Over Close I100,P200("+(over_size)+")");
-			start_open = end_open + PROFIT_200;
-		}else {
-			if(is_high) {
-				logInfo("#   [SHORT HIGH] 현재가가 SHORT(매도가)보다 낮음(순익) LONG 많을가능성 많음 \t#" + between_size);
-				logInfo("#   1 매도가까지는 100,200 매수함 -- short 사이즈와 비교해야함  \t#########");
-				logInfo("#   2 매도가이후 100,100 가능매수까지함  \t#########");
-				logInfo("#   3 이후 최대치까지는 200,100 -stopLoss 생각해야함  \t#########");
-				
-				
-				if(between_size > enable_open_size) between_size = enable_open_size;
-				if(between_size > 0) {
-					end_open = (between_size * INTERVAL_100) + start_open;
-					startOverOpenShort(start_open , end_open, INTERVAL_100, PROFIT_200, false,"12.[상승][오픈 가능][단가 높음] I100,P200 ("+between_size+")");
-					start_open  = end_open;
-					enable_open_size -= between_size;
-				}
-			}else {
-				logInfo("#   [SHORT LOW] 현재가가  SHORT(매도가)보다 높음(손실) SHORT 많을 가능성 높음 \t#");
-				logInfo("#   1 가능 매도수량까지 100,100 매수함  \t#########");
-				logInfo("#   2 이후 최대치까지는 200,100 -stopLoss 생각해야함  \t#########");
-			}
-			
-			if(enable_open_size > 0 ) {
-				end_open = start_open + (enable_open_size * INTERVAL_100) ;
-				startOverOpenShort(start_open , end_open, INTERVAL_100, PROFIT_100, false,"13.[상승][오픈 가능][단가 낮음] I100,P100 ("+enable_open_size+")");
-				start_open  = end_open;
-			}
-		}
-		
-		end_open	= start_open + (MAX_200_OPEN_SIZE * INTERVAL_200);
-		startOverOpenShort(start_open , end_open, INTERVAL_200, PROFIT_100, false,"14.[상승][오픈 불가][단가 낮음] 초과오픈 I200,P100("+MAX_200_OPEN_SIZE+")");
-	}
-	
-	
-	
-	
-	public void calculateShortClose(double default_price, double start_close, 
-			int enable_close_size,boolean is_high,int price_between_size,int vs_size) throws Exception{
-		logInfo("");
-		logInfo("############################# SHORT CLOSE(BUY) STRATEGY ################################"); 
-		
-		double end_close 		= 0.0;
-		int between_size		= price_between_size;
-		//상승 대비 close는 ShortOpen이 대신함
-		if(is_high) {  
-			logInfo("#   [SHORT HIGH]	현재가가 SHORT 보다 낮음(순익)		LONG 많을가능성 많음 \t#");
-			logInfo("#   1 가능한 size 100, 200 만큼 close함 -- short 사이즈와 비교해야함  \t#########");
-			logInfo("#   2 이후 가능사이즈 없으면  OPEN 함 \t#########");
-			if(vs_size < 0 ) { //short이 적다 if(vs_size < 0 && enable_close_size < 0) {
-				int size = Math.abs(vs_size/3);
-				if(size > 0) {
-					boolean is_long = enable_close_size < Math.abs(vs_size);  //long 너무 많은경우 먼전 long 클로즈 
-					start_close += INTERVAL_100;
-					end_close	= start_close - (size * INTERVAL_100);
-					if(is_long) startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21.[하락][포지션반대][단가?] < Long 2배이상 I100,P200("+size+")");
-					else startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "21.[하락][오픈가능][단가?] < Long 2배이하 I100,P200("+size+")");
-					start_close = end_close - PROFIT_200;
-				}
-			} 
-			
-		}else {
-			logInfo("#  [SHORT LOW] 현재가가  SHORT보다 높음(손실) SHORT 많을 가능성 높음 \t#" + between_size + " , " + vs_size);
-			logInfo("#  1 SHORT(매도가)까지 100, 100 close함 -- 가능한 size확인필요 \t#########");
-			logInfo("#  1-1 매도가 많은경우 추가 \t#########");
-			logInfo("#  2 SHORT(매도가)이후 나머지 가능한 size 만큼 100,200 close 함  \t#########");
-			logInfo("#  3 이후 계속 상승시 max_100 , max_200만큼  OPEN 으로 변경함 \t#########");
-			
-			if(vs_size < 0 ) { //short 많을 가능성이 크나 반대로 Long 많은 경우
-				int size = Math.abs(vs_size/3);
-				if(size > 0) {
-					boolean is_long = enable_close_size < Math.abs(vs_size);  //long 너무 많은경우 먼전 long 클로즈 
-					start_close += INTERVAL_100;
-					end_close	= start_close - (size * INTERVAL_100);
-					if(is_long) {
-						startUnderCloseLong(start_close, end_close, INTERVAL_100, PROFIT_200, "21-1.[하락][포지션반대][단가?] < Long 2배이상 I100,P200("+size+")");
-						start_close = end_close;
-					}else {
-						startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "21-2.[하락][오픈가능][단가?] < Long 2배이하 I100,P200("+size+")");
-						start_close = end_close - INTERVAL_100;
-					}
-			
-				}
-			}else { //if(vs_size > 0) short 많은경우
-				between_size += vs_size/2;
-			}
-			
-			if(between_size > enable_close_size) between_size = enable_close_size;
-			
-			if(between_size > 0) {
-				end_close = start_close - (between_size * INTERVAL_100);
-				startUnderCloseShort(start_close , end_close, INTERVAL_100, PROFIT_100,"22.[하락][클로즈 가능][단가 낮음] I100,P100("+between_size+")");
-				start_close  		= end_close;
-				enable_close_size -= between_size;
-			}
-			
-			
-		}
-		if(enable_close_size > 0 ) {
-			end_close = start_close -  (enable_close_size * INTERVAL_100);
-			startUnderCloseShort(start_close , end_close, INTERVAL_100, PROFIT_200, "23.[하락][클로즈 가능][단가 낮음] I100,P200 ("+enable_close_size+")");
-			start_close  = end_close + PROFIT_200;
-		}
-		
-		int open_size = (MAX_100_OPEN_SIZE- MIN_OPEN_SIZE);
-		end_close	= start_close - (open_size * INTERVAL_100);
-		startUnderOpenShort(start_close, end_close, INTERVAL_100, PROFIT_200, "24.[하락][클로즈 블가][단가 낮음] 오픈전환 I100,P200 ("+open_size+")");
-		start_close = end_close - INTERVAL_100;
-		
-		end_close	= start_close - (MAX_200_OPEN_SIZE * INTERVAL_200);
-		startUnderOpenShort(start_close, end_close, INTERVAL_200, PROFIT_200, "25.[하락][클로즈 블가][단가 낮음] 초과오픈  I200,P200("+MAX_200_OPEN_SIZE+")");
-	 
-	}
-	
-	//############################## LONG  #############################
-	//############################## LONG  #############################
-	//############################## LONG  #############################
-	
 	public void calculateLongStatus(double long_price,double long_size, double current_price,int vs_size) throws Exception{
 		double default_price 	= getDefaultPrice(current_price);
 		double start_open		= default_price - PROFIT_100;
@@ -230,7 +93,7 @@ public class CalculatePositionV3 extends CalculateModel {
 		boolean is_high		 	= price < long_price; 
 		
 		if(vs_size == 0) {
-			if(default_price > price && !is_high && enable_close_size > 0) start_close = default_price;   
+			if(default_price > price && !is_high && enable_close_size >= 0) start_close = default_price;   
 		}
 		
 		logInfo("");
@@ -247,124 +110,6 @@ public class CalculatePositionV3 extends CalculateModel {
 		
 		calculateLongOpen(default_price, start_open, enable_open_size, is_high, price_between_size,vs_size);
 		calculateLongClose(default_price, start_close, enable_close_size, is_high, price_between_size,vs_size);
-		AlarmSound.playReset();
 	}
-	public void calculateLongOpen(double default_price, double start_open, 
-				int enable_open_size,boolean is_high, int price_between_size, int vs_size) throws Exception{
-		logInfo("");
-		logInfo("############################# LONG OPEN(BUY) STRATEGY ################################"); 
-		double end_open 		= 0.0;
-		int between_size		= price_between_size;
-		//가격 하락시 전략
-		if(enable_open_size < 0) {  //long stop loss 개념
-			//하락시 더이상 LONG OPEN 할수 없는경우  Under Close함 <- 하락대비 Close전략 
-			int over_size  = Math.abs(enable_open_size); //초과 수량 Close 먼저 수행
-			start_open += PROFIT_100;
-			end_open = start_open -  (over_size * INTERVAL_100);
-			startUnderCloseLong(start_open , end_open, INTERVAL_100, PROFIT_200, "31.[하락][오픈 불가][단가 ?] Under Close I100,P200("+(over_size)+")");
-			start_open  = end_open - PROFIT_200;
-			
-		}else {
-			//오픈 가능한 경우
-			if(!is_high) {
-				logInfo("#   [LONG LOW] 현재가가 더 놈음(순익)	Short 많을 가능성 높음 #" +between_size );
-				logInfo("#   1 매수가까지는 100,200 매수함 -- 수익 극대화  \t#########");
-				logInfo("#   2 매수가이후 100,100 가능매수까지함  \t#########");
-				logInfo("#   3 이후 최대치까지는 200,100 -stopLoss 생각해야함  \t#########");
-				
-				if(between_size > enable_open_size) between_size = enable_open_size;
-				if(between_size > 0) { 		//오픈가가 기존 오픈가보다 높아  OPEN 단가 상승함 (수익을 최대화해야함)
-					end_open = start_open - (between_size * INTERVAL_100);
-					startUnderOpenLong(start_open , end_open, INTERVAL_100, PROFIT_200,false,"32.[하락][오픈 가능][단가 낮음] I100,P200 ("+between_size+") between size");
-					start_open  = end_open;
-					enable_open_size -= between_size;
-				}
-				
-			}else {
-				logInfo("#   [LONG HIGH] 현재가가 더 낮음(손실)		Long 많을가능성 높음			#" );
-				logInfo("#   1 가능 매수수량까지 100,100 매수함 단가낮춤  \t#########");
-				logInfo("#   2 이후 최대치까지는 200,100 -stopLoss 생각해야함  \t#########");
-			}
-		
-			if(enable_open_size > 0 ) {  
-				end_open = start_open -  (enable_open_size * INTERVAL_100);
-				startUnderOpenLong(start_open , end_open, INTERVAL_100, PROFIT_100, false, "33.[하락][오픈 가능][단가 높음] I100:P100("+enable_open_size+") enable open size");
-				start_open  = end_open;
-			}
-		}
-		
-		
-		//이후 게속 하락시 혹시 모르니 초과 수량 OPEN 함
-		end_open	= start_open - (MAX_200_OPEN_SIZE * INTERVAL_200);
-		startUnderOpenLong(start_open , end_open, INTERVAL_200, PROFIT_100, false, "34.[하락][오픈 불가][단가 높음] I200:P100("+MAX_200_OPEN_SIZE+")");
-	}
-	
-	public void calculateLongClose(double default_price, double start_close, 
-						int enable_close_size,boolean is_high,int price_between_size,int vs_size) throws Exception{
-		logInfo("");
-		logInfo("############################# LONG CLOSE(SELL) STRATEGY ################################"); 
-		double end_close 		= 0.0;
-		int between_size		= price_between_size;
-		//하락대비 CLOSE는 LongOpen이 대신함
-		if(!is_high) {
-			logInfo("#   [LONG LOW] 현재가가 더 늪음 (순익)	SHORT 많을 가능성 높음 \t#" );
-			logInfo("#   1 가능한 size 100, 200 만큼 close함 -- short 사이즈와 비교해야함  \t#########");
-			logInfo("#   2 이후 가능사이즈 없으면  OPEN 함 \t#########");
-			
-			if(vs_size < 0) { //단가는 낮아 수익이 있지만 Short 사이즈가 많은 경우 상승 오픈으로 갯수if(vs_size < 0 && enable_close_size < 0) { 
-				boolean is_short = enable_close_size < Math.abs(vs_size);
-				start_close -= INTERVAL_100;
-				int size = Math.abs(vs_size/3);
-				end_close	= start_close + (size * INTERVAL_100);
-				if(is_short) startOverCloseShort(start_close, end_close, INTERVAL_100, PROFIT_200,"41.[상승][반대가능][단가?] < Short 2배이상  I100,P200("+size+")");
-				else startOverOpenLong(start_close, end_close, INTERVAL_100, PROFIT_200,"41.[상승][오픈가능][단가?] < Short 2배이하 I100,P200("+size+")");
-				start_close = end_close + PROFIT_200;
-			} 
-		}else {
-			logInfo("#  [LONG HIGH] 현재가가 더 낮음(손실)		LONG 많을가능성 높음 \t#" + price_between_size + " , " + vs_size/2);
-			logInfo("#  1 현재가~매수가 100,100 단가  낮춤 -- 가능한 size확인필요 \t#########");
-			logInfo("#  1-1 매수가 많은경우 추가 \t#########");
-			logInfo("#  2 매수가~ size 만큼 100,200 close 함  \t#########");
-			logInfo("#  3 이후 계속 상승시 오픈 가능만큼 오픈 함 100,200 \t#########");
-			if(vs_size < 0) { //단가는 낮아 수익이 있지만 Short 사이즈가 많은 경우 상승 오픈으로 갯수if(vs_size < 0 && enable_close_size < 0) { 
-				boolean is_short = enable_close_size < Math.abs(vs_size);
-				start_close -= INTERVAL_100;
-				int size = Math.abs(vs_size/3);
-				end_close	= start_close + (size * INTERVAL_100);
-				if(is_short) startOverCloseShort(start_close, end_close, INTERVAL_100, PROFIT_200,"41.[상승][반대가능][단가?] < Short 2배이상  I100,P200("+size+")");
-				else startOverOpenLong(start_close, end_close, INTERVAL_100, PROFIT_200,"41.[상승][오픈가능][단가?] < Short 2배이하 I100,P200("+size+")");
-				start_close = end_close + PROFIT_100;
-			} else {
-				between_size += vs_size/2; 
-			}
-			if(between_size > enable_close_size) between_size = enable_close_size;
-			
-			if(between_size > 0) {
-				end_close = start_close + (between_size * INTERVAL_100);
-				startOverCloseLong(start_close , end_close, INTERVAL_100, PROFIT_100, "42.[상승][클로즈 가능][단가 높음] - 단가까지 I100,P100 ("+between_size+")");
-				start_close 	 	= end_close;
-				enable_close_size 	-= between_size;
-			}
-		}
-		
-		if(enable_close_size > 0 ) {  
-			end_close = start_close +  (enable_close_size * INTERVAL_100);
-			startOverCloseLong(start_close , end_close, INTERVAL_100, PROFIT_200, "43.[상승][클로즈 가능][단가 낮음] - 나머지 클로즈 I100,P200 ("+enable_close_size+")");
-			start_close  = end_close - PROFIT_200;
-		}
-		
-		//더이상 CLOSE 할수 없고  상승시  OPEN으로 대신함
-		int open_size = (MAX_100_OPEN_SIZE-MIN_OPEN_SIZE-MIN_OPEN_SIZE);
-		end_close	= start_close + ( open_size * INTERVAL_100);
-		startOverOpenLong(start_close, end_close, INTERVAL_100, PROFIT_200,"44.[상승][클로즈 불가][단가 낮음]  상승 오픈전환  - I100 P200 OPEN ("+open_size+")");
-		start_close  = end_close + INTERVAL_100;
-		
-		end_close	= start_close + (MAX_200_OPEN_SIZE * INTERVAL_200);
-		startOverOpenLong(start_close, end_close, INTERVAL_200, PROFIT_200,"45.[상승][클로즈 불가][단가 낮음] 초과 상승오픈 - I200 P200 OPEN ("+MAX_200_OPEN_SIZE+")");
-		
-	}
-	
-	
-	
  
 }

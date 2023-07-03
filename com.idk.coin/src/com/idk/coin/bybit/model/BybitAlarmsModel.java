@@ -60,11 +60,10 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		if(startCalculateModel != null) {
 			oldEquity	= startCalculateModel.getBalance().getEquity();
 		}
-	
 		double newEquity 	= balance.getEquity();
 		double profit	 	= oldEquity == 0 ? 0 : newEquity - oldEquity;
 		double per		 	= profit == 0 ? 0 : profit / (oldEquity/100);
-		LOG.info("Balance : " + newEquity + " - " + oldEquity + "  =  " + profit + "  ( "+ per+" %)" );
+		LOG.info("["+user.getId()+"] Balance : " + newEquity + " - " + oldEquity + "  =  " + profit + "  ( "+ per+" %)" );
 	}
 
 	public void currentStatus(boolean debug) throws Exception{
@@ -104,7 +103,6 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		}
 	}
 	
-	public int message_count = 1;
 	public void insertAlarmMessageToDatabase(CalculateModel cal) throws Exception{
 		if(!db_enable) return;
 		if(startCalculateModel != null) LOG.info("startCalculateModel "+startCalculateModel.getBalance().getEquity() + "")	;
@@ -125,15 +123,19 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 		double newEquity = balance.getEquity();
 		double profit	 = oldEquity == 0 ? 0 : newEquity - oldEquity;
 		double per		 = profit == 0 ? 0 : profit / (oldEquity/100);
+		
+		if(oldEquity == 0) return false;
 	
-		if(per > take_2) {								//all take profit 매시간 검사
-			if(clearProfit(price, balance, buy, sell, oldEquity,newEquity,profit, per)) return true;
-		}else if(per > take_1) { 						//half take profit message_count/4 2시간 검사
+	/*	if(per > take_2) {								//all take profit 매시간 검사
+			return clearProfit(price, balance, buy, sell, oldEquity,newEquity,profit, per);
+		}else*/
+			
+		if(per > take_1) { 						//half take profit message_count/4 2시간 검사
 			//if(message_count % 2 == 0)  {
-				if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per)) return true;
+			return clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per);
 			//}
 		}else if(per < loss_1) {
-			if(clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per)) return true;
+			return clearProfit(price, balance, buy, sell,oldEquity,newEquity, profit, per);
 		}
 		return false;
 	}
@@ -143,7 +145,7 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			int long_size 			= (int) (buy.getSize()/QTY);
 			int short_size 			= (int) (sell.getSize()/QTY);
 			
-			if(min_open > long_size && min_open > short_size) return false;
+			if(min_open >= long_size && min_open >= short_size) return false;
 			
 			int short_close_size	= 0;
 			int long_close_size		= 0;
@@ -151,8 +153,8 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 				short_close_size =  (short_size - min_open);
 				long_close_size  =  (long_size - min_open);
 			}else {
-				short_close_size =  Math.round((short_size/100) * 30);
-				long_close_size  =  Math.round((long_size/100) * 30);
+				short_close_size =  (short_size - min_open) / 2;
+				long_close_size  =  (long_size - min_open) / 2;
 			}
 			
 			
@@ -162,6 +164,7 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			double close_short_size  	= short_close_size * QTY;
 			
 			StringBuffer msg = new StringBuffer();
+			msg.append( message_count + " \n");
 			msg.append(per > 0 ? "Take Profit : " : "Stop Loss : ");
 			
 			msg.append(" "+profit+"( "+ per+"% ) , Count : " + message_count+"\n");
@@ -171,19 +174,23 @@ abstract public class BybitAlarmsModel extends AlarmManager{
 			double long_trigger		= default_price-50;
 			double short_trigger	= default_price+50;
 			
-			if(close_long_size > 0) closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
-			if(close_short_size > 0) closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
 			
 			msg.append("closeLong("+long_trigger+", OVER, "+long_trigger+", "+close_long_size+",ONCE)\n");
 			msg.append("closeShort("+short_trigger+", UNDER, "+short_trigger+", "+close_short_size+",ONCE)\n");
-			
+			msg.append("Old : "+startCalculateModel.getBalance().toString()+"\n");
 			startCalculateModel = calculator;
 			reset_check_time = 1;
 			message_count = 0;
 			BybitAlarmDao.getInstace().insertMessage(user.getId(), user.getUser_id(), getSymbol(),
 				oldEquity,newEquity,profit,per,message_count++,msg.toString());
-			
 			startCalculateModel.getBalance().setEquity(newEquity);
+			msg.append("New : "+startCalculateModel.getBalance().toString()+"\n");
+			
+			
+			//if(close_long_size <= 0 && close_short_size <= 0) return false;
+			if(close_long_size > 0) closeLong(long_trigger, OVER, long_trigger, close_long_size,ONCE);
+			if(close_short_size > 0) closeShort(short_trigger, UNDER, short_trigger, close_short_size, ONCE);
+			
 			return true;
 			}
 	public double getDefaultPrice(double c_price) {

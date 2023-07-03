@@ -9,6 +9,7 @@ import com.idk.coin.CoinConfig;
 import com.idk.coin.bybit.BybitExecutionManager;
 import com.idk.coin.bybit.BybitMarketManager;
 import com.idk.coin.bybit.alram.AlarmManager01;
+import com.idk.coin.bybit.alram.AlarmManager03;
 import com.idk.coin.bybit.alram.BybitAlarmManager;
 import com.idk.coin.bybit.db.BybitDao;
 import com.idk.coin.bybit.db.BybitUser;
@@ -77,6 +78,7 @@ public class BTCAlarm01Service {
 				
 				//if(user.getAlarm_model().equals("0")) 		am = new AlarmManager80(symbol, user);
 				 if(user.getAlarm_model().equals("1")) 		 	am = new AlarmManager01(symbol, user);
+				 else if(user.getAlarm_model().equals("3")) 	am = new AlarmManager03(symbol, user);
 				 //if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				 //else if(user.getAlarm_model().equals("2"))  	am = new AlarmManager02(symbol, user);
 				if(am != null) {

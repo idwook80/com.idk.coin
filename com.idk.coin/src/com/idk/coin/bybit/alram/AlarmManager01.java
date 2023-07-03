@@ -15,13 +15,13 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	}
 	public void userSet() throws Exception{
 		String default_qty 		= user.getDefault_qty();
-		if(default_qty == null) default_qty = "0.001";
+		if(default_qty == null) default_qty = "0.01";
 		setDefault_qty(Double.valueOf(default_qty));
 		LOSS_TRIGGER_QTY			= 0.001;
 	    MIN_PROFIT					= 50;
 	    
 	    IDLE_TIME 		= 10; // 10분마다
-	    RESET_TIME 		= 60 * 2;// 1시간마다
+	    RESET_TIME 		= 75;// 1시간마다
 	    startCalculateEquity = 0.0;
 	    message_count		 = 1;
 	    
@@ -29,8 +29,8 @@ public class AlarmManager01 extends BybitAlarmsModel {
 		//over_open_size	= 20;
 		//min_open_size	= 20;
 		
-		take_1			= 10;
-		take_2 			= 20;
+		take_1			= 5;
+		take_2 			= 10;
 		loss_1			= -10;
 		///clear_profit    = DISABLE;
 	}
@@ -57,7 +57,7 @@ public class AlarmManager01 extends BybitAlarmsModel {
 	public CalculateModel createCalculateModel(BybitAlarmsModel parent,double price,Position buy,
 	 		Position sell, Balance balance,double qty, boolean debug) {
 		CalculateModel model =  new CalculatePositionV3(parent, price, buy, sell, balance, qty, debug);
-		model.setSizeValue(50, 20, 20);
+		model.setSizeValue(20, 5, 5);
 		return model;
 	}
 	

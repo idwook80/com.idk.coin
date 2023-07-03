@@ -79,7 +79,8 @@ public class Balance {
 		this.symbol = symbol;
 	}
 	public double getEquity() {
-		return equity;
+		return Math.round(equity * 1000) / 1000;
+		//return equity;
 	}
 	public void setEquity(double equity) {
 		this.equity = equity;
